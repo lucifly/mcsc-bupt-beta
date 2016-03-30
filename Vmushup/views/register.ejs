@@ -1,0 +1,71 @@
+<div class="hero-unit">
+    <h1>welcome to <%= title %> </h1>
+</div>
+<div style="float:center">
+    <h>添加服务</h>
+
+    <form action="/index" method="POST">
+        服务名称：
+        <input type="text" name="servername">
+        <br> 服务类别：
+        <input type="text" name="servertype">
+        <br> 服务地址：
+        <input type="text" name="serveraddr">
+        <br> 输入接口：
+        <table id="inTable" border="0">
+            <th>接口名称</th>
+            <th>接口类型</th>
+            <th>缺省值</th>
+            <tr>
+                <td>
+                    <input type="text" name="import">
+                </td>
+                <td>
+                    <input type="text" name="import">
+                </td>
+                <td>
+                    <input type="text" name="import">
+                </td>
+            </tr>
+        </table>
+        <input type="button" onclick="insRow('inTable','import')" value="Insert row">
+        <br>输出接口：
+        <br>
+        <table id="outTable" border="0">
+            <th>接口名称</th>
+            <th>接口类型</th>
+            <th>缺省值</th>
+            <tr>
+                <td>
+                    <input type="text" name="outport">
+                </td>
+                <td>
+                    <input type="text" name="outport">
+                </td>
+                <td>
+                    <input type="text" name="outport">
+                </td>
+            </tr>
+        </table>
+        <input type="button" onclick="insRow('outTable','outport')" value="Insert row">
+        <br> 描述：
+        <input type="text" name="descri">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+
+<script>
+    function insRow(idname,name)
+    {
+        var x=document.getElementById(idname).insertRow(-1);
+        var x1=x.insertCell(0);
+        var x2=x.insertCell(1);
+        var x3=x.insertCell(2);
+        x1.innerHTML='<input type="text" name="'+name+'">';
+        x2.innerHTML='<input type="text" name="'+name+'">';
+        x3.innerHTML='<input type="text" name="'+name+'">';
+    }
+
+</script>
