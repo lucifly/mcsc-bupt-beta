@@ -1,21 +1,24 @@
 <div class="hero-unit">
-    <h1>welcome to <%= title %> </h1>
-</div>
-<div>
-    <h3>Three equal columns</h3>
-    <div class="well" style="width:30%; float:left">
-        <a href="/BVmushup"> 服务设计界面</a>
-        <p>something blab lbalb abl ablabsomething blab lbalb abl ablabsomething blab lbalb abl ablabsomething blab lbalb abl
-            ablabsomething blab lbalb abl ablab</p>
-    </div>
-    <div class="well" style="width:30%; float:left">
-        <a href="/register"> 服务注册界面</a>
-        <p>something blab lbalb abl ablabsomething blab lbalb abl ablabsomething blab lbalb abl ablabsomething blab lbalb abl
-            ablabsomething blab lbalb abl ablab</p>
-    </div>
-    <div class="well" style="width:29.5%; float:left">
-        <a href="/serverlist"> 服务列表界面</a>
-        <p>something blab lbalb abl ablabsomething blab lbalb abl ablabsomething blab lbalb abl ablabsomething blab lbalb abl
-            ablabsomething blab lbalb abl ablab</p>
-    </div>
+    <h1>欢迎来到 <%= title %> </h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>title</th>
+                <th>author</th>
+                <th>description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i = 0;i < serverinfo.length; i++){ %>
+            <tr>
+                <td><%= i %></td>
+                <td><a href=<%= '/serverexecut/'+(serverinfo[i]).title+ '' %>><%= (serverinfo[i]).title %></a></td>
+                <td><%=  (serverinfo[i]).author %></td>
+                <td><%=  (serverinfo[i]).description %></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
 </div>
