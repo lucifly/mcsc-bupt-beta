@@ -14,7 +14,7 @@
             <% for(var i = 0;i < serverinfo.length; i++){ %>
             <tr>
                 <td><%= i %></td>
-                <td><a href=<%= '/serverexecut/'+(serverinfo[i]).title+ '' %>><%= (serverinfo[i]).title %></a></td>
+                <td><a href=<%- '"' %> <%= '/serverlist/'+(serverinfo[i]).title+ '' %><%- '"' %>><%= (serverinfo[i]).title %></a></td>
                 <td><%=  (serverinfo[i]).author %></td>
                 <td><%=  (serverinfo[i]).description %></td>
             </tr>

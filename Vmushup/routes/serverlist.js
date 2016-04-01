@@ -16,5 +16,34 @@ router.get('/', function(req, res, next) {
     //res.render('index', { title: 'serverlist' });
 });
 
+router.get('/:servername', function(req, res, next) {
+    
+    var severdet =  //findserver(req.params.servername);
+    {
+    'name':req.params.servername,
+    'url':'www.baidu.com',
+    'type':'get',
+    'parm':[
+        {'name':'p1','isness':'1','type':'string'},
+        {'name':'p2','isness':'0','type':'string'},
+        {'name':'p3','isness':'1','type':'string'}
+    ]
+    };   
+    var request = '{name:p1}';
+    var resultt = '{code : 404, data:{}}';
+    res.render('serversinge', { title: req.params.servername , 
+                            severdet:severdet,
+                            request:request,
+                            resultt:resultt});
+
+    
+    
+    //console.log("-[info] get serverlist");
+
+});
+
+
+
+
 
 module.exports = router;

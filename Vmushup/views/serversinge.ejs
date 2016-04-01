@@ -1,0 +1,110 @@
+<div class="hero-unit">
+    <h1>欢迎来到 <%= title %> </h1>
+</div>
+<div class="hero-unit">
+    <div class="panel panel-default">
+
+        <table class="table table-striped">
+            <tr class="panel-heading" name="servername">
+                <td>
+                    <h3>SERVERNAME: </h3></td>
+                 <td id = "servername"><%= severdet.name %></td>
+            </tr>
+            <tr class="panel-heading" name="severurl">
+                <td>
+                    <h3>URL: </h3></td>
+                <td id = "serverurl"><%= severdet.url %></td>
+            </tr>
+            <tr class="panel-heading" name="servertype">
+                <td>
+                    <h3>TYPE: </h3></td>
+                <td id = "servertype"><%= severdet.type %></td>
+            </tr>
+            <tr>
+                <div>
+                    <table class="table table-bordered" name="severparam">
+                        <th>PARAM: </th>
+                        <% for(var i=0;i<(severdet.parm).length;i++ ){ %>
+                            <tr class="panel-heading" name=<%=( (severdet.parm)[i]).name%> >
+                                <td>
+                                    <h3>name: </h3></td>
+                                <td>
+                                    <%= ((severdet.parm)[i]).name %>
+                                </td>
+                                <% if(((severdet.parm)[i]).isness == 1 ){ %>
+                                    <td>
+                                        <h3>  is nessery:   </h3></td>
+                                    <% } else {%>
+                                        <td>
+                                            <h3>is not nessery: </h3></td>
+                                        <% } %>
+                                            <td>
+                                                <h3>type: </h3></td>
+                                            <td>
+                                                <%= ((severdet.parm)[i]).type %>
+                                            </td>
+                                            <td>
+                                                <h3>value: </h3></td>
+                                            <td>
+                                                <input name="param" ></td>
+                            </tr>
+                            <% } %>
+                    </table>
+                </div>
+            </tr>
+            <button type="button" class="btn btn-lg btn-primary" onclick="sendreq()">send</button>
+    </div>
+    </table>
+    <div class="panel panel-primary">
+
+        <div class="page-header">
+            <h3 class="panel-title">send request </h3>
+        </div>
+        <div class="well" id="request" name="request">
+            <p >
+                {}
+            </p>
+        </div>
+
+        <div class="page-header">
+            <h3 class="panel-title">get result </h3>
+        </div>
+        <div class="well" id="resultt" name="resultt">
+            <p>
+            </p>
+        </div>
+    </div>
+</div>
+<script>
+    function sendreq(){
+        var dataaa = {};
+        dataaa["servername"] = document.getElementById("servername").innerHTML;
+        dataaa["serverurl"] = document.getElementById("serverurl").innerHTML;
+        dataaa["servertype"] = document.getElementById("servertype").innerHTML;
+        var tt_elem =  document.getElementsByName("param");
+        var tattay = new Array();
+        for(var i =0 ; i<tt_elem.length;i++)
+        {
+            tattay[i] = tt_elem[i].value;
+        }
+        dataaa["param"] = tattay;
+        var request_elem = document.getElementById("request");
+        request_elem.innerHTML =  JSON.stringify(dataaa);
+        // //字符串转对象(strJSON代表json字符串)
+        //     var obj = eval(strJSON);
+        //     var obj = strJSON.parseJSON();
+        //     var obj = JSON.parse(strJSON)；
+        //     //json对象转字符串(obj代表json对象)
+        //     var str = obj.toJSONString();
+        //     var str = JSON.stringify(obj)
+        $.post("/serverexecut/process_post",
+            dataaa,
+            function(data,status){
+                // alert("Data: " + data + "\nStatus: " + status);
+                //var table_elem = document.getElementsByName("severparam");
+                var result_elem = document.getElementById("resultt");
+                    result_elem.innerHTML= "Data: " + data + "<br>Status: " + status;
+            });
+    };
+
+</script>
