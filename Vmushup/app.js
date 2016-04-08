@@ -16,6 +16,7 @@ var routes = require('./routes/index');
 var BVmushup = require('./routes/BVmushup');
 var register = require('./routes/register');
 var serverlist = require('./routes/serverlist');
+var serverexecut = require('./routes/serverexecut');
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -68,6 +69,7 @@ app.use('/', routes);
 app.use('/BVmushup', BVmushup);
 app.use('/register', register);
 app.use('/serverlist', serverlist);
+app.use('/serverexecut', serverexecut);
 //////////////////////////////////////////////////////////////////////////////////
 
 

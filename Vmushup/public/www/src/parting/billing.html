@@ -1,0 +1,38 @@
+<script type="text/javascript" src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+<script type="text/javascript">
+
+  Meemoo
+    .setInfo({
+      title: "billing",
+      author: "NIU",
+      description: "billing"
+    })
+    .addInputs({
+      howmuch: {
+        action: function (n) {
+          document.write(n);
+          Meemoo.send("billing", n);
+        },
+        type: "number"
+      },
+      payed: {
+        action: function (n) {
+          document.write('have payed');
+          Meemoo.send("letitgo", 9);
+        },
+        type: "number"
+      }
+    })
+    .addOutputs({
+      billing: { 
+        type: "number"
+      },
+      letitgo: { 
+        type: "number"
+      }
+    });
+    
+</script>
+<h1>billing</h1>
+<div>
+</div>

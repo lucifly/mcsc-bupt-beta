@@ -18,17 +18,28 @@ router.get('/', function(req, res, next) {
 
 router.get('/:servername', function(req, res, next) {
     
-    var severdet =  //findserver(req.params.servername);
-    {
+    console.log("-[info] get server: " + req.params.servername );
+    var getdata =  require('../model/server.js').findserver("name",req.params.servername);
+    //findserver(req.params.servername);
+    var severdet={
     'name':req.params.servername,
-    'url':'www.baidu.com',
-    'type':'get',
-    'parm':[
-        {'name':'p1','isness':'1','type':'string'},
-        {'name':'p2','isness':'0','type':'string'},
-        {'name':'p3','isness':'1','type':'string'}
-    ]
-    };   
+    'url':getdata.src,
+    'type':getdata.mode,
+    'parm':[]
+    }; 
+    var j=0;
+    for(var i in (getdata.Parameter))
+    {
+        var temp ={};
+        temp.name = i; 
+        temp.isness = 1; 
+        temp.type = 'string'; 
+        temp.value = (getdata.Parameter)[i]; 
+        ((severdet.parm)[j]) = temp;
+        j++;
+    }
+    
+      
     var request = '{name:p1}';
     var resultt = '{code : 404, data:{}}';
     res.render('serversinge', { title: req.params.servername , 

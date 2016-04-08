@@ -33,10 +33,10 @@
                                 </td>
                                 <% if(((severdet.parm)[i]).isness == 1 ){ %>
                                     <td>
-                                        <h3>  is nessery:   </h3></td>
+                                        <h3>  is nessery</h3></td>
                                     <% } else {%>
                                         <td>
-                                            <h3>is not nessery: </h3></td>
+                                            <h3>is not nessery</h3></td>
                                         <% } %>
                                             <td>
                                                 <h3>type: </h3></td>
@@ -46,7 +46,7 @@
                                             <td>
                                                 <h3>value: </h3></td>
                                             <td>
-                                                <input name="param" ></td>
+                                                <input name="param"  value=<%= ((severdet.parm)[i]).value %>></td>
                             </tr>
                             <% } %>
                     </table>
