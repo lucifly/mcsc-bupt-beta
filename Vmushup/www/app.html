@@ -112,24 +112,6 @@ Try debug.html if you want to poke the insides.
 
 <body>
 
-    <footer style="font-size: 10px; font-family: Monaco, monospace;">
-        <span id="debug-info"></span>
-        <!--<a href="http://meemoo.org/" target="_blank">meemoo</a>
-        &raquo;
-        <a href="https://github.com/meemoo/iframework" target="_blank">source</a>-->
-        <span id="iframework-info"></span>
-        <noscript>&raquo; This web app uses JavaScript (and plenty of it).</noscript>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <div class="btn-group">
-            <button type="button" class="btn btn-default">新建</button>
-            <button type="button" class="btn btn-default">打开</button>
-            <button type="button" class="btn btn-default" >保存</button>
-            <button type="button" class="btn btn-default" onClick='connect()'>DEBUG</button>
-            <button type="button" class="btn btn-default" id="aboutme">关于</button>
-        </div>
-    </footer>
-
-
     <!-- Libs -->
     <script src="libs/yepnope.min.js"></script>
     <script src="libs/jquery.js"></script>
@@ -150,9 +132,7 @@ Try debug.html if you want to poke the insides.
     <script>
         window.onload = function() {}
     </script>
-        <div id="mmmmmm" class="btn-group" style="float:right;width:20%">
-            
-        </div>
+
 <script>
     var socket;
     var firstconnect = true;
@@ -160,7 +140,7 @@ Try debug.html if you want to poke the insides.
     function connect() {
       if(firstconnect) {
 /////////////// ////////// //// // /// //////// //////////////////////////////          
-        socket = io.connect("http://10.108.95.119:" + "8080", { 'reconnect': true });
+        socket = io.connect("http://10.108.92.2:" + "8080", { 'reconnect': true });
 ///////////////////////////////////////////////////////////////////////
         socket.on('dataco', function(data){ show(data); });
 ///////////////////////////////////////////////////////////////////////
@@ -175,9 +155,8 @@ Try debug.html if you want to poke the insides.
     function disconnect() {
       socket.disconnect();
     }
-    function show(data) {
-        
-      document.getElementById('mmmmmm').innerHTML = document.getElementById('mmmmmm').innerHTML +'<button type="button" class="btn btn-default"><strong>Well done!</strong> '+data.hello+'</button>';
+    function show(data) {    
+      document.getElementById('noflotextarea').innerHTML = document.getElementById('noflotextarea').innerHTML +'<strong>Well done!</strong>'+data.hello;
     }
 
 </script>

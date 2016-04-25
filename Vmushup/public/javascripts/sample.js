@@ -2,7 +2,7 @@
 (function() {
   $(function() {
     var brick;
-    brick = "<div class='brick small'><div class='delete'>&times;</div></div>";
+    brick = "<div class='brick small'>wswddfd<div class='delete'>&times;</div></div>";
     $(document).on("click touchend", ".gridly .brick", function(event) {
       var $this, size;
       event.preventDefault();

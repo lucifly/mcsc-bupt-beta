@@ -17,6 +17,8 @@ var BVmushup = require('./routes/BVmushup');
 var register = require('./routes/register');
 var serverlist = require('./routes/serverlist');
 var serverexecut = require('./routes/serverexecut');
+var webmeemoo = require('./routes/webmeemoo');
+var indext = require('./routes/indext');
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -45,6 +47,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
+//set meemoo file floder////////////////////////////////////////////////////////////////////////////////////////////////////////
+app.use(express.static('www'));
+///////////////////////////////////////////////////////////////////////////////////////////////
+//set index file floder////////////////////////////////////////////////////////////////////////////////////////////////////////
+app.use(express.static('www2'));
+///////////////////////////////////////////////////////////////////////////////////////////////
+
 //set view engine///////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 app.use(express.static('public'));
 app.set('views', path.join(__dirname, 'views'));
@@ -70,6 +79,8 @@ app.use('/BVmushup', BVmushup);
 app.use('/register', register);
 app.use('/serverlist', serverlist);
 app.use('/serverexecut', serverexecut);
+app.use('/webmeemoo', webmeemoo);
+app.use('/indext', indext);
 //////////////////////////////////////////////////////////////////////////////////
 
 
@@ -83,34 +94,25 @@ var server = app.listen(3000, function() {
     
     console.log("应用实例，访问地址为 http://%s:%s", host, port)
 });
-//////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 
-// //启动socketio服务器/////////////////////////////////////////////////////////////////
-// var socketport = 8080;
-// var io = require('socket.io').listen(socketport);
-// var actionjs = require('./action/main');
+//启动socketio服务器/////////////////////////////////////////////////////////////////
+var socketport = 8080;
+var io = require('socket.io').listen(socketport);
+var actionjs = require('./action/main');
 
-// io.sockets.on('connection', function(socket) {
+io.sockets.on('connection', function(socket) {
+    console.log("Connection " + socket.id + " accepted.");
+    socket.on('disconnect', function() {
+        console.log("Connection " + socket.id + " terminated.");
+    });
+});
+io.sockets.on('connection', function(socket) {
     
-//     console.log("Connection " + socket.id + " accepted.");
-//     socket.on('message', function(message) {
-//         console.log("Received message: " + message + " - from client " + socket.id);
-//     });
-//     socket.on('disconnect', function() {
-//         console.log("Connection " + socket.id + " terminated.");
-//     });
-// });
-// io.sockets.on('connection', function(socket) {
-    
-//     console.log("socket tow------------");
-//     var tt = new actionjs(socket);
-//     tt.main();
-    
-//     socket.emit('news', { hello: 'world' });
-//     socket.on('my other event', function(data) {
-//         console.log(data);
-//     });
-// });
-// console.log("--[INFO] socket server start, lisenting on port " + socketport);
-// ////////////////////////////////////////////////////////////////////////////
+    console.log("socket tow------------");
+    var tt = new actionjs(socket);
+    tt.main();
+});
+console.log("--[INFO] socket server start, lisenting on port " + socketport);
+////////////////////////////////////////////////////////////////////////////
 
