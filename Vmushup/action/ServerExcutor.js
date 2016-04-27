@@ -39,7 +39,7 @@ function ServerExcutor() {
 	};
 
 	function lookserver(name) {
-		var serverjson = require('./sever.json');
+		var serverjson = require('../model/sever.json');
 		var serverindex = serverjson.exmp;
 		var i = 0;
 		for (i = 0; i < (serverindex.length); i++) {
