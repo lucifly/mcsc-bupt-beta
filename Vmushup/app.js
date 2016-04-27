@@ -61,8 +61,8 @@ app.set('view engine', 'ejs');
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.use(flash());
 
-app.use(function(req, res, next) {
-   // console.log("app.usr local");
+app.use(function (req, res, next) {
+    // console.log("app.usr local");
     res.locals.user = req.session.user;
     res.locals.post = req.session.post;
     var error = req.session.error;
@@ -85,13 +85,13 @@ app.use('/indext', indext);
 
 
 //启动服务器//////////////////////////////////////////////////////////////////////////
-var server = app.listen(3000, function() {
-    
+var server = app.listen(3000, function () {
+
     //get server address 
     var IPAdderss = require('./action/getipaddress');
     var host = IPAdderss.ipaddress("IPv4");
     var port = server.address().port;
-    
+
     console.log("应用实例，访问地址为 http://%s:%s", host, port)
 });
 ////////////////////////////////////////////////////////////////////////
@@ -101,17 +101,22 @@ var socketport = 8080;
 var io = require('socket.io').listen(socketport);
 var actionjs = require('./action/main');
 
-io.sockets.on('connection', function(socket) {
+io.sockets.on('connection', function (socket) {
     console.log("Connection " + socket.id + " accepted.");
-    socket.on('disconnect', function() {
+    socket.on('disconnect', function () {
         console.log("Connection " + socket.id + " terminated.");
     });
 });
-io.sockets.on('connection', function(socket) {
-    
+io.sockets.on('connection', function (socket) {
+
     console.log("socket tow------------");
-    var tt = new actionjs(socket);
-    tt.main();
+
+    socket.on('debugstart', function (data) {
+        console.log("--[info] socket start debug ");
+        var tt = new actionjs(socket);
+        tt.main(data);
+    });
+
 });
 console.log("--[INFO] socket server start, lisenting on port " + socketport);
 ////////////////////////////////////////////////////////////////////////////

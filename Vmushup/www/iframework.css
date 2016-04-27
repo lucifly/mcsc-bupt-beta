@@ -1087,6 +1087,10 @@ div.panel2 {
 .icon-folder-open:before { content: '📂'; } /* '\1f4c2' */
 .icon-camera:before { content: '📷'; } /* '\1f4f7' */
 .icon-link:before { content: '🔗'; } /* '\1f517' */
+.icon-play:before { content: '\e800'; } /* '' */
+.icon-stop:before { content: '\e801'; } /* '' */
+.icon-paper-plane-empty:before { content: '\e802'; } /* '' */
+.icon-bug:before { content: '\e803'; } /* '' */
 
 footer {
   position: fixed;

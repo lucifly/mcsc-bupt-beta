@@ -2,12 +2,12 @@ var latestcode = '';
 
 /*! Meemoo Iframework http://meemoo.org/ - v0.3.5 - 2014-02-28 (10:32:58 PM CST)
 * Copyright (c) 2014 Forrest Oliphant; Licensed MIT, AGPL */
-(function(){var n=this,t=n._,r={},e=Array.prototype,u=Object.prototype,i=Function.prototype,a=e.push,o=e.slice,c=e.concat,l=u.toString,f=u.hasOwnProperty,s=e.forEach,p=e.map,h=e.reduce,v=e.reduceRight,d=e.filter,g=e.every,m=e.some,y=e.indexOf,b=e.lastIndexOf,x=Array.isArray,_=Object.keys,j=i.bind,w=function(n){return n instanceof w?n:this instanceof w?(this._wrapped=n,void 0):new w(n)};"undefined"!=typeof exports?("undefined"!=typeof module&&module.exports&&(exports=module.exports=w),exports._=w):n._=w,w.VERSION="1.4.4";var A=w.each=w.forEach=function(n,t,e){if(null!=n)if(s&&n.forEach===s)n.forEach(t,e);else if(n.length===+n.length){for(var u=0,i=n.length;i>u;u++)if(t.call(e,n[u],u,n)===r)return}else for(var a in n)if(w.has(n,a)&&t.call(e,n[a],a,n)===r)return};w.map=w.collect=function(n,t,r){var e=[];return null==n?e:p&&n.map===p?n.map(t,r):(A(n,function(n,u,i){e[e.length]=t.call(r,n,u,i)}),e)};var O="Reduce of empty array with no initial value";w.reduce=w.foldl=w.inject=function(n,t,r,e){var u=arguments.length>2;if(null==n&&(n=[]),h&&n.reduce===h)return e&&(t=w.bind(t,e)),u?n.reduce(t,r):n.reduce(t);if(A(n,function(n,i,a){u?r=t.call(e,r,n,i,a):(r=n,u=!0)}),!u)throw new TypeError(O);return r},w.reduceRight=w.foldr=function(n,t,r,e){var u=arguments.length>2;if(null==n&&(n=[]),v&&n.reduceRight===v)return e&&(t=w.bind(t,e)),u?n.reduceRight(t,r):n.reduceRight(t);var i=n.length;if(i!==+i){var a=w.keys(n);i=a.length}if(A(n,function(o,c,l){c=a?a[--i]:--i,u?r=t.call(e,r,n[c],c,l):(r=n[c],u=!0)}),!u)throw new TypeError(O);return r},w.find=w.detect=function(n,t,r){var e;return E(n,function(n,u,i){return t.call(r,n,u,i)?(e=n,!0):void 0}),e},w.filter=w.select=function(n,t,r){var e=[];return null==n?e:d&&n.filter===d?n.filter(t,r):(A(n,function(n,u,i){t.call(r,n,u,i)&&(e[e.length]=n)}),e)},w.reject=function(n,t,r){return w.filter(n,function(n,e,u){return!t.call(r,n,e,u)},r)},w.every=w.all=function(n,t,e){t||(t=w.identity);var u=!0;return null==n?u:g&&n.every===g?n.every(t,e):(A(n,function(n,i,a){return(u=u&&t.call(e,n,i,a))?void 0:r}),!!u)};var E=w.some=w.any=function(n,t,e){t||(t=w.identity);var u=!1;return null==n?u:m&&n.some===m?n.some(t,e):(A(n,function(n,i,a){return u||(u=t.call(e,n,i,a))?r:void 0}),!!u)};w.contains=w.include=function(n,t){return null==n?!1:y&&n.indexOf===y?n.indexOf(t)!=-1:E(n,function(n){return n===t})},w.invoke=function(n,t){var r=o.call(arguments,2),e=w.isFunction(t);return w.map(n,function(n){return(e?t:n[t]).apply(n,r)})},w.pluck=function(n,t){return w.map(n,function(n){return n[t]})},w.where=function(n,t,r){return w.isEmpty(t)?r?null:[]:w[r?"find":"filter"](n,function(n){for(var r in t)if(t[r]!==n[r])return!1;return!0})},w.findWhere=function(n,t){return w.where(n,t,!0)},w.max=function(n,t,r){if(!t&&w.isArray(n)&&n[0]===+n[0]&&65535>n.length)return Math.max.apply(Math,n);if(!t&&w.isEmpty(n))return-1/0;var e={computed:-1/0,value:-1/0};return A(n,function(n,u,i){var a=t?t.call(r,n,u,i):n;a>=e.computed&&(e={value:n,computed:a})}),e.value},w.min=function(n,t,r){if(!t&&w.isArray(n)&&n[0]===+n[0]&&65535>n.length)return Math.min.apply(Math,n);if(!t&&w.isEmpty(n))return 1/0;var e={computed:1/0,value:1/0};return A(n,function(n,u,i){var a=t?t.call(r,n,u,i):n;e.computed>a&&(e={value:n,computed:a})}),e.value},w.shuffle=function(n){var t,r=0,e=[];return A(n,function(n){t=w.random(r++),e[r-1]=e[t],e[t]=n}),e};var k=function(n){return w.isFunction(n)?n:function(t){return t[n]}};w.sortBy=function(n,t,r){var e=k(t);return w.pluck(w.map(n,function(n,t,u){return{value:n,index:t,criteria:e.call(r,n,t,u)}}).sort(function(n,t){var r=n.criteria,e=t.criteria;if(r!==e){if(r>e||r===void 0)return 1;if(e>r||e===void 0)return-1}return n.index<t.index?-1:1}),"value")};var F=function(n,t,r,e){var u={},i=k(t||w.identity);return A(n,function(t,a){var o=i.call(r,t,a,n);e(u,o,t)}),u};w.groupBy=function(n,t,r){return F(n,t,r,function(n,t,r){(w.has(n,t)?n[t]:n[t]=[]).push(r)})},w.countBy=function(n,t,r){return F(n,t,r,function(n,t){w.has(n,t)||(n[t]=0),n[t]++})},w.sortedIndex=function(n,t,r,e){r=null==r?w.identity:k(r);for(var u=r.call(e,t),i=0,a=n.length;a>i;){var o=i+a>>>1;u>r.call(e,n[o])?i=o+1:a=o}return i},w.toArray=function(n){return n?w.isArray(n)?o.call(n):n.length===+n.length?w.map(n,w.identity):w.values(n):[]},w.size=function(n){return null==n?0:n.length===+n.length?n.length:w.keys(n).length},w.first=w.head=w.take=function(n,t,r){return null==n?void 0:null==t||r?n[0]:o.call(n,0,t)},w.initial=function(n,t,r){return o.call(n,0,n.length-(null==t||r?1:t))},w.last=function(n,t,r){return null==n?void 0:null==t||r?n[n.length-1]:o.call(n,Math.max(n.length-t,0))},w.rest=w.tail=w.drop=function(n,t,r){return o.call(n,null==t||r?1:t)},w.compact=function(n){return w.filter(n,w.identity)};var R=function(n,t,r){return A(n,function(n){w.isArray(n)?t?a.apply(r,n):R(n,t,r):r.push(n)}),r};w.flatten=function(n,t){return R(n,t,[])},w.without=function(n){return w.difference(n,o.call(arguments,1))},w.uniq=w.unique=function(n,t,r,e){w.isFunction(t)&&(e=r,r=t,t=!1);var u=r?w.map(n,r,e):n,i=[],a=[];return A(u,function(r,e){(t?e&&a[a.length-1]===r:w.contains(a,r))||(a.push(r),i.push(n[e]))}),i},w.union=function(){return w.uniq(c.apply(e,arguments))},w.intersection=function(n){var t=o.call(arguments,1);return w.filter(w.uniq(n),function(n){return w.every(t,function(t){return w.indexOf(t,n)>=0})})},w.difference=function(n){var t=c.apply(e,o.call(arguments,1));return w.filter(n,function(n){return!w.contains(t,n)})},w.zip=function(){for(var n=o.call(arguments),t=w.max(w.pluck(n,"length")),r=Array(t),e=0;t>e;e++)r[e]=w.pluck(n,""+e);return r},w.object=function(n,t){if(null==n)return{};for(var r={},e=0,u=n.length;u>e;e++)t?r[n[e]]=t[e]:r[n[e][0]]=n[e][1];return r},w.indexOf=function(n,t,r){if(null==n)return-1;var e=0,u=n.length;if(r){if("number"!=typeof r)return e=w.sortedIndex(n,t),n[e]===t?e:-1;e=0>r?Math.max(0,u+r):r}if(y&&n.indexOf===y)return n.indexOf(t,r);for(;u>e;e++)if(n[e]===t)return e;return-1},w.lastIndexOf=function(n,t,r){if(null==n)return-1;var e=null!=r;if(b&&n.lastIndexOf===b)return e?n.lastIndexOf(t,r):n.lastIndexOf(t);for(var u=e?r:n.length;u--;)if(n[u]===t)return u;return-1},w.range=function(n,t,r){1>=arguments.length&&(t=n||0,n=0),r=arguments[2]||1;for(var e=Math.max(Math.ceil((t-n)/r),0),u=0,i=Array(e);e>u;)i[u++]=n,n+=r;return i},w.bind=function(n,t){if(n.bind===j&&j)return j.apply(n,o.call(arguments,1));var r=o.call(arguments,2);return function(){return n.apply(t,r.concat(o.call(arguments)))}},w.partial=function(n){var t=o.call(arguments,1);return function(){return n.apply(this,t.concat(o.call(arguments)))}},w.bindAll=function(n){var t=o.call(arguments,1);return 0===t.length&&(t=w.functions(n)),A(t,function(t){n[t]=w.bind(n[t],n)}),n},w.memoize=function(n,t){var r={};return t||(t=w.identity),function(){var e=t.apply(this,arguments);return w.has(r,e)?r[e]:r[e]=n.apply(this,arguments)}},w.delay=function(n,t){var r=o.call(arguments,2);return setTimeout(function(){return n.apply(null,r)},t)},w.defer=function(n){return w.delay.apply(w,[n,1].concat(o.call(arguments,1)))},w.throttle=function(n,t){var r,e,u,i,a=0,o=function(){a=new Date,u=null,i=n.apply(r,e)};return function(){var c=new Date,l=t-(c-a);return r=this,e=arguments,0>=l?(clearTimeout(u),u=null,a=c,i=n.apply(r,e)):u||(u=setTimeout(o,l)),i}},w.debounce=function(n,t,r){var e,u;return function(){var i=this,a=arguments,o=function(){e=null,r||(u=n.apply(i,a))},c=r&&!e;return clearTimeout(e),e=setTimeout(o,t),c&&(u=n.apply(i,a)),u}},w.once=function(n){var t,r=!1;return function(){return r?t:(r=!0,t=n.apply(this,arguments),n=null,t)}},w.wrap=function(n,t){return function(){var r=[n];return a.apply(r,arguments),t.apply(this,r)}},w.compose=function(){var n=arguments;return function(){for(var t=arguments,r=n.length-1;r>=0;r--)t=[n[r].apply(this,t)];return t[0]}},w.after=function(n,t){return 0>=n?t():function(){return 1>--n?t.apply(this,arguments):void 0}},w.keys=_||function(n){if(n!==Object(n))throw new TypeError("Invalid object");var t=[];for(var r in n)w.has(n,r)&&(t[t.length]=r);return t},w.values=function(n){var t=[];for(var r in n)w.has(n,r)&&t.push(n[r]);return t},w.pairs=function(n){var t=[];for(var r in n)w.has(n,r)&&t.push([r,n[r]]);return t},w.invert=function(n){var t={};for(var r in n)w.has(n,r)&&(t[n[r]]=r);return t},w.functions=w.methods=function(n){var t=[];for(var r in n)w.isFunction(n[r])&&t.push(r);return t.sort()},w.extend=function(n){return A(o.call(arguments,1),function(t){if(t)for(var r in t)n[r]=t[r]}),n},w.pick=function(n){var t={},r=c.apply(e,o.call(arguments,1));return A(r,function(r){r in n&&(t[r]=n[r])}),t},w.omit=function(n){var t={},r=c.apply(e,o.call(arguments,1));for(var u in n)w.contains(r,u)||(t[u]=n[u]);return t},w.defaults=function(n){return A(o.call(arguments,1),function(t){if(t)for(var r in t)null==n[r]&&(n[r]=t[r])}),n},w.clone=function(n){return w.isObject(n)?w.isArray(n)?n.slice():w.extend({},n):n},w.tap=function(n,t){return t(n),n};var I=function(n,t,r,e){if(n===t)return 0!==n||1/n==1/t;if(null==n||null==t)return n===t;n instanceof w&&(n=n._wrapped),t instanceof w&&(t=t._wrapped);var u=l.call(n);if(u!=l.call(t))return!1;switch(u){case"[object String]":return n==t+"";case"[object Number]":return n!=+n?t!=+t:0==n?1/n==1/t:n==+t;case"[object Date]":case"[object Boolean]":return+n==+t;case"[object RegExp]":return n.source==t.source&&n.global==t.global&&n.multiline==t.multiline&&n.ignoreCase==t.ignoreCase}if("object"!=typeof n||"object"!=typeof t)return!1;for(var i=r.length;i--;)if(r[i]==n)return e[i]==t;r.push(n),e.push(t);var a=0,o=!0;if("[object Array]"==u){if(a=n.length,o=a==t.length)for(;a--&&(o=I(n[a],t[a],r,e)););}else{var c=n.constructor,f=t.constructor;if(c!==f&&!(w.isFunction(c)&&c instanceof c&&w.isFunction(f)&&f instanceof f))return!1;for(var s in n)if(w.has(n,s)&&(a++,!(o=w.has(t,s)&&I(n[s],t[s],r,e))))break;if(o){for(s in t)if(w.has(t,s)&&!a--)break;o=!a}}return r.pop(),e.pop(),o};w.isEqual=function(n,t){return I(n,t,[],[])},w.isEmpty=function(n){if(null==n)return!0;if(w.isArray(n)||w.isString(n))return 0===n.length;for(var t in n)if(w.has(n,t))return!1;return!0},w.isElement=function(n){return!(!n||1!==n.nodeType)},w.isArray=x||function(n){return"[object Array]"==l.call(n)},w.isObject=function(n){return n===Object(n)},A(["Arguments","Function","String","Number","Date","RegExp"],function(n){w["is"+n]=function(t){return l.call(t)=="[object "+n+"]"}}),w.isArguments(arguments)||(w.isArguments=function(n){return!(!n||!w.has(n,"callee"))}),"function"!=typeof/./&&(w.isFunction=function(n){return"function"==typeof n}),w.isFinite=function(n){return isFinite(n)&&!isNaN(parseFloat(n))},w.isNaN=function(n){return w.isNumber(n)&&n!=+n},w.isBoolean=function(n){return n===!0||n===!1||"[object Boolean]"==l.call(n)},w.isNull=function(n){return null===n},w.isUndefined=function(n){return n===void 0},w.has=function(n,t){return f.call(n,t)},w.noConflict=function(){return n._=t,this},w.identity=function(n){return n},w.times=function(n,t,r){for(var e=Array(n),u=0;n>u;u++)e[u]=t.call(r,u);return e},w.random=function(n,t){return null==t&&(t=n,n=0),n+Math.floor(Math.random()*(t-n+1))};var M={escape:{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","/":"&#x2F;"}};M.unescape=w.invert(M.escape);var S={escape:RegExp("["+w.keys(M.escape).join("")+"]","g"),unescape:RegExp("("+w.keys(M.unescape).join("|")+")","g")};w.each(["escape","unescape"],function(n){w[n]=function(t){return null==t?"":(""+t).replace(S[n],function(t){return M[n][t]})}}),w.result=function(n,t){if(null==n)return null;var r=n[t];return w.isFunction(r)?r.call(n):r},w.mixin=function(n){A(w.functions(n),function(t){var r=w[t]=n[t];w.prototype[t]=function(){var n=[this._wrapped];return a.apply(n,arguments),D.call(this,r.apply(w,n))}})};var N=0;w.uniqueId=function(n){var t=++N+"";return n?n+t:t},w.templateSettings={evaluate:/<%([\s\S]+?)%>/g,interpolate:/<%=([\s\S]+?)%>/g,escape:/<%-([\s\S]+?)%>/g};var T=/(.)^/,q={"'":"'","\\":"\\","\r":"r","\n":"n","	":"t","\u2028":"u2028","\u2029":"u2029"},B=/\\|'|\r|\n|\t|\u2028|\u2029/g;w.template=function(n,t,r){var e;r=w.defaults({},r,w.templateSettings);var u=RegExp([(r.escape||T).source,(r.interpolate||T).source,(r.evaluate||T).source].join("|")+"|$","g"),i=0,a="__p+='";n.replace(u,function(t,r,e,u,o){return a+=n.slice(i,o).replace(B,function(n){return"\\"+q[n]}),r&&(a+="'+\n((__t=("+r+"))==null?'':_.escape(__t))+\n'"),e&&(a+="'+\n((__t=("+e+"))==null?'':__t)+\n'"),u&&(a+="';\n"+u+"\n__p+='"),i=o+t.length,t}),a+="';\n",r.variable||(a="with(obj||{}){\n"+a+"}\n"),a="var __t,__p='',__j=Array.prototype.join,"+"print=function(){__p+=__j.call(arguments,'');};\n"+a+"return __p;\n";try{e=Function(r.variable||"obj","_",a)}catch(o){throw o.source=a,o}if(t)return e(t,w);var c=function(n){return e.call(this,n,w)};return c.source="function("+(r.variable||"obj")+"){\n"+a+"}",c},w.chain=function(n){return w(n).chain()};var D=function(n){return this._chain?w(n).chain():n};w.mixin(w),A(["pop","push","reverse","shift","sort","splice","unshift"],function(n){var t=e[n];w.prototype[n]=function(){var r=this._wrapped;return t.apply(r,arguments),"shift"!=n&&"splice"!=n||0!==r.length||delete r[0],D.call(this,r)}}),A(["concat","join","slice"],function(n){var t=e[n];w.prototype[n]=function(){return D.call(this,t.apply(this._wrapped,arguments))}}),w.extend(w.prototype,{chain:function(){return this._chain=!0,this},value:function(){return this._wrapped}})}).call(this);
-(function(){var t=this;var e=t.Backbone;var i=[];var r=i.push;var s=i.slice;var n=i.splice;var a;if(typeof exports!=="undefined"){a=exports}else{a=t.Backbone={}}a.VERSION="1.0.0";var h=t._;if(!h&&typeof require!=="undefined")h=require("underscore");a.$=t.jQuery||t.Zepto||t.ender||t.$;a.noConflict=function(){t.Backbone=e;return this};a.emulateHTTP=false;a.emulateJSON=false;var o=a.Events={on:function(t,e,i){if(!l(this,"on",t,[e,i])||!e)return this;this._events||(this._events={});var r=this._events[t]||(this._events[t]=[]);r.push({callback:e,context:i,ctx:i||this});return this},once:function(t,e,i){if(!l(this,"once",t,[e,i])||!e)return this;var r=this;var s=h.once(function(){r.off(t,s);e.apply(this,arguments)});s._callback=e;return this.on(t,s,i)},off:function(t,e,i){var r,s,n,a,o,u,c,f;if(!this._events||!l(this,"off",t,[e,i]))return this;if(!t&&!e&&!i){this._events={};return this}a=t?[t]:h.keys(this._events);for(o=0,u=a.length;o<u;o++){t=a[o];if(n=this._events[t]){this._events[t]=r=[];if(e||i){for(c=0,f=n.length;c<f;c++){s=n[c];if(e&&e!==s.callback&&e!==s.callback._callback||i&&i!==s.context){r.push(s)}}}if(!r.length)delete this._events[t]}}return this},trigger:function(t){if(!this._events)return this;var e=s.call(arguments,1);if(!l(this,"trigger",t,e))return this;var i=this._events[t];var r=this._events.all;if(i)c(i,e);if(r)c(r,arguments);return this},stopListening:function(t,e,i){var r=this._listeners;if(!r)return this;var s=!e&&!i;if(typeof e==="object")i=this;if(t)(r={})[t._listenerId]=t;for(var n in r){r[n].off(e,i,this);if(s)delete this._listeners[n]}return this}};var u=/\s+/;var l=function(t,e,i,r){if(!i)return true;if(typeof i==="object"){for(var s in i){t[e].apply(t,[s,i[s]].concat(r))}return false}if(u.test(i)){var n=i.split(u);for(var a=0,h=n.length;a<h;a++){t[e].apply(t,[n[a]].concat(r))}return false}return true};var c=function(t,e){var i,r=-1,s=t.length,n=e[0],a=e[1],h=e[2];switch(e.length){case 0:while(++r<s)(i=t[r]).callback.call(i.ctx);return;case 1:while(++r<s)(i=t[r]).callback.call(i.ctx,n);return;case 2:while(++r<s)(i=t[r]).callback.call(i.ctx,n,a);return;case 3:while(++r<s)(i=t[r]).callback.call(i.ctx,n,a,h);return;default:while(++r<s)(i=t[r]).callback.apply(i.ctx,e)}};var f={listenTo:"on",listenToOnce:"once"};h.each(f,function(t,e){o[e]=function(e,i,r){var s=this._listeners||(this._listeners={});var n=e._listenerId||(e._listenerId=h.uniqueId("l"));s[n]=e;if(typeof i==="object")r=this;e[t](i,r,this);return this}});o.bind=o.on;o.unbind=o.off;h.extend(a,o);var d=a.Model=function(t,e){var i;var r=t||{};e||(e={});this.cid=h.uniqueId("c");this.attributes={};h.extend(this,h.pick(e,p));if(e.parse)r=this.parse(r,e)||{};if(i=h.result(this,"defaults")){r=h.defaults({},r,i)}this.set(r,e);this.changed={};this.initialize.apply(this,arguments)};var p=["url","urlRoot","collection"];h.extend(d.prototype,o,{changed:null,validationError:null,idAttribute:"id",initialize:function(){},toJSON:function(t){return h.clone(this.attributes)},sync:function(){return a.sync.apply(this,arguments)},get:function(t){return this.attributes[t]},escape:function(t){return h.escape(this.get(t))},has:function(t){return this.get(t)!=null},set:function(t,e,i){var r,s,n,a,o,u,l,c;if(t==null)return this;if(typeof t==="object"){s=t;i=e}else{(s={})[t]=e}i||(i={});if(!this._validate(s,i))return false;n=i.unset;o=i.silent;a=[];u=this._changing;this._changing=true;if(!u){this._previousAttributes=h.clone(this.attributes);this.changed={}}c=this.attributes,l=this._previousAttributes;if(this.idAttribute in s)this.id=s[this.idAttribute];for(r in s){e=s[r];if(!h.isEqual(c[r],e))a.push(r);if(!h.isEqual(l[r],e)){this.changed[r]=e}else{delete this.changed[r]}n?delete c[r]:c[r]=e}if(!o){if(a.length)this._pending=true;for(var f=0,d=a.length;f<d;f++){this.trigger("change:"+a[f],this,c[a[f]],i)}}if(u)return this;if(!o){while(this._pending){this._pending=false;this.trigger("change",this,i)}}this._pending=false;this._changing=false;return this},unset:function(t,e){return this.set(t,void 0,h.extend({},e,{unset:true}))},clear:function(t){var e={};for(var i in this.attributes)e[i]=void 0;return this.set(e,h.extend({},t,{unset:true}))},hasChanged:function(t){if(t==null)return!h.isEmpty(this.changed);return h.has(this.changed,t)},changedAttributes:function(t){if(!t)return this.hasChanged()?h.clone(this.changed):false;var e,i=false;var r=this._changing?this._previousAttributes:this.attributes;for(var s in t){if(h.isEqual(r[s],e=t[s]))continue;(i||(i={}))[s]=e}return i},previous:function(t){if(t==null||!this._previousAttributes)return null;return this._previousAttributes[t]},previousAttributes:function(){return h.clone(this._previousAttributes)},fetch:function(t){t=t?h.clone(t):{};if(t.parse===void 0)t.parse=true;var e=this;var i=t.success;t.success=function(r){if(!e.set(e.parse(r,t),t))return false;if(i)i(e,r,t);e.trigger("sync",e,r,t)};R(this,t);return this.sync("read",this,t)},save:function(t,e,i){var r,s,n,a=this.attributes;if(t==null||typeof t==="object"){r=t;i=e}else{(r={})[t]=e}if(r&&(!i||!i.wait)&&!this.set(r,i))return false;i=h.extend({validate:true},i);if(!this._validate(r,i))return false;if(r&&i.wait){this.attributes=h.extend({},a,r)}if(i.parse===void 0)i.parse=true;var o=this;var u=i.success;i.success=function(t){o.attributes=a;var e=o.parse(t,i);if(i.wait)e=h.extend(r||{},e);if(h.isObject(e)&&!o.set(e,i)){return false}if(u)u(o,t,i);o.trigger("sync",o,t,i)};R(this,i);s=this.isNew()?"create":i.patch?"patch":"update";if(s==="patch")i.attrs=r;n=this.sync(s,this,i);if(r&&i.wait)this.attributes=a;return n},destroy:function(t){t=t?h.clone(t):{};var e=this;var i=t.success;var r=function(){e.trigger("destroy",e,e.collection,t)};t.success=function(s){if(t.wait||e.isNew())r();if(i)i(e,s,t);if(!e.isNew())e.trigger("sync",e,s,t)};if(this.isNew()){t.success();return false}R(this,t);var s=this.sync("delete",this,t);if(!t.wait)r();return s},url:function(){var t=h.result(this,"urlRoot")||h.result(this.collection,"url")||U();if(this.isNew())return t;return t+(t.charAt(t.length-1)==="/"?"":"/")+encodeURIComponent(this.id)},parse:function(t,e){return t},clone:function(){return new this.constructor(this.attributes)},isNew:function(){return this.id==null},isValid:function(t){return this._validate({},h.extend(t||{},{validate:true}))},_validate:function(t,e){if(!e.validate||!this.validate)return true;t=h.extend({},this.attributes,t);var i=this.validationError=this.validate(t,e)||null;if(!i)return true;this.trigger("invalid",this,i,h.extend(e||{},{validationError:i}));return false}});var v=["keys","values","pairs","invert","pick","omit"];h.each(v,function(t){d.prototype[t]=function(){var e=s.call(arguments);e.unshift(this.attributes);return h[t].apply(h,e)}});var g=a.Collection=function(t,e){e||(e={});if(e.url)this.url=e.url;if(e.model)this.model=e.model;if(e.comparator!==void 0)this.comparator=e.comparator;this._reset();this.initialize.apply(this,arguments);if(t)this.reset(t,h.extend({silent:true},e))};var m={add:true,remove:true,merge:true};var y={add:true,merge:false,remove:false};h.extend(g.prototype,o,{model:d,initialize:function(){},toJSON:function(t){return this.map(function(e){return e.toJSON(t)})},sync:function(){return a.sync.apply(this,arguments)},add:function(t,e){return this.set(t,h.defaults(e||{},y))},remove:function(t,e){t=h.isArray(t)?t.slice():[t];e||(e={});var i,r,s,n;for(i=0,r=t.length;i<r;i++){n=this.get(t[i]);if(!n)continue;delete this._byId[n.id];delete this._byId[n.cid];s=this.indexOf(n);this.models.splice(s,1);this.length--;if(!e.silent){e.index=s;n.trigger("remove",n,this,e)}this._removeReference(n)}return this},set:function(t,e){e=h.defaults(e||{},m);if(e.parse)t=this.parse(t,e);if(!h.isArray(t))t=t?[t]:[];var i,s,a,o,u,l;var c=e.at;var f=this.comparator&&c==null&&e.sort!==false;var d=h.isString(this.comparator)?this.comparator:null;var p=[],v=[],g={};for(i=0,s=t.length;i<s;i++){if(!(a=this._prepareModel(t[i],e)))continue;if(u=this.get(a)){if(e.remove)g[u.cid]=true;if(e.merge){u.set(a.attributes,e);if(f&&!l&&u.hasChanged(d))l=true}}else if(e.add){p.push(a);a.on("all",this._onModelEvent,this);this._byId[a.cid]=a;if(a.id!=null)this._byId[a.id]=a}}if(e.remove){for(i=0,s=this.length;i<s;++i){if(!g[(a=this.models[i]).cid])v.push(a)}if(v.length)this.remove(v,e)}if(p.length){if(f)l=true;this.length+=p.length;if(c!=null){n.apply(this.models,[c,0].concat(p))}else{r.apply(this.models,p)}}if(l)this.sort({silent:true});if(e.silent)return this;for(i=0,s=p.length;i<s;i++){(a=p[i]).trigger("add",a,this,e)}if(l)this.trigger("sort",this,e);return this},reset:function(t,e){e||(e={});for(var i=0,r=this.models.length;i<r;i++){this._removeReference(this.models[i])}e.previousModels=this.models;this._reset();this.add(t,h.extend({silent:true},e));if(!e.silent)this.trigger("reset",this,e);return this},push:function(t,e){t=this._prepareModel(t,e);this.add(t,h.extend({at:this.length},e));return t},pop:function(t){var e=this.at(this.length-1);this.remove(e,t);return e},unshift:function(t,e){t=this._prepareModel(t,e);this.add(t,h.extend({at:0},e));return t},shift:function(t){var e=this.at(0);this.remove(e,t);return e},slice:function(t,e){return this.models.slice(t,e)},get:function(t){if(t==null)return void 0;return this._byId[t.id!=null?t.id:t.cid||t]},at:function(t){return this.models[t]},where:function(t,e){if(h.isEmpty(t))return e?void 0:[];return this[e?"find":"filter"](function(e){for(var i in t){if(t[i]!==e.get(i))return false}return true})},findWhere:function(t){return this.where(t,true)},sort:function(t){if(!this.comparator)throw new Error("Cannot sort a set without a comparator");t||(t={});if(h.isString(this.comparator)||this.comparator.length===1){this.models=this.sortBy(this.comparator,this)}else{this.models.sort(h.bind(this.comparator,this))}if(!t.silent)this.trigger("sort",this,t);return this},sortedIndex:function(t,e,i){e||(e=this.comparator);var r=h.isFunction(e)?e:function(t){return t.get(e)};return h.sortedIndex(this.models,t,r,i)},pluck:function(t){return h.invoke(this.models,"get",t)},fetch:function(t){t=t?h.clone(t):{};if(t.parse===void 0)t.parse=true;var e=t.success;var i=this;t.success=function(r){var s=t.reset?"reset":"set";i[s](r,t);if(e)e(i,r,t);i.trigger("sync",i,r,t)};R(this,t);return this.sync("read",this,t)},create:function(t,e){e=e?h.clone(e):{};if(!(t=this._prepareModel(t,e)))return false;if(!e.wait)this.add(t,e);var i=this;var r=e.success;e.success=function(s){if(e.wait)i.add(t,e);if(r)r(t,s,e)};t.save(null,e);return t},parse:function(t,e){return t},clone:function(){return new this.constructor(this.models)},_reset:function(){this.length=0;this.models=[];this._byId={}},_prepareModel:function(t,e){if(t instanceof d){if(!t.collection)t.collection=this;return t}e||(e={});e.collection=this;var i=new this.model(t,e);if(!i._validate(t,e)){this.trigger("invalid",this,t,e);return false}return i},_removeReference:function(t){if(this===t.collection)delete t.collection;t.off("all",this._onModelEvent,this)},_onModelEvent:function(t,e,i,r){if((t==="add"||t==="remove")&&i!==this)return;if(t==="destroy")this.remove(e,r);if(e&&t==="change:"+e.idAttribute){delete this._byId[e.previous(e.idAttribute)];if(e.id!=null)this._byId[e.id]=e}this.trigger.apply(this,arguments)}});var _=["forEach","each","map","collect","reduce","foldl","inject","reduceRight","foldr","find","detect","filter","select","reject","every","all","some","any","include","contains","invoke","max","min","toArray","size","first","head","take","initial","rest","tail","drop","last","without","indexOf","shuffle","lastIndexOf","isEmpty","chain"];h.each(_,function(t){g.prototype[t]=function(){var e=s.call(arguments);e.unshift(this.models);return h[t].apply(h,e)}});var w=["groupBy","countBy","sortBy"];h.each(w,function(t){g.prototype[t]=function(e,i){var r=h.isFunction(e)?e:function(t){return t.get(e)};return h[t](this.models,r,i)}});var b=a.View=function(t){this.cid=h.uniqueId("view");this._configure(t||{});this._ensureElement();this.initialize.apply(this,arguments);this.delegateEvents()};var x=/^(\S+)\s*(.*)$/;var E=["model","collection","el","id","attributes","className","tagName","events"];h.extend(b.prototype,o,{tagName:"div",$:function(t){return this.$el.find(t)},initialize:function(){},render:function(){return this},remove:function(){this.$el.remove();this.stopListening();return this},setElement:function(t,e){if(this.$el)this.undelegateEvents();this.$el=t instanceof a.$?t:a.$(t);this.el=this.$el[0];if(e!==false)this.delegateEvents();return this},delegateEvents:function(t){if(!(t||(t=h.result(this,"events"))))return this;this.undelegateEvents();for(var e in t){var i=t[e];if(!h.isFunction(i))i=this[t[e]];if(!i)continue;var r=e.match(x);var s=r[1],n=r[2];i=h.bind(i,this);s+=".delegateEvents"+this.cid;if(n===""){this.$el.on(s,i)}else{this.$el.on(s,n,i)}}return this},undelegateEvents:function(){this.$el.off(".delegateEvents"+this.cid);return this},_configure:function(t){if(this.options)t=h.extend({},h.result(this,"options"),t);h.extend(this,h.pick(t,E));this.options=t},_ensureElement:function(){if(!this.el){var t=h.extend({},h.result(this,"attributes"));if(this.id)t.id=h.result(this,"id");if(this.className)t["class"]=h.result(this,"className");var e=a.$("<"+h.result(this,"tagName")+">").attr(t);this.setElement(e,false)}else{this.setElement(h.result(this,"el"),false)}}});a.sync=function(t,e,i){var r=k[t];h.defaults(i||(i={}),{emulateHTTP:a.emulateHTTP,emulateJSON:a.emulateJSON});var s={type:r,dataType:"json"};if(!i.url){s.url=h.result(e,"url")||U()}if(i.data==null&&e&&(t==="create"||t==="update"||t==="patch")){s.contentType="application/json";s.data=JSON.stringify(i.attrs||e.toJSON(i))}if(i.emulateJSON){s.contentType="application/x-www-form-urlencoded";s.data=s.data?{model:s.data}:{}}if(i.emulateHTTP&&(r==="PUT"||r==="DELETE"||r==="PATCH")){s.type="POST";if(i.emulateJSON)s.data._method=r;var n=i.beforeSend;i.beforeSend=function(t){t.setRequestHeader("X-HTTP-Method-Override",r);if(n)return n.apply(this,arguments)}}if(s.type!=="GET"&&!i.emulateJSON){s.processData=false}if(s.type==="PATCH"&&window.ActiveXObject&&!(window.external&&window.external.msActiveXFilteringEnabled)){s.xhr=function(){return new ActiveXObject("Microsoft.XMLHTTP")}}var o=i.xhr=a.ajax(h.extend(s,i));e.trigger("request",e,o,i);return o};var k={create:"POST",update:"PUT",patch:"PATCH","delete":"DELETE",read:"GET"};a.ajax=function(){return a.$.ajax.apply(a.$,arguments)};var S=a.Router=function(t){t||(t={});if(t.routes)this.routes=t.routes;this._bindRoutes();this.initialize.apply(this,arguments)};var $=/\((.*?)\)/g;var T=/(\(\?)?:\w+/g;var H=/\*\w+/g;var A=/[\-{}\[\]+?.,\\\^$|#\s]/g;h.extend(S.prototype,o,{initialize:function(){},route:function(t,e,i){if(!h.isRegExp(t))t=this._routeToRegExp(t);if(h.isFunction(e)){i=e;e=""}if(!i)i=this[e];var r=this;a.history.route(t,function(s){var n=r._extractParameters(t,s);i&&i.apply(r,n);r.trigger.apply(r,["route:"+e].concat(n));r.trigger("route",e,n);a.history.trigger("route",r,e,n)});return this},navigate:function(t,e){a.history.navigate(t,e);return this},_bindRoutes:function(){if(!this.routes)return;this.routes=h.result(this,"routes");var t,e=h.keys(this.routes);while((t=e.pop())!=null){this.route(t,this.routes[t])}},_routeToRegExp:function(t){t=t.replace(A,"\\$&").replace($,"(?:$1)?").replace(T,function(t,e){return e?t:"([^/]+)"}).replace(H,"(.*?)");return new RegExp("^"+t+"$")},_extractParameters:function(t,e){var i=t.exec(e).slice(1);return h.map(i,function(t){return t?decodeURIComponent(t):null})}});var I=a.History=function(){this.handlers=[];h.bindAll(this,"checkUrl");if(typeof window!=="undefined"){this.location=window.location;this.history=window.history}};var N=/^[#\/]|\s+$/g;var P=/^\/+|\/+$/g;var O=/msie [\w.]+/;var C=/\/$/;I.started=false;h.extend(I.prototype,o,{interval:50,getHash:function(t){var e=(t||this).location.href.match(/#(.*)$/);return e?e[1]:""},getFragment:function(t,e){if(t==null){if(this._hasPushState||!this._wantsHashChange||e){t=this.location.pathname;var i=this.root.replace(C,"");if(!t.indexOf(i))t=t.substr(i.length)}else{t=this.getHash()}}return t.replace(N,"")},start:function(t){if(I.started)throw new Error("Backbone.history has already been started");I.started=true;this.options=h.extend({},{root:"/"},this.options,t);this.root=this.options.root;this._wantsHashChange=this.options.hashChange!==false;this._wantsPushState=!!this.options.pushState;this._hasPushState=!!(this.options.pushState&&this.history&&this.history.pushState);var e=this.getFragment();var i=document.documentMode;var r=O.exec(navigator.userAgent.toLowerCase())&&(!i||i<=7);this.root=("/"+this.root+"/").replace(P,"/");if(r&&this._wantsHashChange){this.iframe=a.$('<iframe src="javascript:0" tabindex="-1" />').hide().appendTo("body")[0].contentWindow;this.navigate(e)}if(this._hasPushState){a.$(window).on("popstate",this.checkUrl)}else if(this._wantsHashChange&&"onhashchange"in window&&!r){a.$(window).on("hashchange",this.checkUrl)}else if(this._wantsHashChange){this._checkUrlInterval=setInterval(this.checkUrl,this.interval)}this.fragment=e;var s=this.location;var n=s.pathname.replace(/[^\/]$/,"$&/")===this.root;if(this._wantsHashChange&&this._wantsPushState&&!this._hasPushState&&!n){this.fragment=this.getFragment(null,true);this.location.replace(this.root+this.location.search+"#"+this.fragment);return true}else if(this._wantsPushState&&this._hasPushState&&n&&s.hash){this.fragment=this.getHash().replace(N,"");this.history.replaceState({},document.title,this.root+this.fragment+s.search)}if(!this.options.silent)return this.loadUrl()},stop:function(){a.$(window).off("popstate",this.checkUrl).off("hashchange",this.checkUrl);clearInterval(this._checkUrlInterval);I.started=false},route:function(t,e){this.handlers.unshift({route:t,callback:e})},checkUrl:function(t){var e=this.getFragment();if(e===this.fragment&&this.iframe){e=this.getFragment(this.getHash(this.iframe))}if(e===this.fragment)return false;if(this.iframe)this.navigate(e);this.loadUrl()||this.loadUrl(this.getHash())},loadUrl:function(t){var e=this.fragment=this.getFragment(t);var i=h.any(this.handlers,function(t){if(t.route.test(e)){t.callback(e);return true}});return i},navigate:function(t,e){if(!I.started)return false;if(!e||e===true)e={trigger:e};t=this.getFragment(t||"");if(this.fragment===t)return;this.fragment=t;var i=this.root+t;if(this._hasPushState){this.history[e.replace?"replaceState":"pushState"]({},document.title,i)}else if(this._wantsHashChange){this._updateHash(this.location,t,e.replace);if(this.iframe&&t!==this.getFragment(this.getHash(this.iframe))){if(!e.replace)this.iframe.document.open().close();this._updateHash(this.iframe.location,t,e.replace)}}else{return this.location.assign(i)}if(e.trigger)this.loadUrl(t)},_updateHash:function(t,e,i){if(i){var r=t.href.replace(/(javascript:|#).*$/,"");t.replace(r+"#"+e)}else{t.hash="#"+e}}});a.history=new I;var j=function(t,e){var i=this;var r;if(t&&h.has(t,"constructor")){r=t.constructor}else{r=function(){return i.apply(this,arguments)}}h.extend(r,i,e);var s=function(){this.constructor=r};s.prototype=i.prototype;r.prototype=new s;if(t)h.extend(r.prototype,t);r.__super__=i.prototype;return r};d.extend=g.extend=S.extend=b.extend=I.extend=j;var U=function(){throw new Error('A "url" property or function must be specified')};var R=function(t,e){var i=e.error;e.error=function(r){if(i)i(t,r,e);t.trigger("error",t,r,e)}}}).call(this);
+(function () { var n = this, t = n._, r = {}, e = Array.prototype, u = Object.prototype, i = Function.prototype, a = e.push, o = e.slice, c = e.concat, l = u.toString, f = u.hasOwnProperty, s = e.forEach, p = e.map, h = e.reduce, v = e.reduceRight, d = e.filter, g = e.every, m = e.some, y = e.indexOf, b = e.lastIndexOf, x = Array.isArray, _ = Object.keys, j = i.bind, w = function (n) { return n instanceof w ? n : this instanceof w ? (this._wrapped = n, void 0) : new w(n) }; "undefined" != typeof exports ? ("undefined" != typeof module && module.exports && (exports = module.exports = w), exports._ = w) : n._ = w, w.VERSION = "1.4.4"; var A = w.each = w.forEach = function (n, t, e) { if (null != n) if (s && n.forEach === s) n.forEach(t, e); else if (n.length === +n.length) { for (var u = 0, i = n.length; i > u; u++)if (t.call(e, n[u], u, n) === r) return } else for (var a in n) if (w.has(n, a) && t.call(e, n[a], a, n) === r) return }; w.map = w.collect = function (n, t, r) { var e = []; return null == n ? e : p && n.map === p ? n.map(t, r) : (A(n, function (n, u, i) { e[e.length] = t.call(r, n, u, i) }), e) }; var O = "Reduce of empty array with no initial value"; w.reduce = w.foldl = w.inject = function (n, t, r, e) { var u = arguments.length > 2; if (null == n && (n = []), h && n.reduce === h) return e && (t = w.bind(t, e)), u ? n.reduce(t, r) : n.reduce(t); if (A(n, function (n, i, a) { u ? r = t.call(e, r, n, i, a) : (r = n, u = !0) }), !u) throw new TypeError(O); return r }, w.reduceRight = w.foldr = function (n, t, r, e) { var u = arguments.length > 2; if (null == n && (n = []), v && n.reduceRight === v) return e && (t = w.bind(t, e)), u ? n.reduceRight(t, r) : n.reduceRight(t); var i = n.length; if (i !== +i) { var a = w.keys(n); i = a.length } if (A(n, function (o, c, l) { c = a ? a[--i] : --i, u ? r = t.call(e, r, n[c], c, l) : (r = n[c], u = !0) }), !u) throw new TypeError(O); return r }, w.find = w.detect = function (n, t, r) { var e; return E(n, function (n, u, i) { return t.call(r, n, u, i) ? (e = n, !0) : void 0 }), e }, w.filter = w.select = function (n, t, r) { var e = []; return null == n ? e : d && n.filter === d ? n.filter(t, r) : (A(n, function (n, u, i) { t.call(r, n, u, i) && (e[e.length] = n) }), e) }, w.reject = function (n, t, r) { return w.filter(n, function (n, e, u) { return !t.call(r, n, e, u) }, r) }, w.every = w.all = function (n, t, e) { t || (t = w.identity); var u = !0; return null == n ? u : g && n.every === g ? n.every(t, e) : (A(n, function (n, i, a) { return (u = u && t.call(e, n, i, a)) ? void 0 : r }), !!u) }; var E = w.some = w.any = function (n, t, e) { t || (t = w.identity); var u = !1; return null == n ? u : m && n.some === m ? n.some(t, e) : (A(n, function (n, i, a) { return u || (u = t.call(e, n, i, a)) ? r : void 0 }), !!u) }; w.contains = w.include = function (n, t) { return null == n ? !1 : y && n.indexOf === y ? n.indexOf(t) != -1 : E(n, function (n) { return n === t }) }, w.invoke = function (n, t) { var r = o.call(arguments, 2), e = w.isFunction(t); return w.map(n, function (n) { return (e ? t : n[t]).apply(n, r) }) }, w.pluck = function (n, t) { return w.map(n, function (n) { return n[t] }) }, w.where = function (n, t, r) { return w.isEmpty(t) ? r ? null : [] : w[r ? "find" : "filter"](n, function (n) { for (var r in t) if (t[r] !== n[r]) return !1; return !0 }) }, w.findWhere = function (n, t) { return w.where(n, t, !0) }, w.max = function (n, t, r) { if (!t && w.isArray(n) && n[0] === +n[0] && 65535 > n.length) return Math.max.apply(Math, n); if (!t && w.isEmpty(n)) return -1 / 0; var e = { computed: -1 / 0, value: -1 / 0 }; return A(n, function (n, u, i) { var a = t ? t.call(r, n, u, i) : n; a >= e.computed && (e = { value: n, computed: a }) }), e.value }, w.min = function (n, t, r) { if (!t && w.isArray(n) && n[0] === +n[0] && 65535 > n.length) return Math.min.apply(Math, n); if (!t && w.isEmpty(n)) return 1 / 0; var e = { computed: 1 / 0, value: 1 / 0 }; return A(n, function (n, u, i) { var a = t ? t.call(r, n, u, i) : n; e.computed > a && (e = { value: n, computed: a }) }), e.value }, w.shuffle = function (n) { var t, r = 0, e = []; return A(n, function (n) { t = w.random(r++), e[r - 1] = e[t], e[t] = n }), e }; var k = function (n) { return w.isFunction(n) ? n : function (t) { return t[n] } }; w.sortBy = function (n, t, r) { var e = k(t); return w.pluck(w.map(n, function (n, t, u) { return { value: n, index: t, criteria: e.call(r, n, t, u) } }).sort(function (n, t) { var r = n.criteria, e = t.criteria; if (r !== e) { if (r > e || r === void 0) return 1; if (e > r || e === void 0) return -1 } return n.index < t.index ? -1 : 1 }), "value") }; var F = function (n, t, r, e) { var u = {}, i = k(t || w.identity); return A(n, function (t, a) { var o = i.call(r, t, a, n); e(u, o, t) }), u }; w.groupBy = function (n, t, r) { return F(n, t, r, function (n, t, r) { (w.has(n, t) ? n[t] : n[t] = []).push(r) }) }, w.countBy = function (n, t, r) { return F(n, t, r, function (n, t) { w.has(n, t) || (n[t] = 0), n[t]++ }) }, w.sortedIndex = function (n, t, r, e) { r = null == r ? w.identity : k(r); for (var u = r.call(e, t), i = 0, a = n.length; a > i;) { var o = i + a >>> 1; u > r.call(e, n[o]) ? i = o + 1 : a = o } return i }, w.toArray = function (n) { return n ? w.isArray(n) ? o.call(n) : n.length === +n.length ? w.map(n, w.identity) : w.values(n) : [] }, w.size = function (n) { return null == n ? 0 : n.length === +n.length ? n.length : w.keys(n).length }, w.first = w.head = w.take = function (n, t, r) { return null == n ? void 0 : null == t || r ? n[0] : o.call(n, 0, t) }, w.initial = function (n, t, r) { return o.call(n, 0, n.length - (null == t || r ? 1 : t)) }, w.last = function (n, t, r) { return null == n ? void 0 : null == t || r ? n[n.length - 1] : o.call(n, Math.max(n.length - t, 0)) }, w.rest = w.tail = w.drop = function (n, t, r) { return o.call(n, null == t || r ? 1 : t) }, w.compact = function (n) { return w.filter(n, w.identity) }; var R = function (n, t, r) { return A(n, function (n) { w.isArray(n) ? t ? a.apply(r, n) : R(n, t, r) : r.push(n) }), r }; w.flatten = function (n, t) { return R(n, t, []) }, w.without = function (n) { return w.difference(n, o.call(arguments, 1)) }, w.uniq = w.unique = function (n, t, r, e) { w.isFunction(t) && (e = r, r = t, t = !1); var u = r ? w.map(n, r, e) : n, i = [], a = []; return A(u, function (r, e) { (t ? e && a[a.length - 1] === r : w.contains(a, r)) || (a.push(r), i.push(n[e])) }), i }, w.union = function () { return w.uniq(c.apply(e, arguments)) }, w.intersection = function (n) { var t = o.call(arguments, 1); return w.filter(w.uniq(n), function (n) { return w.every(t, function (t) { return w.indexOf(t, n) >= 0 }) }) }, w.difference = function (n) { var t = c.apply(e, o.call(arguments, 1)); return w.filter(n, function (n) { return !w.contains(t, n) }) }, w.zip = function () { for (var n = o.call(arguments), t = w.max(w.pluck(n, "length")), r = Array(t), e = 0; t > e; e++)r[e] = w.pluck(n, "" + e); return r }, w.object = function (n, t) { if (null == n) return {}; for (var r = {}, e = 0, u = n.length; u > e; e++)t ? r[n[e]] = t[e] : r[n[e][0]] = n[e][1]; return r }, w.indexOf = function (n, t, r) { if (null == n) return -1; var e = 0, u = n.length; if (r) { if ("number" != typeof r) return e = w.sortedIndex(n, t), n[e] === t ? e : -1; e = 0 > r ? Math.max(0, u + r) : r } if (y && n.indexOf === y) return n.indexOf(t, r); for (; u > e; e++)if (n[e] === t) return e; return -1 }, w.lastIndexOf = function (n, t, r) { if (null == n) return -1; var e = null != r; if (b && n.lastIndexOf === b) return e ? n.lastIndexOf(t, r) : n.lastIndexOf(t); for (var u = e ? r : n.length; u--;)if (n[u] === t) return u; return -1 }, w.range = function (n, t, r) { 1 >= arguments.length && (t = n || 0, n = 0), r = arguments[2] || 1; for (var e = Math.max(Math.ceil((t - n) / r), 0), u = 0, i = Array(e); e > u;)i[u++] = n, n += r; return i }, w.bind = function (n, t) { if (n.bind === j && j) return j.apply(n, o.call(arguments, 1)); var r = o.call(arguments, 2); return function () { return n.apply(t, r.concat(o.call(arguments))) } }, w.partial = function (n) { var t = o.call(arguments, 1); return function () { return n.apply(this, t.concat(o.call(arguments))) } }, w.bindAll = function (n) { var t = o.call(arguments, 1); return 0 === t.length && (t = w.functions(n)), A(t, function (t) { n[t] = w.bind(n[t], n) }), n }, w.memoize = function (n, t) { var r = {}; return t || (t = w.identity), function () { var e = t.apply(this, arguments); return w.has(r, e) ? r[e] : r[e] = n.apply(this, arguments) } }, w.delay = function (n, t) { var r = o.call(arguments, 2); return setTimeout(function () { return n.apply(null, r) }, t) }, w.defer = function (n) { return w.delay.apply(w, [n, 1].concat(o.call(arguments, 1))) }, w.throttle = function (n, t) { var r, e, u, i, a = 0, o = function () { a = new Date, u = null, i = n.apply(r, e) }; return function () { var c = new Date, l = t - (c - a); return r = this, e = arguments, 0 >= l ? (clearTimeout(u), u = null, a = c, i = n.apply(r, e)) : u || (u = setTimeout(o, l)), i } }, w.debounce = function (n, t, r) { var e, u; return function () { var i = this, a = arguments, o = function () { e = null, r || (u = n.apply(i, a)) }, c = r && !e; return clearTimeout(e), e = setTimeout(o, t), c && (u = n.apply(i, a)), u } }, w.once = function (n) { var t, r = !1; return function () { return r ? t : (r = !0, t = n.apply(this, arguments), n = null, t) } }, w.wrap = function (n, t) { return function () { var r = [n]; return a.apply(r, arguments), t.apply(this, r) } }, w.compose = function () { var n = arguments; return function () { for (var t = arguments, r = n.length - 1; r >= 0; r--)t = [n[r].apply(this, t)]; return t[0] } }, w.after = function (n, t) { return 0 >= n ? t() : function () { return 1 > --n ? t.apply(this, arguments) : void 0 } }, w.keys = _ || function (n) { if (n !== Object(n)) throw new TypeError("Invalid object"); var t = []; for (var r in n) w.has(n, r) && (t[t.length] = r); return t }, w.values = function (n) { var t = []; for (var r in n) w.has(n, r) && t.push(n[r]); return t }, w.pairs = function (n) { var t = []; for (var r in n) w.has(n, r) && t.push([r, n[r]]); return t }, w.invert = function (n) { var t = {}; for (var r in n) w.has(n, r) && (t[n[r]] = r); return t }, w.functions = w.methods = function (n) { var t = []; for (var r in n) w.isFunction(n[r]) && t.push(r); return t.sort() }, w.extend = function (n) { return A(o.call(arguments, 1), function (t) { if (t) for (var r in t) n[r] = t[r] }), n }, w.pick = function (n) { var t = {}, r = c.apply(e, o.call(arguments, 1)); return A(r, function (r) { r in n && (t[r] = n[r]) }), t }, w.omit = function (n) { var t = {}, r = c.apply(e, o.call(arguments, 1)); for (var u in n) w.contains(r, u) || (t[u] = n[u]); return t }, w.defaults = function (n) { return A(o.call(arguments, 1), function (t) { if (t) for (var r in t) null == n[r] && (n[r] = t[r]) }), n }, w.clone = function (n) { return w.isObject(n) ? w.isArray(n) ? n.slice() : w.extend({}, n) : n }, w.tap = function (n, t) { return t(n), n }; var I = function (n, t, r, e) { if (n === t) return 0 !== n || 1 / n == 1 / t; if (null == n || null == t) return n === t; n instanceof w && (n = n._wrapped), t instanceof w && (t = t._wrapped); var u = l.call(n); if (u != l.call(t)) return !1; switch (u) { case "[object String]": return n == t + ""; case "[object Number]": return n != +n ? t != +t : 0 == n ? 1 / n == 1 / t : n == +t; case "[object Date]": case "[object Boolean]": return +n == +t; case "[object RegExp]": return n.source == t.source && n.global == t.global && n.multiline == t.multiline && n.ignoreCase == t.ignoreCase }if ("object" != typeof n || "object" != typeof t) return !1; for (var i = r.length; i--;)if (r[i] == n) return e[i] == t; r.push(n), e.push(t); var a = 0, o = !0; if ("[object Array]" == u) { if (a = n.length, o = a == t.length) for (; a-- && (o = I(n[a], t[a], r, e));); } else { var c = n.constructor, f = t.constructor; if (c !== f && !(w.isFunction(c) && c instanceof c && w.isFunction(f) && f instanceof f)) return !1; for (var s in n) if (w.has(n, s) && (a++ , !(o = w.has(t, s) && I(n[s], t[s], r, e)))) break; if (o) { for (s in t) if (w.has(t, s) && !a--) break; o = !a } } return r.pop(), e.pop(), o }; w.isEqual = function (n, t) { return I(n, t, [], []) }, w.isEmpty = function (n) { if (null == n) return !0; if (w.isArray(n) || w.isString(n)) return 0 === n.length; for (var t in n) if (w.has(n, t)) return !1; return !0 }, w.isElement = function (n) { return !(!n || 1 !== n.nodeType) }, w.isArray = x || function (n) { return "[object Array]" == l.call(n) }, w.isObject = function (n) { return n === Object(n) }, A(["Arguments", "Function", "String", "Number", "Date", "RegExp"], function (n) { w["is" + n] = function (t) { return l.call(t) == "[object " + n + "]" } }), w.isArguments(arguments) || (w.isArguments = function (n) { return !(!n || !w.has(n, "callee")) }), "function" != typeof /./ && (w.isFunction = function (n) { return "function" == typeof n }), w.isFinite = function (n) { return isFinite(n) && !isNaN(parseFloat(n)) }, w.isNaN = function (n) { return w.isNumber(n) && n != +n }, w.isBoolean = function (n) { return n === !0 || n === !1 || "[object Boolean]" == l.call(n) }, w.isNull = function (n) { return null === n }, w.isUndefined = function (n) { return n === void 0 }, w.has = function (n, t) { return f.call(n, t) }, w.noConflict = function () { return n._ = t, this }, w.identity = function (n) { return n }, w.times = function (n, t, r) { for (var e = Array(n), u = 0; n > u; u++)e[u] = t.call(r, u); return e }, w.random = function (n, t) { return null == t && (t = n, n = 0), n + Math.floor(Math.random() * (t - n + 1)) }; var M = { escape: { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#x27;", "/": "&#x2F;" } }; M.unescape = w.invert(M.escape); var S = { escape: RegExp("[" + w.keys(M.escape).join("") + "]", "g"), unescape: RegExp("(" + w.keys(M.unescape).join("|") + ")", "g") }; w.each(["escape", "unescape"], function (n) { w[n] = function (t) { return null == t ? "" : ("" + t).replace(S[n], function (t) { return M[n][t] }) } }), w.result = function (n, t) { if (null == n) return null; var r = n[t]; return w.isFunction(r) ? r.call(n) : r }, w.mixin = function (n) { A(w.functions(n), function (t) { var r = w[t] = n[t]; w.prototype[t] = function () { var n = [this._wrapped]; return a.apply(n, arguments), D.call(this, r.apply(w, n)) } }) }; var N = 0; w.uniqueId = function (n) { var t = ++N + ""; return n ? n + t : t }, w.templateSettings = { evaluate: /<%([\s\S]+?)%>/g, interpolate: /<%=([\s\S]+?)%>/g, escape: /<%-([\s\S]+?)%>/g }; var T = /(.)^/, q = { "'": "'", "\\": "\\", "\r": "r", "\n": "n", "	": "t", "\u2028": "u2028", "\u2029": "u2029" }, B = /\\|'|\r|\n|\t|\u2028|\u2029/g; w.template = function (n, t, r) { var e; r = w.defaults({}, r, w.templateSettings); var u = RegExp([(r.escape || T).source, (r.interpolate || T).source, (r.evaluate || T).source].join("|") + "|$", "g"), i = 0, a = "__p+='"; n.replace(u, function (t, r, e, u, o) { return a += n.slice(i, o).replace(B, function (n) { return "\\" + q[n] }), r && (a += "'+\n((__t=(" + r + "))==null?'':_.escape(__t))+\n'"), e && (a += "'+\n((__t=(" + e + "))==null?'':__t)+\n'"), u && (a += "';\n" + u + "\n__p+='"), i = o + t.length, t }), a += "';\n", r.variable || (a = "with(obj||{}){\n" + a + "}\n"), a = "var __t,__p='',__j=Array.prototype.join," + "print=function(){__p+=__j.call(arguments,'');};\n" + a + "return __p;\n"; try { e = Function(r.variable || "obj", "_", a) } catch (o) { throw o.source = a, o } if (t) return e(t, w); var c = function (n) { return e.call(this, n, w) }; return c.source = "function(" + (r.variable || "obj") + "){\n" + a + "}", c }, w.chain = function (n) { return w(n).chain() }; var D = function (n) { return this._chain ? w(n).chain() : n }; w.mixin(w), A(["pop", "push", "reverse", "shift", "sort", "splice", "unshift"], function (n) { var t = e[n]; w.prototype[n] = function () { var r = this._wrapped; return t.apply(r, arguments), "shift" != n && "splice" != n || 0 !== r.length || delete r[0], D.call(this, r) } }), A(["concat", "join", "slice"], function (n) { var t = e[n]; w.prototype[n] = function () { return D.call(this, t.apply(this._wrapped, arguments)) } }), w.extend(w.prototype, { chain: function () { return this._chain = !0, this }, value: function () { return this._wrapped } }) }).call(this);
+(function () { var t = this; var e = t.Backbone; var i = []; var r = i.push; var s = i.slice; var n = i.splice; var a; if (typeof exports !== "undefined") { a = exports } else { a = t.Backbone = {} } a.VERSION = "1.0.0"; var h = t._; if (!h && typeof require !== "undefined") h = require("underscore"); a.$ = t.jQuery || t.Zepto || t.ender || t.$; a.noConflict = function () { t.Backbone = e; return this }; a.emulateHTTP = false; a.emulateJSON = false; var o = a.Events = { on: function (t, e, i) { if (!l(this, "on", t, [e, i]) || !e) return this; this._events || (this._events = {}); var r = this._events[t] || (this._events[t] = []); r.push({ callback: e, context: i, ctx: i || this }); return this }, once: function (t, e, i) { if (!l(this, "once", t, [e, i]) || !e) return this; var r = this; var s = h.once(function () { r.off(t, s); e.apply(this, arguments) }); s._callback = e; return this.on(t, s, i) }, off: function (t, e, i) { var r, s, n, a, o, u, c, f; if (!this._events || !l(this, "off", t, [e, i])) return this; if (!t && !e && !i) { this._events = {}; return this } a = t ? [t] : h.keys(this._events); for (o = 0, u = a.length; o < u; o++) { t = a[o]; if (n = this._events[t]) { this._events[t] = r = []; if (e || i) { for (c = 0, f = n.length; c < f; c++) { s = n[c]; if (e && e !== s.callback && e !== s.callback._callback || i && i !== s.context) { r.push(s) } } } if (!r.length) delete this._events[t] } } return this }, trigger: function (t) { if (!this._events) return this; var e = s.call(arguments, 1); if (!l(this, "trigger", t, e)) return this; var i = this._events[t]; var r = this._events.all; if (i) c(i, e); if (r) c(r, arguments); return this }, stopListening: function (t, e, i) { var r = this._listeners; if (!r) return this; var s = !e && !i; if (typeof e === "object") i = this; if (t) (r = {})[t._listenerId] = t; for (var n in r) { r[n].off(e, i, this); if (s) delete this._listeners[n] } return this } }; var u = /\s+/; var l = function (t, e, i, r) { if (!i) return true; if (typeof i === "object") { for (var s in i) { t[e].apply(t, [s, i[s]].concat(r)) } return false } if (u.test(i)) { var n = i.split(u); for (var a = 0, h = n.length; a < h; a++) { t[e].apply(t, [n[a]].concat(r)) } return false } return true }; var c = function (t, e) { var i, r = -1, s = t.length, n = e[0], a = e[1], h = e[2]; switch (e.length) { case 0: while (++r < s) (i = t[r]).callback.call(i.ctx); return; case 1: while (++r < s) (i = t[r]).callback.call(i.ctx, n); return; case 2: while (++r < s) (i = t[r]).callback.call(i.ctx, n, a); return; case 3: while (++r < s) (i = t[r]).callback.call(i.ctx, n, a, h); return; default: while (++r < s) (i = t[r]).callback.apply(i.ctx, e) } }; var f = { listenTo: "on", listenToOnce: "once" }; h.each(f, function (t, e) { o[e] = function (e, i, r) { var s = this._listeners || (this._listeners = {}); var n = e._listenerId || (e._listenerId = h.uniqueId("l")); s[n] = e; if (typeof i === "object") r = this; e[t](i, r, this); return this } }); o.bind = o.on; o.unbind = o.off; h.extend(a, o); var d = a.Model = function (t, e) { var i; var r = t || {}; e || (e = {}); this.cid = h.uniqueId("c"); this.attributes = {}; h.extend(this, h.pick(e, p)); if (e.parse) r = this.parse(r, e) || {}; if (i = h.result(this, "defaults")) { r = h.defaults({}, r, i) } this.set(r, e); this.changed = {}; this.initialize.apply(this, arguments) }; var p = ["url", "urlRoot", "collection"]; h.extend(d.prototype, o, { changed: null, validationError: null, idAttribute: "id", initialize: function () { }, toJSON: function (t) { return h.clone(this.attributes) }, sync: function () { return a.sync.apply(this, arguments) }, get: function (t) { return this.attributes[t] }, escape: function (t) { return h.escape(this.get(t)) }, has: function (t) { return this.get(t) != null }, set: function (t, e, i) { var r, s, n, a, o, u, l, c; if (t == null) return this; if (typeof t === "object") { s = t; i = e } else { (s = {})[t] = e } i || (i = {}); if (!this._validate(s, i)) return false; n = i.unset; o = i.silent; a = []; u = this._changing; this._changing = true; if (!u) { this._previousAttributes = h.clone(this.attributes); this.changed = {} } c = this.attributes, l = this._previousAttributes; if (this.idAttribute in s) this.id = s[this.idAttribute]; for (r in s) { e = s[r]; if (!h.isEqual(c[r], e)) a.push(r); if (!h.isEqual(l[r], e)) { this.changed[r] = e } else { delete this.changed[r] } n ? delete c[r] : c[r] = e } if (!o) { if (a.length) this._pending = true; for (var f = 0, d = a.length; f < d; f++) { this.trigger("change:" + a[f], this, c[a[f]], i) } } if (u) return this; if (!o) { while (this._pending) { this._pending = false; this.trigger("change", this, i) } } this._pending = false; this._changing = false; return this }, unset: function (t, e) { return this.set(t, void 0, h.extend({}, e, { unset: true })) }, clear: function (t) { var e = {}; for (var i in this.attributes) e[i] = void 0; return this.set(e, h.extend({}, t, { unset: true })) }, hasChanged: function (t) { if (t == null) return !h.isEmpty(this.changed); return h.has(this.changed, t) }, changedAttributes: function (t) { if (!t) return this.hasChanged() ? h.clone(this.changed) : false; var e, i = false; var r = this._changing ? this._previousAttributes : this.attributes; for (var s in t) { if (h.isEqual(r[s], e = t[s])) continue; (i || (i = {}))[s] = e } return i }, previous: function (t) { if (t == null || !this._previousAttributes) return null; return this._previousAttributes[t] }, previousAttributes: function () { return h.clone(this._previousAttributes) }, fetch: function (t) { t = t ? h.clone(t) : {}; if (t.parse === void 0) t.parse = true; var e = this; var i = t.success; t.success = function (r) { if (!e.set(e.parse(r, t), t)) return false; if (i) i(e, r, t); e.trigger("sync", e, r, t) }; R(this, t); return this.sync("read", this, t) }, save: function (t, e, i) { var r, s, n, a = this.attributes; if (t == null || typeof t === "object") { r = t; i = e } else { (r = {})[t] = e } if (r && (!i || !i.wait) && !this.set(r, i)) return false; i = h.extend({ validate: true }, i); if (!this._validate(r, i)) return false; if (r && i.wait) { this.attributes = h.extend({}, a, r) } if (i.parse === void 0) i.parse = true; var o = this; var u = i.success; i.success = function (t) { o.attributes = a; var e = o.parse(t, i); if (i.wait) e = h.extend(r || {}, e); if (h.isObject(e) && !o.set(e, i)) { return false } if (u) u(o, t, i); o.trigger("sync", o, t, i) }; R(this, i); s = this.isNew() ? "create" : i.patch ? "patch" : "update"; if (s === "patch") i.attrs = r; n = this.sync(s, this, i); if (r && i.wait) this.attributes = a; return n }, destroy: function (t) { t = t ? h.clone(t) : {}; var e = this; var i = t.success; var r = function () { e.trigger("destroy", e, e.collection, t) }; t.success = function (s) { if (t.wait || e.isNew()) r(); if (i) i(e, s, t); if (!e.isNew()) e.trigger("sync", e, s, t) }; if (this.isNew()) { t.success(); return false } R(this, t); var s = this.sync("delete", this, t); if (!t.wait) r(); return s }, url: function () { var t = h.result(this, "urlRoot") || h.result(this.collection, "url") || U(); if (this.isNew()) return t; return t + (t.charAt(t.length - 1) === "/" ? "" : "/") + encodeURIComponent(this.id) }, parse: function (t, e) { return t }, clone: function () { return new this.constructor(this.attributes) }, isNew: function () { return this.id == null }, isValid: function (t) { return this._validate({}, h.extend(t || {}, { validate: true })) }, _validate: function (t, e) { if (!e.validate || !this.validate) return true; t = h.extend({}, this.attributes, t); var i = this.validationError = this.validate(t, e) || null; if (!i) return true; this.trigger("invalid", this, i, h.extend(e || {}, { validationError: i })); return false } }); var v = ["keys", "values", "pairs", "invert", "pick", "omit"]; h.each(v, function (t) { d.prototype[t] = function () { var e = s.call(arguments); e.unshift(this.attributes); return h[t].apply(h, e) } }); var g = a.Collection = function (t, e) { e || (e = {}); if (e.url) this.url = e.url; if (e.model) this.model = e.model; if (e.comparator !== void 0) this.comparator = e.comparator; this._reset(); this.initialize.apply(this, arguments); if (t) this.reset(t, h.extend({ silent: true }, e)) }; var m = { add: true, remove: true, merge: true }; var y = { add: true, merge: false, remove: false }; h.extend(g.prototype, o, { model: d, initialize: function () { }, toJSON: function (t) { return this.map(function (e) { return e.toJSON(t) }) }, sync: function () { return a.sync.apply(this, arguments) }, add: function (t, e) { return this.set(t, h.defaults(e || {}, y)) }, remove: function (t, e) { t = h.isArray(t) ? t.slice() : [t]; e || (e = {}); var i, r, s, n; for (i = 0, r = t.length; i < r; i++) { n = this.get(t[i]); if (!n) continue; delete this._byId[n.id]; delete this._byId[n.cid]; s = this.indexOf(n); this.models.splice(s, 1); this.length--; if (!e.silent) { e.index = s; n.trigger("remove", n, this, e) } this._removeReference(n) } return this }, set: function (t, e) { e = h.defaults(e || {}, m); if (e.parse) t = this.parse(t, e); if (!h.isArray(t)) t = t ? [t] : []; var i, s, a, o, u, l; var c = e.at; var f = this.comparator && c == null && e.sort !== false; var d = h.isString(this.comparator) ? this.comparator : null; var p = [], v = [], g = {}; for (i = 0, s = t.length; i < s; i++) { if (!(a = this._prepareModel(t[i], e))) continue; if (u = this.get(a)) { if (e.remove) g[u.cid] = true; if (e.merge) { u.set(a.attributes, e); if (f && !l && u.hasChanged(d)) l = true } } else if (e.add) { p.push(a); a.on("all", this._onModelEvent, this); this._byId[a.cid] = a; if (a.id != null) this._byId[a.id] = a } } if (e.remove) { for (i = 0, s = this.length; i < s; ++i) { if (!g[(a = this.models[i]).cid]) v.push(a) } if (v.length) this.remove(v, e) } if (p.length) { if (f) l = true; this.length += p.length; if (c != null) { n.apply(this.models, [c, 0].concat(p)) } else { r.apply(this.models, p) } } if (l) this.sort({ silent: true }); if (e.silent) return this; for (i = 0, s = p.length; i < s; i++) { (a = p[i]).trigger("add", a, this, e) } if (l) this.trigger("sort", this, e); return this }, reset: function (t, e) { e || (e = {}); for (var i = 0, r = this.models.length; i < r; i++) { this._removeReference(this.models[i]) } e.previousModels = this.models; this._reset(); this.add(t, h.extend({ silent: true }, e)); if (!e.silent) this.trigger("reset", this, e); return this }, push: function (t, e) { t = this._prepareModel(t, e); this.add(t, h.extend({ at: this.length }, e)); return t }, pop: function (t) { var e = this.at(this.length - 1); this.remove(e, t); return e }, unshift: function (t, e) { t = this._prepareModel(t, e); this.add(t, h.extend({ at: 0 }, e)); return t }, shift: function (t) { var e = this.at(0); this.remove(e, t); return e }, slice: function (t, e) { return this.models.slice(t, e) }, get: function (t) { if (t == null) return void 0; return this._byId[t.id != null ? t.id : t.cid || t] }, at: function (t) { return this.models[t] }, where: function (t, e) { if (h.isEmpty(t)) return e ? void 0 : []; return this[e ? "find" : "filter"](function (e) { for (var i in t) { if (t[i] !== e.get(i)) return false } return true }) }, findWhere: function (t) { return this.where(t, true) }, sort: function (t) { if (!this.comparator) throw new Error("Cannot sort a set without a comparator"); t || (t = {}); if (h.isString(this.comparator) || this.comparator.length === 1) { this.models = this.sortBy(this.comparator, this) } else { this.models.sort(h.bind(this.comparator, this)) } if (!t.silent) this.trigger("sort", this, t); return this }, sortedIndex: function (t, e, i) { e || (e = this.comparator); var r = h.isFunction(e) ? e : function (t) { return t.get(e) }; return h.sortedIndex(this.models, t, r, i) }, pluck: function (t) { return h.invoke(this.models, "get", t) }, fetch: function (t) { t = t ? h.clone(t) : {}; if (t.parse === void 0) t.parse = true; var e = t.success; var i = this; t.success = function (r) { var s = t.reset ? "reset" : "set"; i[s](r, t); if (e) e(i, r, t); i.trigger("sync", i, r, t) }; R(this, t); return this.sync("read", this, t) }, create: function (t, e) { e = e ? h.clone(e) : {}; if (!(t = this._prepareModel(t, e))) return false; if (!e.wait) this.add(t, e); var i = this; var r = e.success; e.success = function (s) { if (e.wait) i.add(t, e); if (r) r(t, s, e) }; t.save(null, e); return t }, parse: function (t, e) { return t }, clone: function () { return new this.constructor(this.models) }, _reset: function () { this.length = 0; this.models = []; this._byId = {} }, _prepareModel: function (t, e) { if (t instanceof d) { if (!t.collection) t.collection = this; return t } e || (e = {}); e.collection = this; var i = new this.model(t, e); if (!i._validate(t, e)) { this.trigger("invalid", this, t, e); return false } return i }, _removeReference: function (t) { if (this === t.collection) delete t.collection; t.off("all", this._onModelEvent, this) }, _onModelEvent: function (t, e, i, r) { if ((t === "add" || t === "remove") && i !== this) return; if (t === "destroy") this.remove(e, r); if (e && t === "change:" + e.idAttribute) { delete this._byId[e.previous(e.idAttribute)]; if (e.id != null) this._byId[e.id] = e } this.trigger.apply(this, arguments) } }); var _ = ["forEach", "each", "map", "collect", "reduce", "foldl", "inject", "reduceRight", "foldr", "find", "detect", "filter", "select", "reject", "every", "all", "some", "any", "include", "contains", "invoke", "max", "min", "toArray", "size", "first", "head", "take", "initial", "rest", "tail", "drop", "last", "without", "indexOf", "shuffle", "lastIndexOf", "isEmpty", "chain"]; h.each(_, function (t) { g.prototype[t] = function () { var e = s.call(arguments); e.unshift(this.models); return h[t].apply(h, e) } }); var w = ["groupBy", "countBy", "sortBy"]; h.each(w, function (t) { g.prototype[t] = function (e, i) { var r = h.isFunction(e) ? e : function (t) { return t.get(e) }; return h[t](this.models, r, i) } }); var b = a.View = function (t) { this.cid = h.uniqueId("view"); this._configure(t || {}); this._ensureElement(); this.initialize.apply(this, arguments); this.delegateEvents() }; var x = /^(\S+)\s*(.*)$/; var E = ["model", "collection", "el", "id", "attributes", "className", "tagName", "events"]; h.extend(b.prototype, o, { tagName: "div", $: function (t) { return this.$el.find(t) }, initialize: function () { }, render: function () { return this }, remove: function () { this.$el.remove(); this.stopListening(); return this }, setElement: function (t, e) { if (this.$el) this.undelegateEvents(); this.$el = t instanceof a.$ ? t : a.$(t); this.el = this.$el[0]; if (e !== false) this.delegateEvents(); return this }, delegateEvents: function (t) { if (!(t || (t = h.result(this, "events")))) return this; this.undelegateEvents(); for (var e in t) { var i = t[e]; if (!h.isFunction(i)) i = this[t[e]]; if (!i) continue; var r = e.match(x); var s = r[1], n = r[2]; i = h.bind(i, this); s += ".delegateEvents" + this.cid; if (n === "") { this.$el.on(s, i) } else { this.$el.on(s, n, i) } } return this }, undelegateEvents: function () { this.$el.off(".delegateEvents" + this.cid); return this }, _configure: function (t) { if (this.options) t = h.extend({}, h.result(this, "options"), t); h.extend(this, h.pick(t, E)); this.options = t }, _ensureElement: function () { if (!this.el) { var t = h.extend({}, h.result(this, "attributes")); if (this.id) t.id = h.result(this, "id"); if (this.className) t["class"] = h.result(this, "className"); var e = a.$("<" + h.result(this, "tagName") + ">").attr(t); this.setElement(e, false) } else { this.setElement(h.result(this, "el"), false) } } }); a.sync = function (t, e, i) { var r = k[t]; h.defaults(i || (i = {}), { emulateHTTP: a.emulateHTTP, emulateJSON: a.emulateJSON }); var s = { type: r, dataType: "json" }; if (!i.url) { s.url = h.result(e, "url") || U() } if (i.data == null && e && (t === "create" || t === "update" || t === "patch")) { s.contentType = "application/json"; s.data = JSON.stringify(i.attrs || e.toJSON(i)) } if (i.emulateJSON) { s.contentType = "application/x-www-form-urlencoded"; s.data = s.data ? { model: s.data } : {} } if (i.emulateHTTP && (r === "PUT" || r === "DELETE" || r === "PATCH")) { s.type = "POST"; if (i.emulateJSON) s.data._method = r; var n = i.beforeSend; i.beforeSend = function (t) { t.setRequestHeader("X-HTTP-Method-Override", r); if (n) return n.apply(this, arguments) } } if (s.type !== "GET" && !i.emulateJSON) { s.processData = false } if (s.type === "PATCH" && window.ActiveXObject && !(window.external && window.external.msActiveXFilteringEnabled)) { s.xhr = function () { return new ActiveXObject("Microsoft.XMLHTTP") } } var o = i.xhr = a.ajax(h.extend(s, i)); e.trigger("request", e, o, i); return o }; var k = { create: "POST", update: "PUT", patch: "PATCH", "delete": "DELETE", read: "GET" }; a.ajax = function () { return a.$.ajax.apply(a.$, arguments) }; var S = a.Router = function (t) { t || (t = {}); if (t.routes) this.routes = t.routes; this._bindRoutes(); this.initialize.apply(this, arguments) }; var $ = /\((.*?)\)/g; var T = /(\(\?)?:\w+/g; var H = /\*\w+/g; var A = /[\-{}\[\]+?.,\\\^$|#\s]/g; h.extend(S.prototype, o, { initialize: function () { }, route: function (t, e, i) { if (!h.isRegExp(t)) t = this._routeToRegExp(t); if (h.isFunction(e)) { i = e; e = "" } if (!i) i = this[e]; var r = this; a.history.route(t, function (s) { var n = r._extractParameters(t, s); i && i.apply(r, n); r.trigger.apply(r, ["route:" + e].concat(n)); r.trigger("route", e, n); a.history.trigger("route", r, e, n) }); return this }, navigate: function (t, e) { a.history.navigate(t, e); return this }, _bindRoutes: function () { if (!this.routes) return; this.routes = h.result(this, "routes"); var t, e = h.keys(this.routes); while ((t = e.pop()) != null) { this.route(t, this.routes[t]) } }, _routeToRegExp: function (t) { t = t.replace(A, "\\$&").replace($, "(?:$1)?").replace(T, function (t, e) { return e ? t : "([^/]+)" }).replace(H, "(.*?)"); return new RegExp("^" + t + "$") }, _extractParameters: function (t, e) { var i = t.exec(e).slice(1); return h.map(i, function (t) { return t ? decodeURIComponent(t) : null }) } }); var I = a.History = function () { this.handlers = []; h.bindAll(this, "checkUrl"); if (typeof window !== "undefined") { this.location = window.location; this.history = window.history } }; var N = /^[#\/]|\s+$/g; var P = /^\/+|\/+$/g; var O = /msie [\w.]+/; var C = /\/$/; I.started = false; h.extend(I.prototype, o, { interval: 50, getHash: function (t) { var e = (t || this).location.href.match(/#(.*)$/); return e ? e[1] : "" }, getFragment: function (t, e) { if (t == null) { if (this._hasPushState || !this._wantsHashChange || e) { t = this.location.pathname; var i = this.root.replace(C, ""); if (!t.indexOf(i)) t = t.substr(i.length) } else { t = this.getHash() } } return t.replace(N, "") }, start: function (t) { if (I.started) throw new Error("Backbone.history has already been started"); I.started = true; this.options = h.extend({}, { root: "/" }, this.options, t); this.root = this.options.root; this._wantsHashChange = this.options.hashChange !== false; this._wantsPushState = !!this.options.pushState; this._hasPushState = !!(this.options.pushState && this.history && this.history.pushState); var e = this.getFragment(); var i = document.documentMode; var r = O.exec(navigator.userAgent.toLowerCase()) && (!i || i <= 7); this.root = ("/" + this.root + "/").replace(P, "/"); if (r && this._wantsHashChange) { this.iframe = a.$('<iframe src="javascript:0" tabindex="-1" />').hide().appendTo("body")[0].contentWindow; this.navigate(e) } if (this._hasPushState) { a.$(window).on("popstate", this.checkUrl) } else if (this._wantsHashChange && "onhashchange" in window && !r) { a.$(window).on("hashchange", this.checkUrl) } else if (this._wantsHashChange) { this._checkUrlInterval = setInterval(this.checkUrl, this.interval) } this.fragment = e; var s = this.location; var n = s.pathname.replace(/[^\/]$/, "$&/") === this.root; if (this._wantsHashChange && this._wantsPushState && !this._hasPushState && !n) { this.fragment = this.getFragment(null, true); this.location.replace(this.root + this.location.search + "#" + this.fragment); return true } else if (this._wantsPushState && this._hasPushState && n && s.hash) { this.fragment = this.getHash().replace(N, ""); this.history.replaceState({}, document.title, this.root + this.fragment + s.search) } if (!this.options.silent) return this.loadUrl() }, stop: function () { a.$(window).off("popstate", this.checkUrl).off("hashchange", this.checkUrl); clearInterval(this._checkUrlInterval); I.started = false }, route: function (t, e) { this.handlers.unshift({ route: t, callback: e }) }, checkUrl: function (t) { var e = this.getFragment(); if (e === this.fragment && this.iframe) { e = this.getFragment(this.getHash(this.iframe)) } if (e === this.fragment) return false; if (this.iframe) this.navigate(e); this.loadUrl() || this.loadUrl(this.getHash()) }, loadUrl: function (t) { var e = this.fragment = this.getFragment(t); var i = h.any(this.handlers, function (t) { if (t.route.test(e)) { t.callback(e); return true } }); return i }, navigate: function (t, e) { if (!I.started) return false; if (!e || e === true) e = { trigger: e }; t = this.getFragment(t || ""); if (this.fragment === t) return; this.fragment = t; var i = this.root + t; if (this._hasPushState) { this.history[e.replace ? "replaceState" : "pushState"]({}, document.title, i) } else if (this._wantsHashChange) { this._updateHash(this.location, t, e.replace); if (this.iframe && t !== this.getFragment(this.getHash(this.iframe))) { if (!e.replace) this.iframe.document.open().close(); this._updateHash(this.iframe.location, t, e.replace) } } else { return this.location.assign(i) } if (e.trigger) this.loadUrl(t) }, _updateHash: function (t, e, i) { if (i) { var r = t.href.replace(/(javascript:|#).*$/, ""); t.replace(r + "#" + e) } else { t.hash = "#" + e } } }); a.history = new I; var j = function (t, e) { var i = this; var r; if (t && h.has(t, "constructor")) { r = t.constructor } else { r = function () { return i.apply(this, arguments) } } h.extend(r, i, e); var s = function () { this.constructor = r }; s.prototype = i.prototype; r.prototype = new s; if (t) h.extend(r.prototype, t); r.__super__ = i.prototype; return r }; d.extend = g.extend = S.extend = b.extend = I.extend = j; var U = function () { throw new Error('A "url" property or function must be specified') }; var R = function (t, e) { var i = e.error; e.error = function (r) { if (i) i(t, r, e); t.trigger("error", t, r, e) } } }).call(this);
 /*
   //@ sourceMappingURL=backbone-min.map
   */
-(function() {
+(function () {
     // A simple module to replace `Backbone.sync` with *localStorage*-based
     // persistence. Models are given GUIDS, and saved into a JSON object. Simple
     // as that.
@@ -29,7 +29,7 @@ var latestcode = '';
     // Our Store is represented by a single JS object in *localStorage*. Create it
     // with a meaningful name, like the name you'd give a table.
     // window.Store is deprectated, use Backbone.LocalStorage instead
-    Backbone.LocalStorage = window.Store = function(name) {
+    Backbone.LocalStorage = window.Store = function (name) {
         this.name = name;
         var store = this.localStorage().getItem(this.name);
         this.records = (store && store.split(",")) || [];
@@ -38,13 +38,13 @@ var latestcode = '';
     _.extend(Backbone.LocalStorage.prototype, {
 
         // Save the current state of the **Store** to *localStorage*.
-        save: function() {
+        save: function () {
             this.localStorage().setItem(this.name, this.records.join(","));
         },
 
         // Add a model, giving it a (hopefully)-unique GUID, if it doesn't already
         // have an id of it's own.
-        create: function(model) {
+        create: function (model) {
             if (!model.id) {
                 model.id = guid();
                 model.set(model.idAttribute, model.id);
@@ -56,7 +56,7 @@ var latestcode = '';
         },
 
         // Update a model by replacing its copy in `this.data`.
-        update: function(model) {
+        update: function (model) {
             this.localStorage().setItem(this.name + "-" + model.id, JSON.stringify(model));
             if (!_.include(this.records, model.id.toString())) this.records.push(model.id.toString());
             this.save();
@@ -64,30 +64,30 @@ var latestcode = '';
         },
 
         // Retrieve a model from `this.data` by id.
-        find: function(model) {
+        find: function (model) {
             return JSON.parse(this.localStorage().getItem(this.name + "-" + model.id));
         },
 
         // Return the array of all models currently in storage.
-        findAll: function() {
-            return _(this.records).chain().map(function(id) {
+        findAll: function () {
+            return _(this.records).chain().map(function (id) {
                 return JSON.parse(this.localStorage().getItem(this.name + "-" + id));
             },
-            this).compact().value();
+                this).compact().value();
         },
 
         // Delete a model from `this.data`, returning it.
-        destroy: function(model) {
+        destroy: function (model) {
             this.localStorage().removeItem(this.name + "-" + model.id);
             this.records = _.reject(this.records,
-            function(record_id) {
-                return record_id == model.id.toString();
-            });
+                function (record_id) {
+                    return record_id == model.id.toString();
+                });
             this.save();
             return model;
         },
 
-        localStorage: function() {
+        localStorage: function () {
             return localStorage;
         }
     });
@@ -95,7 +95,7 @@ var latestcode = '';
     // localSync delegate to the model or collection's
     // *localStorage* property, which should be an instance of `Store`.
     // window.Store.sync and Backbone.localSync is deprectated, use Backbone.LocalStorage.sync instead
-    Backbone.LocalStorage.sync = window.Store.sync = Backbone.localSync = function(method, model, options, error) {
+    Backbone.LocalStorage.sync = window.Store.sync = Backbone.localSync = function (method, model, options, error) {
         var store = model.localStorage || model.collection.localStorage;
 
         // Backwards compatibility with Backbone <= 0.3.3
@@ -109,18 +109,18 @@ var latestcode = '';
         var resp;
 
         switch (method) {
-        case "read":
-            resp = model.id != undefined ? store.find(model) : store.findAll();
-            break;
-        case "create":
-            resp = store.create(model);
-            break;
-        case "update":
-            resp = store.update(model);
-            break;
-        case "delete":
-            resp = store.destroy(model);
-            break;
+            case "read":
+                resp = model.id != undefined ? store.find(model) : store.findAll();
+                break;
+            case "create":
+                resp = store.create(model);
+                break;
+            case "update":
+                resp = store.update(model);
+                break;
+            case "delete":
+                resp = store.destroy(model);
+                break;
         }
 
         if (resp) {
@@ -132,7 +132,7 @@ var latestcode = '';
 
     Backbone.ajaxSync = Backbone.sync;
 
-    Backbone.getSyncMethod = function(model) {
+    Backbone.getSyncMethod = function (model) {
         if (model.localStorage || (model.collection && model.collection.localStorage)) {
             return Backbone.localSync;
         }
@@ -142,12 +142,12 @@ var latestcode = '';
 
     // Override 'Backbone.sync' to default to localSync,
     // the original 'Backbone.sync' is still available in 'Backbone.ajaxSync'
-    Backbone.sync = function(method, model, options, error) {
+    Backbone.sync = function (method, model, options, error) {
         return Backbone.getSyncMethod(model).apply(this, [method, model, options, error]);
     };
 })();
 
-(function() {
+(function () {
 
     /**
      * mapping of special keycodes to their corresponding keys
@@ -159,154 +159,154 @@ var latestcode = '';
      * @type {Object}
      */
     var _MAP = {
-        8 : 'backspace',
-        9 : 'tab',
-        13 : 'enter',
-        16 : 'shift',
-        17 : 'ctrl',
-        18 : 'alt',
-        20 : 'capslock',
-        27 : 'esc',
-        32 : 'space',
-        33 : 'pageup',
-        34 : 'pagedown',
-        35 : 'end',
-        36 : 'home',
-        37 : 'left',
-        38 : 'up',
-        39 : 'right',
-        40 : 'down',
-        45 : 'ins',
-        46 : 'del',
-        91 : 'meta',
-        93 : 'meta',
-        224 : 'meta'
+        8: 'backspace',
+        9: 'tab',
+        13: 'enter',
+        16: 'shift',
+        17: 'ctrl',
+        18: 'alt',
+        20: 'capslock',
+        27: 'esc',
+        32: 'space',
+        33: 'pageup',
+        34: 'pagedown',
+        35: 'end',
+        36: 'home',
+        37: 'left',
+        38: 'up',
+        39: 'right',
+        40: 'down',
+        45: 'ins',
+        46: 'del',
+        91: 'meta',
+        93: 'meta',
+        224: 'meta'
     },
 
-    /**
-         * mapping for special characters so they can support
-         *
-         * this dictionary is only used incase you want to bind a
-         * keyup or keydown event to one of these keys
-         *
-         * @type {Object}
-         */
-    _KEYCODE_MAP = {
-        106 : '*',
-        107 : '+',
-        109 : '-',
-        110 : '.',
-        111 : '/',
-        186 : ';',
-        187 : '=',
-        188 : ',',
-        189 : '-',
-        190 : '.',
-        191 : '/',
-        192 : '`',
-        219 : '[',
-        220 : '\\',
-        221 : ']',
-        222 : '\''
-    },
+        /**
+             * mapping for special characters so they can support
+             *
+             * this dictionary is only used incase you want to bind a
+             * keyup or keydown event to one of these keys
+             *
+             * @type {Object}
+             */
+        _KEYCODE_MAP = {
+            106: '*',
+            107: '+',
+            109: '-',
+            110: '.',
+            111: '/',
+            186: ';',
+            187: '=',
+            188: ',',
+            189: '-',
+            190: '.',
+            191: '/',
+            192: '`',
+            219: '[',
+            220: '\\',
+            221: ']',
+            222: '\''
+        },
 
-    /**
-         * this is a mapping of keys that require shift on a US keypad
-         * back to the non shift equivelents
-         *
-         * this is so you can use keyup events with these keys
-         *
-         * note that this will only work reliably on US keyboards
-         *
-         * @type {Object}
-         */
-    _SHIFT_MAP = {
-        '~': '`',
-        '!': '1',
-        '@': '2',
-        '#': '3',
-        '$': '4',
-        '%': '5',
-        '^': '6',
-        '&': '7',
-        '*': '8',
-        '(': '9',
-        ')': '0',
-        '_': '-',
-        '+': '=',
-        ':': ';',
-        '\"': '\'',
-        '<': ',',
-        '>': '.',
-        '?': '/',
-        '|': '\\'
-    },
+        /**
+             * this is a mapping of keys that require shift on a US keypad
+             * back to the non shift equivelents
+             *
+             * this is so you can use keyup events with these keys
+             *
+             * note that this will only work reliably on US keyboards
+             *
+             * @type {Object}
+             */
+        _SHIFT_MAP = {
+            '~': '`',
+            '!': '1',
+            '@': '2',
+            '#': '3',
+            '$': '4',
+            '%': '5',
+            '^': '6',
+            '&': '7',
+            '*': '8',
+            '(': '9',
+            ')': '0',
+            '_': '-',
+            '+': '=',
+            ':': ';',
+            '\"': '\'',
+            '<': ',',
+            '>': '.',
+            '?': '/',
+            '|': '\\'
+        },
 
-    /**
-         * this is a list of special strings you can use to map
-         * to modifier keys when you specify your keyboard shortcuts
-         *
-         * @type {Object}
-         */
-    _SPECIAL_ALIASES = {
-        'option': 'alt',
-        'command': 'meta',
-        'return': 'enter',
-        'escape': 'esc'
-    },
+        /**
+             * this is a list of special strings you can use to map
+             * to modifier keys when you specify your keyboard shortcuts
+             *
+             * @type {Object}
+             */
+        _SPECIAL_ALIASES = {
+            'option': 'alt',
+            'command': 'meta',
+            'return': 'enter',
+            'escape': 'esc'
+        },
 
-    /**
-         * variable to store the flipped version of _MAP from above
-         * needed to check if we should use keypress or not when no action
-         * is specified
-         *
-         * @type {Object|undefined}
-         */
-    _REVERSE_MAP,
+        /**
+             * variable to store the flipped version of _MAP from above
+             * needed to check if we should use keypress or not when no action
+             * is specified
+             *
+             * @type {Object|undefined}
+             */
+        _REVERSE_MAP,
 
-    /**
-         * a list of all the callbacks setup via Mousetrap.bind()
-         *
-         * @type {Object}
-         */
-    _callbacks = {},
+        /**
+             * a list of all the callbacks setup via Mousetrap.bind()
+             *
+             * @type {Object}
+             */
+        _callbacks = {},
 
-    /**
-         * direct map of string combinations to callbacks used for trigger()
-         *
-         * @type {Object}
-         */
-    _direct_map = {},
+        /**
+             * direct map of string combinations to callbacks used for trigger()
+             *
+             * @type {Object}
+             */
+        _direct_map = {},
 
-    /**
-         * keeps track of what level each sequence is at since multiple
-         * sequences can start out with the same sequence
-         *
-         * @type {Object}
-         */
-    _sequence_levels = {},
+        /**
+             * keeps track of what level each sequence is at since multiple
+             * sequences can start out with the same sequence
+             *
+             * @type {Object}
+             */
+        _sequence_levels = {},
 
-    /**
-         * variable to store the setTimeout call
-         *
-         * @type {null|number}
-         */
-    _reset_timer,
+        /**
+             * variable to store the setTimeout call
+             *
+             * @type {null|number}
+             */
+        _reset_timer,
 
-    /**
-         * temporary state where we will ignore the next keyup
-         *
-         * @type {boolean|string}
-         */
-    _ignore_next_keyup = false,
+        /**
+             * temporary state where we will ignore the next keyup
+             *
+             * @type {boolean|string}
+             */
+        _ignore_next_keyup = false,
 
-    /**
-         * are we currently inside of a sequence?
-         * type of action ("keyup" or "keydown" or "keypress") or false
-         *
-         * @type {boolean|string}
-         */
-    _inside_sequence = false;
+        /**
+             * are we currently inside of a sequence?
+             * type of action ("keyup" or "keydown" or "keypress") or false
+             *
+             * @type {boolean|string}
+             */
+        _inside_sequence = false;
 
     /**
      * loop through the f keys, f1 to f19 and add them to the map
@@ -373,7 +373,7 @@ var latestcode = '';
      */
     function _stop(e) {
         var element = e.target || e.srcElement,
-        tag_name = element.tagName;
+            tag_name = element.tagName;
 
         // if the element has the class "mousetrap" then no need to stop
         if ((' ' + element.className + ' ').indexOf(' mousetrap ') > -1) {
@@ -405,7 +405,7 @@ var latestcode = '';
         do_not_reset = do_not_reset || {};
 
         var active_sequences = false,
-        key;
+            key;
 
         for (key in _sequence_levels) {
             if (do_not_reset[key]) {
@@ -433,7 +433,7 @@ var latestcode = '';
      */
     function _getMatches(character, modifiers, e, remove, combination) {
         var i, callback, matches = [],
-        action = e.type;
+            action = e.type;
 
         // if there are no events related to this keycode
         if (!_callbacks[character]) {
@@ -552,9 +552,9 @@ var latestcode = '';
         }
 
         var callbacks = _getMatches(character, _eventModifiers(e), e),
-        i,
-        do_not_reset = {},
-        processed_sequence_callback = false;
+            i,
+            do_not_reset = {},
+            processed_sequence_callback = false;
 
         // loop through matching callbacks for this key event
         for (i = 0; i < callbacks.length; ++i) {
@@ -598,7 +598,7 @@ var latestcode = '';
 
         // normalize e.which for key events
         // @see http://stackoverflow.com/questions/4285627/javascript-keycode-vs-charcode-utter-confusion
-        e.which = typeof e.which == "number" ? e.which: e.keyCode;
+        e.which = typeof e.which == "number" ? e.which : e.keyCode;
 
         var character = _characterFromEvent(e);
 
@@ -675,7 +675,7 @@ var latestcode = '';
         // if no action was picked in we should try to pick the one
         // that we think would work best for this key
         if (!action) {
-            action = _getReverseMap()[key] ? 'keydown': 'keypress';
+            action = _getReverseMap()[key] ? 'keydown' : 'keypress';
         }
 
         // modifier keys don't work as expected with keypress,
@@ -715,39 +715,39 @@ var latestcode = '';
          * @param {Event} e
          * @returns void
          */
-        var _increaseSequence = function(e) {
+        var _increaseSequence = function (e) {
             _inside_sequence = action; ++_sequence_levels[combo];
             _resetSequenceTimer();
         },
 
-        /**
-             * wraps the specified callback inside of another function in order
-             * to reset all sequence counters as soon as this sequence is done
-             *
-             * @param {Event} e
-             * @returns void
-             */
-        _callbackAndReset = function(e) {
-            _fireCallback(callback, e);
+            /**
+                 * wraps the specified callback inside of another function in order
+                 * to reset all sequence counters as soon as this sequence is done
+                 *
+                 * @param {Event} e
+                 * @returns void
+                 */
+            _callbackAndReset = function (e) {
+                _fireCallback(callback, e);
 
-            // we should ignore the next key up if the action is key down
-            // or keypress.  this is so if you finish a sequence and
-            // release the key the final key will not trigger a keyup
-            if (action !== 'keyup') {
-                _ignore_next_keyup = _characterFromEvent(e);
-            }
+                // we should ignore the next key up if the action is key down
+                // or keypress.  this is so if you finish a sequence and
+                // release the key the final key will not trigger a keyup
+                if (action !== 'keyup') {
+                    _ignore_next_keyup = _characterFromEvent(e);
+                }
 
-            // weird race condition if a sequence ends with the key
-            // another sequence begins with
-            setTimeout(_resetSequences, 10);
-        },
-        i;
+                // weird race condition if a sequence ends with the key
+                // another sequence begins with
+                setTimeout(_resetSequences, 10);
+            },
+            i;
 
         // loop through keys one at a time and bind the appropriate callback
         // function.  for any key leading up to the final one it should
         // increase the sequence. after the final, it should reset all sequences
         for (i = 0; i < keys.length; ++i) {
-            _bindSingle(keys[i], i < keys.length - 1 ? _increaseSequence: _callbackAndReset, action, combo, i);
+            _bindSingle(keys[i], i < keys.length - 1 ? _increaseSequence : _callbackAndReset, action, combo, i);
         }
     }
 
@@ -767,10 +767,10 @@ var latestcode = '';
         combination = combination.replace(/\s+/g, ' ');
 
         var sequence = combination.split(' '),
-        i,
-        key,
-        keys,
-        modifiers = [];
+            i,
+            key,
+            keys,
+            modifiers = [];
 
         // if this pattern is a sequence of keys then run through this method
         // to reprocess each pattern one key at a time
@@ -818,7 +818,7 @@ var latestcode = '';
         _getMatches(key, modifiers, {
             type: action
         },
-        !sequence_name, combination);
+            !sequence_name, combination);
 
         // add this call back to the array
         // if it is a sequence put it at the beginning
@@ -826,7 +826,7 @@ var latestcode = '';
         //
         // this is important because the way these are processed expects
         // the sequence ones to come first
-        _callbacks[key][sequence_name ? 'unshift': 'push']({
+        _callbacks[key][sequence_name ? 'unshift' : 'push']({
             callback: callback,
             modifiers: modifiers,
             action: action,
@@ -871,8 +871,8 @@ var latestcode = '';
          * @param {string=} action - 'keypress', 'keydown', or 'keyup'
          * @returns void
          */
-        bind: function(keys, callback, action) {
-            _bindMultiple(keys instanceof Array ? keys: [keys], callback, action);
+        bind: function (keys, callback, action) {
+            _bindMultiple(keys instanceof Array ? keys : [keys], callback, action);
             _direct_map[keys + ':' + action] = callback;
             return this;
         },
@@ -894,12 +894,12 @@ var latestcode = '';
          * @param {string} action
          * @returns void
          */
-        unbind: function(keys, action) {
+        unbind: function (keys, action) {
             if (_direct_map[keys + ':' + action]) {
                 delete _direct_map[keys + ':' + action];
                 this.bind(keys,
-                function() {},
-                action);
+                    function () { },
+                    action);
             }
             return this;
         },
@@ -911,7 +911,7 @@ var latestcode = '';
          * @param {string=} action
          * @returns void
          */
-        trigger: function(keys, action) {
+        trigger: function (keys, action) {
             _direct_map[keys + ':' + action]();
             return this;
         },
@@ -923,7 +923,7 @@ var latestcode = '';
          *
          * @returns void
          */
-        reset: function() {
+        reset: function () {
             _callbacks = {};
             _direct_map = {};
             return this;
@@ -936,17 +936,17 @@ var latestcode = '';
     // expose mousetrap as an AMD module
     if (typeof define == 'function' && define.amd) {
         define('mousetrap',
-        function() {
-            return mousetrap;
-        });
+            function () {
+                return mousetrap;
+            });
     }
 })();
 
 // Spectrum Colorpicker v1.1.0
-  // https://github.com/bgrins/spectrum
-  // Author: Brian Grinstead
-  // License: MIT
-(function(window, $, undefined) {
+// https://github.com/bgrins/spectrum
+// Author: Brian Grinstead
+// License: MIT
+(function (window, $, undefined) {
     var defaultOpts = {
 
         // Callbacks
@@ -979,39 +979,39 @@ var latestcode = '';
         selectionPalette: [],
         disabled: false
     },
-    spectrums = [],
-    IE = !!/msie/i.exec(window.navigator.userAgent),
-    rgbaSupport = (function() {
-        function contains(str, substr) {
-            return !! ~ ('' + str).indexOf(substr);
-        }
-
-        var elem = document.createElement('div');
-        var style = elem.style;
-        style.cssText = 'background-color:rgba(0,0,0,.5)';
-        return contains(style.backgroundColor, 'rgba') || contains(style.backgroundColor, 'hsla');
-    })(),
-    replaceInput = ["<div class='sp-replacer'>", "<div class='sp-preview'><div class='sp-preview-inner'></div></div>", "<div class='sp-dd'>&#9660;</div>", "</div>"].join(''),
-    markup = (function() {
-
-        // IE does not support gradients with multiple stops, so we need to simulate
-        //  that for the rainbow slider with 8 divs that each have a single gradient
-        var gradientFix = "";
-        if (IE) {
-            for (var i = 1; i <= 6; i++) {
-                gradientFix += "<div class='sp-" + i + "'></div>";
+        spectrums = [],
+        IE = !!/msie/i.exec(window.navigator.userAgent),
+        rgbaSupport = (function () {
+            function contains(str, substr) {
+                return !! ~('' + str).indexOf(substr);
             }
-        }
 
-        return ["<div class='sp-container sp-hidden'>", "<div class='sp-palette-container'>", "<div class='sp-palette sp-thumb sp-cf'></div>", "</div>", "<div class='sp-picker-container'>", "<div class='sp-top sp-cf'>", "<div class='sp-fill'></div>", "<div class='sp-top-inner'>", "<div class='sp-color'>", "<div class='sp-sat'>", "<div class='sp-val'>", "<div class='sp-dragger'></div>", "</div>", "</div>", "</div>", "<div class='sp-hue'>", "<div class='sp-slider'></div>", gradientFix, "</div>", "</div>", "<div class='sp-alpha'><div class='sp-alpha-inner'><div class='sp-alpha-handle'></div></div></div>", "</div>", "<div class='sp-input-container sp-cf'>", "<input class='sp-input' type='text' spellcheck='false'  />", "</div>", "<div class='sp-initial sp-thumb sp-cf'></div>", "<div class='sp-button-container sp-cf'>", "<a class='sp-cancel' href='#'></a>", "<button class='sp-choose'></button>", "</div>", "</div>", "</div>"].join("");
-    })();
+            var elem = document.createElement('div');
+            var style = elem.style;
+            style.cssText = 'background-color:rgba(0,0,0,.5)';
+            return contains(style.backgroundColor, 'rgba') || contains(style.backgroundColor, 'hsla');
+        })(),
+        replaceInput = ["<div class='sp-replacer'>", "<div class='sp-preview'><div class='sp-preview-inner'></div></div>", "<div class='sp-dd'>&#9660;</div>", "</div>"].join(''),
+        markup = (function () {
+
+            // IE does not support gradients with multiple stops, so we need to simulate
+            //  that for the rainbow slider with 8 divs that each have a single gradient
+            var gradientFix = "";
+            if (IE) {
+                for (var i = 1; i <= 6; i++) {
+                    gradientFix += "<div class='sp-" + i + "'></div>";
+                }
+            }
+
+            return ["<div class='sp-container sp-hidden'>", "<div class='sp-palette-container'>", "<div class='sp-palette sp-thumb sp-cf'></div>", "</div>", "<div class='sp-picker-container'>", "<div class='sp-top sp-cf'>", "<div class='sp-fill'></div>", "<div class='sp-top-inner'>", "<div class='sp-color'>", "<div class='sp-sat'>", "<div class='sp-val'>", "<div class='sp-dragger'></div>", "</div>", "</div>", "</div>", "<div class='sp-hue'>", "<div class='sp-slider'></div>", gradientFix, "</div>", "</div>", "<div class='sp-alpha'><div class='sp-alpha-inner'><div class='sp-alpha-handle'></div></div></div>", "</div>", "<div class='sp-input-container sp-cf'>", "<input class='sp-input' type='text' spellcheck='false'  />", "</div>", "<div class='sp-initial sp-thumb sp-cf'></div>", "<div class='sp-button-container sp-cf'>", "<a class='sp-cancel' href='#'></a>", "<button class='sp-choose'></button>", "</div>", "</div>", "</div>"].join("");
+        })();
 
     function paletteTemplate(p, color, className) {
         var html = [];
         for (var i = 0; i < p.length; i++) {
             var tiny = tinycolor(p[i]);
-            var c = tiny.toHsl().l < 0.5 ? "sp-thumb-el sp-thumb-dark": "sp-thumb-el sp-thumb-light";
-            c += (tinycolor.equals(color, p[i])) ? " sp-thumb-active": "";
+            var c = tiny.toHsl().l < 0.5 ? "sp-thumb-el sp-thumb-dark" : "sp-thumb-el sp-thumb-light";
+            c += (tinycolor.equals(color, p[i])) ? " sp-thumb-active" : "";
 
             var swatchStyle = rgbaSupport ? ("background-color:" + tiny.toRgbString()) : "filter:" + tiny.toFilter();
             html.push('<span title="' + tiny.toRgbString() + '" data-color="' + tiny.toRgbString() + '" class="' + c + '"><span class="sp-thumb-inner" style="' + swatchStyle + ';" /></span>');
@@ -1029,7 +1029,7 @@ var latestcode = '';
 
     function instanceOptions(o, callbackContext) {
         var opts = $.extend({},
-        defaultOpts, o);
+            defaultOpts, o);
         opts.callbacks = {
             'move': bind(opts.move, callbackContext),
             'change': bind(opts.change, callbackContext),
@@ -1044,58 +1044,58 @@ var latestcode = '';
     function spectrum(element, o) {
 
         var opts = instanceOptions(o, element),
-        flat = opts.flat,
-        showSelectionPalette = opts.showSelectionPalette,
-        localStorageKey = opts.localStorageKey,
-        theme = opts.theme,
-        callbacks = opts.callbacks,
-        resize = throttle(reflow, 10),
-        visible = false,
-        dragWidth = 0,
-        dragHeight = 0,
-        dragHelperHeight = 0,
-        slideHeight = 0,
-        slideWidth = 0,
-        alphaWidth = 0,
-        alphaSlideHelperWidth = 0,
-        slideHelperHeight = 0,
-        currentHue = 0,
-        currentSaturation = 0,
-        currentValue = 0,
-        currentAlpha = 1,
-        palette = opts.palette.slice(0),
-        paletteArray = $.isArray(palette[0]) ? palette: [palette],
-        selectionPalette = opts.selectionPalette.slice(0),
-        maxSelectionSize = opts.maxSelectionSize,
-        draggingClass = "sp-dragging";
+            flat = opts.flat,
+            showSelectionPalette = opts.showSelectionPalette,
+            localStorageKey = opts.localStorageKey,
+            theme = opts.theme,
+            callbacks = opts.callbacks,
+            resize = throttle(reflow, 10),
+            visible = false,
+            dragWidth = 0,
+            dragHeight = 0,
+            dragHelperHeight = 0,
+            slideHeight = 0,
+            slideWidth = 0,
+            alphaWidth = 0,
+            alphaSlideHelperWidth = 0,
+            slideHelperHeight = 0,
+            currentHue = 0,
+            currentSaturation = 0,
+            currentValue = 0,
+            currentAlpha = 1,
+            palette = opts.palette.slice(0),
+            paletteArray = $.isArray(palette[0]) ? palette : [palette],
+            selectionPalette = opts.selectionPalette.slice(0),
+            maxSelectionSize = opts.maxSelectionSize,
+            draggingClass = "sp-dragging";
 
         var doc = element.ownerDocument,
-        body = doc.body,
-        boundElement = $(element),
-        disabled = false,
-        container = $(markup, doc).addClass(theme),
-        dragger = container.find(".sp-color"),
-        dragHelper = container.find(".sp-dragger"),
-        slider = container.find(".sp-hue"),
-        slideHelper = container.find(".sp-slider"),
-        alphaSliderInner = container.find(".sp-alpha-inner"),
-        alphaSlider = container.find(".sp-alpha"),
-        alphaSlideHelper = container.find(".sp-alpha-handle"),
-        textInput = container.find(".sp-input"),
-        paletteContainer = container.find(".sp-palette"),
-        initialColorContainer = container.find(".sp-initial"),
-        cancelButton = container.find(".sp-cancel"),
-        chooseButton = container.find(".sp-choose"),
-        isInput = boundElement.is("input"),
-        shouldReplace = isInput && !flat,
-        replacer = (shouldReplace) ? $(replaceInput).addClass(theme).addClass(opts.className) : $([]),
-        offsetElement = (shouldReplace) ? replacer: boundElement,
-        previewElement = replacer.find(".sp-preview-inner"),
-        initialColor = opts.color || (isInput && boundElement.val()),
-        colorOnShow = false,
-        preferredFormat = opts.preferredFormat,
-        currentPreferredFormat = preferredFormat,
-        clickoutFiresChange = !opts.showButtons || opts.clickoutFiresChange;
+            body = doc.body,
+            boundElement = $(element),
+            disabled = false,
+            container = $(markup, doc).addClass(theme),
+            dragger = container.find(".sp-color"),
+            dragHelper = container.find(".sp-dragger"),
+            slider = container.find(".sp-hue"),
+            slideHelper = container.find(".sp-slider"),
+            alphaSliderInner = container.find(".sp-alpha-inner"),
+            alphaSlider = container.find(".sp-alpha"),
+            alphaSlideHelper = container.find(".sp-alpha-handle"),
+            textInput = container.find(".sp-input"),
+            paletteContainer = container.find(".sp-palette"),
+            initialColorContainer = container.find(".sp-initial"),
+            cancelButton = container.find(".sp-cancel"),
+            chooseButton = container.find(".sp-choose"),
+            isInput = boundElement.is("input"),
+            shouldReplace = isInput && !flat,
+            replacer = (shouldReplace) ? $(replaceInput).addClass(theme).addClass(opts.className) : $([]),
+            offsetElement = (shouldReplace) ? replacer : boundElement,
+            previewElement = replacer.find(".sp-preview-inner"),
+            initialColor = opts.color || (isInput && boundElement.val()),
+            colorOnShow = false,
+            preferredFormat = opts.preferredFormat,
+            currentPreferredFormat = preferredFormat,
+            clickoutFiresChange = !opts.showButtons || opts.clickoutFiresChange;
 
         function applyOptions() {
 
@@ -1142,29 +1142,29 @@ var latestcode = '';
                     if (oldPalette.length > 1) {
                         delete window.localStorage[localStorageKey];
                         $.each(oldPalette,
-                        function(i, c) {
-                            addColorToSelectionPalette(c);
-                        });
+                            function (i, c) {
+                                addColorToSelectionPalette(c);
+                            });
                     }
-                } catch(e) {}
+                } catch (e) { }
 
                 try {
                     selectionPalette = window.localStorage[localStorageKey].split(";");
-                } catch(e) {}
+                } catch (e) { }
             }
 
             offsetElement.bind("click.spectrum touchstart.spectrum",
-            function(e) {
-                if (!disabled) {
-                    toggle();
-                }
+                function (e) {
+                    if (!disabled) {
+                        toggle();
+                    }
 
-                e.stopPropagation();
+                    e.stopPropagation();
 
-                if (!$(e.target).is("input")) {
-                    e.preventDefault();
-                }
-            });
+                    if (!$(e.target).is("input")) {
+                        e.preventDefault();
+                    }
+                });
 
             if (boundElement.is(":disabled") || (opts.disabled === true)) {
                 disable();
@@ -1176,10 +1176,10 @@ var latestcode = '';
             // Handle user typed input
             textInput.change(setFromTextInput);
             textInput.bind("paste",
-            function() {
-                setTimeout(setFromTextInput, 1);
-            });
-            textInput.keydown(function(e) {
+                function () {
+                    setTimeout(setFromTextInput, 1);
+                });
+            textInput.keydown(function (e) {
                 if (e.keyCode == 13) {
                     setFromTextInput();
                 }
@@ -1187,50 +1187,50 @@ var latestcode = '';
 
             cancelButton.text(opts.cancelText);
             cancelButton.bind("click.spectrum",
-            function(e) {
-                e.stopPropagation();
-                e.preventDefault();
-                hide("cancel");
-            });
+                function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    hide("cancel");
+                });
 
             chooseButton.text(opts.chooseText);
             chooseButton.bind("click.spectrum",
-            function(e) {
-                e.stopPropagation();
-                e.preventDefault();
+                function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
 
-                if (isValid()) {
-                    updateOriginalInput(true);
-                    hide();
-                }
-            });
+                    if (isValid()) {
+                        updateOriginalInput(true);
+                        hide();
+                    }
+                });
 
             draggable(alphaSlider,
-            function(dragX, dragY, e) {
-                currentAlpha = (dragX / alphaWidth);
-                if (e.shiftKey) {
-                    currentAlpha = Math.round(currentAlpha * 10) / 10;
-                }
+                function (dragX, dragY, e) {
+                    currentAlpha = (dragX / alphaWidth);
+                    if (e.shiftKey) {
+                        currentAlpha = Math.round(currentAlpha * 10) / 10;
+                    }
 
-                move();
-            });
+                    move();
+                });
 
             draggable(slider,
-            function(dragX, dragY) {
-                currentHue = parseFloat(dragY / slideHeight);
-                move();
-            },
-            dragStart, dragStop);
+                function (dragX, dragY) {
+                    currentHue = parseFloat(dragY / slideHeight);
+                    move();
+                },
+                dragStart, dragStop);
 
             draggable(dragger,
-            function(dragX, dragY) {
-                currentSaturation = parseFloat(dragX / dragWidth);
-                currentValue = parseFloat((dragHeight - dragY) / dragHeight);
-                move();
-            },
-            dragStart, dragStop);
+                function (dragX, dragY) {
+                    currentSaturation = parseFloat(dragX / dragWidth);
+                    currentValue = parseFloat((dragHeight - dragY) / dragHeight);
+                    move();
+                },
+                dragStart, dragStop);
 
-            if ( !! initialColor) {
+            if (!!initialColor) {
                 set(initialColor);
 
                 // In case color was black - update the preview UI and set the format
@@ -1261,12 +1261,12 @@ var latestcode = '';
                 return false;
             }
 
-            var paletteEvent = IE ? "mousedown.spectrum": "click.spectrum touchstart.spectrum";
+            var paletteEvent = IE ? "mousedown.spectrum" : "click.spectrum touchstart.spectrum";
             paletteContainer.delegate(".sp-thumb-el", paletteEvent, palletElementClick);
             initialColorContainer.delegate(".sp-thumb-el:nth-child(1)", paletteEvent, {
                 ignore: true
             },
-            palletElementClick);
+                palletElementClick);
         }
         function addColorToSelectionPalette(color) {
             if (showSelectionPalette) {
@@ -1281,7 +1281,7 @@ var latestcode = '';
                 if (localStorageKey && window.localStorage) {
                     try {
                         window.localStorage[localStorageKey] = selectionPalette.join(";");
-                    } catch(e) {}
+                    } catch (e) { }
                 }
             }
         }
@@ -1317,9 +1317,9 @@ var latestcode = '';
             var currentColor = get();
 
             var html = $.map(paletteArray,
-            function(palette, i) {
-                return paletteTemplate(palette, currentColor, "sp-palette-row sp-palette-row-" + i);
-            });
+                function (palette, i) {
+                    return paletteTemplate(palette, currentColor, "sp-palette-row sp-palette-row-" + i);
+                });
 
             if (selectionPalette) {
                 html.push(paletteTemplate(getUniqueSelectionPalette(), currentColor, "sp-palette-row sp-palette-row-selection"));
@@ -1456,12 +1456,12 @@ var latestcode = '';
                 v: currentValue,
                 a: Math.round(currentAlpha * 100) / 100
             },
-            {
-                format: opts.format || currentPreferredFormat
-            });
+                {
+                    format: opts.format || currentPreferredFormat
+                });
         }
         function isValid() {
-            return ! textInput.hasClass("sp-validation-error");
+            return !textInput.hasClass("sp-validation-error");
             //
         }
         function move() {
@@ -1495,8 +1495,8 @@ var latestcode = '';
             var realColor = get({
                 format: format
             }),
-            realHex = realColor.toHexString(),
-            realRgb = realColor.toRgbString();
+                realHex = realColor.toHexString(),
+                realRgb = realColor.toRgbString();
 
             // Update the replaced elements background color (with actual selected color)
             if (rgbaSupport || realColor.alpha === 1) {
@@ -1516,7 +1516,7 @@ var latestcode = '';
                     alphaSliderInner.css("filter", tinycolor(realAlpha).toFilter({
                         gradientType: 1
                     },
-                    realHex));
+                        realHex));
                 } else {
                     alphaSliderInner.css("background", "-webkit-" + gradient);
                     alphaSliderInner.css("background", "-moz-" + gradient);
@@ -1543,8 +1543,8 @@ var latestcode = '';
             // Where to show the little circle in that displays your current selected color
             var dragX = s * dragWidth;
             var dragY = dragHeight - (v * dragHeight);
-            dragX = Math.max( - dragHelperHeight, Math.min(dragWidth - dragHelperHeight, dragX - dragHelperHeight));
-            dragY = Math.max( - dragHelperHeight, Math.min(dragHeight - dragHelperHeight, dragY - dragHelperHeight));
+            dragX = Math.max(- dragHelperHeight, Math.min(dragWidth - dragHelperHeight, dragX - dragHelperHeight));
+            dragY = Math.max(- dragHelperHeight, Math.min(dragHeight - dragHelperHeight, dragY - dragHelperHeight));
             dragHelper.css({
                 "top": dragY,
                 "left": dragX
@@ -1605,7 +1605,7 @@ var latestcode = '';
         function option(optionName, optionValue) {
             if (optionName === undefined) {
                 return $.extend({},
-                opts);
+                    opts);
             }
             if (optionValue === undefined) {
                 return opts[optionName];
@@ -1635,7 +1635,7 @@ var latestcode = '';
             option: option,
             enable: enable,
             disable: disable,
-            set: function(c) {
+            set: function (c) {
                 set(c);
                 updateOriginalInput();
             },
@@ -1674,7 +1674,7 @@ var latestcode = '';
     /**
     * noop - do nothing
     */
-    function noop() {}
+    function noop() { }
 
     /**
     * stopPropagation - makes the code only doing this a little easier to read in line
@@ -1691,7 +1691,7 @@ var latestcode = '';
     function bind(func, obj) {
         var slice = Array.prototype.slice;
         var args = slice.call(arguments, 2);
-        return function() {
+        return function () {
             return func.apply(obj, args.concat(slice.call(arguments)));
         };
     }
@@ -1702,11 +1702,11 @@ var latestcode = '';
     */
     function draggable(element, onmove, onstart, onstop) {
         onmove = onmove ||
-        function() {};
+            function () { };
         onstart = onstart ||
-        function() {};
+            function () { };
         onstop = onstop ||
-        function() {};
+            function () { };
         var doc = element.ownerDocument || document;
         var dragging = false;
         var offset = {};
@@ -1717,8 +1717,8 @@ var latestcode = '';
         var duringDragEvents = {};
         duringDragEvents["selectstart"] = prevent;
         duringDragEvents["dragstart"] = prevent;
-        duringDragEvents[(hasTouch ? "touchmove": "mousemove")] = move;
-        duringDragEvents[(hasTouch ? "touchend": "mouseup")] = stop;
+        duringDragEvents[(hasTouch ? "touchmove" : "mousemove")] = move;
+        duringDragEvents[(hasTouch ? "touchend" : "mouseup")] = stop;
 
         function prevent(e) {
             if (e.stopPropagation) {
@@ -1737,8 +1737,8 @@ var latestcode = '';
                 }
 
                 var touches = e.originalEvent.touches;
-                var pageX = touches ? touches[0].pageX: e.pageX;
-                var pageY = touches ? touches[0].pageY: e.pageY;
+                var pageX = touches ? touches[0].pageX : e.pageX;
+                var pageY = touches ? touches[0].pageY : e.pageY;
 
                 var dragX = Math.max(0, Math.min(pageX - offset.left, maxWidth));
                 var dragY = Math.max(0, Math.min(pageY - offset.top, maxHeight));
@@ -1782,14 +1782,14 @@ var latestcode = '';
             dragging = false;
         }
 
-        $(element).bind(hasTouch ? "touchstart": "mousedown", start);
+        $(element).bind(hasTouch ? "touchstart" : "mousedown", start);
     }
     function throttle(func, wait, debounce) {
         var timeout;
-        return function() {
+        return function () {
             var context = this,
-            args = arguments;
-            var throttler = function() {
+                args = arguments;
+            var throttler = function () {
                 timeout = null;
                 func.apply(context, args);
             };
@@ -1802,14 +1802,14 @@ var latestcode = '';
     * Define a jQuery plugin
     */
     var dataID = "spectrum.id";
-    $.fn.spectrum = function(opts, extra) {
+    $.fn.spectrum = function (opts, extra) {
 
         if (typeof opts == "string") {
 
             var returnValue = this;
             var args = Array.prototype.slice.call(arguments, 1);
 
-            this.each(function() {
+            this.each(function () {
                 var spect = spectrums[$(this).data(dataID)];
                 if (spect) {
 
@@ -1837,7 +1837,7 @@ var latestcode = '';
         }
 
         // Initializing a new instance of spectrum
-        return this.spectrum("destroy").each(function() {
+        return this.spectrum("destroy").each(function () {
             var spect = spectrum(this, opts);
             $(this).data(dataID, spect.id);
         });
@@ -1852,7 +1852,7 @@ var latestcode = '';
     $.spectrum.localization = {};
     $.spectrum.palettes = {};
 
-    $.fn.spectrum.processNativeColorInputs = function() {
+    $.fn.spectrum.processNativeColorInputs = function () {
         var colorInput = $("<input type='color' value='!' />")[0];
         var supportsColor = colorInput.type === "color" && colorInput.value != "!";
 
@@ -1865,20 +1865,20 @@ var latestcode = '';
     // TinyColor v0.9.14
     // https://github.com/bgrins/TinyColor
     // 2013-02-24, Brian Grinstead, MIT License
-    (function(root) {
+    (function (root) {
 
         var trimLeft = /^[\s,#]+/,
-        trimRight = /\s+$/,
-        tinyCounter = 0,
-        math = Math,
-        mathRound = math.round,
-        mathMin = math.min,
-        mathMax = math.max,
-        mathRandom = math.random;
+            trimRight = /\s+$/,
+            tinyCounter = 0,
+            math = Math,
+            mathRound = math.round,
+            mathMin = math.min,
+            mathMax = math.max,
+            mathRandom = math.random;
 
         function tinycolor(color, opts) {
 
-            color = (color) ? color: '';
+            color = (color) ? color : '';
             opts = opts || {};
 
             // If input is already a tinycolor, return itself
@@ -1887,11 +1887,11 @@ var latestcode = '';
             }
             var rgb = inputToRGB(color);
             var r = rgb.r,
-            g = rgb.g,
-            b = rgb.b,
-            a = rgb.a,
-            roundA = mathRound(100 * a) / 100,
-            format = opts.format || rgb.format;
+                g = rgb.g,
+                b = rgb.b,
+                a = rgb.a,
+                roundA = mathRound(100 * a) / 100,
+                format = opts.format || rgb.format;
 
             // Don't let the range of [0,255] come back in [0,1].
             // Potentially lose a little bit of precision here, but will fix issues where
@@ -1912,7 +1912,7 @@ var latestcode = '';
                 format: format,
                 _tc_id: tinyCounter++,
                 alpha: a,
-                toHsv: function() {
+                toHsv: function () {
                     var hsv = rgbToHsv(r, g, b);
                     return {
                         h: hsv.h * 360,
@@ -1921,14 +1921,14 @@ var latestcode = '';
                         a: a
                     };
                 },
-                toHsvString: function() {
+                toHsvString: function () {
                     var hsv = rgbToHsv(r, g, b);
                     var h = mathRound(hsv.h * 360),
-                    s = mathRound(hsv.s * 100),
-                    v = mathRound(hsv.v * 100);
-                    return (a == 1) ? "hsv(" + h + ", " + s + "%, " + v + "%)": "hsva(" + h + ", " + s + "%, " + v + "%, " + roundA + ")";
+                        s = mathRound(hsv.s * 100),
+                        v = mathRound(hsv.v * 100);
+                    return (a == 1) ? "hsv(" + h + ", " + s + "%, " + v + "%)" : "hsva(" + h + ", " + s + "%, " + v + "%, " + roundA + ")";
                 },
-                toHsl: function() {
+                toHsl: function () {
                     var hsl = rgbToHsl(r, g, b);
                     return {
                         h: hsl.h * 360,
@@ -1937,20 +1937,20 @@ var latestcode = '';
                         a: a
                     };
                 },
-                toHslString: function() {
+                toHslString: function () {
                     var hsl = rgbToHsl(r, g, b);
                     var h = mathRound(hsl.h * 360),
-                    s = mathRound(hsl.s * 100),
-                    l = mathRound(hsl.l * 100);
-                    return (a == 1) ? "hsl(" + h + ", " + s + "%, " + l + "%)": "hsla(" + h + ", " + s + "%, " + l + "%, " + roundA + ")";
+                        s = mathRound(hsl.s * 100),
+                        l = mathRound(hsl.l * 100);
+                    return (a == 1) ? "hsl(" + h + ", " + s + "%, " + l + "%)" : "hsla(" + h + ", " + s + "%, " + l + "%, " + roundA + ")";
                 },
-                toHex: function(allow3Char) {
+                toHex: function (allow3Char) {
                     return rgbToHex(r, g, b, allow3Char);
                 },
-                toHexString: function(allow3Char) {
+                toHexString: function (allow3Char) {
                     return '#' + rgbToHex(r, g, b, allow3Char);
                 },
-                toRgb: function() {
+                toRgb: function () {
                     return {
                         r: mathRound(r),
                         g: mathRound(g),
@@ -1958,10 +1958,10 @@ var latestcode = '';
                         a: a
                     };
                 },
-                toRgbString: function() {
-                    return (a == 1) ? "rgb(" + mathRound(r) + ", " + mathRound(g) + ", " + mathRound(b) + ")": "rgba(" + mathRound(r) + ", " + mathRound(g) + ", " + mathRound(b) + ", " + roundA + ")";
+                toRgbString: function () {
+                    return (a == 1) ? "rgb(" + mathRound(r) + ", " + mathRound(g) + ", " + mathRound(b) + ")" : "rgba(" + mathRound(r) + ", " + mathRound(g) + ", " + mathRound(b) + ", " + roundA + ")";
                 },
-                toPercentageRgb: function() {
+                toPercentageRgb: function () {
                     return {
                         r: mathRound(bound01(r, 255) * 100) + "%",
                         g: mathRound(bound01(g, 255) * 100) + "%",
@@ -1969,18 +1969,18 @@ var latestcode = '';
                         a: a
                     };
                 },
-                toPercentageRgbString: function() {
-                    return (a == 1) ? "rgb(" + mathRound(bound01(r, 255) * 100) + "%, " + mathRound(bound01(g, 255) * 100) + "%, " + mathRound(bound01(b, 255) * 100) + "%)": "rgba(" + mathRound(bound01(r, 255) * 100) + "%, " + mathRound(bound01(g, 255) * 100) + "%, " + mathRound(bound01(b, 255) * 100) + "%, " + roundA + ")";
+                toPercentageRgbString: function () {
+                    return (a == 1) ? "rgb(" + mathRound(bound01(r, 255) * 100) + "%, " + mathRound(bound01(g, 255) * 100) + "%, " + mathRound(bound01(b, 255) * 100) + "%)" : "rgba(" + mathRound(bound01(r, 255) * 100) + "%, " + mathRound(bound01(g, 255) * 100) + "%, " + mathRound(bound01(b, 255) * 100) + "%, " + roundA + ")";
                 },
-                toName: function() {
+                toName: function () {
                     return hexNames[rgbToHex(r, g, b, true)] || false;
                 },
-                toFilter: function(secondColor) {
+                toFilter: function (secondColor) {
                     var hex = rgbToHex(r, g, b);
                     var secondHex = hex;
                     var alphaHex = Math.round(parseFloat(a) * 255).toString(16);
                     var secondAlphaHex = alphaHex;
-                    var gradientType = opts && opts.gradientType ? "GradientType = 1, ": "";
+                    var gradientType = opts && opts.gradientType ? "GradientType = 1, " : "";
 
                     if (secondColor) {
                         var s = tinycolor(secondColor);
@@ -1990,7 +1990,7 @@ var latestcode = '';
 
                     return "progid:DXImageTransform.Microsoft.gradient(" + gradientType + "startColorstr=#" + pad2(alphaHex) + hex + ",endColorstr=#" + pad2(secondAlphaHex) + secondHex + ")";
                 },
-                toString: function(format) {
+                toString: function (format) {
                     format = format || this.format;
                     var formattedString = false;
                     if (format === "rgb") {
@@ -2022,7 +2022,7 @@ var latestcode = '';
 
         // If input is an object, force 1 into "1.0" to handle ratios properly
         // String input requires "1.0" as input, so 1 will be treated as 1
-        tinycolor.fromRatio = function(color, opts) {
+        tinycolor.fromRatio = function (color, opts) {
             if (typeof color == "object") {
                 var newColor = {};
                 for (var i in color) {
@@ -2073,7 +2073,7 @@ var latestcode = '';
                 if (color.hasOwnProperty("r") && color.hasOwnProperty("g") && color.hasOwnProperty("b")) {
                     rgb = rgbToRgb(color.r, color.g, color.b);
                     ok = true;
-                    format = String(color.r).substr( - 1) === "%" ? "prgb": "rgb";
+                    format = String(color.r).substr(- 1) === "%" ? "prgb" : "rgb";
                 } else if (color.hasOwnProperty("h") && color.hasOwnProperty("s") && color.hasOwnProperty("v")) {
                     color.s = convertToPercentage(color.s);
                     color.v = convertToPercentage(color.v);
@@ -2138,7 +2138,7 @@ var latestcode = '';
             b = bound01(b, 255);
 
             var max = mathMax(r, g, b),
-            min = mathMin(r, g, b);
+                min = mathMin(r, g, b);
             var h, s, l = (max + min) / 2;
 
             if (max == min) {
@@ -2147,15 +2147,15 @@ var latestcode = '';
                 var d = max - min;
                 s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
                 switch (max) {
-                case r:
-                    h = (g - b) / d + (g < b ? 6 : 0);
-                    break;
-                case g:
-                    h = (b - r) / d + 2;
-                    break;
-                case b:
-                    h = (r - g) / d + 4;
-                    break;
+                    case r:
+                        h = (g - b) / d + (g < b ? 6 : 0);
+                        break;
+                    case g:
+                        h = (b - r) / d + 2;
+                        break;
+                    case b:
+                        h = (r - g) / d + 4;
+                        break;
                 }
 
                 h /= 6;
@@ -2216,7 +2216,7 @@ var latestcode = '';
             b = bound01(b, 255);
 
             var max = mathMax(r, g, b),
-            min = mathMin(r, g, b);
+                min = mathMin(r, g, b);
             var h, s, v = max;
 
             var d = max - min;
@@ -2226,15 +2226,15 @@ var latestcode = '';
                 h = 0; // achromatic
             } else {
                 switch (max) {
-                case r:
-                    h = (g - b) / d + (g < b ? 6 : 0);
-                    break;
-                case g:
-                    h = (b - r) / d + 2;
-                    break;
-                case b:
-                    h = (r - g) / d + 4;
-                    break;
+                    case r:
+                        h = (g - b) / d + (g < b ? 6 : 0);
+                        break;
+                    case g:
+                        h = (b - r) / d + 2;
+                        break;
+                    case b:
+                        h = (r - g) / d + 4;
+                        break;
                 }
                 h /= 6;
             }
@@ -2256,14 +2256,14 @@ var latestcode = '';
             v = bound01(v, 100);
 
             var i = math.floor(h),
-            f = h - i,
-            p = v * (1 - s),
-            q = v * (1 - f * s),
-            t = v * (1 - (1 - f) * s),
-            mod = i % 6,
-            r = [v, q, p, p, t, v][mod],
-            g = [t, v, v, q, p, p][mod],
-            b = [p, p, t, v, v, q][mod];
+                f = h - i,
+                p = v * (1 - s),
+                q = v * (1 - f * s),
+                t = v * (1 - (1 - f) * s),
+                mod = i % 6,
+                r = [v, q, p, p, t, v][mod],
+                g = [t, v, v, q, p, p][mod],
+                b = [p, p, t, v, v, q][mod];
 
             return {
                 r: r * 255,
@@ -2290,13 +2290,13 @@ var latestcode = '';
 
         // `equals`
         // Can be called with any tinycolor input
-        tinycolor.equals = function(color1, color2) {
+        tinycolor.equals = function (color1, color2) {
             if (!color1 || !color2) {
                 return false;
             }
             return tinycolor(color1).toRgbString() == tinycolor(color2).toRgbString();
         };
-        tinycolor.random = function() {
+        tinycolor.random = function () {
             return tinycolor.fromRatio({
                 r: mathRandom(),
                 g: mathRandom(),
@@ -2309,35 +2309,35 @@ var latestcode = '';
         // Thanks to less.js for some of the basics here
         // <https://github.com/cloudhead/less.js/blob/master/lib/less/functions.js>
 
-        tinycolor.desaturate = function(color, amount) {
+        tinycolor.desaturate = function (color, amount) {
             var hsl = tinycolor(color).toHsl();
             hsl.s -= ((amount || 10) / 100);
             hsl.s = clamp01(hsl.s);
             return tinycolor(hsl);
         };
-        tinycolor.saturate = function(color, amount) {
+        tinycolor.saturate = function (color, amount) {
             var hsl = tinycolor(color).toHsl();
             hsl.s += ((amount || 10) / 100);
             hsl.s = clamp01(hsl.s);
             return tinycolor(hsl);
         };
-        tinycolor.greyscale = function(color) {
+        tinycolor.greyscale = function (color) {
             return tinycolor.desaturate(color, 100);
             //
         };
-        tinycolor.lighten = function(color, amount) {
+        tinycolor.lighten = function (color, amount) {
             var hsl = tinycolor(color).toHsl();
             hsl.l += ((amount || 10) / 100);
             hsl.l = clamp01(hsl.l);
             return tinycolor(hsl);
         };
-        tinycolor.darken = function(color, amount) {
+        tinycolor.darken = function (color, amount) {
             var hsl = tinycolor(color).toHsl();
             hsl.l -= ((amount || 10) / 100);
             hsl.l = clamp01(hsl.l);
             return tinycolor(hsl);
         };
-        tinycolor.complement = function(color) {
+        tinycolor.complement = function (color) {
             var hsl = tinycolor(color).toHsl();
             hsl.h = (hsl.h + 180) % 360;
             return tinycolor(hsl);
@@ -2347,7 +2347,7 @@ var latestcode = '';
         // ---------------------
         // Thanks to jQuery xColor for some of the ideas behind these
         // <https://github.com/infusion/jQuery-xcolor/blob/master/jquery.xcolor.js>
-        tinycolor.triad = function(color) {
+        tinycolor.triad = function (color) {
             var hsl = tinycolor(color).toHsl();
             var h = hsl.h;
             return [tinycolor(color), tinycolor({
@@ -2360,7 +2360,7 @@ var latestcode = '';
                 l: hsl.l
             })];
         };
-        tinycolor.tetrad = function(color) {
+        tinycolor.tetrad = function (color) {
             var hsl = tinycolor(color).toHsl();
             var h = hsl.h;
             return [tinycolor(color), tinycolor({
@@ -2377,7 +2377,7 @@ var latestcode = '';
                 l: hsl.l
             })];
         };
-        tinycolor.splitcomplement = function(color) {
+        tinycolor.splitcomplement = function (color) {
             var hsl = tinycolor(color).toHsl();
             var h = hsl.h;
             return [tinycolor(color), tinycolor({
@@ -2390,7 +2390,7 @@ var latestcode = '';
                 l: hsl.l
             })];
         };
-        tinycolor.analogous = function(color, results, slices) {
+        tinycolor.analogous = function (color, results, slices) {
             results = results || 6;
             slices = slices || 30;
 
@@ -2404,12 +2404,12 @@ var latestcode = '';
             }
             return ret;
         };
-        tinycolor.monochromatic = function(color, results) {
+        tinycolor.monochromatic = function (color, results) {
             results = results || 6;
             var hsv = tinycolor(color).toHsv();
             var h = hsv.h,
-            s = hsv.s,
-            v = hsv.v;
+                s = hsv.s,
+                v = hsv.v;
             var ret = [];
             var modification = 1 / results;
 
@@ -2432,7 +2432,7 @@ var latestcode = '';
         // Analyze the 2 colors and returns an object with the following properties:
         //    `brightness`: difference in brightness between the two colors
         //    `color`: difference in color/hue between the two colors
-        tinycolor.readability = function(color1, color2) {
+        tinycolor.readability = function (color1, color2) {
             var a = tinycolor(color1).toRgb();
             var b = tinycolor(color2).toRgb();
             var brightnessA = (a.r * 299 + a.g * 587 + a.b * 114) / 1000;
@@ -2450,7 +2450,7 @@ var latestcode = '';
         // Ensure that foreground and background color combinations provide sufficient contrast.
         // *Example*
         //    tinycolor.readable("#000", "#111") => false
-        tinycolor.readable = function(color1, color2) {
+        tinycolor.readable = function (color1, color2) {
             var readability = tinycolor.readability(color1, color2);
             return readability.brightness > 125 && readability.color > 500;
         };
@@ -2460,7 +2460,7 @@ var latestcode = '';
         // colors for that base, returns the most readable color.
         // *Example*
         //    tinycolor.mostReadable("#123", ["#fff", "#000"]) => "#000"
-        tinycolor.mostReadable = function(baseColor, colorList) {
+        tinycolor.mostReadable = function (baseColor, colorList) {
             var bestColor = null;
             var bestScore = 0;
             var bestIsReadable = false;
@@ -2701,7 +2701,7 @@ var latestcode = '';
 
         // Force a hex value to have 2 characters
         function pad2(c) {
-            return c.length == 1 ? '0' + c: '' + c;
+            return c.length == 1 ? '0' + c : '' + c;
             //
         }
 
@@ -2714,7 +2714,7 @@ var latestcode = '';
             return n;
         }
 
-        var matchers = (function() {
+        var matchers = (function () {
 
             // <http://www.w3.org/TR/css3-values/#integers>
             var CSS_INTEGER = "[-\\+]?\\d+%?";
@@ -2808,7 +2808,7 @@ var latestcode = '';
                     r: parseHex(match[1]),
                     g: parseHex(match[2]),
                     b: parseHex(match[3]),
-                    format: named ? "name": "hex"
+                    format: named ? "name" : "hex"
                 };
             }
             if ((match = matchers.hex3.exec(color))) {
@@ -2816,7 +2816,7 @@ var latestcode = '';
                     r: parseHex(match[1] + '' + match[1]),
                     g: parseHex(match[2] + '' + match[2]),
                     b: parseHex(match[3] + '' + match[3]),
-                    format: named ? "name": "hex"
+                    format: named ? "name" : "hex"
                 };
             }
 
@@ -2827,17 +2827,17 @@ var latestcode = '';
 
     })(this);
 
-    $(function() {
+    $(function () {
         if ($.fn.spectrum.load) {
             $.fn.spectrum.processNativeColorInputs();
         }
     });
 
     function log() {
-        window.console && (log = Function.prototype.bind ? Function.prototype.bind.call(console.log, console) : function() {
+        window.console && (log = Function.prototype.bind ? Function.prototype.bind.call(console.log, console) : function () {
             Function.prototype.apply.call(console.log, console, arguments)
         },
-        log.apply(this, arguments))
+            log.apply(this, arguments))
     };
 })(window, jQuery);
 
@@ -2851,7 +2851,7 @@ var latestcode = '';
  *  jquery.ui.widget.js
  *  jquery.ui.mouse.js
  */
-(function($) {
+(function ($) {
 
     // Detect touch support
     $.support.touch = 'ontouchend' in document;
@@ -2862,8 +2862,8 @@ var latestcode = '';
     }
 
     var mouseProto = $.ui.mouse.prototype,
-    _mouseInit = mouseProto._mouseInit,
-    touchHandled;
+        _mouseInit = mouseProto._mouseInit,
+        touchHandled;
 
     /**
    * Simulate a mouse event based on a corresponding touch event
@@ -2880,24 +2880,24 @@ var latestcode = '';
         event.preventDefault();
 
         var touch = event.originalEvent.changedTouches[0],
-        simulatedEvent = document.createEvent('MouseEvents');
+            simulatedEvent = document.createEvent('MouseEvents');
 
         // Initialize the simulated mouse event using the touch event's coordinates
         simulatedEvent.initMouseEvent(simulatedType, // type
-        true, // bubbles                    
-        true, // cancelable                 
-        window, // view                       
-        1, // detail                     
-        touch.screenX, // screenX                    
-        touch.screenY, // screenY                    
-        touch.clientX, // clientX                    
-        touch.clientY, // clientY                    
-        false, // ctrlKey                    
-        false, // altKey                     
-        false, // shiftKey                   
-        false, // metaKey                    
-        0, // button                     
-        null // relatedTarget              
+            true, // bubbles                    
+            true, // cancelable                 
+            window, // view                       
+            1, // detail                     
+            touch.screenX, // screenX                    
+            touch.screenY, // screenY                    
+            touch.clientX, // clientX                    
+            touch.clientY, // clientY                    
+            false, // ctrlKey                    
+            false, // altKey                     
+            false, // shiftKey                   
+            false, // metaKey                    
+            0, // button                     
+            null // relatedTarget              
         );
 
         // Dispatch the simulated event to the target element
@@ -2908,7 +2908,7 @@ var latestcode = '';
    * Handle the jQuery UI widget's touchstart events
    * @param {Object} event The widget element's touchstart event
    */
-    mouseProto._touchStart = function(event) {
+    mouseProto._touchStart = function (event) {
 
         var self = this;
 
@@ -2937,7 +2937,7 @@ var latestcode = '';
    * Handle the jQuery UI widget's touchmove events
    * @param {Object} event The document's touchmove event
    */
-    mouseProto._touchMove = function(event) {
+    mouseProto._touchMove = function (event) {
 
         // Ignore event if not handled
         if (!touchHandled) {
@@ -2955,7 +2955,7 @@ var latestcode = '';
    * Handle the jQuery UI widget's touchend events
    * @param {Object} event The document's touchend event
    */
-    mouseProto._touchEnd = function(event) {
+    mouseProto._touchEnd = function (event) {
 
         // Ignore event if not handled
         if (!touchHandled) {
@@ -2985,7 +2985,7 @@ var latestcode = '';
    * translate touch events to mouse events and pass them to the widget's
    * original mouse event handling methods.
    */
-    mouseProto._mouseInit = function() {
+    mouseProto._mouseInit = function () {
 
         var self = this;
 
@@ -2997,116 +2997,116 @@ var latestcode = '';
     };
 })(jQuery);
 
-$(function() {
+$(function () {
 
     var template =
-    	'<div class="showpanel">' +
-    		'<img class="imag" src="./img/lsce.png"/><br>' +
-    		'<button class="button show-load icon-folder-open">应用</button>' +
-    	'</div>' +
+        '<div class="showpanel">' +
+        '<img class="imag" src="./img/lsce.png"/><br>' +
+        '<button class="button show-load icon-folder-open">应用</button>' +
+        '</div>' +
 
-    	// '<div class="showpanel2">' +
-    	// 	'<button class="button show-load2 icon-folder-open">发布</button>' +
-    	// '</div>' +
+        // '<div class="showpanel2">' +
+        // 	'<button class="button show-load2 icon-folder-open">发布</button>' +
+        // '</div>' +
 
-    	'<div class="panel">' +
-    		'<div class="choosepanel">' +
-    			'<button class="button show-load icon-folder-open">应用</button>' +
-    			'<button class="button close icon-cancel" title="close menu"></button>' +
-    		'</div>' +
-    		'<br>' +
-    		'<div class="menu menu-load">' +
-    			'<div class="controls">' +
+        '<div class="panel">' +
+        '<div class="choosepanel">' +
+        '<button class="button show-load icon-folder-open">应用</button>' +
+        '<button class="button close icon-cancel" title="close menu"></button>' +
+        '</div>' +
+        '<br>' +
+        '<div class="menu menu-load">' +
+        '<div class="controls">' +
     				'<form class="loadfromgist">' +
-    					'<input class="loadfromgistinput" name="loadfromgistinput" placeholder="load app from gist url" type="text" />' +
-    					'<button class="loadfromgistsubmit icon-ok" type="submit">load</button>' +
-    					'<br>' +
+        '<input class="loadfromgistinput" name="loadfromgistinput" placeholder="load app from gist url" type="text" />' +
+        '<button class="loadfromgistsubmit icon-ok" type="submit">load</button>' +
+        '<br>' +
     				'</form>' +
-    			'</div>' +
-    			'<div class="listing">' +
+        '</div>' +
+        '<div class="listing">' +
     				'<button class="button newblank icon-doc" title="new blank app">new</button>' +
     				'<div class="currentapp">' + '</div>' +
     				'<div class="localapps">' +
-    					'<h1>Saved Apps</h1>' +
+        '<h1>Saved Apps</h1>' +
     				'</div>' +
     				'<div class="examples">' +
-    					'<h1>Examples</h1>' +
+        '<h1>Examples</h1>' +
     				'</div>' +
-    			'</div>' +
-    		'</div>' +
-    	'</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
 
-    	// '<div class="panel2">' +
-    	// 	'<div class="choosepanel">' +
-    	// 		'<button class="button show-load2 icon-folder-open">发布</button>' +
-    	// 		'<button class="button close2 icon-cancel" title="close menu"></button>' +
-    	// 	'</div>' +
-    	// 	'<div class="menu menu-load2" align="center">' +
-    	// 		'<div>' +
-    	// 			'<h1>应用发布与部署</h1>' +
-    	// 		'</div>' +
-    	// 		'<div class="controls">' +
-    	// 			'<div>' +
-    	// 				'<p>SEE IP地址：<input id="ipaddr" placeholder="例如：127.0.0.1"></input></p>' +
-    	// 				'<p id="websocketstatus">未连接到服务器</p>' +
-    	// 				'<button class="btn btn-sm btn-primary" id="btn-connect" onclick="connectToServer();">连接</button>' +
-    	// 			'</div>' +
-    	// 			'<p></p>' +
-    	// 			'<div>' +
-    	// 				'<p>应用名称：<input id="graphname1" placeholder="不填后缀名"></input></p>' +
-    	// 				'<p id="releasestatus">未发布</p>' +
-    	// 				'<button class="btn btn-sm btn-primary" id="btnrelease">发布应用到SEE</button>' +
-    	// 			'</div>' +
-    	// 			'<p></p>' +
-    	// 			'<div>' +
-    	// 				'<p>应用名称：<input id="graphname2" placeholder="需要填写后缀名，如.json"></input></p>' +
-    	// 				'<p>实例编号：<input id="instanceid2"></input></p>' +
-    	// 				'<p id="runstatus">未部署</p>' +
-    	// 				'<button class="btn btn-sm btn-primary" id="btnrun">部署应用到SEE</button>' +
-    	// 			'</div>' +
-    	// 			'<p>&nbsp</p>' +
-    	// 			'<p>&nbsp</p>' +
-    	// 			'<p>&nbsp</p>' +
-    	// 			'<p><a href="#modal"><button class="btn btn-lg btn-default"><span class="glyphicon glyphicon-question-sign"></span> 需要帮助?</button></a></p>' +
-  		// 			'<script>' +
+        // '<div class="panel2">' +
+        // 	'<div class="choosepanel">' +
+        // 		'<button class="button show-load2 icon-folder-open">发布</button>' +
+        // 		'<button class="button close2 icon-cancel" title="close menu"></button>' +
+        // 	'</div>' +
+        // 	'<div class="menu menu-load2" align="center">' +
+        // 		'<div>' +
+        // 			'<h1>应用发布与部署</h1>' +
+        // 		'</div>' +
+        // 		'<div class="controls">' +
+        // 			'<div>' +
+        // 				'<p>SEE IP地址：<input id="ipaddr" placeholder="例如：127.0.0.1"></input></p>' +
+        // 				'<p id="websocketstatus">未连接到服务器</p>' +
+        // 				'<button class="btn btn-sm btn-primary" id="btn-connect" onclick="connectToServer();">连接</button>' +
+        // 			'</div>' +
+        // 			'<p></p>' +
+        // 			'<div>' +
+        // 				'<p>应用名称：<input id="graphname1" placeholder="不填后缀名"></input></p>' +
+        // 				'<p id="releasestatus">未发布</p>' +
+        // 				'<button class="btn btn-sm btn-primary" id="btnrelease">发布应用到SEE</button>' +
+        // 			'</div>' +
+        // 			'<p></p>' +
+        // 			'<div>' +
+        // 				'<p>应用名称：<input id="graphname2" placeholder="需要填写后缀名，如.json"></input></p>' +
+        // 				'<p>实例编号：<input id="instanceid2"></input></p>' +
+        // 				'<p id="runstatus">未部署</p>' +
+        // 				'<button class="btn btn-sm btn-primary" id="btnrun">部署应用到SEE</button>' +
+        // 			'</div>' +
+        // 			'<p>&nbsp</p>' +
+        // 			'<p>&nbsp</p>' +
+        // 			'<p>&nbsp</p>' +
+        // 			'<p><a href="#modal"><button class="btn btn-lg btn-default"><span class="glyphicon glyphicon-question-sign"></span> 需要帮助?</button></a></p>' +
+        // 			'<script>' +
         //     			'$("#btnrelease").click(releaseProcess);' +
 
         //     			'$("#btnrun").click(runProcess);' +
-		// 			'</script>' +
-    	// 		'</div>' +
-    	// 	'</div>' +
-    		// '<div class="remodal-bg">' +
-			// '</div>' +
-			// '<div class="remodal" data-remodal-id="modal">' +
-    		// 	'<h1>应用发布与部署</h1>' +
-    		// 	'<p>文档将在近期更新...</p>' +
-    		// 	'<br>' +
-    		// 	'<a class="remodal-confirm" href="#">OK</a>' +
-			// '</div>' +
-    	'</div>';
+        // 			'</script>' +
+        // 		'</div>' +
+        // 	'</div>' +
+        // '<div class="remodal-bg">' +
+        // '</div>' +
+        // '<div class="remodal" data-remodal-id="modal">' +
+        // 	'<h1>应用发布与部署</h1>' +
+        // 	'<p>文档将在近期更新...</p>' +
+        // 	'<br>' +
+        // 	'<a class="remodal-confirm" href="#">OK</a>' +
+        // '</div>' +
+        '</div>';
 
     var currentTemplate =
-    	'<h1>Current App</h1>' +
-    	'<div class="info">' +
-    		'<h2 title="url, click to edit" class="seturl editable"></h2>' +
-    		'<p title="title, click to edit" class="settitle editable"></p>' +
-    		'<p title="description, click to edit" class="setdescription editable"></p>' +
-    	'</div>' +
-    	'<div class="savecontrols">' +
-    		'<button class="savelocal icon-install">save local</button>' +
-    		'<button class="forklocal icon-split" title="save as... copy app and save under a new name">fork</button>' +
-    		'<button class="savegist icon-globe-1" title="save app to gist.github.com anonymously">save public</button>' +
-    		'<button class="deletelocal icon-trash" title="delete local app"></button>' +
-    	'</div>' +
-    	'<div class="permalink" title="last publicly saved version">' +
-    	'</div>';
+        '<h1>Current App</h1>' +
+        '<div class="info">' +
+        '<h2 title="url, click to edit" class="seturl editable"></h2>' +
+        '<p title="title, click to edit" class="settitle editable"></p>' +
+        '<p title="description, click to edit" class="setdescription editable"></p>' +
+        '</div>' +
+        '<div class="savecontrols">' +
+        '<button class="savelocal icon-install">save local</button>' +
+        '<button class="forklocal icon-split" title="save as... copy app and save under a new name">fork</button>' +
+        '<button class="savegist icon-globe-1" title="save app to gist.github.com anonymously">save public</button>' +
+        '<button class="deletelocal icon-trash" title="delete local app"></button>' +
+        '</div>' +
+        '<div class="permalink" title="last publicly saved version">' +
+        '</div>';
 
     // requestAnimationFrame shim from http://paulirish.com/2011/requestanimationframe-for-smart-animating/
-    window.requestAnimationFrame = (function() {
+    window.requestAnimationFrame = (function () {
         return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
-        function(callback) {
-            window.setTimeout(callback, 1000 / 60);
-        };
+            function (callback) {
+                window.setTimeout(callback, 1000 / 60);
+            };
     } ());
 
     var IframeworkView = Backbone.View.extend({
@@ -3137,7 +3137,7 @@ $(function() {
             "blur .setdescription": "setDescription",
             "blur .seturl": "setUrl"
         },
-        initialize: function() {
+        initialize: function () {
             this.render();
             $('body').prepend(this.el);
 
@@ -3147,19 +3147,19 @@ $(function() {
             // After all of the .js is loaded, this.allLoaded will be triggered to finish the init
             this.once("allLoaded", this.loadLocalApps, this);
         },
-        allLoaded: function() {
+        allLoaded: function () {
             this.trigger("allLoaded");
 
             // Start animation loop
             window.requestAnimationFrame(this.renderAnimationFrame.bind(this));
         },
-        render: function() {
+        render: function () {
             this.$el.html(this.template());
             return this;
         },
-        renderAnimationFrame: function(timestamp) {
+        renderAnimationFrame: function (timestamp) {
             // Safari doesn't pass timestamp
-            timestamp = timestamp !== undefined ? timestamp: Date.now();
+            timestamp = timestamp !== undefined ? timestamp : Date.now();
             // Queue next frame
             window.requestAnimationFrame(this.renderAnimationFrame.bind(this));
             // Hit graph, which hits nodes
@@ -3173,7 +3173,7 @@ $(function() {
         wireColors: ["#FF9292", "#00C2EE", "#DCA761", "#8BB0FF", "#96BD6D", "#E797D7", "#29C6AD"],//连线颜色
         wireColorIndex: 0,
         selectedPort: null,
-        getWireColor: function() {
+        getWireColor: function () {
             var color = this.wireColors[this.wireColorIndex];
             this.wireColorIndex++;
             if (this.wireColorIndex > this.wireColors.length - 1) {
@@ -3181,13 +3181,13 @@ $(function() {
             }
             return color;
         },
-        addMenu: function(name, html, icon) {
+        addMenu: function (name, html, icon) {
             var self = this;
             //选项卡展开页面的HTML生成
             var menu = $('<div class="menu menu-' + name + '"></div>').append(html).hide();
             this.$(".panel").append(menu);
             //LSCE界面下选项卡按钮的HTML生成
-            var showButton = $('<button class="button show-' + name + '">' + name + '</button>').click(function() {
+            var showButton = $('<button class="button show-' + name + '">' + name + '</button>').click(function () {
                 self.showPanel(name);
                 // menu.show();
             });
@@ -3198,12 +3198,12 @@ $(function() {
             //选项卡展开页面选项卡按钮的HTML生成
             this.$(".choosepanel > .close").before(showButton.clone(true));
         },
-        addMenuSection: function(name, html, parentMenu) {
+        addMenuSection: function (name, html, parentMenu) {
             //生成组件小类HTML
             var title = $("<h1>").text(name);
             this.$(".menu-" + parentMenu + " .listing").append(title, html);
         },
-        loadGraph: function(graph) {
+        loadGraph: function (graph) {
             // Load a new parent graph
             if (this.graph) {
                 this.graph.remove();
@@ -3221,7 +3221,7 @@ $(function() {
 
             return this.graph;
         },
-        showGraph: function(graph) {
+        showGraph: function (graph) {
             // Show a child graph / subgraph / macro
             if (this.shownGraph && this.shownGraph.view) {
                 this.shownGraph.view.$el.hide();
@@ -3237,7 +3237,7 @@ $(function() {
                 this.shownGraph.view.rerenderEdges();
             }
         },
-        gotMessage: function(e) {
+        gotMessage: function (e) {
             if (Iframework.graph) {
                 var node = Iframework.graph.get("nodes").get(e.data.nodeid);
                 // TODO: iframes in subgraphs?
@@ -3246,26 +3246,26 @@ $(function() {
                         if (e.data.hasOwnProperty(name)) {
                             var info = e.data[name];
                             switch (name) {
-                            	case "message":
-                                	node.sendFromFrame(info);
-                                	break;
-                           		case "info":
-                                	node.infoLoaded(info);
-                                	break;
-                            	case "addInput":
-                                	node.addInput(info);
-                                	break;
-                            	case "addOutput":
-                                	node.addOutput(info);
-                                	break;
-                            	case "stateReady":
-                                	node.iframeLoaded();
-                                	break;
-                            	case "set":
-                                	node.setValues(info);
-                                	break;
-                            	default:
-                                	break;
+                                case "message":
+                                    node.sendFromFrame(info);
+                                    break;
+                                case "info":
+                                    node.infoLoaded(info);
+                                    break;
+                                case "addInput":
+                                    node.addInput(info);
+                                    break;
+                                case "addOutput":
+                                    node.addOutput(info);
+                                    break;
+                                case "stateReady":
+                                    node.iframeLoaded();
+                                    break;
+                                case "set":
+                                    node.setValues(info);
+                                    break;
+                                default:
+                                    break;
                             }
                         }
                     }
@@ -3274,7 +3274,7 @@ $(function() {
         },
         _exampleGraphs: [],
         _loadedExample: null,
-        loadExampleApps: function(examples) {
+        loadExampleApps: function (examples) {
             this._exampleGraphs = this._exampleGraphs.concat(examples);
 
             // Make example links:
@@ -3300,7 +3300,7 @@ $(function() {
                 }
             }
         },
-        loadExample: function(url) {
+        loadExample: function (url) {
             this._loadedExample = url;
             for (var i = 0; i < this._exampleGraphs.length; i++) {
                 if (this._exampleGraphs[i]["info"]["url"] === url) {
@@ -3313,21 +3313,21 @@ $(function() {
                 }
             }
         },
-        closePanels: function() {
+        closePanels: function () {
             this.$(".showpanel").show(500);
             this.$(".panel").hide(500);
             this.$(".graph").css("left", "0px");
 
             this.$(".menu").hide(500);
         },
-        closePanels2: function() {
+        closePanels2: function () {
             this.$(".showpanel2").show(500);
             this.$(".panel2").hide(500);
             this.$(".graph").css("right", "0px");
 
             this.$(".menu2").hide(500);
         },
-        showPanel: function(menu) {
+        showPanel: function (menu) {
             this.$(".menu").hide();
 
             this.$(".showpanel").hide();
@@ -3342,15 +3342,15 @@ $(function() {
                 else {
                     // HACK for when menu plugin isn't added yet
                     var self = this;
-                    _.delay(function() {
+                    _.delay(function () {
                         self.$(".menu-" + menu).show(500);
                         self.trigger("showmenu:" + menu);
                     },
-                    1000);
+                        1000);
                 }
             }
         },
-        showPanel2: function(menu) {
+        showPanel2: function (menu) {
             this.$(".menu2").hide();
 
             this.$(".showpanel2").hide();
@@ -3364,23 +3364,23 @@ $(function() {
                 } else {
                     // HACK for when menu plugin isn't added yet
                     var self = this;
-                    _.delay(function() {
+                    _.delay(function () {
                         self.$(".menu-" + menu).show(500);
                         self.trigger("showmenu:" + menu);
                     },
-                    1000);
+                        1000);
                 }
             }
         },
-        showLoad: function() {
+        showLoad: function () {
             this.showPanel();
             this.$(".menu-load").show();
         },
-        showLoad2: function() {
+        showLoad2: function () {
             this.showPanel2();
             this.$(".menu-load2").show();
         },
-        loadFromGist: function() {
+        loadFromGist: function () {
             var gistid = this.loadFromGistId(this.$(".loadfromgistinput").val());
             if (gistid) {
                 $(".loadfromgistinput").blur();
@@ -3391,14 +3391,14 @@ $(function() {
 
                 // Input placeholder
                 this.$(".loadfromgistinput").val("").attr("placeholder", "loading...");
-                window.setTimeout(function() {
+                window.setTimeout(function () {
                     this.$(".loadfromgistinput").attr("placeholder", "load app from gist url");
                 },
-                1500);
+                    1500);
             }
             return false;
         },
-        loadFromGistId: function(gistid) {
+        loadFromGistId: function (gistid) {
             this._loadedGist = gistid;
             // "https://gist.github.com/2439102" or just "2439102"
             var split = gistid.split("/"); // ["https:", "", "gist.github.com", "2439102"]
@@ -3411,7 +3411,7 @@ $(function() {
                 url: 'https://api.github.com/gists/' + gistid,
                 type: 'GET',
                 dataType: 'jsonp'
-            }).success(function(gistdata) {
+            }).success(function (gistdata) {
                 var graphs = [];
                 for (var file in gistdata.data.files) {
                     if (gistdata.data.files.hasOwnProperty(file)) {
@@ -3438,7 +3438,7 @@ $(function() {
                     Iframework.loadGraph(graphs[0]);
                     Iframework.closePanels();
                 }
-            }).error(function(e) {
+            }).error(function (e) {
                 console.warn("gist load error", e);
             });
 
@@ -3446,7 +3446,7 @@ $(function() {
 
             return gistid;
         },
-        saveGist: function() {
+        saveGist: function () {
             // Save app to gist
             var graph = this.graph.toJSON();
             var data = {
@@ -3467,7 +3467,7 @@ $(function() {
                 type: 'POST',
                 dataType: 'json',
                 data: JSON.stringify(data)
-            }).success(function(e) {
+            }).success(function (e) {
                 // Save gist url to graph's info.parents
                 var info = Iframework.graph.get("info");
                 if (!info.hasOwnProperty("parents") || !info.parents.push) {
@@ -3480,21 +3480,21 @@ $(function() {
                 Iframework.updateCurrentInfo();
 
                 Iframework.analyze("save", "gist", e.id);
-            }).error(function(e) {
+            }).error(function (e) {
                 var description = "meemoo app: " + Iframework.graph.toJSON()["info"]["title"];
                 Iframework.$(".permalink").html('api is down (;_;) copy your app source code to <a href="https://gist.github.com/?description=' + encodeURIComponent(description) + '" target="_blank">gist.github.com</a>');
                 console.warn("gist save error", e);
-            }).complete(function(e) {
+            }).complete(function (e) {
                 // Button
                 this.$(".savegist").prop('disabled', false).text("save public");
             });
         },
-        loadLocalApps: function() {
+        loadLocalApps: function () {
             // Load apps from local storage
             this._localApps = new Iframework.LocalApps();
             this._localApps.fetch({
-                success: function(e) {
-                    Iframework._localApps.each(function(app) {
+                success: function (e) {
+                    Iframework._localApps.each(function (app) {
                         app.initializeView();
                     });
                     // None shown
@@ -3505,14 +3505,14 @@ $(function() {
                         }
                     }
                 },
-                error: function(e) {
+                error: function (e) {
                     console.warn("error loading local apps");
                 }
             });
         },
         _loadedLocal: null,
         _loadedLocalApp: null,
-        loadLocal: function(url) {
+        loadLocal: function (url) {
             this._loadedLocal = url;
             if (this._localApps) {
                 var app = this._localApps.getByUrl(url);
@@ -3530,7 +3530,7 @@ $(function() {
                 return false;
             }
         },
-        setKey: function(current) {
+        setKey: function (current) {
             var key = window.prompt("Enter a url key", current);
             if (key) {
                 key = this.encodeKey(key);
@@ -3538,12 +3538,12 @@ $(function() {
             }
             return key;
         },
-        encodeKey: function(key) {
+        encodeKey: function (key) {
             key = key.toLowerCase().replace(/ /g, "-");
             key = encodeURIComponent(key);
             return key;
         },
-        saveLocal: function() {
+        saveLocal: function () {
             if (!this.graph.get("info")) {
                 this.graph.set({
                     info: {}
@@ -3598,7 +3598,7 @@ $(function() {
             Iframework.router.navigate("local/" + key);
             return app;
         },
-        forkLocal: function() {
+        forkLocal: function () {
             // This makes it save the app as a new local app
             this._loadedLocalApp = null;
             // Suggested name
@@ -3607,32 +3607,32 @@ $(function() {
             // Do the overwrite checks and save
             this.saveLocal();
         },
-        deleteLocal: function() {
+        deleteLocal: function () {
             if (this._loadedLocalApp) {
                 this._loadedLocalApp.destroy();
                 this._loadedLocalApp = null;
             }
         },
-        setTitle: function() {
+        setTitle: function () {
             var input = this.$(".currentapp .info .settitle").text();
             if (input !== this.graph.get("info")["title"]) {
                 this.graph.setInfo("title", input);
             }
         },
-        setDescription: function() {
+        setDescription: function () {
             var input = this.$(".currentapp .info .setdescription").text();
             if (input !== this.graph.get("info")["description"]) {
                 this.graph.setInfo("description", input);
             }
         },
-        setUrl: function() {
+        setUrl: function () {
             var input = this.$(".currentapp .info .seturl").text();
             input = this.encodeKey(input);
             if (input !== this.graph.get("info")["url"]) {
                 this.graph.setInfo("url", input);
             }
         },
-        updateCurrentInfo: function() {
+        updateCurrentInfo: function () {
             var graph = this.graph.toJSON();
             this.$(".currentapp").html(this.currentTemplate(graph));
 
@@ -3653,7 +3653,7 @@ $(function() {
                         var gisturlE = encodeURIComponent(gisturl);
                         var titleE = encodeURIComponent(graph["info"]["title"]);
 
-                        var gistUrlSelect = $('<span />').text(gisturl).click(function(e) {
+                        var gistUrlSelect = $('<span />').text(gisturl).click(function (e) {
                             // Click-to-select from http://stackoverflow.com/a/987376/592125
                             var range;
                             if (document.body.createTextRange) { // ms
@@ -3690,7 +3690,7 @@ $(function() {
                 this.$(".currentapp .deletelocal").hide();
             }
         },
-        newBlank: function() {
+        newBlank: function () {
             // HACK maybe a better way to load a blank graph with defaults?
             this.loadGraph({
                 "info": {
@@ -3711,7 +3711,7 @@ $(function() {
             // URL hash
             Iframework.router.navigate("new");
         },
-        analyze: function(group, type, id) {
+        analyze: function (group, type, id) {
             // Google analytics
             // _gaq.push(['_trackEvent', group, type, id]);
         }
@@ -3723,7 +3723,7 @@ $(function() {
     // Listen for /info messages from nodes
     window.addEventListener("message", Iframework.gotMessage, false);
 }); //View: IframeworkView
-$(function() {
+$(function () {
 
     Iframework.util = {
         // From YUI3 via http://stackoverflow.com/a/7390555/592125
@@ -3740,12 +3740,12 @@ $(function() {
             '[object HTMLCanvasElement]': 'HTMLCanvasElement',
             '[object ImageData]': 'ImageData'
         },
-        type: function(o) {
-            return this.types[typeof o] || this.types[Object.prototype.toString.call(o)] || (o ? 'object': 'null');
+        type: function (o) {
+            return this.types[typeof o] || this.types[Object.prototype.toString.call(o)] || (o ? 'object' : 'null');
             //
         },
         imageTypes: ["png", "gif", "jpg", "jpeg", "webp"],
-        isImageURL: function(url) {
+        isImageURL: function (url) {
             var fileTypeSplit = url.split(".");
             if (fileTypeSplit.length > 1) {
                 var fileType = fileTypeSplit[fileTypeSplit.length - 1];
@@ -3753,7 +3753,7 @@ $(function() {
             }
             return false;
         },
-        imageDrop: function(event, ui) {
+        imageDrop: function (event, ui) {
             // Used in image.js and variable-animation.js
             // TODO only drop to top
             // Don't deal with dropped file
@@ -3783,7 +3783,7 @@ $(function() {
                 // Load big image instead of thumbnail
                 var img = new Image();
                 img.crossOrigin = "anonymous";
-                img.onload = function() {
+                img.onload = function () {
                     canvas = document.createElement("canvas");
                     var context = canvas.getContext("2d");
                     canvas.width = img.width;
@@ -3802,7 +3802,7 @@ $(function() {
                 self.receive(inputName, canvas);
             }
         },
-        fitAndCopy: function(source, target) {
+        fitAndCopy: function (source, target) {
             // source and target 2d canvases
             var w = target.width;
             var h = target.height;
@@ -3831,16 +3831,16 @@ $(function() {
         }
     };
 }); //Iframework.util 				//外部将image拖入面板，并适当剪裁，加载image组件
-$(function() {
+$(function () {
 
     Iframework.Event = Backbone.Model.extend({
-        defaults: function() {
+        defaults: function () {
             return {
                 action: "",
                 args: {}
             };
         },
-        initialize: function() {}
+        initialize: function () { }
     });
 
     Iframework.EventsHistory = Backbone.Collection.extend({
@@ -3849,43 +3849,43 @@ $(function() {
 
     // binding undo to ctrl+z
     Mousetrap.bind(['command+z', 'ctrl+z'],//撤销操作
-    function(e) {
-        // TODO work with subgraph
-        // actual graph shown by iframework
-        var graph = window.Iframework.shownGraph;
-        // get the last event (stack top)
-        var event = graph.eventsHistory.last();
+        function (e) {
+            // TODO work with subgraph
+            // actual graph shown by iframework
+            var graph = window.Iframework.shownGraph;
+            // get the last event (stack top)
+            var event = graph.eventsHistory.last();
 
-        // what kind of action ocurred?
-        if (event.get("action") === "removeNode") {
-            var node = event.get("args").node;
-            // make sure the node will use the same id
-            var originalIndex = graph.usedIds.indexOf(node.get("id"));
-            graph.usedIds.splice(originalIndex, 1);
-            // add the node again
-            graph.addNode(node);
-            // add input and output ports
-            var i;
-            for (i = 0; i < node.Inputs.length; i++) {
-                node.view.addInput(node.Inputs.at(i));
+            // what kind of action ocurred?
+            if (event.get("action") === "removeNode") {
+                var node = event.get("args").node;
+                // make sure the node will use the same id
+                var originalIndex = graph.usedIds.indexOf(node.get("id"));
+                graph.usedIds.splice(originalIndex, 1);
+                // add the node again
+                graph.addNode(node);
+                // add input and output ports
+                var i;
+                for (i = 0; i < node.Inputs.length; i++) {
+                    node.view.addInput(node.Inputs.at(i));
+                }
+                for (i = 0; i < node.Outputs.length; i++) {
+                    node.view.addOutput(node.Outputs.at(i));
+                }
+                // add edges
+                var edges = event.get("args").edges;
+                for (i = 0; i < edges.length; i++) {
+                    graph.addEdge(edges[i]);
+                }
             }
-            for (i = 0; i < node.Outputs.length; i++) {
-                node.view.addOutput(node.Outputs.at(i));
-            }
-            // add edges
-            var edges = event.get("args").edges;
-            for (i = 0; i < edges.length; i++) {
-                graph.addEdge(edges[i]);
-            }
-        }
-        // updates the events stack
-        graph.eventsHistory.pop();
-    });
+            // updates the events stack
+            graph.eventsHistory.pop();
+        });
 }); //Model: Iframework.Event 		//ctrl+z撤销
-$(function() {
+$(function () {
 
     Iframework.LocalApp = Backbone.Model.extend({
-        initializeView: function() {
+        initializeView: function () {
             if (!this.view) {
                 this.view = new Iframework.LocalAppView({
                     model: this
@@ -3893,7 +3893,7 @@ $(function() {
             }
             return this.view;
         },
-        load: function() {
+        load: function () {
 
             Iframework._loadedLocalApp = this;
             // Clone graph
@@ -3903,7 +3903,7 @@ $(function() {
             //DEBUG
             // Iframework.showLoad();
         },
-        toJSON: function() {
+        toJSON: function () {
             return {
                 id: this.id,
                 graph: this.get("graph")
@@ -3914,20 +3914,20 @@ $(function() {
     Iframework.LocalApps = Backbone.Collection.extend({
         model: Iframework.LocalApp,
         localStorage: new Backbone.LocalStorage("LocalApps"),
-        getByUrl: function(url) {
+        getByUrl: function (url) {
             var app = this.find(
-            	function(app) {
-                	return app.get("graph")["info"]["url"] === url;
-            	}
+                function (app) {
+                    return app.get("graph")["info"]["url"] === url;
+                }
             );
             return app;
         },
-        updateOrCreate: function(graph) {
+        updateOrCreate: function (graph) {
             var app;
             app = this.find(
-            	function(app) {
-                	return app.get("graph")["info"]["url"] === graph["info"]["url"];
-            	}
+                function (app) {
+                    return app.get("graph")["info"]["url"] === graph["info"]["url"];
+                }
             );
             if (app) {
                 app.save({
@@ -3944,11 +3944,11 @@ $(function() {
         }
     });
 }); //Model: Iframework.LocalApp; Collection: Iframework.LocalApps
-$(function() {
+$(function () {
 
     var template =
-    	'<a class="url" href="#local/<%= graph.info.url %>"></a> - ' +
-    	'<a class="macro" title="load as subgraph into current graph" href="#">sub</a> ';
+        '<a class="url" href="#local/<%= graph.info.url %>"></a> - ' +
+        '<a class="macro" title="load as subgraph into current graph" href="#">sub</a> ';
     // '<div class="info">'+
     //   '<h2 class="title"><%= graph.info.title %></h2>' +
     //   '<p class="description"><%= graph.info.description %></p>' +
@@ -3960,7 +3960,7 @@ $(function() {
         events: {
             "click .macro": "loadAsMacro"
         },
-        initialize: function() {
+        initialize: function () {
             this.render();
             Iframework.$(".localapps").append(this.el);
 
@@ -3969,16 +3969,16 @@ $(function() {
 
             return this;
         },
-        render: function() {
+        render: function () {
             this.$el.html(this.template(this.model.toJSON()));
             this.$(".url").text(decodeURIComponent(this.model.get("graph")["info"]["url"]));
             // this.$(".info").hide();
         },
-        update: function() {
+        update: function () {
             this.render();
             Iframework.updateCurrentInfo();
         },
-        loadAsMacro: function(event) {
+        loadAsMacro: function (event) {
             event.preventDefault();
 
             Iframework.shownGraph.addNode({
@@ -3991,13 +3991,13 @@ $(function() {
 
             return false;
         },
-        remove: function() {
+        remove: function () {
             this.$el.remove();
         }
 
     });
 }); //View: Iframework.LocalAppView
-$(function() {
+$(function () {
 
     Iframework.Graph = Backbone.Model.extend({
         loaded: false,
@@ -4017,7 +4017,7 @@ $(function() {
         eventsHistory: [],
         isSubgraph: false,
         // loadingNodes: [],
-        initialize: function() {
+        initialize: function () {
             // Is this a subgraph?
             var parentGraph = this.get("parentGraph");
             if (parentGraph) {
@@ -4049,16 +4049,16 @@ $(function() {
             this.eventsHistory = new Iframework.EventsHistory();
 
             var self = this;
-            _.defer(function() {
+            _.defer(function () {
                 self.testLoaded();
             });
 
             // Change event
             this.on("change", this.graphChanged);
         },
-        testLoaded: function() {
+        testLoaded: function () {
             var allLoaded = true;
-            this.get("nodes").each(function(node) {
+            this.get("nodes").each(function (node) {
                 if (node.hasOwnProperty("lazyLoadType")) {
                     if (!Iframework.NativeNodes.hasOwnProperty(node.lazyLoadType)) {
                         // That nativenode's js hasn't loaded yet
@@ -4070,25 +4070,25 @@ $(function() {
                     }
                 }
             },
-            this);
+                this);
             if (allLoaded) {
                 this.initializeView();
             }
             return allLoaded;
         },
-        initializeView: function() {
+        initializeView: function () {
             if (!this.view) {
                 this.view = new Iframework.GraphView({
                     model: this
                 });
             }
         },
-        setInfo: function(key, val) {
+        setInfo: function (key, val) {
             var info = this.get("info");
             info[key] = val;
             this.trigger("change");
         },
-        makeNode: function(info) {
+        makeNode: function (info) {
             if (!info.src) {
                 return false;
             }
@@ -4126,15 +4126,15 @@ $(function() {
                         test: Iframework.NativeNodes.hasOwnProperty(path[0]),
                         nope: "src/nodes/" + path[0] + ".js"
                     },
-                    {
-                        test: Iframework.NativeNodes.hasOwnProperty(path[0] + "-" + path[1]),
-                        nope: "src/nodes/" + path[0] + "-" + path[1] + ".js",
-                        complete: function() {
-                            _.defer(function() {
-                                self.testLoaded();
-                            });
-                        }
-                    }]);
+                        {
+                            test: Iframework.NativeNodes.hasOwnProperty(path[0] + "-" + path[1]),
+                            nope: "src/nodes/" + path[0] + "-" + path[1] + ".js",
+                            complete: function () {
+                                _.defer(function () {
+                                    self.testLoaded();
+                                });
+                            }
+                        }]);
                 }
                 // Native node
                 node = new Iframework.NodeBox(info);
@@ -4145,7 +4145,7 @@ $(function() {
             }
             return node;
         },
-        addNode: function(node) {
+        addNode: function (node) {
             if (!node.cid) {
                 // input is not a Iframework.Node model
                 node = this.makeNode(node);
@@ -4190,9 +4190,9 @@ $(function() {
 
             return node;
         },
-        addEdge: function(edge) {
+        addEdge: function (edge) {
             // Make sure edge is unique
-            var isDupe = this.get("edges").any(function(_edge) {
+            var isDupe = this.get("edges").any(function (_edge) {
                 return (_edge.get('source')[0] === edge.get('source')[0] && _edge.get('source')[1] === edge.get('source')[1] && _edge.get('target')[0] === edge.get('target')[0] && _edge.get('target')[1] === edge.get('target')[1]);
             });
             if (isDupe) {
@@ -4203,32 +4203,32 @@ $(function() {
                 return this.get("edges").add(edge);
             }
         },
-        remove: function() {
+        remove: function () {
             // Called from IframeworkView.loadGraph
-            this.get("nodes").each(function(node) {
+            this.get("nodes").each(function (node) {
                 node.remove(false);
             });
             if (this.view) {
                 this.view.remove();
             }
         },
-        removeNode: function(node) {
+        removeNode: function (node) {
             var connected = [];
 
             // Disconnect edges
-            this.get("edges").each(function(edge) {
+            this.get("edges").each(function (edge) {
                 if (edge.Source && edge.Target) {
                     if (edge.Source.parentNode === node || edge.Target.parentNode === node) {
                         connected.push(edge);
                     }
                 }
             },
-            this);
+                this);
 
             _.each(connected,
-            function(edge) {
-                edge.remove();
-            });
+                function (edge) {
+                    edge.remove();
+                });
 
             if (this.view) {
                 this.view.removeNode(node);
@@ -4246,7 +4246,7 @@ $(function() {
 
             this.trigger("change");
         },
-        removeEdge: function(edge) {
+        removeEdge: function (edge) {
             edge.disconnect();
             this.get("edges").remove(edge);
             if (this.view) {
@@ -4254,7 +4254,7 @@ $(function() {
             }
             this.trigger("change");
         },
-        checkLoaded: function() {
+        checkLoaded: function () {
             // Called from NodeBoxView.initializeNative()
             for (var i = 0; i < this.get("nodes").length; i++) {
                 if (this.get("nodes").at(i).loaded === false) {
@@ -4265,39 +4265,39 @@ $(function() {
 
             // Connect edges when all modules have loaded (+.5 seconds)
             var self = this;
-            setTimeout(function() {
+            setTimeout(function () {
                 self.connectEdges();
             },
-            500);
+                500);
 
             return true;
         },
-        reconnectEdges: function() {
+        reconnectEdges: function () {
             for (var i = 0; i < this.get("edges").length; i++) {
                 // Disconnect them first to be sure not doubled
                 this.get("edges").at(i).disconnect();
             }
             // Connect edges when all modules have loaded (+.5 seconds)
             var self = this;
-            _.delay(function() {
+            _.delay(function () {
                 self.connectEdges();
             },
-            500);
+                500);
         },
-        connectEdges: function() {
+        connectEdges: function () {
             // Connect edges
-            this.get("edges").each(function(edge) {
+            this.get("edges").each(function (edge) {
                 if (!edge.connected) {
                     edge.connect();
                 }
             });
 
             // Set state of nodes
-            this.get("nodes").each(function(node) {
+            this.get("nodes").each(function (node) {
                 node.setState();
             });
         },
-        graphChanged: function() {
+        graphChanged: function () {
             Iframework.trigger("change", this);
             // if (Iframework.$(".source").is(":visible")) {
             //   window.setTimeout(function(){
@@ -4306,50 +4306,50 @@ $(function() {
             // }
         },
         toJSON: function () {//Graph模型的toJSON
-      		return {
-        		info: this.get("info"),
-        		nodes: this.get("nodes"),
-        		edges: this.get("edges")
-      		};
-    	},
-    	toNofloJSON: function () {//Meemoo JSON to Noflo JSON
-    		var nodeArray = this.get("nodes");
-    		var strNodes = '';//保存NodeBox的toNofloJSON的字符串
-    		for (i=0; i<nodeArray.length; i++) {
-    			var s = JSON.stringify(nodeArray.at(i).toNofloJSON());//每一个node都转为toNofloJSON
-    			strNodes += s.substring(1, s.length -1) + ',';//加逗号
-    		}
-    		strNodes = strNodes.substring(0, strNodes.length -1);//去掉最后一个逗号
+            return {
+                info: this.get("info"),
+                nodes: this.get("nodes"),
+                edges: this.get("edges")
+            };
+        },
+        toNofloJSON: function () {//Meemoo JSON to Noflo JSON
+            var nodeArray = this.get("nodes");
+            var strNodes = '';//保存NodeBox的toNofloJSON的字符串
+            for (i = 0; i < nodeArray.length; i++) {
+                var s = JSON.stringify(nodeArray.at(i).toNofloJSON());//每一个node都转为toNofloJSON
+                strNodes += s.substring(1, s.length - 1) + ',';//加逗号
+            }
+            strNodes = strNodes.substring(0, strNodes.length - 1);//去掉最后一个逗号
 
-    		var edgeArray = this.get("edges");
-    		var strEdges = '';//保存Edge的toNofloJSON的字符串
-    		for (i=0; i<edgeArray.length; i++) {
-    			var s = JSON.stringify(edgeArray.at(i).toNofloJSON()); 
-    			strEdges += s+',';//加逗号
-    		}
-    		strEdges = strEdges.substring(0, strEdges.length -1);//去掉最后一个逗号
+            var edgeArray = this.get("edges");
+            var strEdges = '';//保存Edge的toNofloJSON的字符串
+            for (i = 0; i < edgeArray.length; i++) {
+                var s = JSON.stringify(edgeArray.at(i).toNofloJSON());
+                strEdges += s + ',';//加逗号
+            }
+            strEdges = strEdges.substring(0, strEdges.length - 1);//去掉最后一个逗号
 
-      		return {
-        		processes: JSON.parse('{'+strNodes+'}'),
-        		connections: JSON.parse('['+strEdges+']')
-      		};
-    	}
+            return {
+                processes: JSON.parse('{' + strNodes + '}'),
+                connections: JSON.parse('[' + strEdges + ']')
+            };
+        }
     });
 
     Iframework.Graphs = Backbone.Collection.extend({
         model: Iframework.Graph
     });
 }); //Model: Iframework.Graph
-$(function() {
+$(function () {
 
     var template =
-    	'<div class="edges">' +
-    		'<svg class="edgesSvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="300"></svg>' +
-    	'</div>' +
-    	'<div class="nodes" />' +
-    	'<div class="iframework-graph-nav" style="display:none;">' +
-    		'<button class="show-parent-graph">back to parent graph</button>' +
-    	'</div>';
+        '<div class="edges">' +
+        '<svg class="edgesSvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="300"></svg>' +
+        '</div>' +
+        '<div class="nodes" />' +
+        '<div class="iframework-graph-nav" style="display:none;">' +
+        '<button class="show-parent-graph">back to parent graph</button>' +
+        '</div>';
 
     Iframework.GraphView = Backbone.View.extend({
         tagName: "div",
@@ -4365,7 +4365,7 @@ $(function() {
             "click .show-parent-graph": "showParentGraph"
         },
         unhidden: false,
-        initialize: function() {
+        initialize: function () {
             this.render();
             if (this.model.isSubgraph) {
                 this.$(".iframework-graph-nav").show();
@@ -4400,19 +4400,19 @@ $(function() {
             this.resizeEdgeSVG();
 
         },
-        render: function() {
+        render: function () {
             this.$el.html(this.template(this.model.toJSON()));
             return this;
         },
-        renderAnimationFrame: function(timestamp) {
+        renderAnimationFrame: function (timestamp) {
             // Hit all nodes
-            this.model.get("nodes").each(function(node) {
+            this.model.get("nodes").each(function (node) {
                 if (node.view.Native) {
                     node.view.Native.renderAnimationFrame(timestamp);
                 }
             });
         },
-        click: function(event) {
+        click: function (event) {
             // Hide dis/connection boxes
             $(".edge-edit").remove();
             Iframework.selectedPort = null;
@@ -4422,11 +4422,11 @@ $(function() {
             // Deselect modules
             this.$(".module").removeClass("ui-selected");
         },
-        ignoreDrag: function(event) {
+        ignoreDrag: function (event) {
             event.originalEvent.stopPropagation();
             event.originalEvent.preventDefault();
         },
-        drop: function(event, ui) {
+        drop: function (event, ui) {
             this.ignoreDrag(event);
 
             // Drop files
@@ -4454,7 +4454,7 @@ $(function() {
                         Iframework.shownGraph.addNode(o);
                     } else if (split[0] === "text") {
                         var reader = new FileReader();
-                        reader.onload = function(e) {
+                        reader.onload = function (e) {
                             o.src = "meemoo:ui/textarea";
                             o.state = {
                                 value: e.target.result
@@ -4482,41 +4482,41 @@ $(function() {
             };
 
             switch (type) {
-            case "library-module":
-                var module = ui.draggable.data("module");
-                if (module) {
-                    // Add module
-                    module.view.dragAddNode(options);
-                }
-                break;
-            case "canvas":
-                var canvas = ui.helper.data("meemoo-drag-canvas");
-                // Copy canvas
-                if (canvas) {
-                    options.src = "meemoo:image/in";
-                    options.canvas = canvas;
-                    var url = ui.helper.data("meemoo-image-url");
-                    if (url && url.slice(0, 4) === "http") {
-                        // Dragged from public image library
-                        options.state = {};
-                        options.state.url = url;
+                case "library-module":
+                    var module = ui.draggable.data("module");
+                    if (module) {
+                        // Add module
+                        module.view.dragAddNode(options);
                     }
-                    Iframework.shownGraph.addNode(options);
-                }
-                break;
-            default:
-                break;
+                    break;
+                case "canvas":
+                    var canvas = ui.helper.data("meemoo-drag-canvas");
+                    // Copy canvas
+                    if (canvas) {
+                        options.src = "meemoo:image/in";
+                        options.canvas = canvas;
+                        var url = ui.helper.data("meemoo-image-url");
+                        if (url && url.slice(0, 4) === "http") {
+                            // Dragged from public image library
+                            options.state = {};
+                            options.state.url = url;
+                        }
+                        Iframework.shownGraph.addNode(options);
+                    }
+                    break;
+                default:
+                    break;
             }
             return false;
         },
-        addNode: function(node) {
+        addNode: function (node) {
             this.$(".nodes").append(node.initializeView().el);
             // Render the native view
             if (node.lazyLoadType) {
                 node.view.initializeNative();
             }
         },
-        addEdge: function(edge) {
+        addEdge: function (edge) {
             edge.initializeView();
 
             if (edge.Source.view) {
@@ -4526,15 +4526,15 @@ $(function() {
                 edge.Target.view.resetRelatedEdges();
             }
         },
-        remove: function() {
+        remove: function () {
             this.$el.remove();
         },
-        removeNode: function(node) {
+        removeNode: function (node) {
             if (node.view) {
                 node.view.remove();
             }
         },
-        removeEdge: function(edge) {
+        removeEdge: function (edge) {
             if (edge.Source && edge.Source.view) {
                 edge.Source.view.resetRelatedEdges();
             }
@@ -4545,7 +4545,7 @@ $(function() {
                 edge.view.remove();
             }
         },
-        resizeEdgeSVG: _.debounce(function() {
+        resizeEdgeSVG: _.debounce(function () {
             // _.debounce keeps it from getting called more than needed
             var svg = this.$('.edgesSvg')[0];
             var rect = svg.getBBox();
@@ -4564,22 +4564,22 @@ $(function() {
                 svg.setAttribute("height", Math.round(height));
             }
         },
-        100),
-        selectableStart: function() {
+            100),
+        selectableStart: function () {
             // Add a mask so that iframes don't steal mouse
             this.maskFrames();
         },
-        selectableStop: function(event) {
+        selectableStop: function (event) {
             // Remove iframe masks
             this.unmaskFrames();
         },
-        selectAll: function() {
+        selectAll: function () {
             this.$(".module").addClass("ui-selected");
         },
-        selectNone: function() {
+        selectNone: function () {
             this.$(".module").removeClass("ui-selected");
         },
-        cut: function() {
+        cut: function () {
             // Copy selected
             this.copy();
             var i;
@@ -4594,7 +4594,7 @@ $(function() {
                 $(uiselected[i]).data("iframework-node-view").removeModel();
             }
         },
-        copy: function() {
+        copy: function () {
             var copied = {
                 nodes: [],
                 edges: []
@@ -4609,7 +4609,7 @@ $(function() {
             }
 
             // Copy common edges
-            this.model.get("edges").each(function(edge) {
+            this.model.get("edges").each(function (edge) {
                 var sourceSelected, targetSelected = false;
                 for (i = 0; i < uiselected.length; i++) {
                     selected = $(uiselected[i]).data("iframework-node-view").model;
@@ -4624,11 +4624,11 @@ $(function() {
                     copied.edges.push(JSON.parse(JSON.stringify(edge)));
                 }
             },
-            this);
+                this);
             // Save these to Iframework so can paste to other graphs
             Iframework._copied = copied;
         },
-        paste: function() {
+        paste: function () {
             var copied = Iframework._copied;
             if (copied && copied.nodes.length > 0) {
                 var newNodes = [];
@@ -4672,40 +4672,40 @@ $(function() {
                 }
             }
         },
-        maskFrames: function() {
+        maskFrames: function () {
             $(".iframe-type").append('<div class="iframemask" />');
         },
-        unmaskFrames: function() {
+        unmaskFrames: function () {
             $(".iframemask").remove();
         },
-        showParentGraph: function() {
+        showParentGraph: function () {
             if (this.model.parentGraph) {
                 Iframework.showGraph(this.model.parentGraph);
             }
         },
-        rerenderEdges: function() {
-            this.model.get("edges").each(function(edge) {
+        rerenderEdges: function () {
+            this.model.get("edges").each(function (edge) {
                 if (edge.view) {
                     edge.view.redraw();
                 }
             },
-            this);
+                this);
         }
 
     });
 }); //View: Iframework.GraphView
-$(function() {
+$(function () {
 
     Iframework.Node = Backbone.Model.extend({
-        send: function(message) {
+        send: function (message) {
             // Send message out to connected nodes
         },
-        receive: function(message) {
+        receive: function (message) {
             // Get message from another node
         },
         //iframe only
-        sendFromFrame: function() {},
-        iframeLoaded: function() {}
+        sendFromFrame: function () { },
+        iframeLoaded: function () { }
 
     });
 
@@ -4713,22 +4713,22 @@ $(function() {
         model: Iframework.Node
     });
 }); //Model: Iframework.Node
-$(function() {
+$(function () {
 
     Iframework.NodeView = Backbone.View.extend({
-        send: function(message) {
+        send: function (message) {
             this.model.send(message);
         },
-        receive: function(message) {
+        receive: function (message) {
             this.model.receive(message);
         }
     });
 }); //View: Iframework.NodeView
-$(function() {
+$(function () {
 
     Iframework.NodeBox = Iframework.Node.extend({
         loaded: false,
-        defaults: function() {
+        defaults: function () {
             return {
                 src: "",
                 x: 100,
@@ -4743,7 +4743,7 @@ $(function() {
             title: "native-node",
             description: "extend me"
         },
-        initialize: function() {
+        initialize: function () {
             this.Inputs = new Iframework.PortsIn();
             this.Outputs = new Iframework.PortsOut();
 
@@ -4752,34 +4752,34 @@ $(function() {
             // Change event
             this.on("change", this.nodeChanged);
         },
-        initializeView: function() {
+        initializeView: function () {
             // Called from GraphView.addNode
             this.view = new Iframework.NodeBoxView({
                 model: this
             });
             return this.view;
         },
-        send: function(name, value) {
+        send: function (name, value) {
             // Send message out to connected modules
             // Defer to make this safe for infinite loops
             var self = this;
-            _.defer(function() {
+            _.defer(function () {
                 self.trigger("send:" + name, value);
             });
         },
-        receive: function(name, value) {
+        receive: function (name, value) {
             // The listener that hits this is added in the edge
             if (this.view.Native) {
                 this.view.Native.receive(name, value);
             }
         },
-        infoLoaded: function(info) {
+        infoLoaded: function (info) {
             this.info = info;
             if (this.view) {
                 this.view.infoLoaded(info);
             }
         },
-        setState: function() {
+        setState: function () {
             var state = this.get("state");
             if (state && this.view.Native) {
                 for (var name in state) {
@@ -4792,7 +4792,7 @@ $(function() {
                 }
             }
         },
-        addInput: function(info) {
+        addInput: function (info) {
             if (info.id === undefined) {
                 info.id = info.name;
             }
@@ -4818,7 +4818,7 @@ $(function() {
             }
             return newPort;
         },
-        addOutput: function(info) {
+        addOutput: function (info) {
             if (info.id === undefined) {
                 info.id = info.name;
             }
@@ -4839,12 +4839,12 @@ $(function() {
             }
             return newPort;
         },
-        nodeChanged: function() {
+        nodeChanged: function () {
             if (this.parentGraph) {
                 this.parentGraph.trigger("change");
             }
         },
-        remove: function(fromView) {
+        remove: function (fromView) {
             if (fromView) {
                 // Called from NodeBoxView.removeModel
                 // User initiated undo, so make it undoable
@@ -4857,18 +4857,18 @@ $(function() {
                 }
             }
         },
-        setValues: function(info) {
+        setValues: function (info) {
             for (var name in info) {
                 this.setValue(name, info[name]);
             }
             this.nodeChanged();
         },
-        setValue: function(name, value) {
+        setValue: function (name, value) {
             this.setEquation(name, value);
             this.get("state")[name] = value;
             this.nodeChanged();
         },
-        setEquation: function(name, value) {
+        setEquation: function (name, value) {
             if (!this.view.Native) {
                 return;
             }
@@ -4885,59 +4885,59 @@ $(function() {
                 }
             }
         },
-        toString: function() {
+        toString: function () {
             if (this.info) {
                 return "Native node " + this.get("id") + ": " + this.info.title;
             } else {
                 return "Native node " + this.get("id");
             }
         },
-        toJSON: function() {//NodeBox模型的toJSON
-      		return {
-        		id: this.id,
-        		src: this.get("src"),
-        		x: this.get("x"),
-        		y: this.get("y"),
-        		w: this.get("w"),
-        		h: this.get("h"),
-        		state: this.get("state")
-      		};
-    	},
-    	toNofloJSON: function () {//Meemoo JSON to Noflo JSON
-    		var id = this.id;
-    		var str = '{"'+id+'": {"component":"'+this.get("src")+'"}}';
-    		//alert(str);
-    		var obj = JSON.parse(str); 
-    		//console.log(obj);
+        toJSON: function () {//NodeBox模型的toJSON
+            return {
+                id: this.id,
+                src: this.get("src"),
+                x: this.get("x"),
+                y: this.get("y"),
+                w: this.get("w"),
+                h: this.get("h"),
+                state: this.get("state")
+            };
+        },
+        toNofloJSON: function () {//Meemoo JSON to Noflo JSON
+            var id = this.id;
+            var str = '{"' + id + '": {"component":"' + this.get("src") + '"}}';
+            //alert(str);
+            var obj = JSON.parse(str);
+            //console.log(obj);
 
-    		//alert(">"+JSON.stringify(obj)); 
-    		return obj;
-    	}
+            //alert(">"+JSON.stringify(obj)); 
+            return obj;
+        }
     });
 
     Iframework.Nodes = Backbone.Collection.extend({
         model: Iframework.Node
     });
 }); //Model: Iframework.NodeBox(继承于Iframework.Node)
-$(function() {
+$(function () {
 
     var template =
-    	'<div class="module" style="left:<%= get("x")-10 %>px;top:<%= get("y")-30 %>px;width:<%= get("w")+20 %>px;height:<%= get("h")+40 %>px;" >' +
-    		'<div class="outer"></div>' +
-    		'<div class="ports ports-in"></div>' +
-    		'<div class="ports ports-out"></div>' +
-    		'<h1 class="title">' +
-    			'<span class="module-icon module-icon-small"></span>' +
-    			'<span class="node-box-title-name">...</span>' +
-    		'</h1>' +
-    		'<button title="show controls" type="button" class="showcontrols icon-left-open"></button>' +
-    		'<div class="controls">' +
-    			'<button title="remove module" type="button" class="remove icon-trash"></button>' +
-    			'<a title="view source" type="button" class="viewsource button icon-cog"></a>' +
-    			'<button title="hide controls" type="button" class="hidecontrols icon-right-open"></button>' +
-    		'</div>' +
-    		'<div class="inner"></div>' +
-    	'</div>';
+        '<div class="module" style="left:<%= get("x")-10 %>px;top:<%= get("y")-30 %>px;width:<%= get("w")+20 %>px;height:<%= get("h")+40 %>px;" >' +
+        '<div class="outer"></div>' +
+        '<div class="ports ports-in"></div>' +
+        '<div class="ports ports-out"></div>' +
+        '<h1 class="title">' +
+        '<span class="module-icon module-icon-small"></span>' +
+        '<span class="node-box-title-name">...</span>' +
+        '</h1>' +
+        '<button title="show controls" type="button" class="showcontrols icon-left-open"></button>' +
+        '<div class="controls">' +
+        '<button title="remove module" type="button" class="remove icon-trash"></button>' +
+        '<a title="view source" type="button" class="viewsource button icon-cog"></a>' +
+        '<button title="hide controls" type="button" class="hidecontrols icon-right-open"></button>' +
+        '</div>' +
+        '<div class="inner"></div>' +
+        '</div>';
 
     // var innerTemplate = '<div class="info" />';
     Iframework.NodeBoxView = Iframework.NodeView.extend({
@@ -4958,13 +4958,13 @@ $(function() {
             "click .hidecontrols": "hideControls",
             "click .remove": "removeModel"
         },
-        initialize: function() {
+        initialize: function () {
             this.render();
             this.$(".module").data({
                 "iframework-node-view": this
             }).draggable({
                 handle: "h1",
-                helper: function(event) {
+                helper: function (event) {
                     var node = $(this);
                     return $('<div class="ui-draggable-helper" style="width:' + node.width() + 'px; height:' + node.height() + 'px">');
                 }
@@ -4991,7 +4991,7 @@ $(function() {
             this.mousedown();
 
         },
-        initializeNative: function() {
+        initializeNative: function () {
             // Called from GraphView.addNode
             if (!this.Native) {
                 if (Iframework.NativeNodes.hasOwnProperty(this.model.lazyLoadType)) {
@@ -5007,12 +5007,12 @@ $(function() {
                 }
             }
         },
-        render: function() {
+        render: function () {
             this.$el.html(this.template(this.model));
             return this;
         },
-        infoLoaded: function(info) {
-            this.$('h1').attr("title", this.model.get("id") + ": " + (info.author ? "by " + info.author + ": ": "") + info.description);
+        infoLoaded: function (info) {
+            this.$('h1').attr("title", this.model.get("id") + ": " + (info.author ? "by " + info.author + ": " : "") + info.description);
             this.$('.node-box-title-name').text(info.title);
 
             if (this.model.lazyLoadType) {
@@ -5021,7 +5021,7 @@ $(function() {
         },
         _alsoDrag: [],
         _dragDelta: {},
-        dragStart: function(event, ui) {
+        dragStart: function (event, ui) {
             if (event.target !== this.$(".module")[0]) {
                 return;
             }
@@ -5037,7 +5037,7 @@ $(function() {
             // Make helper and save start position of all other selected
             var self = this;
             this._alsoDrag = [];
-            this.model.parentGraph.view.$(".ui-selected").each(function() {
+            this.model.parentGraph.view.$(".ui-selected").each(function () {
                 if (self.$(".module")[0] !== this) {
                     var el = $(this);
                     var position = {
@@ -5059,7 +5059,7 @@ $(function() {
                 }
             });
         },
-        drag: function(event, ui) {
+        drag: function (event, ui) {
             if (event.target !== this.$(".module")[0]) {
                 return;
             }
@@ -5074,17 +5074,17 @@ $(function() {
                 };
 
                 _.each(this._alsoDrag,
-                function(el) {
-                    var initial = el.data("ui-draggable-alsodrag-initial");
-                    var helper = el.data("ui-draggable-alsodrag-helper");
-                    helper.css({
-                        left: initial.left + delta.left,
-                        top: initial.top + delta.top
+                    function (el) {
+                        var initial = el.data("ui-draggable-alsodrag-initial");
+                        var helper = el.data("ui-draggable-alsodrag-helper");
+                        helper.css({
+                            left: initial.left + delta.left,
+                            top: initial.top + delta.top
+                        });
                     });
-                });
             }
         },
-        dragStop: function(event, ui) {
+        dragStop: function (event, ui) {
             if (event.target !== this.$(".module")[0]) {
                 return;
             }
@@ -5095,24 +5095,24 @@ $(function() {
             // Also drag
             if (this._alsoDrag.length) {
                 _.each(this._alsoDrag,
-                function(el) {
-                    var initial = el.data("ui-draggable-alsodrag-initial");
-                    var helper = el.data("ui-draggable-alsodrag-helper");
-                    var node = el.data("iframework-node-view");
-                    // Move other node
-                    node.moveToPosition(parseInt(helper.css("left"), 10), parseInt(helper.css("top"), 10));
-                    // Remove helper
-                    helper.remove();
-                    el.data("ui-draggable-alsodrag-initial", null);
-                    el.data("ui-draggable-alsodrag-helper", null);
-                });
+                    function (el) {
+                        var initial = el.data("ui-draggable-alsodrag-initial");
+                        var helper = el.data("ui-draggable-alsodrag-helper");
+                        var node = el.data("iframework-node-view");
+                        // Move other node
+                        node.moveToPosition(parseInt(helper.css("left"), 10), parseInt(helper.css("top"), 10));
+                        // Remove helper
+                        helper.remove();
+                        el.data("ui-draggable-alsodrag-initial", null);
+                        el.data("ui-draggable-alsodrag-helper", null);
+                    });
                 this._alsoDrag = [];
             }
 
             // Remove iframe masks
             this.model.parentGraph.view.unmaskFrames();
         },
-        moveToPosition: function(x, y) {
+        moveToPosition: function (x, y) {
             this.$(".module").css({
                 left: x,
                 top: y
@@ -5122,12 +5122,12 @@ $(function() {
                 y: y + 30
             });
         },
-        resizestart: function(event, ui) {
+        resizestart: function (event, ui) {
             // Add a mask so that iframes don't steal mouse
             this.model.parentGraph.view.maskFrames();
         },
-        resize: function(event, ui) {},
-        resizestop: function(event, ui) {
+        resize: function (event, ui) { },
+        resizestop: function (event, ui) {
             // Remove iframe masks
             this.model.parentGraph.view.unmaskFrames();
 
@@ -5143,10 +5143,10 @@ $(function() {
             }
             this.model.parentGraph.view.resizeEdgeSVG();
         },
-        mousedown: function(event, ui) {
+        mousedown: function (event, ui) {
             // Bring to top
             var topZ = 0;
-            $("div.module").each(function() {
+            $("div.module").each(function () {
                 var thisZ = Number($(this).css("z-index"));
                 if (thisZ > topZ) {
                     topZ = thisZ;
@@ -5160,7 +5160,7 @@ $(function() {
             }
 
         },
-        click: function(event) {
+        click: function (event) {
             // Select
             if (event.ctrlKey || event.metaKey) {
                 // Command key is pressed, toggle selection
@@ -5174,40 +5174,40 @@ $(function() {
             // Don't fire click on graph
             event.stopPropagation();
         },
-        select: function(event) {
+        select: function (event) {
             // Called from code
             this.$(".module").addClass("ui-selected");
         },
-        addInput: function(port) {
+        addInput: function (port) {
             this.$(".ports-in").append(port.initializeView().el);
         },
-        addOutput: function(port) {
+        addOutput: function (port) {
             this.$(".ports-out").append(port.initializeView().el);
         },
-        showControls: function() {
+        showControls: function () {
             this.$(".showcontrols").hide();
             this.$(".controls").show();
         },
-        hideControls: function() {
+        hideControls: function () {
             this.$(".showcontrols").show();
             this.$(".controls").hide();
         },
-        removeModel: function() {
+        removeModel: function () {
             this.model.remove(true);
         },
-        remove: function() {
+        remove: function () {
             // Called from GraphView.removeNode
             if (this.Native) {
                 this.Native.remove();
             }
             this.$el.remove();
         },
-        refresh: function() {},
-        popout: function() {}
+        refresh: function () { },
+        popout: function () { }
 
     });
 }); //View: Iframework.NodeBoxView(继承于Iframework)
-$(function() {
+$(function () {
 
     var template = '<div class="info" />';
 
@@ -5221,7 +5221,7 @@ $(function() {
         },
         inputs: {},
         outputs: {},
-        initialize: function() {
+        initialize: function () {
             this.render();
 
             // Info
@@ -5248,22 +5248,22 @@ $(function() {
 
             return this;
         },
-        initializeCategory: function() {
+        initializeCategory: function () {
             // for example, override in nodes/image.js
         },
-        initializeModule: function() {
+        initializeModule: function () {
             // for example, override in nodes/image-combine.js
         },
-        render: function() {
+        render: function () {
             this.$el.html(this.template(this.model));
             return this;
         },
-        redraw: function(timestamp) {
+        redraw: function (timestamp) {
             // Do everything that will cause a redraw here
         },
         _triggerRedraw: false,
         _lastRedraw: 0,
-        renderAnimationFrame: function(timestamp) {
+        renderAnimationFrame: function (timestamp) {
             // Get a tick from GraphView.renderAnimationFrame()
             // this._valueChanged is set by NodeBox.receive()
             if (this._triggerRedraw) {
@@ -5272,14 +5272,14 @@ $(function() {
                 this._lastRedraw = timestamp;
             }
         },
-        set: function(name, value) {
+        set: function (name, value) {
             // Sets own state, use sparingly
             this.model.setValue(name, value);
         },
-        send: function(name, value) {
+        send: function (name, value) {
             this.model.send(name, value);
         },
-        setEquation: function(name, value) {
+        setEquation: function (name, value) {
             if (!this.equations) {
                 this.equations = {};
             }
@@ -5288,9 +5288,9 @@ $(function() {
                     var expression = Parser.parse(value);
                     // var func = expression.toJSFunction();
                     this.equations[name] = expression;
-                } catch(error) {
+                } catch (error) {
                     // If equation doesn't parse, pass through val
-                    this.equations[name] = function(vars) {
+                    this.equations[name] = function (vars) {
                         return vars.x;
                     };
                 }
@@ -5300,7 +5300,7 @@ $(function() {
                 }
             }
         },
-        receive: function(name, value) {
+        receive: function (name, value) {
             if (this.equations && this.equations[name]) {
                 value = this.equations[name].evaluate({
                     x: value
@@ -5315,28 +5315,28 @@ $(function() {
                 this._triggerRedraw = true;
             }
         },
-        toString: function() {
+        toString: function () {
             return "Native view: " + this.model.get("id") + ": " + this.info.title;
         },
-        resize: function(w, h) {
+        resize: function (w, h) {
             // Called from NodeBoxView.resizestop()
         },
-        connectEdge: function(edge) {
+        connectEdge: function (edge) {
             // Called from Edge.connect();
         },
-        disconnectEdge: function(edge) {
+        disconnectEdge: function (edge) {
             // Called from Edge.disconnect();
         },
-        remove: function() {
+        remove: function () {
             // Called from NodeBoxView.remove();
         }
 
     });
 }); //View: Iframework.NodeBoxNativeView
-$(function() {
+$(function () {
 
     Iframework.NodeBoxIframe = Iframework.NodeBox.extend({
-        initializeView: function() {
+        initializeView: function () {
             // Called from GraphView.addNode();
             this.view = new Iframework.NodeBoxIframeView({
                 model: this
@@ -5347,7 +5347,7 @@ $(function() {
             title: "iframe-node",
             description: "extend me"
         },
-        sendFromFrame: function(message) {
+        sendFromFrame: function (message) {
             var name = message.output;
             var value = message.value;
             // Convert pixels message to canvas
@@ -5356,13 +5356,13 @@ $(function() {
             }
             this.send(name, value);
         },
-        receive: function(name, value) {
+        receive: function (name, value) {
             if (this.view && this.view.iframeloaded) {
                 // Convert canvas message to pixels
                 if (Iframework.util.type(value) === "HTMLCanvasElement") {
                     try {
                         value = value.getContext("2d").getImageData(0, 0, value.width, value.height);
-                    } catch(e) {
+                    } catch (e) {
                         // Dirty canvas
                         return false;
                     }
@@ -5374,7 +5374,7 @@ $(function() {
                 console.error("wat " + this.id + " " + this.frameIndex);
             }
         },
-        setState: function() {
+        setState: function () {
             var state = this.get("state");
             if (state) {
                 this.receive({
@@ -5382,18 +5382,18 @@ $(function() {
                 });
             }
         },
-        iframeLoaded: function() {
+        iframeLoaded: function () {
             this.loaded = true;
             this.parentGraph.checkLoaded();
         },
-        toString: function() {
+        toString: function () {
             if (this.info) {
                 return "Iframe node " + this.get("id") + ": " + this.info.title;
             } else {
                 return "Iframe node " + this.get("id");
             }
         },
-        makeCanvas: function(imageData) {
+        makeCanvas: function (imageData) {
             if (!this.canvas) {
                 // Make internal canvas to pass
                 this.canvas = document.createElement("canvas");
@@ -5414,12 +5414,12 @@ $(function() {
         model: Iframework.Node
     });
 }); //Model: Iframework.NodeBoxIframe(继承于Iframework.NodeBox)
-$(function() {
+$(function () {
 
     // var innerTemplate = '<iframe class="iframe" name="<%= frameIndex %>" src="<%= get("src") %>"></iframe>';
     Iframework.NodeBoxIframeView = Iframework.NodeBoxView.extend({
         // innerTemplate: _.template(innerTemplate),
-        initialize: function() {
+        initialize: function () {
             // "super"
             Iframework.NodeBoxView.prototype.initialize.call(this);
 
@@ -5432,11 +5432,11 @@ $(function() {
             this.$(".inner").addClass("iframe-type");
 
             var self = this;
-            this.iframe.onload = function() {
+            this.iframe.onload = function () {
                 self.iframeloaded = true;
             };
         },
-        render: function() {
+        render: function () {
             this.$el.html(this.template(this.model));
 
             this.iframe = document.createElement("iframe");
@@ -5450,13 +5450,13 @@ $(function() {
             this.$(".inner").html(this.iframe);
             return this;
         },
-        refresh: function() {
+        refresh: function () {
             this.$("iframe")[0].src = this.model.get("src");
         }
 
     });
 }); //View: Iframework.NodeBoxIframeView(继承于Iframework.NodeBoxView)
-$(function() {
+$(function () {
 
     Iframework.Port = Backbone.Model.extend({
         defaults: {
@@ -5465,7 +5465,7 @@ $(function() {
             description: "",
             "default": null
         },
-        initialize: function() {
+        initialize: function () {
             if (this.get("type") === "") {
                 // No type set, connect to anything
                 this.set("type", "all");
@@ -5478,13 +5478,13 @@ $(function() {
 
         },
         // Ports keep track of connected edges
-        connect: function(edge) {
+        connect: function (edge) {
             this.Edges.add(edge);
         },
-        disconnect: function(edge) {
+        disconnect: function (edge) {
             this.Edges.remove(edge);
         },
-        remove: function() {
+        remove: function () {
             // Disconnect edges
             while (this.Edges.length > 0) {
                 var edge = this.Edges.at(0);
@@ -5501,21 +5501,21 @@ $(function() {
         model: Iframework.Port
     });
 }); //Model: Iframework.Port
-$(function() {
+$(function () {
 
     var popupTemplate =
-    	'<div class="edge-edit">' +
-    		'<button title="close" class="close icon-cancel"></button>' +
-    		'<h2><%= name %> (<%= type %>)</h2>' +
-    		'<p><%= description %></p>' +
-    		'<p><button class="publish-port">Publish</button></p>' +
-    	'</div>';
+        '<div class="edge-edit">' +
+        '<button title="close" class="close icon-cancel"></button>' +
+        '<h2><%= name %> (<%= type %>)</h2>' +
+        '<p><%= description %></p>' +
+        '<p><button class="publish-port">Publish</button></p>' +
+        '</div>';
 
     var edgeEditTemplate =
-    	'<div class="edge-edit-item" id="<%= model.cid %>">' +
-    		'<span><%= label() %></span>' +
-    		'<button title="disconnect" class="disconnect icon-scissors" type="button"></button>' +
-    	'</div>';
+        '<div class="edge-edit-item" id="<%= model.cid %>">' +
+        '<span><%= label() %></span>' +
+        '<button title="disconnect" class="disconnect icon-scissors" type="button"></button>' +
+        '</div>';
 
     var accepts = {};
 
@@ -5538,17 +5538,17 @@ $(function() {
             "submit .manualinput": "manualinput",
             "click .publish-port": "publishPort"
         },
-        initialize: function() {
+        initialize: function () {
             this.render();
             return this;
         },
-        dragstart: function(event, ui) {
+        dragstart: function (event, ui) {
             // Add a mask so that iframes don't steal mouse
             this.model.node.parentGraph.view.maskFrames();
 
             // Highlight matching ins or outs
-            $("div.ports-" + (this.model.isIn ? "out": "in") + " span.hole").addClass('fade');
-            $("div.ports-" + (this.model.isIn ? "out": "in") + " span.hole-" + this.model.get('type_class')).addClass('highlight');
+            $("div.ports-" + (this.model.isIn ? "out" : "in") + " span.hole").addClass('fade');
+            $("div.ports-" + (this.model.isIn ? "out" : "in") + " span.hole-" + this.model.get('type_class')).addClass('highlight');
 
             // Edge preview
             var edgePreview = new Iframework.EdgeView();
@@ -5559,7 +5559,7 @@ $(function() {
             // Don't drag module
             event.stopPropagation();
         },
-        drag: function(event, ui) {
+        drag: function (event, ui) {
             if (Iframework.edgePreview) {
                 var dragX = ui.offset.left + Iframework.shownGraph.view.el.scrollLeft;
                 var dragY = ui.offset.top + 8 + Iframework.shownGraph.view.el.scrollTop;
@@ -5569,9 +5569,9 @@ $(function() {
                 // Edge preview
                 var positions = {
                     fromX: (this.model.isIn ? dragX - 2 : thisX),
-                    fromY: (this.model.isIn ? dragY: thisY),
-                    toX: (this.model.isIn ? thisX: dragX + 20),
-                    toY: (this.model.isIn ? thisY: dragY)
+                    fromY: (this.model.isIn ? dragY : thisY),
+                    toX: (this.model.isIn ? thisX : dragX + 20),
+                    toY: (this.model.isIn ? thisY : dragY)
                 };
                 Iframework.edgePreview.setPositions(positions);
                 Iframework.edgePreview.redraw();
@@ -5579,7 +5579,7 @@ $(function() {
             // Don't drag module
             event.stopPropagation();
         },
-        dragstop: function(event, ui) {
+        dragstop: function (event, ui) {
             // Remove iframe masks
             this.model.node.parentGraph.view.unmaskFrames();
 
@@ -5595,7 +5595,7 @@ $(function() {
             // Don't drag module
             event.stopPropagation();
         },
-        drop: function(event, ui) {
+        drop: function (event, ui) {
             // HACK will drop always fire before dragstop?
             if (this.armDelete) {
                 // Don't disconnect or reconnect wire dragged back to same port
@@ -5604,8 +5604,8 @@ $(function() {
                 // Connect wire
                 var from = $(ui.draggable).data("model");
                 var to = this.model;
-                var source = (this.model.isIn ? from: to);
-                var target = (this.model.isIn ? to: from);
+                var source = (this.model.isIn ? from : to);
+                var target = (this.model.isIn ? to : from);
                 var edge = new Iframework.Edge({
                     source: [source.node.get("id"), source.get("name")],
                     target: [target.node.get("id"), target.get("name")],
@@ -5624,20 +5624,20 @@ $(function() {
         unpluggingEdge: null,
         armDeleteTimeout: null,
         armDelete: false,
-        topConnectedEdge: function() {
+        topConnectedEdge: function () {
             var topConnected;
             var topZ = 0;
             _.each(this.relatedEdges(),
-            function(edge) {
-                if (edge.view._z >= topZ) {
-                    topZ = edge.view._z;
-                    topConnected = edge;
-                }
-            },
-            this);
+                function (edge) {
+                    if (edge.view._z >= topZ) {
+                        topZ = edge.view._z;
+                        topConnected = edge;
+                    }
+                },
+                this);
             return topConnected;
         },
-        unplugstart: function(event, ui) {
+        unplugstart: function (event, ui) {
             // Add a mask so that iframes don't steal mouse
             this.model.node.parentGraph.view.maskFrames();
 
@@ -5653,11 +5653,11 @@ $(function() {
                 this.$(".plugend").hide();
             }
 
-            var thatPort = this.model.isIn ? this.unpluggingEdge.Source: this.unpluggingEdge.Target;
+            var thatPort = this.model.isIn ? this.unpluggingEdge.Source : this.unpluggingEdge.Target;
             this.$(".plugend").data("model", thatPort);
 
             // Highlight related ins or outs
-            $("div.ports-" + (this.model.isIn ? "in": "out") + " span.hole-" + this.model.get('type_class')).addClass('highlight');
+            $("div.ports-" + (this.model.isIn ? "in" : "out") + " span.hole-" + this.model.get('type_class')).addClass('highlight');
 
             // Edge preview
             var edgePreview = new Iframework.EdgeView();
@@ -5669,20 +5669,20 @@ $(function() {
             // Don't drag module
             event.stopPropagation();
         },
-        unplugdrag: function(event, ui) {
+        unplugdrag: function (event, ui) {
             if (Iframework.edgePreview && this.unpluggingEdge) {
                 var dragX = ui.offset.left + Iframework.shownGraph.view.el.scrollLeft;
                 var dragY = ui.offset.top + 6 + Iframework.shownGraph.view.el.scrollTop;
-                var thatPortView = this.model.isIn ? this.unpluggingEdge.Source.view: this.unpluggingEdge.Target.view;
+                var thatPortView = this.model.isIn ? this.unpluggingEdge.Source.view : this.unpluggingEdge.Target.view;
                 var thatX = thatPortView.portOffsetLeft();
                 var thatY = thatPortView.portOffsetTop();
 
                 // Edge preview
                 var positions = {
-                    fromX: (this.model.isIn ? thatX: dragX - 2),
-                    fromY: (this.model.isIn ? thatY: dragY),
+                    fromX: (this.model.isIn ? thatX : dragX - 2),
+                    fromY: (this.model.isIn ? thatY : dragY),
                     toX: (this.model.isIn ? dragX + 20 : thatX),
-                    toY: (this.model.isIn ? dragY: thatY)
+                    toY: (this.model.isIn ? dragY : thatY)
                 };
                 Iframework.edgePreview.setPositions(positions);
                 Iframework.edgePreview.redraw();
@@ -5690,7 +5690,7 @@ $(function() {
             // Don't drag module
             event.stopPropagation();
         },
-        unplugstop: function(event, ui) {
+        unplugstop: function (event, ui) {
             if (this.armDelete && this.unpluggingEdge) {
                 this.model.parentGraph.removeEdge(this.unpluggingEdge);
             } else {
@@ -5702,7 +5702,7 @@ $(function() {
 
             this.dragstop(event, ui);
         },
-        clickhole: function(event) {
+        clickhole: function (event) {
             // Hide previous connected edges editor
             $('div.edge-edit').remove();
 
@@ -5722,7 +5722,7 @@ $(function() {
                     primary: "icon-cancel"
                 },
                 text: false
-            }).click(function() {
+            }).click(function () {
                 $('div.edge-edit').remove();
                 Iframework.selectedPort = null;
             });
@@ -5784,11 +5784,11 @@ $(function() {
             if (this.relatedEdges().length > 0) {
                 popupEl.append('<h2>disconnect</h2>');
                 _.each(this.relatedEdges(),
-                function(edge) {
-                    var edgeEditEl = this.edgeEditTemplate(edge.view);
-                    popupEl.append(edgeEditEl);
-                },
-                this);
+                    function (edge) {
+                        var edgeEditEl = this.edgeEditTemplate(edge.view);
+                        popupEl.append(edgeEditEl);
+                    },
+                    this);
             }
 
             // This input's options
@@ -5802,7 +5802,7 @@ $(function() {
             // Don't fire click on graph
             event.stopPropagation();
         },
-        manualinput: function(event) {
+        manualinput: function (event) {
             var inputname = this.model.get("name");
             var val;
             if (this.$(".manualinput").children("input")) {
@@ -5832,7 +5832,7 @@ $(function() {
             // $('div.edge-edit').remove();
             return false;
         },
-        disconnect: function(event) {
+        disconnect: function (event) {
             //HACK
             var edge = this.model.parentGraph.get("edges").getByCid($(event.target).parents(".edge-edit-item").attr("id"));
             if (edge) {
@@ -5844,7 +5844,7 @@ $(function() {
             // Don't bubble
             event.stopPropagation();
         },
-        portOffsetLeft: function() {
+        portOffsetLeft: function () {
             var holeoffset = this.$('.hole').offset();
             if (holeoffset) {
                 // HACK
@@ -5853,7 +5853,7 @@ $(function() {
                 return 0;
             }
         },
-        portOffsetTop: function() {
+        portOffsetTop: function () {
             var holeoffset = this.$('.hole').offset();
             if (holeoffset) {
                 // HACK
@@ -5863,13 +5863,13 @@ $(function() {
             }
         },
         _relatedEdges: null,
-        relatedEdges: function() {
+        relatedEdges: function () {
             // Resets to null on dis/connect
             if (this._relatedEdges === null) {
-                this._relatedEdges = this.model.parentGraph.get("edges").filter(function(edge) {
+                this._relatedEdges = this.model.parentGraph.get("edges").filter(function (edge) {
                     return (edge.Source === this.model || edge.Target === this.model);
                 },
-                this);
+                    this);
                 // Toggle plugends
                 if (this._relatedEdges.length >= 1) {
                     this.$(".plugend").show();
@@ -5880,11 +5880,11 @@ $(function() {
             }
             return this._relatedEdges;
         },
-        resetRelatedEdges: function() {
+        resetRelatedEdges: function () {
             this._relatedEdges = null;
             this.relatedEdges();
         },
-        highlightEdge: function() {
+        highlightEdge: function () {
             if (this.relatedEdges().length > 0) {
                 // Find top connected wire
                 var topConnected = this.topConnectedEdge();
@@ -5893,23 +5893,23 @@ $(function() {
                 }
             }
         },
-        highlight: function() {
+        highlight: function () {
             // Called by edge view
             var plugend = this.$(".plugend");
             plugend.addClass("highlight");
-            setTimeout(function() {
+            setTimeout(function () {
                 plugend.removeClass("highlight");
             },
-            1000);
+                1000);
         },
-        publishPort: function() {
+        publishPort: function () {
             // i/o
         } //,
         // remove: function () {
         // }
     });
 }); //View: Iframework.PortView
-$(function() {
+$(function () {
 
     Iframework.PortIn = Iframework.Port.extend({
         defaults: {
@@ -5918,7 +5918,7 @@ $(function() {
             description: "",
             "default": null
         },
-        initializeView: function() {
+        initializeView: function () {
             this.view = new Iframework.PortInView({
                 model: this
             });
@@ -5930,14 +5930,14 @@ $(function() {
         model: Iframework.PortIn
     });
 }); //Model: Iframework.PortIn(继承于Iframework.Port); Collection: Iframework.PortsIn
-$(function() {
+$(function () {
 
     var portInTemplate =
-    	'<div class="portshown portshown-in">' +
-    		'<span class="hole hole-in hole-<%= type_class %> icon-login"></span>' +
-    		'<span class="label"><%= name %></span>' +
-    	'</div>' +
-    		'<span class="plugend plugend-in plugend-<%= type_class %>"></span>';
+        '<div class="portshown portshown-in">' +
+        '<span class="hole hole-in hole-<%= type_class %> icon-login"></span>' +
+        '<span class="label"><%= name %></span>' +
+        '</div>' +
+        '<span class="plugend plugend-in plugend-<%= type_class %>"></span>';
 
     Iframework.PortInView = Iframework.PortView.extend({
         tagName: "div",
@@ -5957,16 +5957,16 @@ $(function() {
             "submit .manualinput": "manualinput",
             "click .publish-port": "publishPort"
         },
-        render: function() {
+        render: function () {
             this.$el.html(this.portInTemplate(this.model.toJSON()));
             this.$el.addClass("port-in");
             this.$(".hole").draggable({
-                helper: function(e) {
+                helper: function (e) {
                     return $('<span class="holehelper holehelper-out" />');
                 }
             });
             this.$(".plugend").draggable({
-                helper: function(e) {
+                helper: function (e) {
                     return $('<span class="plugendhelper plugendhelper-in" />');
                 }
             });
@@ -6004,13 +6004,13 @@ $(function() {
             this.$(".portshown").disableSelection();
 
         },
-        dragstart: function(event, ui) {
+        dragstart: function (event, ui) {
             // Add a mask so that iframes don't steal mouse
             this.model.node.parentGraph.view.maskFrames();
 
             // Highlight matching ins or outs
-            $("div.ports-" + (this.model.isIn ? "out": "in") + " span.hole").addClass('fade');
-            $("div.ports-" + (this.model.isIn ? "out": "in") + " span.hole-" + this.model.get('type_class')).addClass('highlight');
+            $("div.ports-" + (this.model.isIn ? "out" : "in") + " span.hole").addClass('fade');
+            $("div.ports-" + (this.model.isIn ? "out" : "in") + " span.hole-" + this.model.get('type_class')).addClass('highlight');
 
             // Edge preview
             var edgePreview = new Iframework.EdgeView();
@@ -6021,7 +6021,7 @@ $(function() {
             // Don't drag module
             event.stopPropagation();
         },
-        drag: function(event, ui) {
+        drag: function (event, ui) {
             if (Iframework.edgePreview) {
                 var dragX = ui.offset.left + Iframework.shownGraph.view.el.scrollLeft;
                 var dragY = ui.offset.top + 8 + Iframework.shownGraph.view.el.scrollTop;
@@ -6031,9 +6031,9 @@ $(function() {
                 // Edge preview
                 var positions = {
                     fromX: (this.model.isIn ? dragX - 2 : thisX),
-                    fromY: (this.model.isIn ? dragY: thisY),
-                    toX: (this.model.isIn ? thisX: dragX + 20),
-                    toY: (this.model.isIn ? thisY: dragY)
+                    fromY: (this.model.isIn ? dragY : thisY),
+                    toX: (this.model.isIn ? thisX : dragX + 20),
+                    toY: (this.model.isIn ? thisY : dragY)
                 };
                 Iframework.edgePreview.setPositions(positions);
                 Iframework.edgePreview.redraw();
@@ -6041,7 +6041,7 @@ $(function() {
             // Don't drag module
             event.stopPropagation();
         },
-        dragstop: function(event, ui) {
+        dragstop: function (event, ui) {
             // Remove iframe masks
             this.model.node.parentGraph.view.unmaskFrames();
 
@@ -6057,7 +6057,7 @@ $(function() {
             // Don't drag module
             event.stopPropagation();
         },
-        drop: function(event, ui) {
+        drop: function (event, ui) {
             // HACK will drop always fire before dragstop?
             if (this.armDelete) {
                 // Don't disconnect or reconnect wire dragged back to same port
@@ -6066,8 +6066,8 @@ $(function() {
                 // Connect wire
                 var from = $(ui.draggable).data("model");
                 var to = this.model;
-                var source = (this.model.isIn ? from: to);
-                var target = (this.model.isIn ? to: from);
+                var source = (this.model.isIn ? from : to);
+                var target = (this.model.isIn ? to : from);
                 var edge = new Iframework.Edge({
                     source: [source.node.id, source.id],
                     target: [target.node.id, target.id],
@@ -6086,20 +6086,20 @@ $(function() {
         unpluggingEdge: null,
         armDeleteTimeout: null,
         armDelete: false,
-        topConnectedEdge: function() {
+        topConnectedEdge: function () {
             var topConnected;
             var topZ = 0;
             _.each(this.relatedEdges(),
-            function(edge) {
-                if (edge.view._z >= topZ) {
-                    topZ = edge.view._z;
-                    topConnected = edge;
-                }
-            },
-            this);
+                function (edge) {
+                    if (edge.view._z >= topZ) {
+                        topZ = edge.view._z;
+                        topConnected = edge;
+                    }
+                },
+                this);
             return topConnected;
         },
-        unplugstart: function(event, ui) {
+        unplugstart: function (event, ui) {
             // Add a mask so that iframes don't steal mouse
             this.model.node.parentGraph.view.maskFrames();
 
@@ -6115,11 +6115,11 @@ $(function() {
                 this.$(".plugend").hide();
             }
 
-            var thatPort = this.model.isIn ? this.unpluggingEdge.Source: this.unpluggingEdge.Target;
+            var thatPort = this.model.isIn ? this.unpluggingEdge.Source : this.unpluggingEdge.Target;
             this.$(".plugend").data("model", thatPort);
 
             // Highlight related ins or outs
-            $("div.ports-" + (this.model.isIn ? "in": "out") + " span.hole-" + this.model.get('type_class')).addClass('highlight');
+            $("div.ports-" + (this.model.isIn ? "in" : "out") + " span.hole-" + this.model.get('type_class')).addClass('highlight');
 
             // Edge preview
             var edgePreview = new Iframework.EdgeView();
@@ -6131,20 +6131,20 @@ $(function() {
             // Don't drag module
             event.stopPropagation();
         },
-        unplugdrag: function(event, ui) {
+        unplugdrag: function (event, ui) {
             if (Iframework.edgePreview && this.unpluggingEdge) {
                 var dragX = ui.offset.left + Iframework.shownGraph.view.el.scrollLeft;
                 var dragY = ui.offset.top + 6 + Iframework.shownGraph.view.el.scrollTop;
-                var thatPortView = this.model.isIn ? this.unpluggingEdge.Source.view: this.unpluggingEdge.Target.view;
+                var thatPortView = this.model.isIn ? this.unpluggingEdge.Source.view : this.unpluggingEdge.Target.view;
                 var thatX = thatPortView.portOffsetLeft();
                 var thatY = thatPortView.portOffsetTop();
 
                 // Edge preview
                 var positions = {
-                    fromX: (this.model.isIn ? thatX: dragX - 2),
-                    fromY: (this.model.isIn ? thatY: dragY),
+                    fromX: (this.model.isIn ? thatX : dragX - 2),
+                    fromY: (this.model.isIn ? thatY : dragY),
                     toX: (this.model.isIn ? dragX + 20 : thatX),
-                    toY: (this.model.isIn ? dragY: thatY)
+                    toY: (this.model.isIn ? dragY : thatY)
                 };
                 Iframework.edgePreview.setPositions(positions);
                 Iframework.edgePreview.redraw();
@@ -6152,7 +6152,7 @@ $(function() {
             // Don't drag module
             event.stopPropagation();
         },
-        unplugstop: function(event, ui) {
+        unplugstop: function (event, ui) {
             if (this.armDelete && this.unpluggingEdge) {
                 this.model.parentGraph.removeEdge(this.unpluggingEdge);
             } else {
@@ -6164,7 +6164,7 @@ $(function() {
 
             this.dragstop(event, ui);
         },
-        clickhole: function(event) {
+        clickhole: function (event) {
             // Hide previous connected edges editor
             $('div.edge-edit').remove();
 
@@ -6179,7 +6179,7 @@ $(function() {
             this.$el.append(popupEl);
 
             // Close button
-            popupEl.children("button.close").click(function() {
+            popupEl.children("button.close").click(function () {
                 $('div.edge-edit').remove();
                 Iframework.selectedPort = null;
             });
@@ -6224,17 +6224,17 @@ $(function() {
                     palette: [Iframework.wireColors, ["red", "green", "blue", "purple", "cyan", "magenta", "yellow"], ["black", "#333", "#666", "#999", "#AAA", "#CCC", "white"]],
                     showSelectionPalette: true,
                     localStorageKey: "iframework.settings.colorPalette",
-                    change: function(color) {
+                    change: function (color) {
                         // TODO change to toString when https://github.com/bgrins/spectrum/issues/92 fixed
                         var str = color.toRgbString();
                         input.val(str);
                         self.model.node.receive(portName, str);
                         self.model.node.setValue(portName, str);
                     },
-                    hide: function(color) {
+                    hide: function (color) {
                         input.show();
                     },
-                    beforeShow: function() {
+                    beforeShow: function () {
                         input.spectrum("set", input.val());
                         input.hide();
                     }
@@ -6254,7 +6254,7 @@ $(function() {
                 }
                 var s = "";
                 for (var i = 0; i < a.length; i++) {
-                    s += (i > 0 ? ", ": "") + a[i];
+                    s += (i > 0 ? ", " : "") + a[i];
                 }
                 inputForm.append($("<input />").attr({
                     "type": "text",
@@ -6289,11 +6289,11 @@ $(function() {
             if (this.relatedEdges().length > 0) {
                 popupEl.append('<h2>disconnect</h2>');
                 _.each(this.relatedEdges(),
-                function(edge) {
-                    var edgeEditEl = this.edgeEditTemplate(edge.view);
-                    popupEl.append(edgeEditEl);
-                },
-                this);
+                    function (edge) {
+                        var edgeEditEl = this.edgeEditTemplate(edge.view);
+                        popupEl.append(edgeEditEl);
+                    },
+                    this);
             }
 
             // This input's options
@@ -6307,7 +6307,7 @@ $(function() {
             // Don't fire click on graph
             event.stopPropagation();
         },
-        manualinput: function(event) {
+        manualinput: function (event) {
             var inputname = this.model.get("name");
             var type = this.model.get("type");
             var typeabbr = type.substring(0, 3);
@@ -6336,7 +6336,7 @@ $(function() {
             if (typeabbr === "arr") {
                 try {
                     val = JSON.parse("[" + val + "]");
-                } catch(error) {
+                } catch (error) {
                     // boo
                     return false;
                 }
@@ -6352,7 +6352,7 @@ $(function() {
             this.model.node.receive(inputname, val);
             return false;
         },
-        disconnect: function(event) {
+        disconnect: function (event) {
             //HACK
             var edge = this.model.parentGraph.get("edges").getByCid($(event.target).parents(".edge-edit-item").attr("id"));
             if (edge) {
@@ -6365,13 +6365,13 @@ $(function() {
             event.stopPropagation();
         },
         _relatedEdges: null,
-        relatedEdges: function() {
+        relatedEdges: function () {
             // Resets to null on dis/connect
             if (this._relatedEdges === null) {
-                this._relatedEdges = this.model.parentGraph.get("edges").filter(function(edge) {
+                this._relatedEdges = this.model.parentGraph.get("edges").filter(function (edge) {
                     return (edge.Source === this.model || edge.Target === this.model);
                 },
-                this);
+                    this);
                 // Toggle plugends
                 if (this._relatedEdges.length >= 1) {
                     this.$(".plugend").show();
@@ -6382,11 +6382,11 @@ $(function() {
             }
             return this._relatedEdges;
         },
-        resetRelatedEdges: function() {
+        resetRelatedEdges: function () {
             this._relatedEdges = null;
             this.relatedEdges();
         },
-        highlightEdge: function() {
+        highlightEdge: function () {
             if (this.relatedEdges().length > 0) {
                 // Find top connected wire
                 var topConnected = this.topConnectedEdge();
@@ -6395,16 +6395,16 @@ $(function() {
                 }
             }
         },
-        highlight: function() {
+        highlight: function () {
             // Called by edge view
             var plugend = this.$(".plugend");
             plugend.addClass("highlight");
-            setTimeout(function() {
+            setTimeout(function () {
                 plugend.removeClass("highlight");
             },
-            1000);
+                1000);
         },
-        publishPort: function() {
+        publishPort: function () {
             // Make breakout
             var breakout = this.model.parentNode.parentGraph.addNode({
                 src: "meemoo:subgraph/input",
@@ -6428,7 +6428,7 @@ $(function() {
 
     });
 }); //View: Iframework.PortInView(继承于Iframework.PortView)
-$(function() {
+$(function () {
 
     Iframework.PortOut = Iframework.Port.extend({
         defaults: {
@@ -6437,7 +6437,7 @@ $(function() {
             description: "",
             "default": null
         },
-        initializeView: function() {
+        initializeView: function () {
             this.view = new Iframework.PortOutView({
                 model: this
             });
@@ -6449,14 +6449,14 @@ $(function() {
         model: Iframework.PortOut
     });
 }); //Model: Iframework.PortOut(继承于Iframework.Port); Collection: Iframework.PortsOut
-$(function() {
+$(function () {
 
     var portOutTemplate =
-    	'<div class="portshown portshown-out">' +
-    		'<span class="label"><%= name %></span>' +
-    		'<span class="hole hole-out hole-<%= type_class %> icon-logout"></span>' +
-    	'</div>' +
-    	'<span class="plugend plugend-out plugend-<%= type_class %>"></span>';
+        '<div class="portshown portshown-out">' +
+        '<span class="label"><%= name %></span>' +
+        '<span class="hole hole-out hole-<%= type_class %> icon-logout"></span>' +
+        '</div>' +
+        '<span class="plugend plugend-out plugend-<%= type_class %>"></span>';
 
     // var popupTemplate =
     //   '<div class="edge-edit">'+
@@ -6488,16 +6488,16 @@ $(function() {
             "click .disconnect": "disconnect",
             "click .publish-port": "publishPort"
         },
-        render: function() {
+        render: function () {
             this.$el.html(this.portOutTemplate(this.model.toJSON()));
             this.$el.addClass("port-out");
             this.$(".hole").draggable({
-                helper: function(e) {
+                helper: function (e) {
                     return $('<span class="holehelper holehelper-in" />');
                 }
             });
             this.$(".plugend").draggable({
-                helper: function(e) {
+                helper: function (e) {
                     return $('<span class="plugendhelper plugendhelper-out" />');
                 }
             });
@@ -6534,13 +6534,13 @@ $(function() {
             this.$(".portshown").disableSelection();
 
         },
-        dragstart: function(event, ui) {
+        dragstart: function (event, ui) {
             // Add a mask so that iframes don't steal mouse
             this.model.node.parentGraph.view.maskFrames();
 
             // Highlight matching ins or outs
-            $("div.ports-" + (this.model.isIn ? "out": "in") + " span.hole").addClass('fade');
-            $("div.ports-" + (this.model.isIn ? "out": "in") + " span.hole-" + this.model.get('type_class')).addClass('highlight');
+            $("div.ports-" + (this.model.isIn ? "out" : "in") + " span.hole").addClass('fade');
+            $("div.ports-" + (this.model.isIn ? "out" : "in") + " span.hole-" + this.model.get('type_class')).addClass('highlight');
 
             // Edge preview
             var edgePreview = new Iframework.EdgeView();
@@ -6551,7 +6551,7 @@ $(function() {
             // Don't drag module
             event.stopPropagation();
         },
-        drag: function(event, ui) {
+        drag: function (event, ui) {
             if (Iframework.edgePreview) {
                 var dragX = ui.offset.left + Iframework.shownGraph.view.el.scrollLeft;
                 var dragY = ui.offset.top + 8 + Iframework.shownGraph.view.el.scrollTop;
@@ -6561,9 +6561,9 @@ $(function() {
                 // Edge preview
                 var positions = {
                     fromX: (this.model.isIn ? dragX - 2 : thisX),
-                    fromY: (this.model.isIn ? dragY: thisY),
-                    toX: (this.model.isIn ? thisX: dragX + 20),
-                    toY: (this.model.isIn ? thisY: dragY)
+                    fromY: (this.model.isIn ? dragY : thisY),
+                    toX: (this.model.isIn ? thisX : dragX + 20),
+                    toY: (this.model.isIn ? thisY : dragY)
                 };
                 Iframework.edgePreview.setPositions(positions);
                 Iframework.edgePreview.redraw();
@@ -6571,7 +6571,7 @@ $(function() {
             // Don't drag module
             event.stopPropagation();
         },
-        dragstop: function(event, ui) {
+        dragstop: function (event, ui) {
             // Remove iframe masks
             this.model.node.parentGraph.view.unmaskFrames();
 
@@ -6587,7 +6587,7 @@ $(function() {
             // Don't drag module
             event.stopPropagation();
         },
-        drop: function(event, ui) {
+        drop: function (event, ui) {
             // HACK will drop always fire before dragstop?
             if (this.armDelete) {
                 // Don't disconnect or reconnect wire dragged back to same port
@@ -6596,8 +6596,8 @@ $(function() {
                 // Connect wire
                 var from = $(ui.draggable).data("model");
                 var to = this.model;
-                var source = (this.model.isIn ? from: to);
-                var target = (this.model.isIn ? to: from);
+                var source = (this.model.isIn ? from : to);
+                var target = (this.model.isIn ? to : from);
                 var edge = new Iframework.Edge({
                     source: [source.node.id, source.id],
                     target: [target.node.id, target.id],
@@ -6616,20 +6616,20 @@ $(function() {
         unpluggingEdge: null,
         armDeleteTimeout: null,
         armDelete: false,
-        topConnectedEdge: function() {
+        topConnectedEdge: function () {
             var topConnected;
             var topZ = 0;
             _.each(this.relatedEdges(),
-            function(edge) {
-                if (edge.view && edge.view._z >= topZ) {
-                    topZ = edge.view._z;
-                    topConnected = edge;
-                }
-            },
-            this);
+                function (edge) {
+                    if (edge.view && edge.view._z >= topZ) {
+                        topZ = edge.view._z;
+                        topConnected = edge;
+                    }
+                },
+                this);
             return topConnected;
         },
-        unplugstart: function(event, ui) {
+        unplugstart: function (event, ui) {
             // Add a mask so that iframes don't steal mouse
             this.model.node.parentGraph.view.maskFrames();
 
@@ -6645,11 +6645,11 @@ $(function() {
                 this.$(".plugend").hide();
             }
 
-            var thatPort = this.model.isIn ? this.unpluggingEdge.Source: this.unpluggingEdge.Target;
+            var thatPort = this.model.isIn ? this.unpluggingEdge.Source : this.unpluggingEdge.Target;
             this.$(".plugend").data("model", thatPort);
 
             // Highlight related ins or outs
-            $("div.ports-" + (this.model.isIn ? "in": "out") + " span.hole-" + this.model.get('type_class')).addClass('highlight');
+            $("div.ports-" + (this.model.isIn ? "in" : "out") + " span.hole-" + this.model.get('type_class')).addClass('highlight');
 
             // Edge preview
             var edgePreview = new Iframework.EdgeView();
@@ -6661,20 +6661,20 @@ $(function() {
             // Don't drag module
             event.stopPropagation();
         },
-        unplugdrag: function(event, ui) {
+        unplugdrag: function (event, ui) {
             if (Iframework.edgePreview && this.unpluggingEdge) {
                 var dragX = ui.offset.left + Iframework.shownGraph.view.el.scrollLeft;
                 var dragY = ui.offset.top + 6 + Iframework.shownGraph.view.el.scrollTop;
-                var thatPortView = this.model.isIn ? this.unpluggingEdge.Source.view: this.unpluggingEdge.Target.view;
+                var thatPortView = this.model.isIn ? this.unpluggingEdge.Source.view : this.unpluggingEdge.Target.view;
                 var thatX = thatPortView.portOffsetLeft();
                 var thatY = thatPortView.portOffsetTop();
 
                 // Edge preview
                 var positions = {
-                    fromX: (this.model.isIn ? thatX: dragX - 2),
-                    fromY: (this.model.isIn ? thatY: dragY),
+                    fromX: (this.model.isIn ? thatX : dragX - 2),
+                    fromY: (this.model.isIn ? thatY : dragY),
                     toX: (this.model.isIn ? dragX + 20 : thatX),
-                    toY: (this.model.isIn ? dragY: thatY)
+                    toY: (this.model.isIn ? dragY : thatY)
                 };
                 Iframework.edgePreview.setPositions(positions);
                 Iframework.edgePreview.redraw();
@@ -6682,7 +6682,7 @@ $(function() {
             // Don't drag module
             event.stopPropagation();
         },
-        unplugstop: function(event, ui) {
+        unplugstop: function (event, ui) {
             if (this.armDelete && this.unpluggingEdge) {
                 this.model.parentGraph.removeEdge(this.unpluggingEdge);
             } else {
@@ -6694,7 +6694,7 @@ $(function() {
 
             this.dragstop(event, ui);
         },
-        clickhole: function(event) {
+        clickhole: function (event) {
             // Hide previous connected edges editor
             $('div.edge-edit').remove();
 
@@ -6709,7 +6709,7 @@ $(function() {
             this.$el.append(popupEl);
 
             // Close button
-            popupEl.children("button.close").click(function() {
+            popupEl.children("button.close").click(function () {
                 $('div.edge-edit').remove();
                 Iframework.selectedPort = null;
             });
@@ -6724,11 +6724,11 @@ $(function() {
             if (this.relatedEdges().length > 0) {
                 popupEl.append('<h2>disconnect</h2>');
                 _.each(this.relatedEdges(),
-                function(edge) {
-                    var edgeEditEl = this.edgeEditTemplate(edge.view);
-                    popupEl.append(edgeEditEl);
-                },
-                this);
+                    function (edge) {
+                        var edgeEditEl = this.edgeEditTemplate(edge.view);
+                        popupEl.append(edgeEditEl);
+                    },
+                    this);
             }
 
             // This input's options
@@ -6742,7 +6742,7 @@ $(function() {
             // Don't fire click on graph
             event.stopPropagation();
         },
-        disconnect: function(event) {
+        disconnect: function (event) {
             //HACK
             var edge = this.model.parentGraph.get("edges").getByCid($(event.target).parents(".edge-edit-item").attr("id"));
             if (edge) {
@@ -6755,13 +6755,13 @@ $(function() {
             event.stopPropagation();
         },
         _relatedEdges: null,
-        relatedEdges: function() {
+        relatedEdges: function () {
             // Resets to null on dis/connect
             if (this._relatedEdges === null) {
-                this._relatedEdges = this.model.parentGraph.get("edges").filter(function(edge) {
+                this._relatedEdges = this.model.parentGraph.get("edges").filter(function (edge) {
                     return (edge.Source === this.model || edge.Target === this.model);
                 },
-                this);
+                    this);
                 // Toggle plugends
                 if (this._relatedEdges.length >= 1) {
                     this.$(".plugend").show();
@@ -6772,11 +6772,11 @@ $(function() {
             }
             return this._relatedEdges;
         },
-        resetRelatedEdges: function() {
+        resetRelatedEdges: function () {
             this._relatedEdges = null;
             this.relatedEdges();
         },
-        highlightEdge: function() {
+        highlightEdge: function () {
             if (this.relatedEdges().length > 0) {
                 // Find top connected wire
                 var topConnected = this.topConnectedEdge();
@@ -6785,16 +6785,16 @@ $(function() {
                 }
             }
         },
-        highlight: function() {
+        highlight: function () {
             // Called by edge view
             var plugend = this.$(".plugend");
             plugend.addClass("highlight");
-            setTimeout(function() {
+            setTimeout(function () {
                 plugend.removeClass("highlight");
             },
-            1000);
+                1000);
         },
-        publishPort: function() {
+        publishPort: function () {
             // Make breakout
             var breakout = this.model.parentNode.parentGraph.addNode({
                 src: "meemoo:subgraph/output",
@@ -6818,14 +6818,14 @@ $(function() {
 
     });
 }); ///View: Iframework.PortOutView(继承于Iframework.PortView)
-$(function() {
+$(function () {
 
     Iframework.Module = Backbone.Model.extend({
         defaults: {
             "src": "",
             "info": {}
         },
-        initialize: function() {
+        initialize: function () {
             var srcSplit = this.get("src").split(":");
             this.isNative = (srcSplit[0] === "meemoo");
             if (this.isNative) {
@@ -6833,14 +6833,14 @@ $(function() {
             }
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             else {
-            	this.groupAndName2 = [];
-            	this.groupAndName2[0] = "iFrame";
-            	this.groupAndName2[1] = this.get("info").title;
+                this.groupAndName2 = [];
+                this.groupAndName2[0] = "iFrame";
+                this.groupAndName2[1] = this.get("info").title;
             }
-            	
+
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         },
-        initializeView: function() {
+        initializeView: function () {
             if (!this.view) {
                 this.view = new Iframework.ModuleView({
                     model: this
@@ -6848,7 +6848,7 @@ $(function() {
             }
             return this.view;
         },
-        toJSON: function() {
+        toJSON: function () {
             return {
                 "src": this.get("src"),
                 "info": this.get("info")
@@ -6858,9 +6858,9 @@ $(function() {
 
     Iframework.Modules = Backbone.Collection.extend({
         model: Iframework.Module,
-        findOrAdd: function(node) {
+        findOrAdd: function (node) {
             var module;
-            module = this.find(function(module) {
+            module = this.find(function (module) {
                 return module.get("src") === node.get("src");
             });
             if (!module) {
@@ -6873,11 +6873,11 @@ $(function() {
         }
     });
 }); //Module: Iframework.Module; Collection: Iframework.Modules
-$(function() {
+$(function () {
 
     var template =
-    	'<div class="addnode button module-icon" title="<%= info.description %>"></div>' +
-    	'<h2 class="title" title="<%= src %>"><%= info.title %></h2>';
+        '<div class="addnode button module-icon" title="<%= info.description %>"></div>' +
+        '<h2 class="title" title="<%= src %>"><%= info.title %></h2>';
 
     Iframework.ModuleView = Backbone.View.extend({
         tagName: "div",
@@ -6888,14 +6888,14 @@ $(function() {
             "dragstart .addnode": "dragStart",
             "dragstop .addnode": "dragStop"
         },
-        initialize: function() {
+        initialize: function () {
             this.render();
 
             var self = this;
             this.$(".addnode").data({
                 module: this.model
             }).draggable({
-                helper: function() {
+                helper: function () {
                     var h = $('<div class="addnode-drag-helper module-icon" />').data({
                         "meemoo-drag-type": "library-module"
                     });
@@ -6915,54 +6915,54 @@ $(function() {
             }
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             else {
-            	this.$(".addnode").addClass("module-icon-" + this.model.groupAndName2[0] + "-" + this.model.groupAndName2[1]);
-            	this.$(".addnode").addClass("notNative");
-            	//console.log(this.model.groupAndName2[1]);
-            	//this.$(".notNative").attr("style",'background-image:url("img/' + this.model.groupAndName2[1] + '.png");');
+                this.$(".addnode").addClass("module-icon-" + this.model.groupAndName2[0] + "-" + this.model.groupAndName2[1]);
+                this.$(".addnode").addClass("notNative");
+                //console.log(this.model.groupAndName2[1]);
+                //this.$(".notNative").attr("style",'background-image:url("img/' + this.model.groupAndName2[1] + '.png");');
 
-            	this.$(".notNative").attr("style",'background-image:url("' + this.model.get("info").iconUrl + '");')
-            	
+                this.$(".notNative").attr("style", 'background-image:url("' + this.model.get("info").iconUrl + '");')
 
-            	//'background-image:url("img/"' + this.model.groupAndName2[1] + '.png");'
-            	/*<div style="background-image:url(bg.jpg)">*/
+
+                //'background-image:url("img/"' + this.model.groupAndName2[1] + '.png");'
+                /*<div style="background-image:url(bg.jpg)">*/
             }
-            	
+
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             return this;
         },
-        render: function() {
+        render: function () {
             this.$el.html(this.template(this.model.toJSON()));
         },
-        addNode: function(options) {
+        addNode: function (options) {
             Iframework.$(".addbyurlinput").val(this.model.get("src"));
             Iframework.addByUrl(options);
         },
-        dragAddNode: function(options) {
+        dragAddNode: function (options) {
             // options has x and y from GraphView.drop()
             options.src = this.model.get("src");
             Iframework.shownGraph.addNode(options);
         },
-        dragStart: function() {
+        dragStart: function () {
             Iframework.shownGraph.view.maskFrames();
         },
-        dragStop: function() {
+        dragStop: function () {
             Iframework.shownGraph.view.unmaskFrames();
         }
 
     });
 }); //View: Iframework.ModuleView
-$(function() {
+$(function () {
 
     Iframework.Edge = Backbone.Model.extend({
         defaults: {
             source: [0, "default"],
             target: [0, "default"]
         },
-        initialize: function() {
+        initialize: function () {
             this.parentGraph = this.get("parentGraph");
         },
-        initializeView: function() {
+        initializeView: function () {
             this.view = new Iframework.EdgeView({
                 model: this
             });
@@ -6972,20 +6972,20 @@ $(function() {
         Target: null,
         connectTryCount: 5,
         connected: false,
-        connect: function() {
+        connect: function () {
             // Called from graph.connectEdges()
             try {
                 this.Source = this.parentGraph.get("nodes").get(this.get("source")[0]).Outputs.get(this.get("source")[1]);
                 this.Target = this.parentGraph.get("nodes").get(this.get("target")[0]).Inputs.get(this.get("target")[1]);
-            } catch(e) {
+            } catch (e) {
                 console.warn("Edge source or target port not found, try #" + this.connectTryCount + ": " + this.toString());
                 if (this.connectTryCount > 0) {
                     this.connectTryCount--;
                     var self = this;
-                    _.delay(function() {
+                    _.delay(function () {
                         self.connect();
                     },
-                    1000);
+                        1000);
                 }
                 return false;
             }
@@ -7013,10 +7013,10 @@ $(function() {
 
             return this;
         },
-        send: function(value) {
+        send: function (value) {
             this.Target.node.receive(this.Target.id, value);
         },
-        disconnect: function() {
+        disconnect: function () {
             // Called from graph.removeEdge()
             if (this.Source && this.Target) {
                 this.Source.disconnect(this);
@@ -7040,28 +7040,28 @@ $(function() {
 
             this.connected = false;
         },
-        remove: function() {
+        remove: function () {
             this.parentGraph.removeEdge(this);
         },
         toJSON: function () {//Edge模型的toJSON
-      		return {
-        		source: this.get("source"),
-        		target: this.get("target")
-      		};
-    	},
-    	toNofloJSON: function() {//Meemoo JSON to Noflo JSON
-    		return {
-    			'src': {
-    				'process': this.Source.node.id + "",
-    				'port': this.Source.id
-    			},
-    			'tgt': {
-    				'process': this.Target.node.id + "",
-    				'port': this.Target.id
-    			},
-    		};
-    	},
-        toString: function() {
+            return {
+                source: this.get("source"),
+                target: this.get("target")
+            };
+        },
+        toNofloJSON: function () {//Meemoo JSON to Noflo JSON
+            return {
+                'src': {
+                    'process': this.Source.node.id + "",
+                    'port': this.Source.id
+                },
+                'tgt': {
+                    'process': this.Target.node.id + "",
+                    'port': this.Target.id
+                },
+            };
+        },
+        toString: function () {
             return this.get("source")[0] + ":" + this.get("source")[1] + "->" + this.get("target")[0] + ":" + this.get("target")[1];
         }
     });
@@ -7070,7 +7070,7 @@ $(function() {
         model: Iframework.Edge
     });
 }); //Module: Edge; Collection: Edges
-$(function() {
+$(function () {
 
     Iframework.EdgeView = Backbone.View.extend({
         tagName: "div",
@@ -7083,7 +7083,7 @@ $(function() {
         elementWire: null,
         elementShadow: null,
         isPreview: false,
-        initialize: function() {
+        initialize: function () {
             if (this.model) {
                 this.graphSVGElement = this.model.parentGraph.view.edgesSvg;
             } else {
@@ -7110,7 +7110,7 @@ $(function() {
 
                 $(this.elementWire).data({
                     "model": this.model
-                }).click(function(event) {
+                }).click(function (event) {
                     $(event.target).data("model").view.click(event);
                 });
 
@@ -7123,12 +7123,12 @@ $(function() {
                 }
             }
         },
-        render: function() {
+        render: function () {
             this.calcPositions();
 
             this.elementGroup = this.makeSVG('g', {
                 "transform": "translate(" + (this.svgX()) + "," + this.svgY() + ")",
-                "class": "wire-group" + (this.isPreview ? " preview": "")
+                "class": "wire-group" + (this.isPreview ? " preview" : "")
             });
 
             this.elementShadow = this.makeSVG('path', {
@@ -7155,7 +7155,7 @@ $(function() {
 
             return this;
         },
-        redraw: function() {
+        redraw: function () {
             this.calcPositions();
             $(this.elementGroup).attr("transform", "translate(" + (this.svgX()) + ", " + this.svgY() + ")");
             $(this.elementWire).attr("d", this.svgPath());
@@ -7167,13 +7167,13 @@ $(function() {
                 Iframework.shownGraph.view.resizeEdgeSVG();
             }
         },
-        remove: function() {
+        remove: function () {
             $(this.elementGroup).remove();
         },
-        setPositions: function(_positions) {
+        setPositions: function (_positions) {
             this.positions = _positions;
         },
-        calcPositions: function() {
+        calcPositions: function () {
             if (this.model) {
                 // Connected edge
                 var sourceName = this.model.get("source")[1];
@@ -7184,28 +7184,28 @@ $(function() {
                 this.positions.toY = this.model.Target.view.portOffsetTop('in', targetName);
             }
         },
-        svgX: function() {
+        svgX: function () {
             return Math.min(this.positions.toX, this.positions.fromX) - 50;
         },
-        svgY: function() {
+        svgY: function () {
             return Math.min(this.positions.toY, this.positions.fromY) - 25;
         },
-        svgW: function() {
+        svgW: function () {
             return Math.abs(this.positions.toX - this.positions.fromX) + 100;
         },
-        svgH: function() {
+        svgH: function () {
             return Math.abs(this.positions.toY - this.positions.fromY) + 50;
         },
         pathStraight: 35,
         pathCurve: 60,
-        svgPath: function() {
+        svgPath: function () {
             var fromX = this.positions.fromX - this.svgX();
             var fromY = this.positions.fromY - this.svgY();
             var toX = this.positions.toX - this.svgX();
             var toY = this.positions.toY - this.svgY();
             return "M " + fromX + " " + fromY + " L " + (fromX + this.pathStraight) + " " + fromY + " C " + (fromX + this.pathCurve) + " " + fromY + " " + (toX - this.pathCurve) + " " + toY + " " + (toX - this.pathStraight) + " " + toY + " L " + toX + " " + toY;
         },
-        svgPathShadow: function() {
+        svgPathShadow: function () {
             // Same as svgPath() but y+1
             var fromX = this.positions.fromX - this.svgX();
             var fromY = this.positions.fromY - this.svgY() + 1;
@@ -7213,7 +7213,7 @@ $(function() {
             var toY = this.positions.toY - this.svgY() + 1;
             return "M " + fromX + " " + fromY + " L " + (fromX + this.pathStraight) + " " + fromY + " C " + (fromX + this.pathCurve) + " " + fromY + " " + (toX - this.pathCurve) + " " + toY + " " + (toX - this.pathStraight) + " " + toY + " L " + toX + " " + toY;
         },
-        color: function() {
+        color: function () {
             if (this._color) {
                 return this._color;
             }
@@ -7226,15 +7226,15 @@ $(function() {
                 return Iframework.wireColors[Iframework.wireColorIndex];
             }
         },
-        setColor: function(c) {
+        setColor: function (c) {
             this._color = c;
             $(this.elementWire).attr("stroke", c);
         },
-        label: function() {
+        label: function () {
             return this.model.get("source")[0] + ":" + this.model.get("source")[1] + '<span class="wiresymbol" style="color:' + this._color + '">&rarr;</span>' + this.model.get("target")[0] + ":" + this.model.get("target")[1];
         },
         // Thanks bobince http://stackoverflow.com/a/3642265/592125
-        makeSVG: function(tag, attrs) {
+        makeSVG: function (tag, attrs) {
             var el = document.createElementNS('http://www.w3.org/2000/svg', tag);
             for (var k in attrs) {
                 if (k === "xlink:href") {
@@ -7246,13 +7246,13 @@ $(function() {
             }
             return el;
         },
-        dim: function() {
+        dim: function () {
             $(this.elementGroup).attr("opacity", 0.2);
         },
-        undim: function() {
+        undim: function () {
             $(this.elementGroup).attr("opacity", 1);
         },
-        click: function(event) {
+        click: function (event) {
             // If not on top already
             if (this._z < this.model.parentGraph.edgeCount - 1) {
                 // Bring to top (z-order of SVG can't be done with CSS)
@@ -7261,14 +7261,14 @@ $(function() {
             }
             this.highlight();
         },
-        highlight: function() {
+        highlight: function () {
             // Highlight edge and plugends
             var shadow = $(this.elementShadow);
             shadow.attr("class", "wire-shadow highlight");
-            setTimeout(function() {
+            setTimeout(function () {
                 shadow.attr("class", "wire-shadow");
             },
-            1000);
+                1000);
             if (this.model.Source.view) {
                 this.model.Source.view.highlight();
             }
@@ -7279,7 +7279,7 @@ $(function() {
 
     });
 }); //View: Iframework.EdgeView
-$(function() {
+$(function () {
 
     // Router
     var IframeworkRouter = Backbone.Router.extend({
@@ -7293,48 +7293,48 @@ $(function() {
             "gist/:id": "loadGist",
             "*path": "default"
         },
-        loadExample: function(url) {
+        loadExample: function (url) {
             Iframework.loadExample(url);
         },
-        loadGistUgly: function(id) {
+        loadGistUgly: function (id) {
             this.navigate("gist/" + id, {
                 replace: true
             });
             this.loadGist(id);
         },
-        loadLocal: function(url) {
+        loadLocal: function (url) {
             Iframework.loadLocal(url);
         },
-        loadGist: function(id) {
+        loadGist: function (id) {
             Iframework.loadFromGistId(id);
         },
-        newBlank: function() {
+        newBlank: function () {
             Iframework.newBlank();
         },
-        'default': function() {}
+        'default': function () { }
     });
     Iframework.router = new IframeworkRouter();
     Backbone.history.start();
 }); //Router: IframeworkRouter
-$(function() {
+$(function () {
 
     var template =
-    // '<canvas id="canvas-<%= id %>" class="canvas" width="500" height="500" style="max-width:100%;" />'+
-    '<div class="info" />';
+        // '<canvas id="canvas-<%= id %>" class="canvas" width="500" height="500" style="max-width:100%;" />'+
+        '<div class="info" />';
 
     Iframework.NativeNodes["image"] = Iframework.NodeBoxNativeView.extend({
 
         template: _.template(template),
         canvas: null,
         context: null,
-        initializeCategory: function() {
+        initializeCategory: function () {
             // Add popout button to box
             var self = this;
             this.model.view.$("button.remove").after($('<button title="popout" type="button" class="popout icon-popup"></button>')
-            // .button({ icons: { primary: "icon-popup" }, text: false })
-            .click(function() {
-                self.popout();
-            }));
+                // .button({ icons: { primary: "icon-popup" }, text: false })
+                .click(function () {
+                    self.popout();
+                }));
 
             this.canvas = document.createElement("canvas");
             this.canvas.width = 10;
@@ -7353,16 +7353,16 @@ $(function() {
                     top: -10,
                     left: -10
                 },
-                helper: function(event) {
+                helper: function (event) {
                     var helper = $('<div class="drag-image"><h2>Copy this</h2></div>').data({
                         "meemoo-drag-type": "canvas",
                         "meemoo-source-node": self
                     });
                     $(document.body).append(helper);
-                    _.delay(function() {
+                    _.delay(function () {
                         self.dragCopyCanvas(helper);
                     },
-                    100);
+                        100);
                     return helper;
                 }
             });
@@ -7394,12 +7394,12 @@ $(function() {
                     "self": this,
                     "inputName": firstImageInput
                 },
-                Iframework.util.imageDrop);
+                    Iframework.util.imageDrop);
             }
 
             this.$el.prepend(this.canvas);
         },
-        dragCopyCanvas: function(helper) {
+        dragCopyCanvas: function (helper) {
             if (!helper) {
                 return;
             }
@@ -7410,7 +7410,7 @@ $(function() {
             helper.data("meemoo-drag-canvas", canvasCopy);
             helper.append(canvasCopy);
         },
-        scale: function() {
+        scale: function () {
             // canvas is shown at this scaling factor
             // useful for absolute positioning other elements over the canvas
             return this.$(".canvas").width() / this.canvas.width;
@@ -7421,21 +7421,21 @@ $(function() {
             }
         },
         _smoothing: true,
-        inputsmoothing: function(s) {
+        inputsmoothing: function (s) {
             this._smoothing = s;
             // HACK browser-specific stuff
             this.context.webkitImageSmoothingEnabled = s;
             this.context.mozImageSmoothingEnabled = s;
         },
-        exportImage: function() {
+        exportImage: function () {
             try {
                 var url = this.canvas.toDataURL();
                 window.open(url);
-            } catch(e) {
+            } catch (e) {
                 // Maybe it is dirty with non-CORS data
             }
         },
-        popout: function() {
+        popout: function () {
             if (this.w) {
                 // Toggle
                 this.popin();
@@ -7450,9 +7450,9 @@ $(function() {
             this.w = window.open("", "meemooRemoteWindow", "menubar=no,location=no,resizable=yes,scrollbars=no,status=no");
             var self = this;
             this.w.addEventListener("unload",
-            function() {
-                self.popin();
-            });
+                function () {
+                    self.popin();
+                });
 
             // Popin other
             if (Iframework.popoutModule && Iframework.popoutModule !== this) {
@@ -7486,7 +7486,7 @@ $(function() {
 
             return false;
         },
-        popin: function() {
+        popin: function () {
             if (this.w) {
                 this.w = null;
             }
@@ -7528,7 +7528,7 @@ $(function() {
         //   if (scale) {
         //     this.resizer.resizable({});
         //   }
-         // }
+        // }
         // togglePreview: function(e){
         //   if (e.target.checked) {
         //     this.$el.prepend(this.canvas);
@@ -7538,19 +7538,19 @@ $(function() {
         // }
     });
 }); //View: Iframework.NativeNodes["image"](继承于Iframework.NodeBoxNativeView)
-$(function() {
+$(function () {
 
     var template = $(
-    	'<div>' +
-    		'<div class="sourceedit">' +
-    			'<textarea></textarea>' +
-    		'</div>' +
-    		'<div class="controls">' +
-    			'<button class="button sourcerefresh icon-cw" title="refresh the source code">refresh</button>' +
-    			'<button class="button sourcecompress icon-bag" title="refresh and compress the source code into one line">compress</button>' +
-    			'<button class="button sourceapply icon-ok" title="reloads the app">apply changes</button>' +
-    		'</div>' +
-    	'</div>'
+        '<div>' +
+        '<div class="sourceedit">' +
+        '<textarea></textarea>' +
+        '</div>' +
+        '<div class="controls">' +
+        '<button class="button sourcerefresh icon-cw" title="refresh the source code">refresh</button>' +
+        '<button class="button sourcecompress icon-bag" title="refresh and compress the source code into one line">compress</button>' +
+        '<button class="button sourceapply icon-ok" title="reloads the app">apply changes</button>' +
+        '</div>' +
+        '</div>'
     );
 
     var code = template.find("textarea");
@@ -7560,33 +7560,33 @@ $(function() {
 
     // On change update code view
     Iframework.on("change",
-    function(graph) {
-        if (Iframework.graph && Iframework.$(".menu-source").is(":visible")) {
-            // Bookmark to scroll back to
-            var scrollBackTop = code.prop("scrollTop");
-            code.val(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
-         	alert(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
-            code.scrollTop(scrollBackTop);
-        }
-    });
+        function (graph) {
+            if (Iframework.graph && Iframework.$(".menu-source").is(":visible")) {
+                // Bookmark to scroll back to
+                var scrollBackTop = code.prop("scrollTop");
+                code.val(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
+                alert(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
+                code.scrollTop(scrollBackTop);
+            }
+        });
 
-    var sourceRefresh = function() {
+    var sourceRefresh = function () {
         code.val(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
-       alert(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
+        alert(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
     };
     template.find(".sourcerefresh").click(sourceRefresh);
 
     // On show manu update source
     Iframework.on("showmenu:source", sourceRefresh);
 
-    var sourceCompress = function() {
+    var sourceCompress = function () {
         code.val(JSON.stringify(Iframework.graph, null, ""));
         alert(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
     };
     template.find(".sourcecompress").click(sourceCompress);
 
     // Apply source to test graph
-    var sourceApply = function() {
+    var sourceApply = function () {
         //   try {
         //     var newGraph = JSON.parse( this.$(".sourceedit textarea").val() );
         //     this.loadGraph(newGraph);
@@ -7599,7 +7599,7 @@ $(function() {
         var graph;
         try {
             graph = JSON.parse(code.val());
-        } catch(error) {
+        } catch (error) {
             return false;
         }
         if (graph) {
@@ -7616,18 +7616,18 @@ $(function() {
 
 
 //Debug///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-$(function() {
+$(function () {
     var template = $(
-    	'<div>' +    		
-            '<div class="controls">' +
-    			'<button class="button sourcerefresh icon-cw" title="refresh the source code">refresh</button>' +
-    			'<button class="button sourcecompress icon-bag" title="refresh and compress the source code into one line">compress</button>' +
-    			'<button class="button sourceapply icon-ok" title="reloads the app">apply changes</button>' +
-    		'</div>' +
-    		'<div class="sourceedit">' +
-    			'<textarea id="debugtextarea"></textarea>' +
-    		'</div>' +
-    	'</div>'
+        '<div>' +
+        '<div class="controls">' +
+        '<button class="button debugconnect icon-play" title="connect to the server">connect</button>' +
+        '<button class="button debugstart icon-cw" title="start debug">start</button>' +
+        '<button class="button debugdeploy icon-bag" title="deploy this on server and publish on web">apply&deploy</button>' +
+        '</div>' +
+        '<div class="sourceedit">' +
+        '<textarea id="debugtextarea"></textarea>' +
+        '</div>' +
+        '</div>'
     );
 
     var code = template.find("textarea");
@@ -7637,48 +7637,77 @@ $(function() {
 
     // On change update code view
     Iframework.on("change",
-    function(graph) {
-        console.log("aaaa " + Iframework.graph );
-        if (Iframework.graph && Iframework.$(".menu-Debug").is(":visible")) { //class = menu-source
-        console.log("bbbb");
-            // Bookmark to scroll back to
-            var scrollBackTop = code.prop("scrollTop");
-            // code.val(JSON.stringify(Iframework.graph.toNofloJSON(), null, "  "));
-            // latestcode = JSON.stringify(Iframework.graph.toNofloJSON(), null, "  ");
-            // code.html(JSON.stringify(Iframework.graph.toNofloJSON(), null, "  "));
-            code.html("--info something");
-            code.scrollTop(scrollBackTop);
-        }
-    });
+        function (graph) {
+            //console.log("aaaa " + Iframework.graph);
+            if (Iframework.graph && Iframework.$(".menu-Debug").is(":visible")) { //class = menu-source
+                console.log("bbbb");
 
-    var sourceRefresh = function() {
+                code.html("--info something");
+                //scrollTop to back
+                var scrollBackTop = code.prop("scrollHeight");
+                code.scrollTop(scrollBackTop);
+            }
+        });
+
+    var debugstart = function () {
+
+        console.log("--[Debug] debug start");
+        code.html(code.html() + "--[Debug] debug start\n");
+
+        //code.html(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
+        // alert(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
         
-        console.log("cccc");
-        // code.val(JSON.stringify(Iframework.graph.toNofloJSON(), null, "  "));
-     	// latestcode = JSON.stringify(Iframework.graph.toNofloJSON(), null, "  ");
-     	// code.html(JSON.stringify(Iframework.graph.toNofloJSON(), null, "  "));
-         code.html("--[info]waiting for connect");
+        socket.emit('debugstart', { meemoojson: JSON.stringify(Iframework.graph.toJSON(), null, "  ") });
+        
+        //scrollTop to back
+        var scrollBackTop = code.prop("scrollHeight");
+        code.scrollTop(scrollBackTop);
         //
     };
-    template.find(".sourcerefresh").click(sourceRefresh);
+    template.find(".debugstart").click(debugstart);
 
+    var initialtext = function () {
+        console.log("--[Debug] debug initial");
+        code.html(code.html() + "--[Debug] debug initial\n");
+        //scrollTop to back
+        var scrollBackTop = code.prop("scrollHeight");
+        code.scrollTop(scrollBackTop);
+    }
     // On show manu update source
-    Iframework.on("showmenu:Noflo", sourceRefresh);
+    Iframework.on("showmenu:Noflo", initialtext);
 
-    var sourceCompress = function() {
-        code.val(JSON.stringify(Iframework.graph, null, ""));
-        //
+    var debugconnect = function () {
+        var dis_or_connect = template.find(".debugconnect").text();
+        if (dis_or_connect == "connect") {
+            connect();
+            dis_or_connect = "disconnect";
+            
+            console.log("--[Debug] debug server connecting...");
+            code.html(code.html() + "--[Debug] debug server connecting...\n");
+        }
+        else if (dis_or_connect == "disconnect") {
+            disconnect(); 
+            dis_or_connect = "connect";
+            
+            console.log("--[Debug] debug server disconnected");
+            code.html(code.html() + "--[Debug] debug server disconnected\n");
+        }
+        else { console.log("something wrong"); }
+        
+        template.find(".debugconnect").text(dis_or_connect);
+        //scrollTop to back
+        var scrollBackTop = code.prop("scrollHeight");
+        code.scrollTop(scrollBackTop);
     };
-    template.find(".sourcecompress").click(sourceCompress);
-
+    template.find(".debugconnect").click(debugconnect);
     // Apply source to test graph
-    var sourceApply = function() {
+    var sourceApply = function () {
 
         var graph;
         try {
             graph = JSON.parse(code.val());
             //
-        } catch(error) {
+        } catch (error) {
             return false;
             //
         }
@@ -7694,28 +7723,28 @@ $(function() {
     template.find(".sourceapply").click(sourceApply);
 }); //Debug
 
-$(function() {
+$(function () {
 
     var template = $(
-    	'<div>' +
-    		'<div class="controls">' +
-    			'<form class="addbyurl">' +
+        '<div>' +
+        '<div class="controls">' +
+        '<form class="addbyurl">' +
     				'<input class="addbyurlinput" name="addbyurlinput" placeholder="搜索组件或输入组件地址" type="text" />' +
     				'<button class="addbyurlsubmit icon-ok" type="submit">载入</button>' +
-    			'</form>' +
-    		'</div>' +
-    		'<div class="listing">' +
-    			//'<a>&nbsp;</a>' +
-    		'</div>' +
-    		'<div class="classification">' +
-    		'</div>' +
-    	'</div>'
+        '</form>' +
+        '</div>' +
+        '<div class="listing">' +
+        //'<a>&nbsp;</a>' +
+        '</div>' +
+        '<div class="classification">' +
+        '</div>' +
+        '</div>'
     );
 
     // Add menu
     Iframework.addMenu("library", template, "icon-plus");
 
-    Iframework.loadLibrary = function(library) {//载入module-library.js
+    Iframework.loadLibrary = function (library) {//载入module-library.js
 
         var autocompleteData = [];
 
@@ -7751,40 +7780,40 @@ $(function() {
                 autocompleteData.push(autocompleteDataItem);
             }
             section.append(sectionDiv);
-            
+
             switch (category) {
-             	case "图像": accordion1.append(section); break;
-             	case "工具": accordion1.append(section); break;
-             	case "时间": accordion1.append(section); break;
-             	case "iFrame组件": accordion1.append(section); break;
-             	case "子图": accordion2.append(section); break;
-             	case "流程": accordion2.append(section); break;
-             	case "交互": accordion2.append(section); break;
-             	case "效果": accordion3.append(section); break;
-             }
+                case "图像": accordion1.append(section); break;
+                case "工具": accordion1.append(section); break;
+                case "时间": accordion1.append(section); break;
+                case "iFrame组件": accordion1.append(section); break;
+                case "子图": accordion2.append(section); break;
+                case "流程": accordion2.append(section); break;
+                case "交互": accordion2.append(section); break;
+                case "效果": accordion3.append(section); break;
+            }
             //accordion1.append(section);
         }
 
         var str1 = '$("#accordion1").show(); $("#accordion2").hide(); $("#accordion3").hide();';
-    	var str2 = '$("#accordion1").hide(); $("#accordion2").show(); $("#accordion3").hide();';
-    	var str3 = '$("#accordion1").hide(); $("#accordion2").hide(); $("#accordion3").show();';
+        var str2 = '$("#accordion1").hide(); $("#accordion2").show(); $("#accordion3").hide();';
+        var str3 = '$("#accordion1").hide(); $("#accordion2").hide(); $("#accordion3").show();';
 
         template.find('.listing').append(accordion1);
-    	template.find('.listing').append(accordion2);
-    	template.find('.listing').append(accordion3);
+        template.find('.listing').append(accordion2);
+        template.find('.listing').append(accordion3);
 
-    	template.find('.classification').append($('<button class="serviceClassification" onclick=\''+str1+'\'>Service</button>'));
-    	template.find('.classification').append($('<button class="serviceClassification" onclick=\''+str2+'\'>Operation</button>'));
-    	template.find('.classification').append($('<button class="serviceClassification" onclick=\''+str3+'\'>Renderer</button>'));
-    	template.find('.classification').append($('<button class="serviceClassification" onclick=\''+str1+'\'>AddService</button>'));
+        template.find('.classification').append($('<button class="serviceClassification" onclick=\'' + str1 + '\'>Service</button>'));
+        template.find('.classification').append($('<button class="serviceClassification" onclick=\'' + str2 + '\'>Operation</button>'));
+        template.find('.classification').append($('<button class="serviceClassification" onclick=\'' + str3 + '\'>Renderer</button>'));
+        template.find('.classification').append($('<button class="serviceClassification" onclick=\'' + str1 + '\'>AddService</button>'));
         //template.find('.listing').append(accordion);s
 
-    	//$("#accordion1").hide();
+        //$("#accordion1").hide();
         $("#accordion2").hide();
         $("#accordion3").hide();
 
         accordion1.children(".library-section").accordion({
-    		animate: true,
+            animate: true,
             header: "h3",
             heightStyle: "content",
             collapsible: true,
@@ -7815,54 +7844,54 @@ $(function() {
 		});
 		*/
 
-        $('#accordion1 > div > h3').click(function() {
-        	var checkElement = $(this).next();//div ui-accordion-content
+        $('#accordion1 > div > h3').click(function () {
+            var checkElement = $(this).next();//div ui-accordion-content
 
-        	$('.ui-accordion-content').attr('aria-expanded','false');
-        	$('.ui-accordion-content').attr('aria-hidden','true');
-        	$('.ui-accordion-content').attr('style','display: none;');
-        	checkElement.attr('aria-expanded','true');
-        	checkElement.attr('aria-hidden','false');
-        	checkElement.attr('style','display: block;');
+            $('.ui-accordion-content').attr('aria-expanded', 'false');
+            $('.ui-accordion-content').attr('aria-hidden', 'true');
+            $('.ui-accordion-content').attr('style', 'display: none;');
+            checkElement.attr('aria-expanded', 'true');
+            checkElement.attr('aria-hidden', 'false');
+            checkElement.attr('style', 'display: block;');
         })
 
-        $('#accordion2 > div > h3').click(function() {
-        	var checkElement = $(this).next();//div ui-accordion-content
+        $('#accordion2 > div > h3').click(function () {
+            var checkElement = $(this).next();//div ui-accordion-content
 
-        	$('.ui-accordion-content').attr('aria-expanded','false');
-        	$('.ui-accordion-content').attr('aria-hidden','true');
-        	$('.ui-accordion-content').attr('style','display: none;');
-        	checkElement.attr('aria-expanded','true');
-        	checkElement.attr('aria-hidden','false');
-        	checkElement.attr('style','display: block;');
+            $('.ui-accordion-content').attr('aria-expanded', 'false');
+            $('.ui-accordion-content').attr('aria-hidden', 'true');
+            $('.ui-accordion-content').attr('style', 'display: none;');
+            checkElement.attr('aria-expanded', 'true');
+            checkElement.attr('aria-hidden', 'false');
+            checkElement.attr('style', 'display: block;');
         })
 
-        $('#accordion3 > div > h3').click(function() {
-        	var checkElement = $(this).next();//div ui-accordion-content
+        $('#accordion3 > div > h3').click(function () {
+            var checkElement = $(this).next();//div ui-accordion-content
 
-        	$('.ui-accordion-content').attr('aria-expanded','false');
-        	$('.ui-accordion-content').attr('aria-hidden','true');
-        	$('.ui-accordion-content').attr('style','display: none;');
-        	checkElement.attr('aria-expanded','true');
-        	checkElement.attr('aria-hidden','false');
-        	checkElement.attr('style','display: block;');
+            $('.ui-accordion-content').attr('aria-expanded', 'false');
+            $('.ui-accordion-content').attr('aria-hidden', 'true');
+            $('.ui-accordion-content').attr('style', 'display: none;');
+            checkElement.attr('aria-expanded', 'true');
+            checkElement.attr('aria-hidden', 'false');
+            checkElement.attr('style', 'display: block;');
         })
 
         template.find('.addbyurlinput').autocomplete({
             minLength: 1,
             source: autocompleteData,
-            select: function(event, ui) {
-                _.defer(function() {
+            select: function (event, ui) {
+                _.defer(function () {
                     Iframework.addByUrl();
                 });
             }
-        }).data("ui-autocomplete")._renderItem = function(ul, item) {
+        }).data("ui-autocomplete")._renderItem = function (ul, item) {
             // Custom display
             return $("<li>").append('<a><span style="font-size:120%;">' + item.title + "</span><br>" + item.description + "</a>").appendTo(ul);
         };
     };
 
-    var addByUrl = Iframework.addByUrl = function() {
+    var addByUrl = Iframework.addByUrl = function () {
         var addByUrlInput = Iframework.$(".addbyurlinput");
         addByUrlInput.blur();
 
@@ -7875,16 +7904,16 @@ $(function() {
                 "y": Math.floor(graphEl.scrollTop() + graphEl.height() / 2) - 100
             });
             addByUrlInput.val("").attr("placeholder", "loading...");
-            window.setTimeout(function() {
+            window.setTimeout(function () {
                 addByUrlInput.attr("placeholder", "搜索组件或输入组件地址");
             },
-            1000);
+                1000);
         }
         return false;
     };
 
     // Form submit action
-    template.find(".addbyurl").submit(function() {
+    template.find(".addbyurl").submit(function () {
         addByUrl();
         return false;
     });
@@ -7893,42 +7922,42 @@ $(function() {
 }); //library
 
 //一些ctrl + avc之类的快捷键
-$(function() {
+$(function () {
 
     // Start
     Iframework.allLoaded();
 
     // Bind shortcuts
     Mousetrap.bind(['command+a', 'ctrl+a'],
-    function(e) {
-        if (Iframework.shownGraph && Iframework.shownGraph.view) {
-            e.preventDefault();
-            Iframework.shownGraph.view.selectAll();
-        }
-    });
+        function (e) {
+            if (Iframework.shownGraph && Iframework.shownGraph.view) {
+                e.preventDefault();
+                Iframework.shownGraph.view.selectAll();
+            }
+        });
 
     Mousetrap.bind(['command+x', 'ctrl+x'],
-    function(e) {
-        if (Iframework.shownGraph && Iframework.shownGraph.view) {
-            // e.preventDefault();
-            Iframework.shownGraph.view.cut();
-        }
-    });
+        function (e) {
+            if (Iframework.shownGraph && Iframework.shownGraph.view) {
+                // e.preventDefault();
+                Iframework.shownGraph.view.cut();
+            }
+        });
 
     Mousetrap.bind(['command+c', 'ctrl+c'],
-    function(e) {
-        if (Iframework.shownGraph && Iframework.shownGraph.view) {
-            // e.preventDefault();
-            Iframework.shownGraph.view.copy();
-        }
-    });
+        function (e) {
+            if (Iframework.shownGraph && Iframework.shownGraph.view) {
+                // e.preventDefault();
+                Iframework.shownGraph.view.copy();
+            }
+        });
 
     Mousetrap.bind(['command+v', 'ctrl+v'],
-    function(e) {
-        if (Iframework.shownGraph && Iframework.shownGraph.view) {
-            // e.preventDefault();
-            Iframework.shownGraph.view.paste();
-        }
-    });
+        function (e) {
+            if (Iframework.shownGraph && Iframework.shownGraph.view) {
+                // e.preventDefault();
+                Iframework.shownGraph.view.paste();
+            }
+        });
 
 }); //Mousetrap

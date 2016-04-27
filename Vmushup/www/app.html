@@ -142,7 +142,7 @@ Try debug.html if you want to poke the insides.
 /////////////// ////////// //// // /// //////// //////////////////////////////          
         socket = io.connect("http://10.108.92.2:" + "8080", { 'reconnect': true });
 ///////////////////////////////////////////////////////////////////////
-        socket.on('dataco', function(data){ show(data); });
+        socket.on('dataco', function(data){ console.log("--[debug]get info  "+data.hello); show(data); });
 ///////////////////////////////////////////////////////////////////////
           
         firstconnect = false;
@@ -156,7 +156,7 @@ Try debug.html if you want to poke the insides.
       socket.disconnect();
     }
     function show(data) {    
-      document.getElementById('noflotextarea').innerHTML = document.getElementById('noflotextarea').innerHTML +'<strong>Well done!</strong>'+data.hello;
+      $("#debugtextarea").html( $("#debugtextarea").html()+' Well done!  '+data.hello+'\n');
     }
 
 </script>
