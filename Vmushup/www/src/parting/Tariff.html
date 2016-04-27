@@ -1,0 +1,28 @@
+<script type="text/javascript" src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+<script type="text/javascript">
+
+  Meemoo
+    .setInfo({
+      title: "Tariff",
+      author: "NIU",
+      description: "Tariff"
+    })
+    .addInputs({
+      startime: {
+        action: function (n) {
+          document.write(n);
+          Meemoo.send("howmuch", 80);
+        },
+        type: "number"
+      }
+    })
+    .addOutputs({
+      howmuch: { 
+        type: "number"
+      }
+    });
+    
+</script>
+<h1>Tariff</h1>
+<div>
+</div>

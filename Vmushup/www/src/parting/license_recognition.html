@@ -1,0 +1,28 @@
+<script type="text/javascript" src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+<script type="text/javascript">
+
+  Meemoo
+    .setInfo({
+      title: "license_recognition",
+      author: "NIU",
+      description: "Vehicle license plate recognition"
+    })
+    .addInputs({
+      start: {
+        action: function (a) {
+          document.write(a);
+          Meemoo.send("license", 888888);
+        },
+        type: "number"
+      }
+    })
+    .addOutputs({
+      license: { 
+        type: "number"
+      }
+    });
+    
+</script>
+<h1>license_recognition</h1>
+<div>
+</div>

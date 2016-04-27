@@ -1,0 +1,28 @@
+<script type="text/javascript" src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+<script type="text/javascript">
+
+  Meemoo
+    .setInfo({
+      title: "Time_query",
+      author: "NIU",
+      description: "Time_query"
+    })
+    .addInputs({
+      license: {
+        action: function (n) {
+          document.write(n);
+          Meemoo.send("startime", 19270019);
+        },
+        type: "number"
+      }
+    })
+    .addOutputs({
+      startime: { 
+        type: "number"
+      }
+    });
+    
+</script>
+<h1>Time_query</h1>
+<div>
+</div>

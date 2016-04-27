@@ -1,0 +1,127 @@
+{
+  "info": {
+    "author": "meemoo",
+    "title": "Untitled",
+    "description": "Meemoo app description",
+    "parents": [],
+    "url": ""
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "src": "http://10.108.95.119:8081/www/src/parting/Time_query.html",
+      "x": 608,
+      "y": 80,
+      "w": 200,
+      "h": 210,
+      "state": {}
+    },
+    {
+      "id": 1,
+      "src": "http://10.108.95.119:8081/www/src/parting/license_recognition.html",
+      "x": 335,
+      "y": 215,
+      "w": 200,
+      "h": 210,
+      "state": {}
+    },
+    {
+      "id": 2,
+      "src": "http://10.108.95.119:8081/www/src/parting/gate.html",
+      "x": 1096,
+      "y": 336,
+      "w": 200,
+      "h": 210,
+      "state": {}
+    },
+    {
+      "id": 3,
+      "src": "http://10.108.95.119:8081/www/src/parting/billing.html",
+      "x": 701,
+      "y": 318,
+      "w": 200,
+      "h": 210,
+      "state": {}
+    },
+    {
+      "id": 4,
+      "src": "http://10.108.95.119:8081/www/src/parting/pay.html",
+      "x": 878,
+      "y": 50,
+      "w": 200,
+      "h": 210,
+      "state": {}
+    },
+    {
+      "id": 5,
+      "src": "http://10.108.95.119:8081/www/src/parting/Tariff.html",
+      "x": 730,
+      "y": 162,
+      "w": 200,
+      "h": 210,
+      "state": {}
+    }
+  ],
+  "edges": [
+    {
+      "source": [
+        1,
+        "license"
+      ],
+      "target": [
+        0,
+        "license"
+      ]
+    },
+    {
+      "source": [
+        0,
+        "startime"
+      ],
+      "target": [
+        5,
+        "startime"
+      ]
+    },
+    {
+      "source": [
+        5,
+        "howmuch"
+      ],
+      "target": [
+        3,
+        "howmuch"
+      ]
+    },
+    {
+      "source": [
+        3,
+        "billing"
+      ],
+      "target": [
+        4,
+        "bill"
+      ]
+    },
+    {
+      "source": [
+        4,
+        "youcango"
+      ],
+      "target": [
+        3,
+        "payed"
+      ]
+    },
+    {
+      "source": [
+        3,
+        "letitgo"
+      ],
+      "target": [
+        2,
+        "sight"
+      ]
+    }
+  ]
+}

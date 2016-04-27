@@ -1,0 +1,179 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Create page | Meemo </title>
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+
+    <style>
+        body {
+            /*color: #fb5;*/
+            background-color: #f2f1ed;
+        }
+        .header {
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 200%;
+            color: #333;
+            margin-top: 30px;
+        }
+        .header p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="am-g">
+            <h1>Meemo</h1>
+            <p>新建一个组件</p>
+        </div>
+        <hr />
+    </div>
+
+    <div class="am-g">
+        <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+            <h2>Create</h2>
+            <hr>
+            <label class="title">添加服务</label>
+            <form action="/index" method="POST">
+                <label class="attr">服务名称：</label><input type="text" name="servername"><br>
+                <label class="attr">服务类别：</label><input type="text" name="servertype"><br>
+                <label class="attr">服务地址：</label><input type="text" name="serveraddr"><br>
+                <br>
+                <label class="title">   输入接口：</label>
+                <table id="inTable" border="0" class=" am-table-centered">
+                    <tr>
+                        <th class="formtitle">接口名称</th>
+                        <th class="formtitle">接口类型</th>
+                        <th class="formtitle">缺省值</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="import" >
+
+                        </td>
+                        <td>
+                            <!--<input type="text" name="import">-->
+                            <div class="am-u-sm-8 am-u-md-10">
+                                <select data-am-selected="{btnSize: 'sm'}" style="display: none;">
+                                    <option value="option1">选项一...</option>
+                                    <option value="option2">选项二.....</option>
+                                    <option value="option3">选项三........</option>
+                                </select>
+                            </div>
+
+                            <!--<div class="am-form-group am-form-select">-->
+                            <!--<label for="doc-select-1"></label>-->
+                            <!--<select id="doc-select-1">-->
+                            <!--<option value="option1">选项一...</option>-->
+                            <!--<option value="option2">选项二...</option>-->
+                            <!--<option value="option3">选项三...</option>-->
+                            <!--</select>-->
+                            <!--<span class="am-form-caret"></span>-->
+                            <!--</div>-->
+
+                        </td>
+                        <td>
+                            <input type="text" name="import">
+                        </td>
+                    </tr>
+                </table>
+                <!--<br>-->
+                <div class="am-cf">
+                    <input type="button" onclick="insRow('inTable','import')" value="Insert row"
+                           class="am-btn am-btn-primary am-btn-sm am-fl am-radius">
+                </div>
+
+                <br><label class="title">输出接口：</label>
+                <!--<br>-->
+                <table id="outTable" border="0" class=" am-table-centered">
+                    <tr>
+                        <th class="formtitle">接口名称</th>
+                        <th class="formtitle">接口类型</th>
+                        <th class="formtitle">缺省值</th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="text" name="outport">
+                        </td>
+                        <td>
+                            <!--<input type="text" name="outport">-->
+                            <div class="am-u-sm-8 am-u-md-10">
+                                <select data-am-selected="{btnSize: 'sm'}" style="display: none;">
+                                    <option value="option1">选项一...</option>
+                                    <option value="option2">选项二.....</option>
+                                    <option value="option3">选项三........</option>
+                                </select>
+
+                            </div>
+                        </td>
+                        <td>
+                            <input type="text" name="outport">
+                        </td>
+                    </tr>
+                </table>
+                <!--<br>-->
+                <div class="am-cf">
+                    <input type="button" onclick="insRow('outTable','import')" value="Insert row"
+                           class="am-btn am-btn-primary am-btn-sm am-fl am-radius">
+                </div>
+
+                <br>
+                <label class="title"> 描述：</label><input type="text" name="descri">
+                <!--<br>-->
+                <div class="am-cf">
+                    <input type="submit" name="" value="submit" class="am-btn am-btn-primary am-btn-sm am-fl am-radius">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<!--<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>-->
+<!--<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>-->
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

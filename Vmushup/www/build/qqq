@@ -1,0 +1,31 @@
+<div class="menu menu-source" style="display: block;">
+    <div>
+        <div class="sourceedit"><textarea></textarea></div>
+        <div class="controls">
+            <button class="button sourcerefresh icon-cw" title="refresh the source code">refresh</button>
+            <button class="button sourcecompress icon-bag" title="refresh and compress the source code into one line">compress</button>
+            <button class="button sourceapply icon-ok"  title="reloads the app">apply changes</button>
+            </div>
+    </div>
+</div>
+
+
+<div class="menu menu-Debug" style="display: none;">
+    <div>
+        <div class="sourceedit"><textarea></textarea></div>
+        <div class="controls">
+            <button class="button sourcerefresh icon-cw" title="refresh the source code">refresh</button>
+            <button class="button sourcecompress icon-bag" title="refresh and compress the source code into one line">compress</button>
+            <button class="button sourceapply icon-ok" title="reloads the app">apply changes</button>
+        </div>
+    </div>
+</div>
+
+<div class="menu menu-Noflo">
+    <div>
+        <div class="sourceedit"><textarea id="noflotextarea">{
+  "processes": {},
+  "connections": []
+}</textarea>
+</div>
+<div class="controls"><button class="button sourcerefresh icon-cw" title="refresh the source code">refresh</button><button class="button sourcecompress icon-bag" title="refresh and compress the source code into one line">compress</button><button class="button sourceapply icon-ok" title="reloads the app">apply changes</button></div></div></div>
