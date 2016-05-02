@@ -22,14 +22,15 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 router.post('/process_post', urlencodedParser, function (req, res) {
   // 输出 JSON 格式
   var reqbody = req.body; 
-  //var response = executserver(reqbody);
-    // data:" req.body.name",
-    // status: "req.body.city"
-  //console.log(response);
-  //res.end(JSON.stringify(response));
-  //res.redirect('/register');
-  res.writeHead('302');
-  res.render('register', { title: 'register' });
+  // var response = executserver(reqbody);
+   var response ={
+    data:"http://localhost:3000/"+reqbody.servername,
+    status: "req.body.city"}
+  console.log(response);
+  res.send(JSON.stringify(response));
+  // //res.redirect('/register');
+  // res.writeHead('302');
+  // res.render('register', { title: 'register' });
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -7624,15 +7624,18 @@ $(function () {
             '<div id = "deployshow" style="display: none;">' +
 
                 '<h4>添加服务</h4>' +
-
-                '<form action="/webmeemoo/process_post" method="POST" onsubmit="checkForm()">' +
-                    '名称：<br /><input type="text" name="servername" /><br>' +
-                    '作者：<br /><input type="text" name="serverauthor" /><br>' +
-                    '类别：<br /><input type="text" name="servertype" /><br> ' +
-                    '描述：<br /><textarea name = "serverdiscrep"></textarea>' +
+                    '<div id="lostname" class="alert alert-warning" role="alert" title="Do not forget to name the service." style="display: none;"><strong>LOST service name !</strong></div>'+
+                    '<div id="lostauthor" class="alert alert-warning" role="alert" title="Do not forget to left your name." style="display: none;"><strong>LOST author !</strong></div>'+
+                    '<div id="losttype" class="alert alert-warning" role="alert" title="Do not forget to choose the service\'type." style="display: none;"><strong>LOST service type !</strong></div>'+
+                // '<form action="/webmeemoo/process_post" method="POST" onsubmit="checkForm()">' +
+                    '名称：<br /><input type="text" class="servername" /><br>' +
+                    '作者：<br /><input type="text" class="serverauthor" /><br>' +
+                    '类别：<br /><input type="text" class="servertype" /><br> ' +
+                    '描述：<br /><textarea class = "serverdiscrep"></textarea>' +
                     '<br>' +
-                    '<input type="submit" value="Submit" style=" margin-top: 10px">' +
-                '</form>' +
+                    // '<input type="submit" value="Submit" style=" margin-top: 10px">' +
+                    '<button id="submitserver" class="btn btn-xs btn-default submser" title="submit service to server">submit</button>' +
+                // '</form>' +
 
             '</div>' +
             '<div>' +
@@ -7745,6 +7748,37 @@ $(function () {
 
     template.find(".debugdeploy").click(autodeploy);
 
+    template.find("#submitserver").click(function(){
+        var if_lost = [0,0,0];
+        alert("Submitted");
+        $("#lostname").hide();   if_lost[0] = 0;
+        $("#lostauthor").hide(); if_lost[1] = 0;
+        $("#losttype").hide();   if_lost[2] = 0;
+        
+        var serverinfo = {};
+        if($(".servername").val() != "" )  serverinfo.servername = $(".servername").val();
+        else {$("#lostname").slideToggle();   if_lost[0] = 1; }
+        if($(".serverauthor").val() != "" )  serverinfo.serverauthor = $(".serverauthor").val();
+        else {$("#lostauthor").slideToggle(); if_lost[1] = 1; }
+        if($(".servertype").val() != "" )  serverinfo.servertype = $(".servertype").val();
+        else {$("#losttype").slideToggle();   if_lost[2] = 1; }
+        
+        if( if_lost[0]==1 || if_lost[1]==1 || if_lost[2]==1) return false;
+        
+        serverinfo.serverdiscrep = $(".serverdiscrep").val;
+        serverinfo.serverjson = JSON.stringify(Iframework.graph.toJSON(), null, "  ");
+        //serverinfo.serverjson = Iframework.graph.toJSON();
+        
+        $.ajax({
+            type: 'POST',
+            url: "/webmeemoo/process_post",
+            data: serverinfo,
+            success: function(result){
+                        alert("server-url : "+result.data);
+                    },
+            dataType: "json"
+        });
+    });
 }); //Debug
 
 $(function () {
