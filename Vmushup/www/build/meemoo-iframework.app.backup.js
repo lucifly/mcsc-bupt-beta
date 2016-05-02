@@ -3212,7 +3212,7 @@ $(function () {
             this.wireColorIndex = 0;
             this.graph = new Iframework.Graph(graph);
             if (graph["info"] && graph["info"]["title"]) {
-                document.title = "LESC: " + graph["info"]["title"];
+                document.title = "Meemoo: " + graph["info"]["title"];
             }
 
             this.updateCurrentInfo();
@@ -3450,7 +3450,7 @@ $(function () {
             // Save app to gist
             var graph = this.graph.toJSON();
             var data = {
-                "description": "LESC app: " + graph["info"]["title"],
+                "description": "meemoo app: " + graph["info"]["title"],
                 "public": true
             };
             data["files"] = {};
@@ -3481,7 +3481,7 @@ $(function () {
 
                 Iframework.analyze("save", "gist", e.id);
             }).error(function (e) {
-                var description = "LESC app: " + Iframework.graph.toJSON()["info"]["title"];
+                var description = "meemoo app: " + Iframework.graph.toJSON()["info"]["title"];
                 Iframework.$(".permalink").html('api is down (;_;) copy your app source code to <a href="https://gist.github.com/?description=' + encodeURIComponent(description) + '" target="_blank">gist.github.com</a>');
                 console.warn("gist save error", e);
             }).complete(function (e) {
@@ -7614,6 +7614,115 @@ $(function () {
     template.find(".sourceapply").click(sourceApply);
 }); //source
 
+
+//Debug--backup-20160428///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// $(function () {
+//     var template = $(
+//         '<div>' +
+//         '<div class="controls">' +
+//         '<button class="button debugconnect icon-play" title="connect to the server">connect</button>' +
+//         '<button class="button debugstart icon-cw" title="start debug">start</button>' +
+//         '<button class="button debugdeploy icon-bag" title="deploy this on server and publish on web">apply&deploy</button>' +
+//         '</div>' +
+//         '<div class="sourceedit">' +
+//         '<textarea id="debugtextarea"></textarea>' +
+//         '</div>' +
+//         '</div>'
+//     );
+
+//     var code = template.find("textarea");
+
+//     // Add menu
+//     Iframework.addMenu("Debug", template, "icon-cog");
+
+//     // On change update code view
+//     Iframework.on("change",
+//         function (graph) {
+//             //console.log("aaaa " + Iframework.graph);
+//             if (Iframework.graph && Iframework.$(".menu-Debug").is(":visible")) { //class = menu-source
+//                 console.log("bbbb");
+
+//                 code.html("--info something");
+//                 //scrollTop to back
+//                 var scrollBackTop = code.prop("scrollHeight");
+//                 code.scrollTop(scrollBackTop);
+//             }
+//         });
+
+//     var debugstart = function () {
+
+//         console.log("--[Debug] debug start");
+//         code.html(code.html() + "--[Debug] debug start\n");
+
+//         //code.html(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
+//         // alert(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
+
+//         socket.emit('debugstart', { meemoojson: JSON.stringify(Iframework.graph.toJSON(), null, "  ") });
+
+//         //scrollTop to back
+//         var scrollBackTop = code.prop("scrollHeight");
+//         code.scrollTop(scrollBackTop);
+//         //
+//     };
+//     template.find(".debugstart").click(debugstart);
+
+//     var initialtext = function () {
+//         console.log("--[Debug] debug initial");
+//         code.html(code.html() + "--[Debug] debug initial\n");
+//         //scrollTop to back
+//         var scrollBackTop = code.prop("scrollHeight");
+//         code.scrollTop(scrollBackTop);
+//     }
+//     // On show manu update source
+//     Iframework.on("showmenu:Noflo", initialtext);
+
+//     var debugconnect = function () {
+//         var dis_or_connect = template.find(".debugconnect").text();
+//         if (dis_or_connect == "connect") {
+//             connect();
+//             dis_or_connect = "disconnect";
+
+//             console.log("--[Debug] debug server connecting...");
+//             code.html(code.html() + "--[Debug] debug server connecting...\n");
+//         }
+//         else if (dis_or_connect == "disconnect") {
+//             disconnect(); 
+//             dis_or_connect = "connect";
+
+//             console.log("--[Debug] debug server disconnected");
+//             code.html(code.html() + "--[Debug] debug server disconnected\n");
+//         }
+//         else { console.log("something wrong"); }
+
+//         template.find(".debugconnect").text(dis_or_connect);
+//         //scrollTop to back
+//         var scrollBackTop = code.prop("scrollHeight");
+//         code.scrollTop(scrollBackTop);
+//     };
+//     template.find(".debugconnect").click(debugconnect);
+//     // Apply source to test graph
+//     var sourceApply = function () {
+
+//         var graph;
+//         try {
+//             graph = JSON.parse(code.val());
+//             //
+//         } catch (error) {
+//             return false;
+//             //
+//         }
+//         if (graph) {
+//             var g = Iframework.loadGraph(graph);
+//             // reset localStorage version
+//             Iframework._loadedLocalApp = null;
+//             sourceRefresh();
+//             g.trigger("change");
+//         }
+//         return false;
+//     };
+//     template.find(".sourceapply").click(sourceApply);
+// }); //Debug
+//Debug///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $(function () {
     var template = $(
         '<div id = "debugshow">' +
@@ -7625,11 +7734,11 @@ $(function () {
 
                 '<h4>添加服务</h4>' +
 
-                '<form action="/webmeemoo/process_post" method="POST" onsubmit="checkForm()">' +
-                    '名称：<br /><input type="text" name="servername" /><br>' +
-                    '作者：<br /><input type="text" name="serverauthor" /><br>' +
-                    '类别：<br /><input type="text" name="servertype" /><br> ' +
-                    '描述：<br /><textarea name = "serverdiscrep"></textarea>' +
+                '<form action="/index" method="POST">' +
+                    '名称：<br /><input type="text" name="servername"><br>' +
+                    '作者：<br /><input type="text" name="servertype"><br>' +
+                    '类别：<br /><input type="text" name="serveraddr"><br> ' +
+                    '描述：<br /><textarea ></textarea>' +
                     '<br>' +
                     '<input type="submit" value="Submit" style=" margin-top: 10px">' +
                 '</form>' +
@@ -7745,6 +7854,28 @@ $(function () {
 
     template.find(".debugdeploy").click(autodeploy);
 
+
+    // // Apply source to test graph
+    // var sourceApply = function () {
+
+    //     var graph;
+    //     try {
+    //         graph = JSON.parse(code.val());
+    //         //
+    //     } catch (error) {
+    //         return false;
+    //         //
+    //     }
+    //     if (graph) {
+    //         var g = Iframework.loadGraph(graph);
+    //         // reset localStorage version
+    //         Iframework._loadedLocalApp = null;
+    //         sourceRefresh();
+    //         g.trigger("change");
+    //     }
+    //     return false;
+    // };
+    // template.find(".sourceapply").click(sourceApply);
 }); //Debug
 
 $(function () {
@@ -7753,14 +7884,14 @@ $(function () {
         '<div>' +
         '<div class="controls">' +
         '<form class="addbyurl">' +
-    				'<input class="addbyurlinput" name="addbyurlinput" placeholder="搜索组件或输入组件地址" type="text" style="width: 80%;"/>' +
+    				'<input class="addbyurlinput" name="addbyurlinput" placeholder="搜索组件或输入组件地址" type="text" />' +
     				'<button class="addbyurlsubmit icon-ok" type="submit">载入</button>' +
         '</form>' +
         '</div>' +
         '<div class="listing">' +
         //'<a>&nbsp;</a>' +
         '</div>' +
-        '<div class="classification"  style="display: none;">' +
+        '<div class="classification">' +
         '</div>' +
         '</div>'
     );
@@ -7775,7 +7906,6 @@ $(function () {
         var accordion1 = $("<div id='accordion1'></div>");
         var accordion2 = $("<div id='accordion2'></div>");
         var accordion3 = $("<div id='accordion3'></div>");
-        var accordion4 = $("<div id='accordion4'></div>");
 
         for (var category in library) {//每个category代表一个组件集合
             if (!library.hasOwnProperty(category)) {
@@ -7815,7 +7945,6 @@ $(function () {
                 case "流程": accordion2.append(section); break;
                 case "交互": accordion2.append(section); break;
                 case "效果": accordion3.append(section); break;
-                default: accordion4.append(section);break;
             }
             //accordion1.append(section);
         }
@@ -7823,20 +7952,18 @@ $(function () {
         var str1 = '$("#accordion1").show(); $("#accordion2").hide(); $("#accordion3").hide();';
         var str2 = '$("#accordion1").hide(); $("#accordion2").show(); $("#accordion3").hide();';
         var str3 = '$("#accordion1").hide(); $("#accordion2").hide(); $("#accordion3").show();';
-        var str4 = '$("#accordion1").hide(); $("#accordion2").hide(); $("#accordion3").hide();';
 
         template.find('.listing').append(accordion1);
         template.find('.listing').append(accordion2);
         template.find('.listing').append(accordion3);
-        template.find('.listing').append(accordion4);
 
         template.find('.classification').append($('<button class="serviceClassification" onclick=\'' + str1 + '\'>Service</button>'));
         template.find('.classification').append($('<button class="serviceClassification" onclick=\'' + str2 + '\'>Operation</button>'));
         template.find('.classification').append($('<button class="serviceClassification" onclick=\'' + str3 + '\'>Renderer</button>'));
-        template.find('.classification').append($('<button class="serviceClassification" onclick=\'' + str4 + '\'>AddService</button>'));
+        template.find('.classification').append($('<button class="serviceClassification" onclick=\'' + str1 + '\'>AddService</button>'));
         //template.find('.listing').append(accordion);s
 
-        $("#accordion1").hide();
+        //$("#accordion1").hide();
         $("#accordion2").hide();
         $("#accordion3").hide();
 
@@ -7855,13 +7982,6 @@ $(function () {
             active: false
         });
         accordion3.children(".library-section").accordion({
-            animate: true,
-            header: "h3",
-            heightStyle: "content",
-            collapsible: true,
-            active: false
-        });
-        accordion4.children(".library-section").accordion({
             animate: true,
             header: "h3",
             heightStyle: "content",
@@ -7902,17 +8022,6 @@ $(function () {
         })
 
         $('#accordion3 > div > h3').click(function () {
-            var checkElement = $(this).next();//div ui-accordion-content
-
-            $('.ui-accordion-content').attr('aria-expanded', 'false');
-            $('.ui-accordion-content').attr('aria-hidden', 'true');
-            $('.ui-accordion-content').attr('style', 'display: none;');
-            checkElement.attr('aria-expanded', 'true');
-            checkElement.attr('aria-hidden', 'false');
-            checkElement.attr('style', 'display: block;');
-        })
-
-        $('#accordion4 > div > h3').click(function () {
             var checkElement = $(this).next();//div ui-accordion-content
 
             $('.ui-accordion-content').attr('aria-expanded', 'false');
