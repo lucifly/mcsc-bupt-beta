@@ -13,18 +13,25 @@ router.get('/',function (req, res) {
     res.sendFile(_dirname+ "/www/" + "app.html");
 
 })
-//   .post(urlencodedParser, function (req, res) {
-//     // 输出 JSON 格式
-//     var response = {
-//       servername: req.body.servername,
-//       servertype: req.body.servertype,
-//       serveraddr: req.body.serveraddr,
-//       importArray: req.body.import,
-//       outportArray: req.body.outport,
-//       descri: req.body.descri
-//     };
 
-//     console.log(response);
-//     res.end(JSON.stringify(response));
-//   });
+//处理post数据/////////////////////////////////////////////////////////////////////////////////
+var bodyParser = require('body-parser');
+// 创建 application/x-www-form-urlencoded 编码解析
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+//return server data 
+router.post('/process_post', urlencodedParser, function (req, res) {
+  // 输出 JSON 格式
+  var reqbody = req.body; 
+  //var response = executserver(reqbody);
+    // data:" req.body.name",
+    // status: "req.body.city"
+  //console.log(response);
+  //res.end(JSON.stringify(response));
+  //res.redirect('/register');
+  res.writeHead('302');
+  res.render('register', { title: 'register' });
+});
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 module.exports = router;

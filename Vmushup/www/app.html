@@ -155,8 +155,12 @@ Try debug.html if you want to poke the insides.
     function disconnect() {
       socket.disconnect();
     }
-    function show(data) {    
-      $("#debugtextarea").html( $("#debugtextarea").html()+' Well done!  '+data.hello+'\n');
+    function show(data) {  
+        $("#debuginfo").append($('<div class="alert alert-success" role="alert"><strong>Well done!</strong>'+data.hello+'.</div>'));  
+        //scrollTop to back
+        var scrollBackTop =  $(".panel").prop("scrollHeight");
+        $(".panel").scrollTop(scrollBackTop);
+      //$("#debugtextarea").html( $("#debugtextarea").html()+' Well done!  '+data.hello+'\n');
     }
 
 </script>

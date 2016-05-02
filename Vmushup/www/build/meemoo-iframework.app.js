@@ -7615,22 +7615,145 @@ $(function () {
 }); //source
 
 
+//Debug--backup-20160428///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// $(function () {
+//     var template = $(
+//         '<div>' +
+//         '<div class="controls">' +
+//         '<button class="button debugconnect icon-play" title="connect to the server">connect</button>' +
+//         '<button class="button debugstart icon-cw" title="start debug">start</button>' +
+//         '<button class="button debugdeploy icon-bag" title="deploy this on server and publish on web">apply&deploy</button>' +
+//         '</div>' +
+//         '<div class="sourceedit">' +
+//         '<textarea id="debugtextarea"></textarea>' +
+//         '</div>' +
+//         '</div>'
+//     );
+
+//     var code = template.find("textarea");
+
+//     // Add menu
+//     Iframework.addMenu("Debug", template, "icon-cog");
+
+//     // On change update code view
+//     Iframework.on("change",
+//         function (graph) {
+//             //console.log("aaaa " + Iframework.graph);
+//             if (Iframework.graph && Iframework.$(".menu-Debug").is(":visible")) { //class = menu-source
+//                 console.log("bbbb");
+
+//                 code.html("--info something");
+//                 //scrollTop to back
+//                 var scrollBackTop = code.prop("scrollHeight");
+//                 code.scrollTop(scrollBackTop);
+//             }
+//         });
+
+//     var debugstart = function () {
+
+//         console.log("--[Debug] debug start");
+//         code.html(code.html() + "--[Debug] debug start\n");
+
+//         //code.html(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
+//         // alert(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
+
+//         socket.emit('debugstart', { meemoojson: JSON.stringify(Iframework.graph.toJSON(), null, "  ") });
+
+//         //scrollTop to back
+//         var scrollBackTop = code.prop("scrollHeight");
+//         code.scrollTop(scrollBackTop);
+//         //
+//     };
+//     template.find(".debugstart").click(debugstart);
+
+//     var initialtext = function () {
+//         console.log("--[Debug] debug initial");
+//         code.html(code.html() + "--[Debug] debug initial\n");
+//         //scrollTop to back
+//         var scrollBackTop = code.prop("scrollHeight");
+//         code.scrollTop(scrollBackTop);
+//     }
+//     // On show manu update source
+//     Iframework.on("showmenu:Noflo", initialtext);
+
+//     var debugconnect = function () {
+//         var dis_or_connect = template.find(".debugconnect").text();
+//         if (dis_or_connect == "connect") {
+//             connect();
+//             dis_or_connect = "disconnect";
+
+//             console.log("--[Debug] debug server connecting...");
+//             code.html(code.html() + "--[Debug] debug server connecting...\n");
+//         }
+//         else if (dis_or_connect == "disconnect") {
+//             disconnect(); 
+//             dis_or_connect = "connect";
+
+//             console.log("--[Debug] debug server disconnected");
+//             code.html(code.html() + "--[Debug] debug server disconnected\n");
+//         }
+//         else { console.log("something wrong"); }
+
+//         template.find(".debugconnect").text(dis_or_connect);
+//         //scrollTop to back
+//         var scrollBackTop = code.prop("scrollHeight");
+//         code.scrollTop(scrollBackTop);
+//     };
+//     template.find(".debugconnect").click(debugconnect);
+//     // Apply source to test graph
+//     var sourceApply = function () {
+
+//         var graph;
+//         try {
+//             graph = JSON.parse(code.val());
+//             //
+//         } catch (error) {
+//             return false;
+//             //
+//         }
+//         if (graph) {
+//             var g = Iframework.loadGraph(graph);
+//             // reset localStorage version
+//             Iframework._loadedLocalApp = null;
+//             sourceRefresh();
+//             g.trigger("change");
+//         }
+//         return false;
+//     };
+//     template.find(".sourceapply").click(sourceApply);
+// }); //Debug
 //Debug///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $(function () {
     var template = $(
-        '<div>' +
-        '<div class="controls">' +
-        '<button class="button debugconnect icon-play" title="connect to the server">connect</button>' +
-        '<button class="button debugstart icon-cw" title="start debug">start</button>' +
-        '<button class="button debugdeploy icon-bag" title="deploy this on server and publish on web">apply&deploy</button>' +
-        '</div>' +
-        '<div class="sourceedit">' +
-        '<textarea id="debugtextarea"></textarea>' +
-        '</div>' +
+        '<div id = "debugshow">' +
+            '<div id = "debuginfo">' +
+            //'<textarea id="debugtextarea"></textarea>' +
+                '<h4>调试信息</h4>' +
+            '</div>' +
+            '<div id = "deployshow" style="display: none;">' +
+
+                '<h4>添加服务</h4>' +
+
+                '<form action="/index" method="POST">' +
+                    ' 服务名称：<br /><input type="text" name="servername"><br>' +
+                    '服务作者：<br /><input type="text" name="servertype"><br>' +
+                    '服务类别：<br /><input type="text" name="serveraddr"><br> ' +
+                    '描述：<br /><textarea ></textarea>' +
+                    '<br>' +
+                    '<input type="submit" value="Submit" style=" margin-top: 10px">' +
+                '</form>' +
+
+            '</div>' +
+            '<div>' +
+            '<button class="button debugconnect icon-play" title="connect to the server">connect</button>' +
+            '<button class="button debugstart icon-cw" title="start debug">start</button>' +
+            '<button class="button debugdeploy icon-bag" title="deploy this on server and publish on web">Deploy&Apply</button>' +
+            '</div>' +
         '</div>'
     );
 
-    var code = template.find("textarea");
+    var code = template.find("#debuginfo");
+    var deploytab = template.find("#deployshow");
 
     // Add menu
     Iframework.addMenu("Debug", template, "icon-cog");
@@ -7642,7 +7765,9 @@ $(function () {
             if (Iframework.graph && Iframework.$(".menu-Debug").is(":visible")) { //class = menu-source
                 console.log("bbbb");
 
-                code.html("--info something");
+                // code.html("--info something"); 
+                code.append($('<div class="alert alert-info" role="alert"><strong>--info something</strong></div>'));
+
                 //scrollTop to back
                 var scrollBackTop = code.prop("scrollHeight");
                 code.scrollTop(scrollBackTop);
@@ -7652,26 +7777,27 @@ $(function () {
     var debugstart = function () {
 
         console.log("--[Debug] debug start");
-        code.html(code.html() + "--[Debug] debug start\n");
+        code.append($('<div class="alert alert-success" role="alert"><strong>Well done!</strong>--debug started successfully.</div>'));
 
         //code.html(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
         // alert(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
-        
+
         socket.emit('debugstart', { meemoojson: JSON.stringify(Iframework.graph.toJSON(), null, "  ") });
-        
+
         //scrollTop to back
-        var scrollBackTop = code.prop("scrollHeight");
-        code.scrollTop(scrollBackTop);
+        var scrollBackTop = $(".panel").prop("scrollHeight");
+        $(".panel").scrollTop(scrollBackTop);
         //
     };
     template.find(".debugstart").click(debugstart);
 
     var initialtext = function () {
         console.log("--[Debug] debug initial");
-        code.html(code.html() + "--[Debug] debug initial\n");
+        code.append($('<div class="alert alert-success" role="alert"><strong>Well done!</strong>--debug initial successfully.</div>'));
+        //code.html(code.html() + "--[Debug] debug initial\n");
         //scrollTop to back
-        var scrollBackTop = code.prop("scrollHeight");
-        code.scrollTop(scrollBackTop);
+        var scrollBackTop = $(".panel").prop("scrollHeight");
+        $(".panel").scrollTop(scrollBackTop);
     }
     // On show manu update source
     Iframework.on("showmenu:Noflo", initialtext);
@@ -7681,46 +7807,75 @@ $(function () {
         if (dis_or_connect == "connect") {
             connect();
             dis_or_connect = "disconnect";
-            
+
             console.log("--[Debug] debug server connecting...");
-            code.html(code.html() + "--[Debug] debug server connecting...\n");
+            code.append($('<div class="alert alert-success" role="alert"><strong>Well done!</strong>--debug server connected successfully.</div>'));
+
+            //scrollTop to back
+            var scrollBackTop = $(".panel").prop("scrollHeight");
+            $(".panel").scrollTop(scrollBackTop);
         }
         else if (dis_or_connect == "disconnect") {
-            disconnect(); 
+            disconnect();
             dis_or_connect = "connect";
-            
+
             console.log("--[Debug] debug server disconnected");
-            code.html(code.html() + "--[Debug] debug server disconnected\n");
+            code.append($('<div class="alert alert-warning" role="alert"><strong>INFO</strong>--debug server disconnected.</div>'));
+
+            //scrollTop to back
+            var scrollBackTop = $(".panel").prop("scrollHeight");
+            $(".panel").scrollTop(scrollBackTop);
         }
         else { console.log("something wrong"); }
-        
+
         template.find(".debugconnect").text(dis_or_connect);
+
         //scrollTop to back
-        var scrollBackTop = code.prop("scrollHeight");
-        code.scrollTop(scrollBackTop);
+        var scrollBackTop = $(".panel").prop("scrollHeight");
+        $(".panel").scrollTop(scrollBackTop);
     };
     template.find(".debugconnect").click(debugconnect);
-    // Apply source to test graph
-    var sourceApply = function () {
 
-        var graph;
-        try {
-            graph = JSON.parse(code.val());
-            //
-        } catch (error) {
-            return false;
-            //
-        }
-        if (graph) {
-            var g = Iframework.loadGraph(graph);
-            // reset localStorage version
-            Iframework._loadedLocalApp = null;
-            sourceRefresh();
-            g.trigger("change");
-        }
-        return false;
-    };
-    template.find(".sourceapply").click(sourceApply);
+    var autodeploy = function () {
+        //var data = Iframework.graph.toJSON();
+        // var data = {"data":JSON.stringify(Iframework.graph.toJSON(), null, "  ")};
+        // $.post("/webmeemoo/process_post",data);
+
+        var debug_or_deploy = template.find(".debugdeploy").text();
+        if (debug_or_deploy == "Deploy&Apply") template.find(".debugdeploy").text("Back2Debug");
+        else if (debug_or_deploy == "Back2Debug") template.find(".debugdeploy").text("Deploy&Apply");
+        else { console.log("--something wrong"); }
+
+        code.slideToggle();
+        deploytab.slideToggle();
+
+
+    }
+
+    template.find(".debugdeploy").click(autodeploy);
+
+
+    // // Apply source to test graph
+    // var sourceApply = function () {
+
+    //     var graph;
+    //     try {
+    //         graph = JSON.parse(code.val());
+    //         //
+    //     } catch (error) {
+    //         return false;
+    //         //
+    //     }
+    //     if (graph) {
+    //         var g = Iframework.loadGraph(graph);
+    //         // reset localStorage version
+    //         Iframework._loadedLocalApp = null;
+    //         sourceRefresh();
+    //         g.trigger("change");
+    //     }
+    //     return false;
+    // };
+    // template.find(".sourceapply").click(sourceApply);
 }); //Debug
 
 $(function () {
