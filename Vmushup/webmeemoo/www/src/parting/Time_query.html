@@ -1,0 +1,36 @@
+<script type="text/javascript" src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+   <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+  Meemoo
+    .setInfo({
+      title: "Time_query",
+      author: "NIU",
+      description: "Time_query"
+    })
+    .addInputs({
+      license: {
+        action: function (n) {
+          //document.write(n);
+		  $("#time_query").slideToggle(1500);
+		  $("#timeresult").slideToggle(2500);
+          Meemoo.send("startime", 19270019);
+        },
+        type: "number"
+      }
+    })
+    .addOutputs({
+      startime: { 
+        type: "number"
+      }
+    });
+    
+</script>
+<h1>Time_query</h1>
+<div>
+<img id="time_query" class="aaa"  src="/images/part/clock.jpg" />
+<div id="timeresult" style="display: none;">
+<h5>StartTime:</h5> 2016/05/03/15:28
+<h5>EndTime  :</h5> 2016/05/03/20:03
+</div>
+</div>

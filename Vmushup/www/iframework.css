@@ -676,7 +676,7 @@ div.panel2 {
       bottom: 10px;
     }
   .menu-Debug{
-    background-color: gray;
+    background-color: #DFEFFD;
   }
   .menu-Debug textarea {
     /*background-color: black;*/
@@ -1132,4 +1132,9 @@ footer {
     margin-top: 3px;
     margin-bottom: 5px;
     margin-left: 0px;
+ }
+ 
+ .license_recognition
+ {
+   background-image: url("/images/part/chepai2.jpg");
  }

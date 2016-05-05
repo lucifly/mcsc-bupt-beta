@@ -7,12 +7,21 @@ router.get('/', function (req, res, next) {
     next();
 });
 //E:\git\mcsc-bupt-beta\Vmushup\public\www
-var _dirname = 'E:\\git\\mcsc-bupt-beta\\Vmushup';
-router.get('/',function (req, res) {
-    console.log("--[info] GET : " +_dirname+ "/www/" + "app.html");
-    res.sendFile(_dirname+ "/www/" + "app.html");
 
-})
+//返回LESC界面
+var _dirname = 'E:\\git\\mcsc-bupt-beta\\Vmushup';
+router.get('/', function (req, res) {
+    console.log("--[info] GET : " + _dirname + "/www/" + "app.html");
+    res.sendFile(_dirname + "/www/" + "app.html");
+
+});
+
+//返回请求的meemoo-iframe
+router.get('/www/src/parting/*.html', function (req, res) {
+    console.log(req.originalUrl);
+    console.log("--[info] GET : " + _dirname + '' + req.originalUrl);
+    res.sendFile(_dirname + '' + req.originalUrl);
+});
 
 //处理post数据/////////////////////////////////////////////////////////////////////////////////
 var bodyParser = require('body-parser');
@@ -20,17 +29,18 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 //return server data 
 router.post('/process_post', urlencodedParser, function (req, res) {
-  // 输出 JSON 格式
-  var reqbody = req.body; 
-  // var response = executserver(reqbody);
-   var response ={
-    data:"http://localhost:3000/"+reqbody.servername,
-    status: "req.body.city"}
-  console.log(response);
-  res.send(JSON.stringify(response));
-  // //res.redirect('/register');
-  // res.writeHead('302');
-  // res.render('register', { title: 'register' });
+    // 输出 JSON 格式
+    var reqbody = req.body;
+    // var response = executserver(reqbody);
+    var response = {
+        data: "http://localhost:3000/" + reqbody.servername,
+        status: "req.body.city"
+    }
+    console.log(response);
+    res.send(JSON.stringify(response));
+    // //res.redirect('/register');
+    // res.writeHead('302');
+    // res.render('register', { title: 'register' });
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////
 

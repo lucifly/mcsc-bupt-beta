@@ -12,7 +12,7 @@ router.get('/',function (req, res) {
     console.log("--[info] GET : " +_dirname+ "/www2/" + "Home.html");
     res.sendFile(_dirname+ "/www2/" + "Home.html");
 
-})
+});
 
 /* GET testing page. */
 router.get('/testing2', function(req, res, next) {
