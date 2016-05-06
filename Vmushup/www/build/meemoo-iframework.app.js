@@ -7747,10 +7747,10 @@ $(function () {
     }
 
     template.find(".debugdeploy").click(autodeploy);
-
-    template.find("#submitserver").click(function(){
+     
+    var submintservice = function(){
         var if_lost = [0,0,0];
-        alert("Submitted");
+       // alert("Submitted");
         $("#lostname").hide();   if_lost[0] = 0;
         $("#lostauthor").hide(); if_lost[1] = 0;
         $("#losttype").hide();   if_lost[2] = 0;
@@ -7768,17 +7768,19 @@ $(function () {
         serverinfo.serverdiscrep = $(".serverdiscrep").val;
         serverinfo.serverjson = JSON.stringify(Iframework.graph.toJSON(), null, "  ");
         //serverinfo.serverjson = Iframework.graph.toJSON();
-        
-        $.ajax({
-            type: 'POST',
-            url: "/webmeemoo/process_post",
-            data: serverinfo,
-            success: function(result){
-                        alert("server-url : "+result.data);
-                    },
-            dataType: "json"
-        });
-    });
+        socket.emit('addserver', serverinfo);
+        // $.ajax({
+        //     type: 'POST',
+        //     url: "http://localhost:3000/webmeemoo/process_post",
+        //     data: serverinfo,
+        //     success: function(result){
+        //                 alert("server-url : "+result.data);
+        //             },
+        //     dataType: "jsonp"
+        // });
+    }; 
+     
+    template.find("#submitserver").click(submintservice);
 }); //Debug
 
 $(function () {

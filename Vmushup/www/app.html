@@ -144,6 +144,8 @@ Try debug.html if you want to poke the insides.
 ///////////////////////////////////////////////////////////////////////
         socket.on('dataco', function(data){ console.log("--[debug]get info  "+data.hello); show(data); });
 ///////////////////////////////////////////////////////////////////////
+        socket.on('retunrinfo', function(data){ var alertdata="server-url : "+data.url; alert(alertdata); });
+///////////////////////////////////////////////////////////////////////
           
         firstconnect = false;
       }

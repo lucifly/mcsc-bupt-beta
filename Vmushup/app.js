@@ -101,6 +101,7 @@ var server = app.listen(3000, function () {
 var socketport = 8080;
 var io = require('socket.io').listen(socketport);
 var actionjs = require('./action/main');
+var addservcer = require('./action/addserver');
 
 io.sockets.on('connection', function (socket) {
     console.log("Connection " + socket.id + " accepted.");
@@ -116,6 +117,12 @@ io.sockets.on('connection', function (socket) {
         console.log("--[info] socket start debug ");
         var tt = new actionjs(socket);
         tt.main(data);
+    });
+    
+    socket.on('addserver', function (data) {
+        console.log("--[info] socket start debug ");
+        var tt = new addservcer(socket);
+        tt.newComService(data);
     });
 
 });

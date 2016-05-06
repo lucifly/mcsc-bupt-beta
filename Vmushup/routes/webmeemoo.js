@@ -38,6 +38,8 @@ router.post('/process_post', urlencodedParser, function (req, res) {
     }
     console.log(response);
     res.send(JSON.stringify(response));
+  // var str =  params.query.callback + '(' + JSON.stringify(response) + ')';//jsonp  
+    //res.end(str); 
     // //res.redirect('/register');
     // res.writeHead('302');
     // res.render('register', { title: 'register' });
