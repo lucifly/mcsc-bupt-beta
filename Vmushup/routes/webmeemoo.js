@@ -16,6 +16,39 @@ router.get('/', function (req, res) {
 
 });
 
+var urllib = require('url'); 
+//searchorder
+router.get('/searchorder', function (req, res) {
+   // console.log(req.originalUrl);
+   ///console.log("--[info] GET : " + _dirname + '' + req.originalUrl);
+   console.log("--[info]get searchoreder");
+   var params = urllib.parse(req.url, true); // res.sendFile(_dirname + '' + req.originalUrl);
+//    var response ={};//items :[{labal:"111",moveTo:"detailsView",rightText:"20160501"}]
+//    var item = {};
+//    item.labal = "111";
+//    item.moveTo = "detailsView";
+//    item.rightText = "20160505";
+//    var tarry = [];
+//    tarry[0] = item;
+//    response.items = tarry;
+   var response ={"items":[{"labal":"111","moveTo":"detailsView","rightText":"20160506"}]};//items :[{labal:"111",moveTo:"detailsView",rightText:"20160501"}]
+   
+   
+   if (params.query && params.query.callback) {  
+    console.log(params.query.callback);     
+      console.log("jsonp");
+    // var str =  params.query.callback + '(' + JSON.stringify(response) + ')';//jsonp  
+    var str =  params.query.callback + '(' + response + ')';//jsonp  
+    res.send(str);  
+  } else {  
+      console.log("json");
+    res.send(JSON.stringify(response));//普通的json  
+  }       
+   
+//   var str =  params.query.callback + '(' + JSON.stringify(response) + ')';//jsonp  
+//     res.send(JSON.stringify(response));
+});
+
 //返回请求的meemoo-iframe
 router.get('/www/src/parting/*.html', function (req, res) {
     console.log(req.originalUrl);

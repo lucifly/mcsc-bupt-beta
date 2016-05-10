@@ -90,8 +90,10 @@ $(function(){
       {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/license_recognition.html","info":{"title":"license_recognition","author":"NIU","description":"license_recognition","iconUrl":"img/lisen.png"}},
       {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Time_query.html","info":{"title":"Time_query","author":"NIU","description":"license_recognition","iconUrl":"img/time_qury.png"}},
       {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Tariff.html","info":{"title":"Tariff","author":"NIU","description":"license_recognition","iconUrl":"img/traff.png"}},
-        {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/gate.html","info":{"title":"gate","author":"NIU","description":"license_recognition","iconUrl":"img/gate.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/gate.html","info":{"title":"gate","author":"NIU","description":"license_recognition","iconUrl":"img/gate.png"}},
       {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/pay.html","info":{"title":"pay","author":"NIU","description":"license_recognition","iconUrl":"img/pay.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/personsecrity.html","info":{"title":"personsecrity","author":"NIU","description":"personsecrity","iconUrl":"img/lies .png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/searchparam.html","info":{"title":"searchparam","author":"NIU","description":"searchparam","iconUrl":"img/searchdata.png"}},
       {"src":"meemoo:variable/animation","info":{"title":"animation","author":"meemoo","description":"holds a stack of canvases to use as an animation"}}
     ],
     图像: [
