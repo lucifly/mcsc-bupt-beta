@@ -127,6 +127,57 @@
 			"mapping":{
 				"howmuch":"howmuch"
 			}
+		},
+		{
+			"name" :"Weather",
+			"type":"web",
+			"mode":"GET",
+			"src" : "6",
+			"Parameter" :{
+			},
+			"info" : {
+			},
+			"mapping":{
+				"is_rain":"is_rain"
+			}
+		},
+		{
+			"name" :"Clothesline",
+			"type":"web",
+			"mode":"GET",
+			"src" : "7",
+			"Parameter" :{
+			},
+			"info" : {
+			},
+			"mapping":{
+				"has_clothes":"has_clothes"
+			}
+		},
+		{
+			"name" :"camera",
+			"type":"web",
+			"mode":"GET",
+			"src" : "8",
+			"Parameter" :{
+			},
+			"info" : {
+			},
+			"mapping":{
+				"photo":"photo"
+			}
+		},
+		{
+			"name" :"Message",
+			"type":"web",
+			"mode":"GET",
+			"src" : "9",
+			"Parameter" :{
+			},
+			"info" : {
+			},
+			"mapping":{
+			}
 		}
 
 	]

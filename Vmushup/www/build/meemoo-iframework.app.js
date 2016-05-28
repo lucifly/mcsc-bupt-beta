@@ -3002,7 +3002,7 @@ $(function () {
     var template =
         '<div class="showpanel">' +
         '<img class="imag" src="./img/lsce.png"/><br>' +
-        '<button class="button show-load icon-folder-open">应用</button>' +
+        '<button class="button show-load icon-folder-open">Application</button>' +
         '</div>' +
 
         // '<div class="showpanel2">' +
@@ -3011,7 +3011,7 @@ $(function () {
 
         '<div class="panel">' +
         '<div class="choosepanel">' +
-        '<button class="button show-load icon-folder-open">应用</button>' +
+        '<button class="button show-load icon-folder-open">Application</button>' +
         '<button class="button close icon-cancel" title="close menu"></button>' +
         '</div>' +
         '<br>' +
@@ -3212,7 +3212,7 @@ $(function () {
             this.wireColorIndex = 0;
             this.graph = new Iframework.Graph(graph);
             if (graph["info"] && graph["info"]["title"]) {
-                document.title = "LESC: " + graph["info"]["title"];
+                document.title = "LSCE: " + graph["info"]["title"];
             }
 
             this.updateCurrentInfo();
@@ -3450,7 +3450,7 @@ $(function () {
             // Save app to gist
             var graph = this.graph.toJSON();
             var data = {
-                "description": "LESC app: " + graph["info"]["title"],
+                "description": "LSCE app: " + graph["info"]["title"],
                 "public": true
             };
             data["files"] = {};
@@ -3481,7 +3481,7 @@ $(function () {
 
                 Iframework.analyze("save", "gist", e.id);
             }).error(function (e) {
-                var description = "LESC app: " + Iframework.graph.toJSON()["info"]["title"];
+                var description = "LSCE app: " + Iframework.graph.toJSON()["info"]["title"];
                 Iframework.$(".permalink").html('api is down (;_;) copy your app source code to <a href="https://gist.github.com/?description=' + encodeURIComponent(description) + '" target="_blank">gist.github.com</a>');
                 console.warn("gist save error", e);
             }).complete(function (e) {
@@ -7619,19 +7619,19 @@ $(function () {
         '<div id = "debugshow">' +
             '<div id = "debuginfo">' +
             //'<textarea id="debugtextarea"></textarea>' +
-                '<h4>调试信息</h4>' +
+                '<h4>Debug information</h4>' +
             '</div>' +
             '<div id = "deployshow" style="display: none;">' +
 
-                '<h4>添加服务</h4>' +
+                '<h4>Deploy Application</h4>' +
                     '<div id="lostname" class="alert alert-warning" role="alert" title="Do not forget to name the service." style="display: none;"><strong>LOST service name !</strong></div>'+
                     '<div id="lostauthor" class="alert alert-warning" role="alert" title="Do not forget to left your name." style="display: none;"><strong>LOST author !</strong></div>'+
                     '<div id="losttype" class="alert alert-warning" role="alert" title="Do not forget to choose the service\'type." style="display: none;"><strong>LOST service type !</strong></div>'+
                 // '<form action="/webmeemoo/process_post" method="POST" onsubmit="checkForm()">' +
-                    '名称：<br /><input type="text" class="servername" /><br>' +
-                    '作者：<br /><input type="text" class="serverauthor" /><br>' +
-                    '类别：<br /><input type="text" class="servertype" /><br> ' +
-                    '描述：<br /><textarea class = "serverdiscrep"></textarea>' +
+                    'name       ：<br /><input type="text" class="servername" /><br>' +
+                    'author     ：<br /><input type="text" class="serverauthor" /><br>' +
+                    'type       ：<br /><input type="text" class="servertype" /><br> ' +
+                    'description：<br /><textarea class = "serverdiscrep"></textarea>' +
                     '<br>' +
                     // '<input type="submit" value="Submit" style=" margin-top: 10px">' +
                     '<button id="submitserver" class="btn btn-xs btn-default submser" title="submit service to server">submit</button>' +
@@ -7790,7 +7790,7 @@ $(function () {
         '<div class="controls">' +
         '<form class="addbyurl">' +
     				'<input class="addbyurlinput" name="addbyurlinput" placeholder="搜索组件或输入组件地址" type="text" style="width: 80%;"/>' +
-    				'<button class="addbyurlsubmit icon-ok" type="submit">载入</button>' +
+    				'<button class="addbyurlsubmit icon-ok" type="submit">load</button>' +
         '</form>' +
         '</div>' +
         '<div class="listing">' +

@@ -1,0 +1,185 @@
+{
+	"exmp" : [{
+			"name" :"EPg1",
+			"type":"local",
+			"src" : "D:/nodejsstu/ExampleSever/PlugUnit/ExamLocalPlug.js",
+			"info" : {
+				"title" : "Local_Sever_Experiment",
+				"author" : "nm",
+				"description" : "Local Sever Experiment"
+			},
+			"Parameter":{
+				"out":["o1"],
+				"in":["i1","i2"],
+				"active":{
+					"a1" : ["i1"],
+					"a2" : ["i2"],
+					"a3" : ["i1","i2"]
+				}
+			}
+		},
+		{
+			"name" :"EPg2",
+			"type":"local",
+			"src" : "D:/nodejsstu/ExampleSever/PlugUnit/ExamLocalPlug2.js",
+			"info" : {
+				"title" : "Local_Sever_Experiment_2",
+				"author" : "nm",
+				"description" : "Local Sever Experiment 2"
+			},
+			"Parameter":{
+				"out":["o1"],
+				"in":["chani1","chani2"]
+			}
+		},
+		{
+			"name" :"baiduip",
+			"type":"web",
+			"mode":"GET",
+			"src" : "http://api.map.baidu.com/location/ip",
+			"Parameter" :{
+				"ak" : "wROHF9YIK6wRPbf4fY2tmkur",
+				"ip" : "203.208.41.145"
+			},
+			"info" : {
+				"title" : "Web_Sever_Experiment",
+				"author" : "nm",
+				"description" : "Web Sever Experiment"
+			},
+			"mapping":{
+				"content.point.x":"x",
+				"content.point.y":"y"
+			}
+		},
+		{
+			"name" :"Time_query",
+			"type":"web",
+			"mode":"GET",
+			"src" : "0",
+			"Parameter" :{
+			},
+			"info" : {
+			},
+			"mapping":{
+				"startime":"startime"
+			}
+		},
+		{
+			"name" :"license_recognition",
+			"type":"web",
+			"mode":"GET",
+			"src" : "1",
+			"Parameter" :{
+			},
+			"info" : {
+			},
+			"mapping":{
+				"license":"license"
+			}
+		},
+		{
+			"name" :"gate",
+			"type":"web",
+			"mode":"GET",
+			"src" : "2",
+			"Parameter" :{
+			},
+			"info" : {
+			},
+			"mapping":{
+			}
+		},
+		{
+			"name" :"billing",
+			"type":"web",
+			"mode":"GET",
+			"src" : "3",
+			"Parameter" :{
+			},
+			"info" : {
+			},
+			"mapping":{
+				"letitgo":"letitgo"
+			}
+		},
+		{
+			"name" :"pay",
+			"type":"web",
+			"mode":"GET",
+			"src" : "4",
+			"Parameter" :{
+			},
+			"info" : {
+			},
+			"mapping":{
+				"youcango":"youcango"
+			}
+		},
+		{
+			"name" :"Tariff",
+			"type":"web",
+			"mode":"GET",
+			"src" : "5",
+			"Parameter" :{
+			},
+			"info" : {
+			},
+			"mapping":{
+				"howmuch":"howmuch"
+			}
+		},
+		{
+			"name" :"Weather",
+			"type":"web",
+			"mode":"GET",
+			"src" : "6",
+			"Parameter" :{
+			},
+			"info" : {
+			},
+			"mapping":{
+				"is_rain":"is_rain"
+			}
+		},
+		{
+			"name" :"Clothesline",
+			"type":"web",
+			"mode":"GET",
+			"src" : "7",
+			"Parameter" :{
+			},
+			"info" : {
+			},
+			"mapping":{
+				"has_clothes":"has_clothes"
+			}
+		},
+		{
+			"name" :"camera",
+			"type":"web",
+			"mode":"GET",
+			"src" : "8",
+			"Parameter" :{
+			},
+			"info" : {
+			},
+			"mapping":{
+				"photo":"photo"
+			}
+		},
+		{
+			"name" :"Message",
+			"type":"web",
+			"mode":"GET",
+			"src" : "9",
+			"Parameter" :{
+			},
+			"info" : {
+			},
+			"mapping":{
+				"howmuch":"howmuch"
+			}
+		}
+
+	]
+}

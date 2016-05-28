@@ -19,6 +19,7 @@ var serverlist = require('./routes/serverlist');
 var serverexecut = require('./routes/serverexecut');
 var webmeemoo = require('./routes/webmeemoo');
 var indext = require('./routes/indext');
+var pizzahub = require('./routes/pizzahub');
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -82,7 +83,16 @@ app.use('/serverlist', serverlist);
 app.use('/serverexecut', serverexecut);
 app.use('/webmeemoo', webmeemoo);
 app.use('/indext', indext);
+app.use('/pizzahub', pizzahub);
 //////////////////////////////////////////////////////////////////////////////////
+
+// var arraya = require('./httprequest.js').getrequest();
+// //var arraya = jsonobj.a;
+// for(var i=0;i<arraya.length;i++)
+// {
+//     console.log(i+": "+arraya[i]);
+// }
+
 
 
 //启动服务器//////////////////////////////////////////////////////////////////////////
@@ -102,6 +112,7 @@ var socketport = 8080;
 var io = require('socket.io').listen(socketport);
 var actionjs = require('./action/main');
 var addservcer = require('./action/addserver');
+var searchaction = require('./action/searchaction');
 
 io.sockets.on('connection', function (socket) {
     console.log("Connection " + socket.id + " accepted.");
@@ -123,6 +134,12 @@ io.sockets.on('connection', function (socket) {
         console.log("--[info] socket start debug ");
         var tt = new addservcer(socket);
         tt.newComService(data);
+    });
+        
+    socket.on('searchserver', function (data) {
+        console.log("--[info] socket start debug "+ data.argument);
+         var tt = new searchaction(socket);
+         tt.getresult(data.argument);
     });
 
 });

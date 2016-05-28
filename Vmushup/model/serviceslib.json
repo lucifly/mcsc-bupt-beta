@@ -1,0 +1,252 @@
+{
+    "game": [
+        {
+            "name": "elophant",
+            "url": "elophant/elophant.json",
+            "info": {
+                "title": "elophant",
+                "author": "admin",
+                "description": "Elophant is a service for League of Legends (LoL), a free online game in which players take on the role of a summoner who can summon champions to fight for them. Elophant provides information on summoners (player stats), champions, and items within the game. Developers can retrieve information from the Elophant database programmatically using REST calls.",
+                "icon": "elophant.png"
+            }
+        },
+        {
+            "name": "riot",
+            "url": "riot/riot.json",
+            "info": {
+                "title": "riot",
+                "author": "admin",
+                "description": "Riot Games is the company that created League of Legends (LoL), a multiplayer online battle arena game. The Riot Games website provides statistics on LoL games, rankings, runes, masteries, and more. Developers can access this data securely and reliably using the Riot Games REST API on the developer website.",
+                "icon": "riot.png"
+            }
+        }
+    ],
+    "nasa": [
+        {
+            "name": "data translation web service",
+            "url": "nasa/Data Translation Web Service.json",
+            "info": {
+                "title": "Data Translation Web Service",
+                "author": "admin",
+                "description": "The Data Translation Web Service (DTWS) is a service of NASA/Goddard Space Flight Center's Space Physics Data Facility (SPDF) to facilitate and promote data exchanges among space scientists. DTWS supports data in Common Data Format (CDF). The API uses the SOAP protocol and allows users to translate one or more local and/or remote files into other data formats.",
+                "icon": "Data Translation Web Service.png"
+            }
+        },
+        {
+            "name": "nasaearth",
+            "url": "nasa/NASAearth.json",
+            "info": {
+                "title": "NASAearth",
+                "author": "admin",
+                "description": "NASA's Earth API gives users access to Earth observation data. The Earth API is powered by the Google Earth Engine and consists of a database of images from Landsat 8. Landsat 8 is NASA satellite that takes images of the entire Earth every 16 days. Users can query the database for images of a specific place at a specific date.",
+                "icon": "nasa earth.png"
+            }
+        },
+        {
+            "name": "satellite situation center web",
+            "url": "nasa/Satellite Situation Center Web.json",
+            "info": {
+                "title": "Satellite Situation Center Web",
+                "author": "admin",
+                "description": "Satellite Situation Center Web (SSCWeb) is a NASA service consisting of software and an associated database which provides geocentric spacecraft location information mapped to geophysical regions of Earth's magnetic field. Access to an SDK and associated API are available for developers to create and incorporate SSCWeb software and data into their own applications. The API uses the SOAP protocol.",
+                "icon": "Satellite Situation Center Web.png"
+            }
+        }
+    ],
+    "apple": [
+        {
+            "name": "Apple Camera",
+            "url": "apple/Apple Camera.json",
+            "info": {
+                "title": "Apple Camera",
+                "author": "admin",
+                "description": "With Apple's Camera API, third-party camera apps can have control over exposure, focus, and white balance. This is in addition to the controls they have created.",
+                "icon": "Apple.png"
+            }
+        },
+        {
+            "name": "Apple HomeKit",
+            "url": "apple/Apple HomeKit.json",
+            "info": {
+                "title": "Apple HomeKit",
+                "author": "admin",
+                "description": "",
+                "icon": "Apple.png"
+            }
+        },
+        {
+            "name": "Apple Touch ID",
+            "url": "apple/Apple Touch ID.json",
+            "info": {
+                "title": "Apple Touch ID",
+                "author": "admin",
+                "description": "",
+                "icon": "Apple.png"
+            }
+        },
+        {
+            "name": "Hutoma",
+            "url": "apple/Hutoma.json",
+            "info": {
+                "title": "Hutoma",
+                "author": "admin",
+                "description": "",
+                "icon": "Hutoma.png"
+            }
+        },
+        {
+            "name": "Swift",
+            "url": "apple/Swift.json",
+            "info": {
+                "title": "Swift",
+                "author": "admin",
+                "description": "",
+                "icon": "Apple.png"
+            }
+        }
+    ],
+    "car information": [
+        {
+            "name": "DTC查询",
+            "url": "apple/DTC查询.json",
+            "info": {
+                "title": "DTC查询",
+                "author": "admin",
+                "description": "",
+                "icon": "DTC查询.png"
+            }
+        },
+        {
+            "name": "车辆违章",
+            "url": "apple/车辆违章.json",
+            "info": {
+                "title": "车辆违章",
+                "author": "admin",
+                "description": "",
+                "icon": "车辆违章.png"
+            }
+        },
+        {
+            "name": "车系查询",
+            "url": "apple/车系查询.json",
+            "info": {
+                "title": "车系查询",
+                "author": "admin",
+                "description": "",
+                "icon": "车系查询.png"
+            }
+        },
+        {
+            "name": "出行保险",
+            "url": "apple/出行保险.json",
+            "info": {
+                "title": "出行保险",
+                "author": "admin",
+                "description": "",
+                "icon": "出行保险.png"
+            }
+        },
+        {
+            "name": "驾照查询",
+            "url": "apple/驾照查询.json",
+            "info": {
+                "title": "驾照查询",
+                "author": "admin",
+                "description": "",
+                "icon": "驾照查询.png"
+            }
+        },
+        {
+            "name": "尾号限行",
+            "url": "apple/尾号限行.json",
+            "info": {
+                "title": "尾号限行",
+                "author": "admin",
+                "description": "",
+                "icon": "尾号限行.png"
+            }
+        },
+        {
+            "name": "限行查询",
+            "url": "apple/限行查询.json",
+            "info": {
+                "title": "限行查询",
+                "author": "admin",
+                "description": "",
+                "icon": "限行查询.png"
+            }
+        },
+        {
+            "name": "油价查询",
+            "url": "apple/油价查询.json",
+            "info": {
+                "title": "油价查询",
+                "author": "admin",
+                "description": "",
+                "icon": "油价查询.png"
+            }
+        }
+    ],
+    "stock": [
+        {
+            "name": "股票查询",
+            "url": "apple/股票查询.json",
+            "info": {
+                "title": "股票查询",
+                "author": "admin",
+                "description": "",
+                "icon": "股票查询.png"
+            }
+        },
+        {
+            "name": "股票数据",
+            "url": "apple/股票数据.json",
+            "info": {
+                "title": "股票数据",
+                "author": "admin",
+                "description": "",
+                "icon": "股票数据.png"
+            }
+        },
+        {
+            "name": "基金数据",
+            "url": "apple/基金数据.json",
+            "info": {
+                "title": "基金数据",
+                "author": "admin",
+                "description": "",
+                "icon": "基金数据.png"
+            }
+        },
+        {
+            "name": "新三板信息",
+            "url": "apple/新三板信息.json",
+            "info": {
+                "title": "新三板信息",
+                "author": "admin",
+                "description": "",
+                "icon": "新三板信息.png"
+            }
+        },
+        {
+            "name": "中国股权投资行业数据库",
+            "url": "apple/中国股权投资行业数据库.json",
+            "info": {
+                "title": "中国股权投资行业数据库",
+                "author": "admin",
+                "description": "",
+                "icon": "中国股权投资行业数据库.png"
+            }
+        },
+        {
+            "name": "重仓股基金",
+            "url": "apple/重仓股基金.json",
+            "info": {
+                "title": "重仓股基金",
+                "author": "admin",
+                "description": "",
+                "icon": "重仓股基金.png"
+            }
+        }
+    ]
+}

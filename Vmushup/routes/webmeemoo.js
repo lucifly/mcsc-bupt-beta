@@ -8,7 +8,7 @@ router.get('/', function (req, res, next) {
 });
 //E:\git\mcsc-bupt-beta\Vmushup\public\www
 
-//返回LESC界面
+//返回LSCE界面
 var _dirname = 'E:\\git\\mcsc-bupt-beta\\Vmushup';
 router.get('/', function (req, res) {
     console.log("--[info] GET : " + _dirname + "/www/" + "app.html");

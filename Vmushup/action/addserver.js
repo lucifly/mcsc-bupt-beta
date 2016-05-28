@@ -12,6 +12,7 @@ function main(socket) {
         var result = '{\n    items :[\n        {labal:"",moveTo:"",rightText:""}\n    ]\n}';       
         if(data.servername == "parking") turl += '/<start>\nreturn-json: {}';
         else if(data.servername == "searchorder") turl += '/<uid>?[TimeStamp&Place&OrderId]\nreturn-json:\n'+result+'';
+        else if(data.servername == "RainCollectClothes") turl += '/<start>?[UID1&UID2&phonenumber]\nreturn-json: {}';
         else {}
         console.log("--[info] com service Added");
             socket.emit('retunrinfo', { url: turl });

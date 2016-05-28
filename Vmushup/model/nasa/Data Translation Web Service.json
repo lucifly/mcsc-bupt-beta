@@ -1,0 +1,17 @@
+{
+    "name": "Data Translation Web Service",
+    "mode": "GET",
+    "type": "web",
+    "src": "http://translators.gsfc.nasa.gov/dt/dtservice",
+    "info": {
+        "title": "Data Translation Web Service",
+        "author": "admin",
+        "description": "The Data Translation Web Service (DTWS) is a service of NASA/Goddard Space Flight Center's Space Physics Data Facility (SPDF) to facilitate and promote data exchanges among space scientists. DTWS supports data in Common Data Format (CDF). The API uses the SOAP protocol and allows users to translate one or more local and/or remote files into other data formats.",
+        "icon": "Data Translation Web Service.png"
+    },
+    "parameter": {
+        "string": "string"
+    },
+    "interface": "",
+    "mapping": {}
+}

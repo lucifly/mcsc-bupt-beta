@@ -1,0 +1,37 @@
+<script type="text/javascript" src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+   <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+  Meemoo
+    .setInfo({
+      title: "camera",
+      author: "NIU",
+      description: "camera"
+    })
+    .addInputs({
+      has_clothes: {
+        action: function (n) {
+          //document.write(n);
+		  $(".a8").slideToggle(500);
+		  $(".a8").slideToggle(500);
+		  $(".a8").slideToggle(2500);
+		  //$("#timeresult").slideToggle(2500);
+          Meemoo.send("photo", n);
+        },
+        type: "number"
+      },
+	  UID: {
+	    type: "number"
+	  }
+    })
+    .addOutputs({
+      photo: { 
+        type: "number"
+      }
+    });
+    
+</script>
+<h1>camera</h1>
+<div>
+<img  class="a8" style="display: none;" src="/images/desk/photo.png" />
+</div>

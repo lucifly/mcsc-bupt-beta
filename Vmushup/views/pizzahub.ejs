@@ -1,0 +1,395 @@
+<!doctype html>
+    <html class="no-js fixed-layout">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>BUPT</title>
+        <meta name="description" content="这是一个 index 页面">
+        <meta name="keywords" content="index">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="Cache-Control" content="no-siteapp" />
+        <link rel="icon" type="image/png" href="assets/i/favicon.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+        <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+        <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+        <link rel="stylesheet" href="assets/css/admin.css">
+        <link rel="stylesheet" href="assets/css/sudoku.css">
+
+
+
+    </head>
+    <body>
+    <!--[if lte IE 9]>
+    <p class="browsehappy">你正在使用<strong>过时</strong>的浏览器。请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+        以获得更好的体验！</p>
+    <![endif]-->
+
+    <header class="am-topbar am-topbar-inverse admin-header">
+        <div class="am-topbar-brand">
+            <strong>Web服务聚合器</strong> <small>PizzaHub</small>
+        </div>
+
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
+            <span class="am-sr-only">导航切换</span>
+            <span class="am-icon-bars"></span>
+        </button>
+
+        <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+            <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+                <!--<li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">99+</span></a></li>-->
+                <!--<li class="am-dropdown" data-am-dropdown>-->
+                    <!--<a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">-->
+                        <!--<span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>-->
+                    <!--</a>-->
+                    <!--<ul class="am-dropdown-content">-->
+                        <!--<li><a href="#"><span class="am-icon-user"></span> 资料</a></li>-->
+                        <!--<li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>-->
+                        <!--<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!--<li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>-->
+            </ul>
+        </div>
+    </header>
+
+    <div class="am-cf admin-main">
+        <!--侧边栏-->
+        <div class="menu-wrap" id="menu-list">
+            <div class="am-form-group-sm menu-search " id ="searchbat">
+                <input id="searchinput" class="am-input-sm" type="text" name="searchbar" placeholder="请输入你要搜索的组件名称     " autocomplete="on" style="padding-right: 30px">
+                <button id="searchstart" type="submit" class="am-btn-xs" >搜索</button>
+            </div>
+
+            <div class="library-section" role="tablist" >
+                <h2 class="menu-header" data-am-collapse="{target: '#list1'}">
+                    图像
+                    <span class="am-icon-angle-right am-fr am-margin-right"></span>
+                </h2>
+                <div class="library-content" role="tabpanel" >
+                    <ul class="am-list am-collapse admin-sidebar-list am-in" id="list1">
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-image-cam isNative " style="padding-left: 10px"></div>
+                            <h3 class="serv-name" title="image/cam">cam</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-image-paint isNative"></div>
+                            <h3 class="serv-name" title="image/paint">paint</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-image-transform isNative"></div>
+                            <h3 class="serv-name" title="image/transform">transform</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-image-fit isNative"></div>
+                            <h3 class="serv-name" title="image/fit">fit</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-image-crop isNative"></div>
+                            <h3 class="serv-name" title="image/crop">crop</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-image-rectangle isNative"></div>
+                            <h3 class="serv-name" title="image/rectangle">rectanle</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-image-circle isNative"></div>
+                            <h3 class="serv-name" title="image/circle">circle</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-image-triangle isNative"></div>
+                            <h3 class="serv-name" title="image/triangle">triangle</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-image-text isNative"></div>
+                            <h3 class="serv-name" title="image/text">text</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-video-player isNative"></div>
+                            <h3 class="serv-name" title="image/video">video</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-image-in isNative"></div>
+                            <h3 class="serv-name" title="image/image">image</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-image-layers isNative"></div>
+                            <h3 class="serv-name" title="image/layers">layers</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-image-mapper isNative"></div>
+                            <h3 class="serv-name" title="image/mapper">mapper</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-variable-animation isNative"></div>
+                            <h3 class="serv-name" title="image/animation">animation</h3>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="library-section" role="tablist">
+                <h2 class="menu-header" data-am-collapse="{target: '#list2'}">
+                    工具
+                    <span class="am-icon-angle-right am-fr am-margin-right"></span>
+                </h2>
+                <div class="library-content" role="tabpanel" style="display:block" >
+                    <ul class="am-list am-collapse admin-sidebar-list" id="list2">
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-util-stats isNative"></div>
+                            <h3 class="serv-name" title="image/stats">stats.js</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-image-palette isNative"></div>
+                            <h3 class="serv-name" title="image/palette">palette</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-util-color-hsla isNative"></div>
+                            <h3 class="serv-name" title="image/color-hsla">color-hsla</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-util-math isNative"></div>
+                            <h3 class="serv-name" title="image/math">math</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-util-logic isNative"></div>
+                            <h3 class="serv-name" title="image/logic">logic</h3>
+                        </div>
+                        <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                            <div class="serv-img module-icon-file-webm isNative"></div>
+                            <h3 class="serv-name" title="image/webm">webm</h3>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+                            
+         <!--<% var listnum = 0; for(var p in servlib){  listnum++; var listshow = "list"+listnum; %>  
+            <div class="library-section" role="tablist">
+                <h2 class="menu-header" data-am-collapse="{target: '#<%= listshow %>'}">
+                   <%= p %>
+                    <span class="am-icon-angle-right am-fr am-margin-right"></span>
+                </h2>
+                <div class="library-content brick" role="tabpanel" style="display:block" >
+                        <ul class="am-list am-collapse admin-sidebar-list" id='<%= listshow %>'>
+                            <% var servarray = servlib[p];%>
+                            <% for(var i=0;i<servarray.length;i++ ){ %>
+                            <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
+                                <% if( ((servarray[i]).info).icon != "" ) {%>
+                                <div class="serv-img isNative" style="background-image:url('assets/image/icons/<%= ((servarray[i]).info).icon %>');background-position: 0px 0px;margin: 0 auto;"></div>
+                                <% }else{ %>
+                                <div class="serv-img isNative"></div>
+                                <% } %>
+                                <h3 class="serv-name" title="<%= ((servarray[i]).info).description %>"><%= ((servarray[i]).info).title %></h3>
+                                <div style="display : none" title = "<%= ((servarray[i])).url %>" ></div>
+                            </div>
+                            <% } %>
+                        </ul>
+                    </div>
+            </div> 
+            <% } %>
+            -->
+                
+            <button class="close-button brick" id="close-button">Close Menu</button>
+        </div>
+            <button class="menu-button" id="open-button">Open Menu</button>
+
+        <!--九宫格布局-->
+        <div class="admin-content">
+            <!--<div class="admin-content-body"  ondrop="drop(event)" ondragover="allowDrop(event)">-->
+            <div class="admin-content-body"">
+                <div class="gridlybody">
+                    <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-thumbnails">
+                        <li class="brick" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                                <%- servinfo%>
+                                <!--<img class="am-thumbnail " src="http://s.amazeui.org/media/i/demos/bing-5.jpg" />-->
+                                <a class='delete' href='#'>&times;</a>
+                        </li>
+                        <li class="brick" title="a" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                                <img class="am-thumbnail " src="\assets\image\11.png" />
+                                <a class='delete' href='#' ">&times;</a>
+                        </li>
+                        <li class="brick"  title="b"  ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                                <img class="am-thumbnail " src="\assets\image\12.png" />
+                                <a class='delete' href='#' ">&times;</a>
+                        </li>
+                        <li class="brick"  title="c" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                                <img class="am-thumbnail " src="\assets\image\13.png" />
+                                <a class='delete' href='#' ">&times;</a>
+                        </li>
+                        <li class="brick" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                            <div>
+                                <div>
+                                    <h2><strong>股票数据</strong></h2>
+                                    <p>提供沪深、香港、美国股市信息</p>
+                                    <div>
+                                        <div>
+                                            <p style="margin: 0px;">数据ID：<font color="#ff9445">stockdata</font></p>
+                                            <p style="margin: 0px;">接口状态：<font color="#88c773"><span style="color:#88c773; ">正常</span></font></p>
+                                            <p style="margin: 0px;">连接应用数：<font color="#777">6459</font></p>
+                                            <p style="margin: 0px;">接入服务商：<font color="#03c5ff">聚合数据</font></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class='delete' href='#'>&times;</a>
+                        </li>
+                        <li class="brick" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                            <div>
+                                <div>
+                                    <h2><strong>股票查询</strong></h2>
+                                    <p> </p>
+                                    <div>
+                                        <div>
+                                            <p style="margin: 0px;">数据ID：<font color="#ff9445">stocksearch</font></p>
+                                            <p style="margin: 0px;">接口状态：<font color="#88c773"><span style="color:#88c773; ">正常</span></font></p>
+                                            <p style="margin: 0px;">连接应用数：<font color="#777">2056</font></p>
+                                            <p style="margin: 0px;">接入服务商：<font color="#03c5ff">360搜索</font></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class='delete' href='#'>&times;</a>
+                        </li>
+                        <li class="brick" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                            <div>
+                                <div>
+                                    <h2><strong>基金数据</strong></h2>
+                                    <p>基金数据</p>
+                                    <div>
+                                        <div>
+                                            <p style="margin: 0px;">数据ID：<font color="#ff9445">fundsdata</font></p>
+                                            <p style="margin: 0px;">接口状态：<font color="#88c773"><span style="color:#88c773; ">正常</span></font></p>
+                                            <p style="margin: 0px;">连接应用数：<font color="#777">1695</font></p>
+                                            <p style="margin: 0px;">接入服务商：<font color="#03c5ff">聚合数据</font></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class='delete' href='#'>&times;</a>
+                        </li>
+                        <li class="brick" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                            <div>
+                                <div>
+                                    <h2><strong>新三板信息</strong></h2>
+                                    <p>新三板实时股票信息</p>
+                                    <div>
+                                        <div>
+                                            <p style="margin: 0px;">数据ID：<font color="#ff9445">NEEQdata</font></p>
+                                            <p style="margin: 0px;">接口状态：<font color="#88c773"><span style="color:#88c773; ">正常</span></font></p>
+                                            <p style="margin: 0px;">连接应用数：<font color="#777">477</font></p>
+                                            <p style="margin: 0px;">接入服务商：<font color="#03c5ff">touchstone.cn</font></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class='delete' href='#'>&times;</a>
+                        </li>
+                        <li class="brick" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                            <div>
+                                <div>
+                                    <h2><strong>中国股权投资行业数据库</strong></h2>
+                                    <p>中国创业投资和私募股权投资领域综合数据服务提供商</p>
+                                    <div>
+                                        <div>
+                                            <p style="margin: 0px;">数据ID：<font color="#ff9445">CEIID</font></p>
+                                            <p style="margin: 0px;">接口状态：<font color="#88c773"><span style="color:#88c773; ">正常</span></font></p>
+                                            <p style="margin: 0px;">连接应用数：<font color="#777">182</font></p>
+                                            <p style="margin: 0px;">接入服务商：<font color="#03c5ff">企名片</font></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class='delete' href='#'>&times;</a>
+                        </li>
+                        <li class="brick" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                            <div>
+                                <div>
+                                    <h2><strong>重仓股基金</strong></h2>
+                                    <p>重仓股基金</p>
+                                    <div>
+                                        <div>
+                                            <p style="margin: 0px;">数据ID：<font color="#ff9445">HWSfunds</font></p>
+                                            <p style="margin: 0px;">接口状态：<font color="#88c773"><span style="color:#88c773; ">正常</span></font></p>
+                                            <p style="margin: 0px;">连接应用数：<font color="#777">681</font></p>
+                                            <p style="margin: 0px;">接入服务商：<font color="#03c5ff">聚合数据</font></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class='delete' href='#'>&times;</a>
+                        </li>
+                        
+
+                    </ul>
+                </div>
+            </div>
+
+
+
+            <!--<footer class="admin-content-footer">-->
+                <!--<hr>-->
+                <!--<p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>-->
+            <!--</footer>-->
+        </div>
+        <!-- content end -->
+
+    </div>
+
+    <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+    <!--[if lt IE 9]>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+    <script src="/js/amazeui.ie8polyfill.min.js"></script>
+    <![endif]-->
+
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="assets/js/jquery.min.js"></script>
+    <!--<![endif]-->
+    <script src="assets/js/socket.io.js"></script>
+    <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/alittletrick.js"></script>
+    <!--<script src="assets/js/gridly.js"></script>-->
+    <!--<script src="assets/js/jquery.gridly.js"></script>-->
+    <!--<script src="assets/js/gridbrick.js"></script>-->
+    <!--<script src="assets/js/gridbrick.1.js"></script>-->
+
+    <script type="text/javascript">
+            
+        var brick;
+        brick = "<li class='brick' ondrop='drop(event)' ondragover='allowDrop(event)' ondragstart='dragstart(event)'><img class='am-thumbnail' src='http://s.amazeui.org/media/i/demos/bing-1.jpg' /><a class='delete' href='#'>&times;</a></li>";
+
+
+        var allowDrop = function (event) {
+            console.log("allowDrop");
+            event.preventDefault();
+        }
+        var dragstart = function (event) {
+            var temp = $(event.target).closest('li').index();
+            console.log("dargstart");
+            event.dataTransfer.setData("Text", temp);
+        }
+        var drag = function (event) {
+            console.log("menu ondragstart");
+            //$("ul").append(brick).index();
+            event.dataTransfer.setData("Text", "menu");
+            //event.dataTransfer.setData("Text", event.target.id); 
+        }
+        var drop = function (event) {
+            console.log("drop");
+            event.preventDefault();
+            var that = event.dataTransfer.getData("Text");
+            console.log("data: " + that);
+            //     /^[1-9]([0-9\.]+\d)?$/.test("1.04")
+            if (/^[1-9]([0-9\.]+\d)?$/.test(that)) { console.log("11"); $(event.target).closest('li').before($("ul li:eq(" + that + ")"));}
+            else { $(event.target).closest('li').after(brick); $(".delete").click(function (event) { event.preventDefault(); event.stopPropagation(); $(this).closest('.brick').remove(); }); }
+            
+        }
+    </script>
+
+
+    </body>
+    </html>
+
