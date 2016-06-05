@@ -1,0 +1,17 @@
+<li class="brick" id=<%= widgetid %>  ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+    <div>
+        <div>
+            <h2><strong><%= info.title %></strong></h2>
+            <div>
+                <div>
+                    <p style="margin: 0px;">数据ID：<font color="#ff9445"><%= info.name %></font></p>
+                    <p style="margin: 0px;">接口状态：<font color="#88c773"><span style="color:#88c773; "><%= info.status %></span></font></p>
+                    <p style="margin: 0px;">连接应用数：<font color="#777"><%= info.access %></font></p>
+                    <p style="margin: 0px;">接入服务商：<font color="#03c5ff"><%= info.supplier %></font></p>
+                </div>
+            </div>
+            <p><%= info.description %></p>
+        </div>
+    </div>
+    <a class='delete' href='#'>&times;</a>
+</li>

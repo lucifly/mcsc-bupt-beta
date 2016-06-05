@@ -1,7 +1,7 @@
 var serverstore = "./sever.json";
 
 //get server simple info list
-exports.getserverinfo = function() {
+exports.getserverinfo = function () {
 
     var serverl = require(serverstore);
     var serverlist = serverl.exmp;
@@ -24,7 +24,7 @@ exports.getserverinfo = function() {
 };
 
 //get singer server info
-exports.findserver = function(key, value) {
+exports.findserver = function (key, value) {
 
     var serverl = require(serverstore);
     var serverlist = serverl.exmp;
@@ -35,7 +35,40 @@ exports.findserver = function(key, value) {
         if (temp[key] == value)
             return temp;
     }
-    
+
     return "404";
 
 };
+
+
+var serviceslib = "./serviceslib.json";
+
+
+//get service form  serviceslib
+exports.get_services_info_form_lib = function (key, value) {
+
+    var serverl = require(serviceslib);
+
+    for (var p in serverl) {
+        var servicearray = serverl[p];
+        for (var i = 0; i < servicearray.length; i++) {
+            var temp = servicearray[i];
+            if( temp[key] == value ){
+                var result = {};
+                result.name = temp.name;
+                result.description = (temp.info).description;
+                result.title = (temp.info).title;
+                result.supplier = (temp.info).supplier;
+                result.access = (temp.info).access;
+                result.status = (temp.info).status;
+                return result;
+            }
+            
+        }
+    }
+
+
+    return "404";
+
+};
+

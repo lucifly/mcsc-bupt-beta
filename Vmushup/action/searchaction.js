@@ -39,7 +39,7 @@ function main(socket) {
             res.on('data', function (chunk) {
                 var jsonobj = JSON.parse(chunk);
                 //return jsonobj.a;
-                if(jsonobj != null)
+                if(jsonobj != null) 
                 {
                 var arraya = jsonobj.a;
                 for (var i = 0; i < arraya.length; i++) {

@@ -40,7 +40,7 @@ $(function () {
             result += '</div >';
         }
         result += '</ul >';
-        result += '</div >';
+        result += '</div >'; 
         result += '</div >';
         return result;
     }

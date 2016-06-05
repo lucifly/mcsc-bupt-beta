@@ -302,6 +302,7 @@ button:focus {
     position: relative;
     /*overflow: scroll;*/
     overflow: auto;
+    height: 250px;
 }
 .gridlybody .brick .delete {
     display: block;

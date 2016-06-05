@@ -1,0 +1,15 @@
+<li class="brick" id=<%= widgetid %>  ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+    <div>
+        <div>
+            <h2><strong><%= info.title %></strong></h2>
+            datasouce : <br />
+            <select name="cars">
+                <% for(var i=0;i<datasource.length;i++) {%>
+                <option value=<%= datasource[i] %>><%= datasource[i] %></option>
+                <% } %>
+            </select>
+            <button>submit</button>
+        </div>
+    </div>
+    <a class='delete' href='#'>&times;</a>
+</li>

@@ -1,23 +1,56 @@
 {
-    "game": [
+    "living": [
         {
-            "name": "elophant",
-            "url": "elophant/elophant.json",
+            "name": "weather",
+            "type":"images",
+            "url": "weather/weather.json",
             "info": {
-                "title": "elophant",
+                "title": "switch",
                 "author": "admin",
-                "description": "Elophant is a service for League of Legends (LoL), a free online game in which players take on the role of a summoner who can summon champions to fight for them. Elophant provides information on summoners (player stats), champions, and items within the game. Developers can retrieve information from the Elophant database programmatically using REST calls.",
-                "icon": "elophant.png"
+                "description": "weather is a device for turning on or off the light.",
+                "icon": "weather.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
-            "name": "riot",
-            "url": "riot/riot.json",
+            "name": "door",
+            "url": "door/door.json",
             "info": {
-                "title": "riot",
+                "title": "door",
                 "author": "admin",
-                "description": "Riot Games is the company that created League of Legends (LoL), a multiplayer online battle arena game. The Riot Games website provides statistics on LoL games, rankings, runes, masteries, and more. Developers can access this data securely and reliably using the Riot Games REST API on the developer website.",
-                "icon": "riot.png"
+                "description": "door is a device for turning on or off the light.",
+                "icon": "door.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "window",
+            "url": "window/window.json",
+            "info": {
+                "title": "window",
+                "author": "admin",
+                "description": "window is a device for turning on or off the light.",
+                "icon": "window.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "lamp",
+            "url": "lamp/lamp.json",
+            "info": {
+                "title": "lamp",
+                "author": "admin",
+                "description": "lamp is a device for turning on or off the light.",
+                "icon": "lamp.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         }
     ],
@@ -29,7 +62,10 @@
                 "title": "Data Translation Web Service",
                 "author": "admin",
                 "description": "The Data Translation Web Service (DTWS) is a service of NASA/Goddard Space Flight Center's Space Physics Data Facility (SPDF) to facilitate and promote data exchanges among space scientists. DTWS supports data in Common Data Format (CDF). The API uses the SOAP protocol and allows users to translate one or more local and/or remote files into other data formats.",
-                "icon": "Data Translation Web Service.png"
+                "icon": "Data Translation Web Service.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -39,7 +75,10 @@
                 "title": "NASAearth",
                 "author": "admin",
                 "description": "NASA's Earth API gives users access to Earth observation data. The Earth API is powered by the Google Earth Engine and consists of a database of images from Landsat 8. Landsat 8 is NASA satellite that takes images of the entire Earth every 16 days. Users can query the database for images of a specific place at a specific date.",
-                "icon": "nasa earth.png"
+                "icon": "nasa earth.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -49,7 +88,10 @@
                 "title": "Satellite Situation Center Web",
                 "author": "admin",
                 "description": "Satellite Situation Center Web (SSCWeb) is a NASA service consisting of software and an associated database which provides geocentric spacecraft location information mapped to geophysical regions of Earth's magnetic field. Access to an SDK and associated API are available for developers to create and incorporate SSCWeb software and data into their own applications. The API uses the SOAP protocol.",
-                "icon": "Satellite Situation Center Web.png"
+                "icon": "Satellite Situation Center Web.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         }
     ],
@@ -61,7 +103,10 @@
                 "title": "Apple Camera",
                 "author": "admin",
                 "description": "With Apple's Camera API, third-party camera apps can have control over exposure, focus, and white balance. This is in addition to the controls they have created.",
-                "icon": "Apple.png"
+                "icon": "Apple.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -71,7 +116,10 @@
                 "title": "Apple HomeKit",
                 "author": "admin",
                 "description": "",
-                "icon": "Apple.png"
+                "icon": "Apple.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -81,7 +129,10 @@
                 "title": "Apple Touch ID",
                 "author": "admin",
                 "description": "",
-                "icon": "Apple.png"
+                "icon": "Apple.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -91,17 +142,10 @@
                 "title": "Hutoma",
                 "author": "admin",
                 "description": "",
-                "icon": "Hutoma.png"
-            }
-        },
-        {
-            "name": "Swift",
-            "url": "apple/Swift.json",
-            "info": {
-                "title": "Swift",
-                "author": "admin",
-                "description": "",
-                "icon": "Apple.png"
+                "icon": "Hutoma.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         }
     ],
@@ -113,7 +157,10 @@
                 "title": "DTC查询",
                 "author": "admin",
                 "description": "",
-                "icon": "DTC查询.png"
+                "icon": "DTC查询.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -123,7 +170,10 @@
                 "title": "车辆违章",
                 "author": "admin",
                 "description": "",
-                "icon": "车辆违章.png"
+                "icon": "车辆违章.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -133,7 +183,10 @@
                 "title": "车系查询",
                 "author": "admin",
                 "description": "",
-                "icon": "车系查询.png"
+                "icon": "车系查询.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -143,7 +196,10 @@
                 "title": "出行保险",
                 "author": "admin",
                 "description": "",
-                "icon": "出行保险.png"
+                "icon": "出行保险.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -153,7 +209,10 @@
                 "title": "驾照查询",
                 "author": "admin",
                 "description": "",
-                "icon": "驾照查询.png"
+                "icon": "驾照查询.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -163,7 +222,10 @@
                 "title": "尾号限行",
                 "author": "admin",
                 "description": "",
-                "icon": "尾号限行.png"
+                "icon": "尾号限行.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -173,7 +235,10 @@
                 "title": "限行查询",
                 "author": "admin",
                 "description": "",
-                "icon": "限行查询.png"
+                "icon": "限行查询.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -183,7 +248,10 @@
                 "title": "油价查询",
                 "author": "admin",
                 "description": "",
-                "icon": "油价查询.png"
+                "icon": "油价查询.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         }
     ],
@@ -195,7 +263,10 @@
                 "title": "股票查询",
                 "author": "admin",
                 "description": "",
-                "icon": "股票查询.png"
+                "icon": "股票查询.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -205,7 +276,10 @@
                 "title": "股票数据",
                 "author": "admin",
                 "description": "",
-                "icon": "股票数据.png"
+                "icon": "股票数据.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -215,7 +289,10 @@
                 "title": "基金数据",
                 "author": "admin",
                 "description": "",
-                "icon": "基金数据.png"
+                "icon": "基金数据.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -225,7 +302,10 @@
                 "title": "新三板信息",
                 "author": "admin",
                 "description": "",
-                "icon": "新三板信息.png"
+                "icon": "新三板信息.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -235,7 +315,10 @@
                 "title": "中国股权投资行业数据库",
                 "author": "admin",
                 "description": "",
-                "icon": "中国股权投资行业数据库.png"
+                "icon": "中国股权投资行业数据库.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
             }
         },
         {
@@ -245,7 +328,25 @@
                 "title": "重仓股基金",
                 "author": "admin",
                 "description": "",
-                "icon": "重仓股基金.png"
+                "icon": "重仓股基金.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        }
+    ],
+    "maptest": [
+        {
+            "name": "map",
+            "url": "map/map.json",
+            "info": {
+                "title": "map",
+                "author": "admin",
+                "description": "baidu map API test.",
+                "icon": "",
+                "supplier": "baidu",
+                "access": 452,
+                "status": "normal"
             }
         }
     ]
