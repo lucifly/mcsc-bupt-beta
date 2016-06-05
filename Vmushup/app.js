@@ -99,11 +99,11 @@ app.use('/pizzahub', pizzahub);
 var server = app.listen(3000, function () {
 
     //get server address 
-    var IPAdderss = require('./action/getipaddress');
-    var host = IPAdderss.ipaddress("IPv4");
-    var port = server.address().port;
+   var IPAdderss = require('./action/getipaddress');
+   var host = IPAdderss.ipaddress("IPv4");
+   var port = server.address().port;
 
-    console.log("应用实例，访问地址为 http://%s:%s", host, port)
+   console.log("应用实例，访问地址为 http://%s:%s", host, port)
 });
 ////////////////////////////////////////////////////////////////////////
 
