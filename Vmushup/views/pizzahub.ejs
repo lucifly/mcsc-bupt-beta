@@ -1,25 +1,27 @@
 <!doctype html>
-    <html class="no-js fixed-layout">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>PizzaHub</title>
-        <meta name="description" content="这是一个 index 页面">
-        <meta name="keywords" content="index">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="renderer" content="webkit">
-        <meta http-equiv="Cache-Control" content="no-siteapp" />
-        <link rel="icon" type="image/png" href="assets/i/favicon.png">
-        <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
-        <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-        <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
-        <link rel="stylesheet" href="assets/css/admin.css">
-        <link rel="stylesheet" href="assets/css/sudoku.css">
+<html class="no-js fixed-layout">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PizzaHub</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/sudoku.css">
 
 
 
-    </head>
-    <body>
+</head>
+
+<body>
     <!--[if lte IE 9]>
     <p class="browsehappy">你正在使用<strong>过时</strong>的浏览器。请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
         以获得更好的体验！</p>
@@ -27,7 +29,7 @@
 
     <header class="am-topbar am-topbar-inverse admin-header">
         <div class="am-topbar-brand">
-            <strong>Web服务聚合器</strong> <small>PizzaHub</small>
+            <strong>可视化轻量级Web服务聚合器</strong> <small>  PizzaHub</small>
         </div>
 
         <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
@@ -40,14 +42,14 @@
             <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
                 <!--<li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">99+</span></a></li>-->
                 <!--<li class="am-dropdown" data-am-dropdown>-->
-                    <!--<a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">-->
-                        <!--<span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>-->
-                    <!--</a>-->
-                    <!--<ul class="am-dropdown-content">-->
-                        <!--<li><a href="#"><span class="am-icon-user"></span> 资料</a></li>-->
-                        <!--<li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>-->
-                        <!--<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>-->
-                    <!--</ul>-->
+                <!--<a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">-->
+                <!--<span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>-->
+                <!--</a>-->
+                <!--<ul class="am-dropdown-content">-->
+                <!--<li><a href="#"><span class="am-icon-user"></span> 资料</a></li>-->
+                <!--<li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>-->
+                <!--<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>-->
+                <!--</ul>-->
                 <!--</li>-->
                 <!--<li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>-->
             </ul>
@@ -57,12 +59,13 @@
     <div class="am-cf admin-main">
         <!--侧边栏-->
         <div class="menu-wrap" id="menu-list">
-            <div class="am-form-group-sm menu-search " id ="searchbat">
-                <input id="searchinput" class="am-input-sm" type="text" name="searchbar" placeholder="请输入你要搜索的组件名称     " autocomplete="on" style="padding-right: 30px">
-                <button id="searchstart" type="submit" class="am-btn-xs" >搜索</button>
+            <div class="am-form-group-sm menu-search " id="searchbat">
+                <input id="searchinput" class="am-input-sm" type="text" name="searchbar" placeholder="请输入你要搜索的组件名称     " autocomplete="on"
+                    style="padding-right: 30px">
+                <button id="searchstart" type="submit" class="am-btn-xs">搜索</button>
             </div>
 
-            <div class="library-section" role="tablist" >
+            <!-- <div class="library-section" role="tablist" >
                 <h2 class="menu-header" data-am-collapse="{target: '#list1'}">
                     图像
                     <span class="am-icon-angle-right am-fr am-margin-right"></span>
@@ -130,7 +133,7 @@
             </div>
             <div class="library-section" role="tablist">
                 <h2 class="menu-header" data-am-collapse="{target: '#list2'}">
-                    工具
+                    Living
                     <span class="am-icon-angle-right am-fr am-margin-right"></span>
                 </h2>
                 <div class="library-content" role="tabpanel" style="display:block" >
@@ -161,83 +164,87 @@
                         </div>
                     </ul>
                 </div>
-            </div>
+            </div> -->
 
-                            
-         <% var listnum = 3; for(var p in servlib){  listnum++; var listshow = "list"+listnum; %>  
-            <div class="library-section" role="tablist">
-                <h2 class="menu-header" data-am-collapse="{target: '#<%= listshow %>'}">
+
+            <% var listnum = 3; for(var p in servlib){  listnum++; var listshow = "list"+listnum; %>
+                <div class="library-section" role="tablist">
+                    <h2 class="menu-header" data-am-collapse="{target: '#<%= listshow %>'}">
                    <%= p %>
                     <span class="am-icon-angle-right am-fr am-margin-right"></span>
                 </h2>
-                <div class="library-content brick" role="tabpanel" style="display:block" >
+                    <div class="library-content " role="tabpanel" style="display:block">
                         <ul class="am-list am-collapse admin-sidebar-list" id='<%= listshow %>'>
                             <% var servarray = servlib[p];%>
-                            <% for(var i=0;i<servarray.length;i++ ){ %>
-                            <div class="library-module dragicon"  draggable="true"  ondragstart="drag(event)" >
-                                <% if( ((servarray[i]).info).icon != "" ) {%>
-                                <div class="serv-img isNative" style="background-image:url('assets/image/icons/<%= ((servarray[i]).info).icon %>');background-position: 0px 0px;margin: 0 auto;"></div>
-                                <% }else{ %>
-                                <div class="serv-img isNative"></div>
-                                <% } %>
-                                <h3 class="serv-name" title="<%= ((servarray[i]).info).description %>"><%= (servarray[i]).name %></h3>
-                                <div style="display : none" title = "<%= ((servarray[i])).url %>" ></div>
-                            </div>
-                            <% } %>
+                                <% for(var i=0;i<servarray.length;i++ ){ %>
+                                    <div class="library-module dragicon" draggable="true" ondragstart="drag(event)">
+                                        <% if( ((servarray[i]).info).icon != "" ) {%>
+                                            <div class="serv-img isNative" style="background-image:url('assets/image/icons/<%= ((servarray[i]).info).icon %>');background-position: 0px 0px;margin: 0 auto;"></div>
+                                            <% }else{ %>
+                                                <div class="serv-img isNative"></div>
+                                                <% } %>
+                                                    <h3 class="serv-name" title="<%= ((servarray[i]).info).description %>"><%= (servarray[i]).name %></h3>
+                                                    <div style="display : none" title="<%= ((servarray[i])).url %>"></div>
+                                    </div>
+                                    <% } %>
                         </ul>
                     </div>
-            </div> 
-            <% } %>
-            
-                
-            <button class="close-button brick" id="close-button">Close Menu</button>
+                </div>
+                <% } %>
+
+
+                    <button class="close-button " id="close-button">Close Menu</button>
         </div>
-            <button class="menu-button" id="open-button">Open Menu</button>
+        <button class="menu-button" id="open-button">Open Menu</button>
 
         <!--九宫格布局-->
         <div class="admin-content">
             <!--<div class="admin-content-body"  ondrop="drop(event)" ondragover="allowDrop(event)">-->
-            <div class="admin-content-body"">
-                <div class="gridlybody">
-                    <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-thumbnails">
-                        <li class="brick" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+            <div class="admin-content-body" ">
+                
+                    <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-thumbnails ">
+                        <li class="brick " ondrop="drop(event) " ondragover="allowDrop(event) " ondragstart="dragstart(event) ">
                                 <%- servinfo%>
-                                <!--<img class="am-thumbnail " src="http://s.amazeui.org/media/i/demos/bing-5.jpg" />-->
-                                <a class='delete' href='#'>&times;</a>
+                            <!--<img class="am-thumbnail "src="http://s.amazeui.org/media/i/demos/bing-5.jpg " />-->
+                            <a class='delete' href='#'>&times;</a>
                         </li>
-                        <li class="brick" title="a" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
-                                <div>
-                                    service : name
-                                    datasouce : <input type="text" name="lname" />
-                                    <button>submit</button>
-                                </div>
+                        <li class="brick " title="a " ondrop="drop(event) " ondragover="allowDrop(event)" ondragstart="dragstart(event) ">
+                            <img class="am-thumbnail shadow " src="\assets\image\weather1.jpg " />
+                            <a class='delete' href='#' ">&times;</a>
+                        </li>
+                        <li class="brick" title="b" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                             <img class="am-thumbnail shadow" src="\assets\image\湿度.jpg"/>
                                 <a class='delete' href='#' ">&times;</a>
                         </li>
-                        <li class="brick"  title="b"  ondrop="drop(event)"  ="allowDrop(event)" ondragstart="dragstart(event)">
-                                <img class="am-thumbnail " src="\assets\image\12.png" />
+                        <li class="brick "  title="c " ondrop="drop(event) " ondragover="allowDrop(event)" ondragstart="dragstart(event) ">
+                                <img class="am-thumbnail shadow " src="\assets\image\交通.jpg " />
                                 <a class='delete' href='#' ">&times;</a>
                         </li>
-                        <li class="brick"  title="c" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
-                                <img class="am-thumbnail " src="\assets\image\13.png" />
+                        <!-- <li class="brick "  title="c " ondrop="drop(event) " ondragover="allowDrop(event)" ondragstart="dragstart(event) ">
+                                <embed class="shadow" src="assets/video/三人游.mp4" style:"width='295px'; height='180px';border:'1px solid #ddd';padding:'10px'" />
                                 <a class='delete' href='#' ">&times;</a>
-                        </li>
+                        </li> -->
 
-                    </ul>
-                </div>
+                </ul>
+
             </div>
 
 
 
             <!--<footer class="admin-content-footer">-->
-                <!--<hr>-->
-                <!--<p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>-->
+            <!--<hr>-->
+            <!--<p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>-->
             <!--</footer>-->
         </div>
         <!-- content end -->
 
     </div>
 
-    <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+    <!-- <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+ -->
+ <footer class="footer">
+    <p>© 2016届 <a href="http://www.xxxxxx.com" target="_blank">北京邮电大学本科生毕业设计 -- </a> <a href="http://www.xxxxx.com" target="_blank">《可视化轻量级Web服务聚合器的设计与实现》</a>. by 王颖.</p>
+</footer>
 
     <!--[if lt IE 9]>
     <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
@@ -284,10 +291,10 @@
             var that = event.dataTransfer.getData("Text");
             console.log("data: " + that);
             //     /^[1-9]([0-9\.]+\d)?$/.test("1.04")
-            if (/^[0-9]([0-9\.]+\d)?$/.test(that)) 
+            if (/^[0-9]([0-9\.]*\d)?$/.test(that)) 
             { 
                 console.log("11"); 
-                $(event.target).closest('li').before($("ul li:eq(" + that + ")"));
+                $(event.target).closest('li').after($("ul li:eq(" + that + ")"));
             }
             else if(that == "map")
             {
@@ -323,6 +330,26 @@
                     data: data, 
                     success: function(result){
                             $(event.target).closest('li').after(result); 
+                            var resultid = $(result).attr("id");
+                            console.log("resultid:"+resultid);
+
+                            $("#"+resultid+"button").click(function(event){
+                                var selectval = $("#"+resultid+"select").val();
+                                console.log("selectval:"+selectval);
+                                $.ajax({
+                                    url:"/pizzahub/bindsrc",
+                                    data: { "weight":resultid,"src":selectval},
+                                    success:function(){ $("#"+resultid+"div").after('<div class="shadow datatab" style = "height:180px;padding:10px">wait fo data </div>');$("#"+resultid+"div").hide();}
+                                });
+// { "weight":weight,"src":src  }
+
+                                // if(selectval == "客厅吊灯")
+                                //     $("#"+resultid+"div").after('<img class="am-thumbnail shadow " src="\\assets\\image\\吊灯.jpg " />');
+                                // else if(selectval == "书房台灯")
+                                //     $("#"+resultid+"div").after('<img class="am-thumbnail shadow " src="\\assets\\image\\台灯.jpg " />');
+                                // $("#"+resultid+"div").hide();
+                            });
+
                             $(".delete").click(function (event) { event.preventDefault(); event.stopPropagation(); $(this).closest('.brick').remove(); }); 
         
                     }, 
@@ -336,5 +363,6 @@
     </script>
 
 
-    </body>
-    </html>
+</body>
+
+</html>

@@ -7,7 +7,7 @@ var subscribe_table = {};
 
 exports.additem = function (key, value) {
     if (subscribe_table) {
-        if (subscribe_table[key]) {
+        if (!subscribe_table[key]) {
             console.log("!--[ERROR] subscribe_table[" + key + "] not exist");
             return -1;
         }
@@ -21,7 +21,7 @@ exports.additem = function (key, value) {
 
 exports.delitem = function (key) {
     if (subscribe_table) {
-        if (subscribe_table[key]) {
+        if (!subscribe_table[key]) {
             delete subscribe_table[key];
             console.log("--[info] subscribe_table[" + key + "] has been delete");
             return 0;
@@ -34,13 +34,14 @@ exports.delitem = function (key) {
 };
 
 exports.modifyitem = function (key, value) {
+
     if (subscribe_table) {
-        if (subscribe_table[key]) {
+        if (!subscribe_table[key]) {
             console.log("!--[ERROR] subscribe_table[" + key + "] not exist");
             return -1;
         }
         subscribe_table[key] = value;
-        console.log("--[info] subscribe_table[" + key + "]  has changed");
+        console.log("--[info] subscribe_table[" + key + "]  has changed to " + value);
         return 0;
     }
     console.log("!--[ERROR] subscribe_table not exist");
@@ -49,7 +50,7 @@ exports.modifyitem = function (key, value) {
 
 exports.getitem = function (key) {
     if (subscribe_table) {
-        if (subscribe_table[key]) {
+        if (!subscribe_table[key]) {
             console.log("--[info] subscribe_table[" + key + "] has been return");
             return subscribe_table[key];
         }
@@ -61,12 +62,10 @@ exports.getitem = function (key) {
 };
 
 exports.add_unique_item = function (key, value) {
-    if (subscribe_table) 
-    {
+    if (subscribe_table) {
         var count = 0;
-        key = key.replace(/\s/g,"");
-        for (var p in subscribe_table) 
-        {
+        key = key.replace(/\s/g, "");
+        for (var p in subscribe_table) {
             if (p.indexOf(key) >= 0)
                 count++;
         }
@@ -79,3 +78,16 @@ exports.add_unique_item = function (key, value) {
     console.log("!--[ERROR] subscribe_table not exist");
     return -2;
 };
+
+exports.get_id_of_value = function (value) {
+
+    if (subscribe_table) {
+        var result = [];
+        for (var p in subscribe_table)
+            if (subscribe_table[p] == value)
+                result[result.length] = p;
+        return result;
+    }
+    console.log("!--[ERROR] subscribe_table not exist");
+    return result;
+}

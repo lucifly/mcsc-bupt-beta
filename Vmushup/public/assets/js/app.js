@@ -44,7 +44,7 @@ function addLoadEvent(func) {
 
 
 $(document).ready(function(){
-    var slides = [{src: 'assets/image/a1.png'}, {src: 'assets/image/a2.png'}, {src: 'assets/image/a3.png'}, {src: 'assets/image/a4.png'},{src: 'assets/image/a5.png'}]
+    var slides = [{src: 'assets/image/home1.jpg'}, {src: 'assets/image/home2.jpg'}, {src: 'assets/image/home3.jpg'}, {src: 'assets/image/home4.jpg'},{src: 'assets/image/home5.jpg'}]
     var jR3DCarousel;
     var carouselProps =  {
         width: 1000, 				/* largest allowed width */

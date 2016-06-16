@@ -3,6 +3,13 @@
 .clearfix:before, .clearfix:after { content: ''; display: table; }
 .clearfix:after { clear: both; }
 
+.footer p {
+    color: #7f8c8d;
+    margin: 0;
+    padding: 15px 0;
+    text-align: center;
+    background: #2d3e50;
+}
 
 
 a:hover, a:focus {
@@ -288,30 +295,32 @@ button:focus {
     padding: 50px 90px;
 }
 
-.gridly, .gridly > :not(.dragging) {
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out; }
-.gridly .dragging {
-    z-index: 800; }
-.gridlybody {
-    position: relative; }
-.gridlybody .brick {
+/*.gridly, .gridly > :not(.dragging) {*/
+    /*-webkit-transition: all 0.4s ease-in-out;*/
+    /*-moz-transition: all 0.4s ease-in-out;*/
+    /*transition: all 0.4s ease-in-out; }*/
+/*.gridly .dragging {*/
+    /*z-index: 800; }*/
+/*.gridlybody {*/
+    /*position: relative; }*/
+.brick {
     opacity: 1;
     cursor: pointer;
     position: relative;
     /*overflow: scroll;*/
     overflow: auto;
-    height: 250px;
+    height: 180px;
+    padding: 10px;
+    /*margin: 10px;*/
 }
-.gridlybody .brick .delete {
+.brick .delete {
     display: block;
     color: white;
     background: rgba(205, 205, 205, 0.2);
     width: 20px;
     height: 20px;
-    top: 0;
-    right: 8px;
+    top: 7px;
+    right: 13px;
     position: absolute;
     text-align: center;
     line-height: 20px; }
@@ -319,5 +328,10 @@ button:focus {
     /*width: 300px;*/
     /*height: 180px;*/
     /*padding: 0 .5rem 1rem .5rem;}*/
-.gridlybody .brick.dragging {
+.brick .dragging {
     opacity: 0.8; }
+.shadow{
+    -webkit-box-shadow:0 0 10px rgba(0, 0, 0, .5);
+    -moz-box-shadow:0 0 10px rgba(0, 0, 0, .5);
+    box-shadow:0 0 10px rgba(0, 0, 0, .5);
+}

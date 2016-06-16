@@ -1,7 +1,7 @@
 /**
  * 20160520 N
  */
-
+// (function(exports){
 // //drag and drop
 $(function () {
     $(".delete").click(function (event) { event.preventDefault(); event.stopPropagation(); $(this).closest('.brick').remove(); });
@@ -47,7 +47,7 @@ $(function () {
 
     function connect() {
         if (firstconnect) {
-            socket = io.connect("http://10.108.92.2:" + "8080", { 'reconnect': true });
+            socket = io.connect("http://localhost:" + "8180", { 'reconnect': true });
             console.log("connect to server");
             //return_search_result
             //2016.5.26 这个地方要改，加功能
@@ -57,6 +57,14 @@ $(function () {
                 $(".library-section").hide();
                 $("#searchbat").after(result);
 
+            });
+            socket.on("datatobrower",function (data) {
+                //datatab
+                console.log("sadadad");
+                for(var i=0;i<(data.targetid).length;i++)
+                {
+                    $("#"+(data.targetid)[i]).find(".datatab").append("<br />"+data.data);
+                }
             });
 
             firstconnect = false;
@@ -72,5 +80,19 @@ $(function () {
     function show(data) {
     };
 
+    // var bingsrc = function bingsrc(weight,src) {
+    //     socket.emit("bingsrc", { "weight":weight,"src":src  });
+    //     console.log("bind "+src + " to "+weight);
+    // }
+
     connect();
 });
+
+// })( (function(){
+//     if(typeof exports === 'undefined') {
+//         window.chatLib = {};
+//         return window.chatLib;
+//     } else {
+//         return exports;
+//     }
+// })() );

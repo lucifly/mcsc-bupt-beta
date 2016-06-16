@@ -1,0 +1,50 @@
+<div>
+    <div>
+        <h2><strong><%= title %></strong></h2>
+        <label>message: </label>
+        <textarea rows="3"></textarea>
+        <!--<input type="text" placeholder="Type something…"> -->
+        <label>entity :</label>
+        <select>
+                <% for(var i=0;i<datasource.length;i++) {%>
+                <option value=<%= (datasource[i]).UID %>><%= (datasource[i]).entityname %></option>
+                <% } %>
+            </select>
+        <br /><br />
+        <button style='height:100%'>submit</button>
+    </div>
+
+<script>
+      var socket;
+      var firstconnect = true;
+      function connect() {
+        if (firstconnect) {
+            socket = io.connect("http://localhost:" + "8180", { 'reconnect': true });
+            console.log("connect to server");
+            socket.on('return_search_result', function (data) {
+                //alert(data.data); 
+                var result = group_result(data.data);
+                $(".library-section").hide();
+                $("#searchbat").after(result);
+            });
+
+            firstconnect = false;
+        }
+        else {
+            socket.socket.reconnect();
+        }
+    };
+
+    $('button').click(function (event) {
+         socket.emit("newdata", { 
+                                "data":$('textarea').val(),
+                                "entityid":$("select").val()
+                                })
+    });
+    
+
+    connect();  
+</script>
+
+
+</div>

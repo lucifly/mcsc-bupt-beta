@@ -24,7 +24,7 @@ function main(socket) {
         var content = qs.stringify(data);
 
         var options = {
-            hostname: '10.108.95.114',
+            hostname: 'localhost',
             port: 8080,
             path: '/Servlet/find?' + content,
             method: 'GET',

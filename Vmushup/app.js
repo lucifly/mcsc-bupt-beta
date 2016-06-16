@@ -20,6 +20,8 @@ var serverexecut = require('./routes/serverexecut');
 var webmeemoo = require('./routes/webmeemoo');
 var indext = require('./routes/indext');
 var pizzahub = require('./routes/pizzahub');
+var servicelib = require('./routes/servicelib');
+var testsocketsend = require('./routes/testsocketsend');
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -84,6 +86,8 @@ app.use('/serverexecut', serverexecut);
 app.use('/webmeemoo', webmeemoo);
 app.use('/indext', indext);
 app.use('/pizzahub', pizzahub);
+app.use('/servicelib', servicelib);
+app.use('/testsocketsend', testsocketsend);
 //////////////////////////////////////////////////////////////////////////////////
 
 // var arraya = require('./httprequest.js').getrequest();
@@ -99,16 +103,16 @@ app.use('/pizzahub', pizzahub);
 var server = app.listen(3000, function () {
 
     //get server address 
-    var IPAdderss = require('./action/getipaddress');
-    var host = IPAdderss.ipaddress("IPv4");
-    var port = server.address().port;
+    // var IPAdderss = require('./action/getipaddress');
+    // var host = IPAdderss.ipaddress("IPv4");
+    // var port = server.address().port;
 
-    console.log("应用实例，访问地址为 http://%s:%s", host, port)
+    // console.log("应用实例，访问地址为 http://%s:%s", host, port)
 });
 ////////////////////////////////////////////////////////////////////////
 
 //启动socketio服务器/////////////////////////////////////////////////////////////////
-var socketport = 8080;
+var socketport = 8180;
 var io = require('socket.io').listen(socketport);
 var actionjs = require('./action/main');
 var addservcer = require('./action/addserver');
@@ -129,17 +133,25 @@ io.sockets.on('connection', function (socket) {
         var tt = new actionjs(socket);
         tt.main(data);
     });
-    
+
     socket.on('addserver', function (data) {
         console.log("--[info] socket start debug ");
         var tt = new addservcer(socket);
         tt.newComService(data);
     });
-        
+
     socket.on('searchserver', function (data) {
-        console.log("--[info] socket start debug "+ data.argument);
-         var tt = new searchaction(socket);
-         tt.getresult(data.argument);
+        console.log("--[info] socket start debug " + data.argument);
+        var tt = new searchaction(socket);
+        tt.getresult(data.argument);
+    });
+
+    socket.on('newdata', function (data) {
+        console.log("--[info] socket start debug  data");
+
+        var targetid = require('./action/subscribetable.js').get_id_of_value(data.entityid);
+        io.sockets.emit("datatobrower", { "targetid": targetid, "data": data.data });
+
     });
 
 });
