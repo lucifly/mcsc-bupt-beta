@@ -3,6 +3,7 @@ var router = express.Router();
 
 serhtml = "<marquee  class='shadow' style='HEIGHT: 180px; padding:10px; border:1px solid #ddd' scrollamount='2' direction='up' ><h>2016年6月8日</h><p>北京 晴 30度</p><p>尾号限行4和9</p><p>天气炎热</p><p>小心中暑</p><p>应用接入数:1	服务调用次数:34</p></marquee>";
 
+
 var ServLib = require('../model/serviceslib.json');
 /* GET pizzahub page. */
 router.get('/', function (req, res, next) {

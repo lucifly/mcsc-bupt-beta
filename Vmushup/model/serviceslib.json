@@ -16,7 +16,7 @@
         },
         {
             "name": "wet",
-            "type": "images",
+            "type":"images",
             "url": "wet/wet.json",
             "info": {
                 "title": "switch",
@@ -30,7 +30,7 @@
         },
         {
             "name": "traffic",
-            "type": "images",
+            "type":"images",
             "url": "traffic/traffic.json",
             "info": {
                 "title": "switch",
@@ -109,7 +109,7 @@
         },
         {
             "name": "switch",
-            "type": "images",
+             "type":"images",
             "url": "switch/switch.json",
             "info": {
                 "title": "switch",

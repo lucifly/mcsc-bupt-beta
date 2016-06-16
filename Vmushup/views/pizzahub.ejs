@@ -215,6 +215,10 @@
                         <li class="brick" title="b" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
                              <img class="am-thumbnail shadow" src="\assets\image\湿度.jpg"/>
                                 <a class='delete' href='#' ">&times;</a>
+                </li>
+                <li class="brick" title="b" ondrop="drop(event)"="allowDrop(event)" ondragstart="dragstart(event)">
+                    <img class="am-thumbnail shadow" src="\assets\image\湿度.jpg" />
+                    <a class='delete' href='#' ">&times;</a>
                         </li>
                         <li class="brick "  title="c " ondrop="drop(event) " ondragover="allowDrop(event)" ondragstart="dragstart(event) ">
                                 <img class="am-thumbnail shadow " src="\assets\image\交通.jpg " />
@@ -224,7 +228,6 @@
                                 <embed class="shadow" src="assets/video/三人游.mp4" style:"width='295px'; height='180px';border:'1px solid #ddd';padding:'10px'" />
                                 <a class='delete' href='#' ">&times;</a>
                         </li> -->
-
                 </ul>
 
             </div>
@@ -332,7 +335,6 @@
                             $(event.target).closest('li').after(result); 
                             var resultid = $(result).attr("id");
                             console.log("resultid:"+resultid);
-
                             $("#"+resultid+"button").click(function(event){
                                 var selectval = $("#"+resultid+"select").val();
                                 console.log("selectval:"+selectval);
@@ -349,8 +351,7 @@
                                 //     $("#"+resultid+"div").after('<img class="am-thumbnail shadow " src="\\assets\\image\\台灯.jpg " />');
                                 // $("#"+resultid+"div").hide();
                             });
-
-                            $(".delete").click(function (event) { event.preventDefault(); event.stopPropagation(); $(this).closest('.brick').remove(); }); 
+                           $(".delete").click(function (event) { event.preventDefault(); event.stopPropagation(); $(this).closest('.brick').remove(); }); 
         
                     }, 
                     dataType: "html" 
