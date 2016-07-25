@@ -16,6 +16,12 @@
        $(this).addClass("active");
     });
 
+     $(document).on("click", ".addnew", function(event) {
+       $(".submitbtn").show(); 
+       $(".cancebtn").show(); 
+       $(".newentity").show();  
+    });
+
   });
 
 }).call(this);

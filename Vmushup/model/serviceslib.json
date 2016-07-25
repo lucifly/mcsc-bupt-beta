@@ -1,6 +1,34 @@
 {
     "living": [
         {
+            "name": "ais",
+            "type": "island",
+            "url": "weather/weather.json",
+            "info": {
+                "title": "AIS",
+                "author": "admin",
+                "description": "weather is .",
+                "icon": "ais.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "location",
+            "type": "island",
+            "url": "weather/weather.json",
+            "info": {
+                "title": "LOCATION",
+                "author": "admin",
+                "description": "weather is .",
+                "icon": "location.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
             "name": "weather",
             "type": "images",
             "url": "weather/weather.json",
@@ -44,6 +72,7 @@
         },
         {
             "name": "lamp",
+            "type":"text",
             "url": "lamp/lamp.json",
             "info": {
                 "title": "lamp",
@@ -57,6 +86,7 @@
         },
         {
             "name": "movie",
+            "type":"scotext",
             "url": "movie/movie.json",
             "info": {
                 "title": "movie",
@@ -70,6 +100,7 @@
         },
         {
             "name": "video",
+            "type":"video",
             "url": "video/video.json",
             "info": {
                 "title": "video",
@@ -83,6 +114,7 @@
         },
         {
             "name": "door",
+            "type":"images",
             "url": "door/door.json",
             "info": {
                 "title": "door",
@@ -96,6 +128,7 @@
         },
         {
             "name": "window",
+            "type":"images",
             "url": "window/window.json",
             "info": {
                 "title": "window",
@@ -311,6 +344,7 @@
     "maptest": [
         {
             "name": "map",
+            "type":"mapapi",
             "url": "map/map.json",
             "info": {
                 "title": "map",

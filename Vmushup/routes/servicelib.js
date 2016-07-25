@@ -4,24 +4,23 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
     console.log("-[info] get serverlist");
-    //res.render('index', { title: 'serverlist' });
+
     next();
 });
 
 router.get('/', function(req, res, next) {
     //console.log("-[info] get serverlist");
     var title = 'serverlist';
-    var serverinfo = require('../model/server.js').getserverinfo();
+    var serverinfo = require('../model/server.js').get_services_infos();
     var entitiesinfo = require('../model/entity.js').get_entities_info();
     
     res.render('serverlist', { title: title, serverinfo: serverinfo ,entitiesinfo:entitiesinfo});
-    //res.render('index', { title: 'serverlist' });
 });
 
 router.get('/entity/:entityuid', function(req, res, next) {
     
     console.log("-[info] get server: " + req.params.entityuid );
-    var getdata =  require('../model/entity.js').findserver("UID",req.params.entityuid);
+    var getdata =  require('../model/entity.js').findentity("UID",req.params.entityuid);
     //findserver(req.params.servername);
 /**
  * 
@@ -40,7 +39,18 @@ router.get('/entity/:entityuid', function(req, res, next) {
 
 });
 
-
+router.get('/addentity', function(req, res, next) {
+    console.log("-[info] get add entity ejs");
+    var title = 'addentity';
+    var servicename = require('../model/server.js').get_services_name();
+    var entitiesUID = require('../model/entity.js').get_entities_UID();
+    /**
+     * ejs need to be create and edit
+     * 20160618
+     * @N
+     */
+    res.render('serverlist', { title: title, serverinfo: servicename ,entitiesinfo:entitiesUID});
+});
 
 
 

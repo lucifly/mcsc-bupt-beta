@@ -53,7 +53,7 @@ exports.get_services_info_form_lib = function (key, value) {
         var servicearray = serverl[p];
         for (var i = 0; i < servicearray.length; i++) {
             var temp = servicearray[i];
-            if( temp[key] == value ){
+            if (temp[key] == value) {
                 var result = {};
                 result.name = temp.name;
                 result.description = (temp.info).description;
@@ -63,7 +63,7 @@ exports.get_services_info_form_lib = function (key, value) {
                 result.status = (temp.info).status;
                 return result;
             }
-            
+
         }
     }
 
@@ -72,3 +72,78 @@ exports.get_services_info_form_lib = function (key, value) {
 
 };
 
+/** 
+ * get service info 
+ * icon name category title author supplier description status 
+*/
+exports.get_services_infos = function () {
+
+    var serverl = require(serviceslib);
+
+    var result = [];
+    for (var p in serverl) {
+        var servicearray = serverl[p];
+        for (var i = 0; i < servicearray.length; i++) {
+            var temp = servicearray[i];
+            var count = 0;
+            count = result.length;
+            var tt = {};
+            tt.category = p;
+            tt.name = temp.name;
+            tt.description = (temp.info).description;
+            tt.title = (temp.info).title;
+            tt.icon = (temp.info).icon;
+            tt.supplier = (temp.info).supplier;
+            tt.status = (temp.info).status;
+            tt.author = (temp.info).author;
+
+
+            (result[count]) = tt;
+
+
+        }
+    }
+    return result;
+};
+
+/** 
+ * get service name
+ * return an array include all servcies' name 
+*/
+exports.get_services_name = function () {
+
+    var serverl = require(serviceslib);
+
+    var result = [];
+    for (var p in serverl) {
+        var servicearray = serverl[p];
+        for (var i = 0; i < servicearray.length; i++) {
+            var temp = servicearray[i];
+            var count = 0;
+            count = result.length;
+            (result[count]) = temp.name;
+
+
+        }
+    }
+    return result;
+}
+/**
+ * serviceslib
+ * get servcies stype from servcie name 
+ */
+exports.get_services_stype_from_name = function (key) {
+
+    var serverl = require(serviceslib);
+
+    var result = [];
+    for (var p in serverl) {
+        var servicearray = serverl[p];
+        for (var i = 0; i < servicearray.length; i++) {
+            var temp = servicearray[i];
+            if (key == temp.name)
+                return temp.type;
+        }
+    }
+    return "none";
+}

@@ -209,7 +209,7 @@
     <!--<script src="assets/js/gridbrick.1.js"></script>-->
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=tFyMXdnWBGgIk4i6OSPzdSQ1Ytgfj1jQ"></script>
     <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script> 
-    <!--<script type="text/javascript">
+    <script type="text/javascript">
         var brick;
         brick = "<li class='brick' ondrop='drop(event)' ondragover='allowDrop(event)' ondragstart='dragstart(event)'><img class='am-thumbnail' src='http://s.amazeui.org/media/i/demos/bing-1.jpg' /><a class='delete' href='#'>&times;</a></li>";
 
@@ -296,11 +296,10 @@
             }
             
         }
-    </script>-->
+    </script>
     <!--<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>-->
     <script src="assets/js/drawDot.js"></script>
     <script src="assets/js/chartaction.js"></script>
-    <script src="assets/js/drag&Drop.js"></script>
 
 
 </body>

@@ -62,4 +62,34 @@ exports.find_entity_for_service = function (service) {
     return result;
 
 
+};
+
+/**
+ * test if UID unique
+ */
+exports.is_UID_unique = function (params) {
+ 
+    var entities = require(datastore);
+    var entitieslist = entities.entities;
+
+    for (var i = 0; i < entitieslist.length; i++) {
+        if(params === (entitieslist[i]).UID) return false;
+    }
+    return true;
+    
+}
+
+/**
+ *get UID array
+ */
+exports.get_entities_UID = function () {
+ 
+    var entities = require(datastore);
+    var entitieslist = entities.entities;
+    var result = [];
+    for (var i = 0; i < entitieslist.length; i++) {
+       result[result.length]=(entitieslist[i]).UID; 
+    }
+    return result;
+    
 }

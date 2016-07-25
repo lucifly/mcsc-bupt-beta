@@ -7,10 +7,10 @@ var subscribe_table = {};
 
 exports.additem = function (key, value) {
     if (subscribe_table) {
-        if (!subscribe_table[key]) {
-            console.log("!--[ERROR] subscribe_table[" + key + "] not exist");
-            return -1;
-        }
+        // if (!subscribe_table[key]) {
+        //     console.log("!--[ERROR] subscribe_table[" + key + "] not exist");
+        //     return -1;
+        // }
         subscribe_table[key] = value;
         console.log("--[info] subscribe_table[" + key + "]  has been added");
         return 0;
@@ -21,7 +21,7 @@ exports.additem = function (key, value) {
 
 exports.delitem = function (key) {
     if (subscribe_table) {
-        if (!subscribe_table[key]) {
+        if (subscribe_table[key]) {
             delete subscribe_table[key];
             console.log("--[info] subscribe_table[" + key + "] has been delete");
             return 0;
@@ -50,7 +50,7 @@ exports.modifyitem = function (key, value) {
 
 exports.getitem = function (key) {
     if (subscribe_table) {
-        if (!subscribe_table[key]) {
+        if (subscribe_table[key]) {
             console.log("--[info] subscribe_table[" + key + "] has been return");
             return subscribe_table[key];
         }

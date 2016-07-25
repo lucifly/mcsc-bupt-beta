@@ -150,9 +150,11 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('newdata', function (data) {
         console.log("--[info] socket start debug  data");
-
         var targetid = require('./action/subscribetable.js').get_id_of_value(data.entityid);
-        io.sockets.emit("datatobrower", { "targetid": targetid, "data": data.data });
+        
+        var servername = require('./action/idtoservice.js').get_all_match_item(targetid);
+        /*/use io.sockets to send message to all client/*/
+        io.sockets.emit("datatobrower", { "targetid": targetid, "data": data.dataarray, "servername":servername });
 
     });
 

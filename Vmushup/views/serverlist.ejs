@@ -91,43 +91,71 @@
         <div class="span9">
             <div class="hero-unit menutab">
                 <p>
-                    <a href="#" class="btn"><i class="icon-plus-sign"></i> New</a>
-                    <a href="#" class="btn"><i class="icon-refresh"></i> Refresh</a>
-                    <a href="#" class="btn btn-success"><i class="icon-check"></i> Save</a>
-                    <a href="#" class="btn btn-danger"><i class="icon-remove-circle"></i> Cancer</a>
+                    <a href="#" class="btn addnew"><i class="icon-plus-sign"></i> New</a>
+                    <a href="#" class="btn refreshlist"><i class="icon-refresh"></i> Refresh</a>
+                    <a href="#" class="btn btn-success submitbtn"  style="display: none;"><i class="icon-check"></i> Save</a>
+                    <a href="#" class="btn btn-danger cancebtn"  style="display: none;"><i class="icon-remove-circle"></i> Cancer</a>
                 </p>
+            </div>
+            <div class="hero-unit menutab newentity" style="display: none;">
+                <table class="table table-striped" border="1">
+	            	<thead>
+                        <tr><th colspan="4">new entity</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>name:</td>
+                            <td><input type="text" /></td>
+                            <td  colspan="2">info:</td>
+                        </tr>                    
+                        <tr>
+                            <td>service:</td>
+                            <td><input type="text" /></td>
+                            <td>author:</td>
+                            <td><input type="text" /></td>
+                        </tr>                    
+                        <tr>
+                            <td>src:</td>
+                            <td><input type="text" /></td>
+                            <td>descript:</td>
+                            <td><input type="text" /></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="hero-unit menutab">
                 <table class="table table-striped serviceinfotab">
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th> </th>
                             <th>title</th>
-                            <th>author</th>
-                            <th>description</th>
+                            <th>supplier</th>
+                            <th>status</th>
                             <th>operate</th>
                         </tr>
                     </thead>
                     <tbody>
                         <% for(var i = 0;i < serverinfo.length; i++){ %>
                             <tr>
-                                <td>
+                                <td style=" padding-top: 20px; ">
                                     <%= i %>
                                 </td>
                                 <td>
-                                    <a href=<%- '"' %>
-                                        <%= '/serverlist/'+(serverinfo[i]).name+ '' %>
-                                            <%- '"' %>>
-                                                <%= (serverinfo[i]).title %>
+                                     <img src="assets/image/icons/<%= ((serverinfo[i]).icon) %>"/>
+                                </td>
+                                <td style=" padding-top: 20px; ">
+                                    <a href=<%- '"' %><%= '/serverlist/'+(serverinfo[i]).name+ '' %><%- '"' %>  title = "<%= (serverinfo[i]).author %>  <%= (serverinfo[i]).description %>">
+                                                <%= (serverinfo[i]).category %>/<%= (serverinfo[i]).title %>
                                     </a>
                                 </td>
-                                <td>
-                                    <%=  (serverinfo[i]).author %>
+                                <td style=" padding-top: 20px; ">
+                                    <%=  (serverinfo[i]).supplier %>
                                 </td>
-                                <td>
-                                    <%=  (serverinfo[i]).description %>
+                                <td style=" padding-top: 20px; ">
+                                    <span style="color:#88c773; "><%=  (serverinfo[i]).status %></span>
                                 </td>
-                                <td>
+                                <td style=" padding-top: 20px; padding-left: 20px;">
                                 	<a href="www.baidu.com" title="edit"><i class="icon-pencil"></i></a>
                                     <a href="#" title="delete"><i class="icon-trash"></i></a>
                                 </td>
@@ -135,7 +163,7 @@
                             <% } %>
                     </tbody>
                 </table>                
-                <table class="table table-striped entityinfotab">
+                <table class="table table-striped entityinfotab" style="display: none;">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -148,21 +176,21 @@
                     <tbody>
                         <% for(var i = 0;i < entitiesinfo.length; i++){ %>
                             <tr>
-                                <td>
+                                <td style=" padding-top: 20px; ">
                                     <%= i %>
                                 </td>
-                                <td>
+                                <td style=" padding-top: 20px; ">
                                     <a href=<%- '"' %><%= '/servicelib/entity/'+(entitiesinfo[i]).UID+ '' %><%- '"' %> title = "<%= (entitiesinfo[i]).descript %>">
                                                 <%= (entitiesinfo[i]).entityname %>
                                     </a>
                                 </td>
-                                <td>
+                                <td style=" padding-top: 20px; ">
                                     <%=  (entitiesinfo[i]).author %>
                                 </td>
-                                <td>
+                                <td style=" padding-top: 20px; ">
                                     <%=  (entitiesinfo[i]).prototypeservice %>
                                 </td>
-                                <td>
+                                <td style=" padding-top: 20px;  padding-left: 20px;">
                                 	<a href="www.baidu.com" title="edit"><i class="icon-pencil"></i></a>
                                     <a href="#" title="delete"><i class="icon-trash"></i></a>
                                 </td>
