@@ -1,0 +1,31 @@
+<script type="text/javascript" src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+  Meemoo
+    .setInfo({
+      title: "license_recognition",
+      author: "NIU",
+      description: "Vehicle license plate recognition"
+    })
+    .addInputs({
+      start: {
+        action: function (a) {
+          //document.write(a);
+          $("#license_recognition_img").slideToggle(1000);
+          Meemoo.send("license", 888888);
+        },
+        type: "number"
+      }
+    })
+    .addOutputs({
+      license: { 
+        type: "number"
+      }
+    });
+    
+</script>
+<h1>license_recognition</h1>
+<div class="aaa" style="background-image: url('/images/part/chepai2.jpg');height: 160px;">
+  <div id="license_recognition_img"><img  class="aaa"  src="/images/part/chepai.jpg" /></div>
+</div>

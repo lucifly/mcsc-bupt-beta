@@ -1,0 +1,16 @@
+<li class="brick bindsrc <%= info.title%>" id=<%= widgetid %>  ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+    <div class="shadow" id= <%= widgetid+"div" %> style = "height:180px;padding:10px">
+        <div>
+            <h2><strong><%= info.title %></strong></h2>
+            datasouce : 
+            <select id= <%= widgetid+"select" %> >
+                <% for(var i=0;i<datasource.length;i++) {%>
+                <option value=<%= (datasource[i]).UID %>><%= (datasource[i]).entityname %></option>
+                <% } %>
+            </select>
+            <br /><br />
+            <button  id= <%= widgetid+"button" %> style='height:100%'>submit</button>
+        </div>
+    </div>
+    <a class='delete' href='#'>&times;</a>
+</li>

@@ -1,0 +1,37 @@
+<script type="text/javascript" src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+   <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+  Meemoo
+    .setInfo({
+      title: "Tariff",
+      author: "NIU",
+      description: "Tariff"
+    })
+    .addInputs({
+      startime: {
+        action: function (n) {
+          //document.write(n); 
+		  $("#tariff_query").slideToggle(1500);
+		  $("#tariffresult").slideToggle(2500);
+          Meemoo.send("howmuch", 80);
+        },
+        type: "number"
+      }
+    })
+    .addOutputs({
+      howmuch: { 
+        type: "number"
+      }
+    });
+    
+</script>
+<h1>Tariff</h1>
+<div>
+<img id="tariff_query" class="aaa"  src="/images/part/bill.jpg" />
+<div id="tariffresult" style="display: none;">
+<h5>Cost     : $20</h5>
+<h5>Discount : 85%</h5>
+<h5>Total    : $17</h5>
+</div>
+</div>

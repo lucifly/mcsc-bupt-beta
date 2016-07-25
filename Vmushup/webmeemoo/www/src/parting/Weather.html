@@ -1,0 +1,34 @@
+<script type="text/javascript" src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+   <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+  Meemoo
+    .setInfo({
+      title: "Weather",
+      author: "NIU",
+      description: "is_rain"
+    })
+    .addInputs({
+      start: {
+        action: function (n) {
+          //document.write(n);
+		  $(".a5").slideToggle(2500);
+		  $(".a6").slideToggle(2500);
+          Meemoo.send("is_rain", n);
+        },
+        type: "number"
+      }
+    })
+    .addOutputs({
+      is_rain: { 
+        type: "number"
+      }
+    });
+    
+</script>
+<h1>Weather</h1>
+<div>
+<img  class="a5"  src="/images/desk/sun.png" />
+<img  class="a6" style="display: none;" src="/images/desk/rain.png" />
+</div>
+</div>

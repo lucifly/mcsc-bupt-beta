@@ -9,54 +9,38 @@
   "nodes": [
     {
       "id": 0,
-      "src": "http://10.108.95.119:8081/www/src/parting/Time_query.html",
-      "x": 608,
-      "y": 80,
+      "src": "http://10.108.92.2:3000/webmeemoo/www/src/parting/Weather.html",
+      "x": 457,
+      "y": 75,
       "w": 200,
       "h": 210,
-      "state": {}
+      "state": {
+        "start": 5
+      }
     },
     {
       "id": 1,
-      "src": "http://10.108.95.119:8081/www/src/parting/license_recognition.html",
-      "x": 335,
-      "y": 215,
+      "src": "http://10.108.92.2:3000/webmeemoo/www/src/parting/Clothesline.html",
+      "x": 856,
+      "y": 78,
       "w": 200,
       "h": 210,
       "state": {}
     },
     {
       "id": 2,
-      "src": "http://10.108.95.119:8081/www/src/parting/gate.html",
-      "x": 1096,
-      "y": 336,
+      "src": "http://10.108.92.2:3000/webmeemoo/www/src/parting/camera.html",
+      "x": 631,
+      "y": 387,
       "w": 200,
       "h": 210,
       "state": {}
     },
     {
       "id": 3,
-      "src": "http://10.108.95.119:8081/www/src/parting/billing.html",
-      "x": 701,
-      "y": 318,
-      "w": 200,
-      "h": 210,
-      "state": {}
-    },
-    {
-      "id": 4,
-      "src": "http://10.108.95.119:8081/www/src/parting/pay.html",
-      "x": 878,
-      "y": 50,
-      "w": 200,
-      "h": 210,
-      "state": {}
-    },
-    {
-      "id": 5,
-      "src": "http://10.108.95.119:8081/www/src/parting/Tariff.html",
-      "x": 730,
-      "y": 162,
+      "src": "http://10.108.92.2:3000/webmeemoo/www/src/parting/Message.html",
+      "x": 1018,
+      "y": 381,
       "w": 200,
       "h": 210,
       "state": {}
@@ -65,62 +49,32 @@
   "edges": [
     {
       "source": [
+        0,
+        "is_rain"
+      ],
+      "target": [
         1,
-        "license"
-      ],
-      "target": [
-        0,
-        "license"
+        "is_rain"
       ]
     },
     {
       "source": [
-        0,
-        "startime"
-      ],
-      "target": [
-        5,
-        "startime"
-      ]
-    },
-    {
-      "source": [
-        5,
-        "howmuch"
-      ],
-      "target": [
-        3,
-        "howmuch"
-      ]
-    },
-    {
-      "source": [
-        3,
-        "billing"
-      ],
-      "target": [
-        4,
-        "bill"
-      ]
-    },
-    {
-      "source": [
-        4,
-        "youcango"
-      ],
-      "target": [
-        3,
-        "payed"
-      ]
-    },
-    {
-      "source": [
-        3,
-        "letitgo"
+        1,
+        "has_clothes"
       ],
       "target": [
         2,
-        "sight"
+        "has_clothes"
+      ]
+    },
+    {
+      "source": [
+        2,
+        "photo"
+      ],
+      "target": [
+        3,
+        "photo"
       ]
     }
   ]

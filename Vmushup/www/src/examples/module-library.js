@@ -4,6 +4,52 @@
 $(function(){
 
   var library = {
+    LocalServices: [
+	  {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Weather.html","info":{"title":"Weather","author":"NIU","description":"license_recognition","iconUrl":"img/gate.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Clothesline.html","info":{"title":"Clothesline","author":"NIU","description":"license_recognition","iconUrl":"img/pay.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/camera.html","info":{"title":"camera","author":"NIU","description":"personsecrity","iconUrl":"img/lies.png"}},	  
+	  {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Weather.html","info":{"title":"Weather","author":"NIU","description":"license_recognition","iconUrl":"img/gate.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Clothesline.html","info":{"title":"Clothesline","author":"NIU","description":"license_recognition","iconUrl":"img/pay.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/camera.html","info":{"title":"camera","author":"NIU","description":"personsecrity","iconUrl":"img/lies.png"}},	  
+	  {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Weather.html","info":{"title":"Weather","author":"NIU","description":"license_recognition","iconUrl":"img/gate.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Clothesline.html","info":{"title":"Clothesline","author":"NIU","description":"license_recognition","iconUrl":"img/pay.png"}},
+	  {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Weather.html","info":{"title":"Weather","author":"NIU","description":"license_recognition","iconUrl":"img/gate.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Clothesline.html","info":{"title":"Clothesline","author":"NIU","description":"license_recognition","iconUrl":"img/pay.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/camera.html","info":{"title":"camera","author":"NIU","description":"personsecrity","iconUrl":"img/lies.png"}},
+	  {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Weather.html","info":{"title":"Weather","author":"NIU","description":"license_recognition","iconUrl":"img/gate.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Clothesline.html","info":{"title":"Clothesline","author":"NIU","description":"license_recognition","iconUrl":"img/pay.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/camera.html","info":{"title":"camera","author":"NIU","description":"personsecrity","iconUrl":"img/lies.png"}},	  
+	  {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Weather.html","info":{"title":"Weather","author":"NIU","description":"license_recognition","iconUrl":"img/gate.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Clothesline.html","info":{"title":"Clothesline","author":"NIU","description":"license_recognition","iconUrl":"img/pay.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/camera.html","info":{"title":"camera","author":"NIU","description":"personsecrity","iconUrl":"img/lies.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/camera.html","info":{"title":"camera","author":"NIU","description":"personsecrity","iconUrl":"img/lies.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Message.html","info":{"title":"Message","author":"NIU","description":"searchparam","iconUrl":"img/searchdata.png"}}
+    ],
+    WebServices: [
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Weather.html","info":{"title":"voicerecognition","author":"NIU","description":"license_recognition","iconUrl":"img/voicerecognition.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Clothesline.html","info":{"title":"videotranscode","author":"NIU","description":"license_recognition","iconUrl":"img/videotranscode.png"}},
+	  {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Weather.html","info":{"title":"Weather","author":"NIU","description":"license_recognition","iconUrl":"img/weather.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/camera.html","info":{"title":"statement","author":"NIU","description":"personsecrity","iconUrl":"img/statement.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/camera.html","info":{"title":"pay","author":"NIU","description":"personsecrity","iconUrl":"img/pay.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Message.html","info":{"title":"priceratio","author":"NIU","description":"searchparam","iconUrl":"img/priceratio.png"}}
+    ],
+    IoTServices: [
+	  {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Weather.html","info":{"title":"door","author":"NIU","description":"license_recognition","iconUrl":"img/door.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Clothesline.html","info":{"title":"clotheshanger","author":"NIU","description":"license_recognition","iconUrl":"img/clotheshanger.png"}},
+	  {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Weather.html","info":{"title":"light","author":"NIU","description":"license_recognition","iconUrl":"img/light.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/camera.html","info":{"title":"camara","author":"NIU","description":"personsecrity","iconUrl":"img/camara.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/camera.html","info":{"title":"electronrall","author":"NIU","description":"personsecrity","iconUrl":"img/electronrall.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/camera.html","info":{"title":"refrigarator","author":"NIU","description":"personsecrity","iconUrl":"img/refrigarator.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/camera.html","info":{"title":"television","author":"NIU","description":"personsecrity","iconUrl":"img/television.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Message.html","info":{"title":"aircondition","author":"NIU","description":"searchparam","iconUrl":"img/aircondition.png"}}
+    ],
+    TelecomnubicationServices: [
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/toshow.html","info":{"title":"toshow","author":"NIU","description":"text to speech with speak.js","iconUrl":"img/address2location.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Weather.html","info":{"title":"voice","author":"NIU","description":"license_recognition","iconUrl":"img/voice.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Clothesline.html","info":{"title":"fax","author":"NIU","description":"license_recognition","iconUrl":"img/fax.png"}},
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/camera.html","info":{"title":"ivr","author":"NIU","description":"personsecrity","iconUrl":"img/ivr.png"}},	  	  
+      {"src":"http://10.108.92.2:3000/webmeemoo/www/src/parting/Message.html","info":{"title":"Message","author":"NIU","description":"searchparam","iconUrl":"img/message.png"}}
+    ],
     图像: [
       {"src":"meemoo:image/cam","info":{"title":"cam","author":"meemoo","description":"HTML5 webcam with getUserMedia."}},
       {"src":"meemoo:image/paint","info":{"title":"paint","author":"meemoo","description":"paint on, trace, or cut out an image"}},
@@ -21,14 +67,14 @@ $(function(){
       // {"src":"file:///src/parting/testing.html","info":{"title":"TESTING-FILE1","author":"NIU","description":"text to speech with speak.js","iconUrl":"img/address2location.png"}},
       // {"src":"file:///parting/testing.html","info":{"title":"TESTING-FILE2","author":"NIU","description":"text to speech with speak.js","iconUrl":"img/address2location.png"}},
       // {"src":"file:///testing.html","info":{"title":"TESTING-FILE3","author":"NIU","description":"text to speech with speak.js","iconUrl":"img/address2location.png"}},
-      // {"src":"http://10.108.95.119:8081/www/src/parting/testing2.html","info":{"title":"TESTING-HTTP","author":"NIU","description":"text to speech with speak.js","iconUrl":"img/address2location.png"}},
-      {"src":"http://10.108.95.119:8081/www/src/parting/toshow.html","info":{"title":"toshow","author":"NIU","description":"text to speech with speak.js","iconUrl":"img/address2location.png"}},
-      {"src":"http://10.108.95.119:8081/www/src/parting/license_recognition.html","info":{"title":"license_recognition","author":"NIU","description":"license_recognition","iconUrl":"img/lisen.png"}},
-      {"src":"http://10.108.95.119:8081/www/src/parting/Time_query.html","info":{"title":"Time_query","author":"NIU","description":"license_recognition","iconUrl":"img/time_qury.png"}},
-      {"src":"http://10.108.95.119:8081/www/src/parting/Tariff.html","info":{"title":"Tariff","author":"NIU","description":"license_recognition","iconUrl":"img/traff.png"}},
-      {"src":"http://10.108.95.119:8081/www/src/parting/billing.html","info":{"title":"billing","author":"NIU","description":"license_recognition","iconUrl":"img/bill.png"}},
-      {"src":"http://10.108.95.119:8081/www/src/parting/gate.html","info":{"title":"gate","author":"NIU","description":"license_recognition","iconUrl":"img/gate.png"}},
-      {"src":"http://10.108.95.119:8081/www/src/parting/pay.html","info":{"title":"pay","author":"NIU","description":"license_recognition","iconUrl":"img/pay.png"}},
+      // {"src":"http://10.108.92.2:3000/www/src/parting/testing2.html","info":{"title":"TESTING-HTTP","author":"NIU","description":"text to speech with speak.js","iconUrl":"img/address2location.png"}},
+      {"src":"http://10.108.92.2:3000/www/src/parting/toshow.html","info":{"title":"toshow","author":"NIU","description":"text to speech with speak.js","iconUrl":"img/address2location.png"}},
+      {"src":"http://10.108.92.2:3000/www/src/parting/license_recognition.html","info":{"title":"license_recognition","author":"NIU","description":"license_recognition","iconUrl":"img/lisen.png"}},
+      {"src":"http://10.108.92.2:3000/www/src/parting/Time_query.html","info":{"title":"Time_query","author":"NIU","description":"license_recognition","iconUrl":"img/time_qury.png"}},
+      {"src":"http://10.108.92.2:3000/www/src/parting/Tariff.html","info":{"title":"Tariff","author":"NIU","description":"license_recognition","iconUrl":"img/traff.png"}},
+      {"src":"http://10.108.92.2:3000/www/src/parting/billing.html","info":{"title":"billing","author":"NIU","description":"license_recognition","iconUrl":"img/bill.png"}},
+      {"src":"http://10.108.92.2:3000/www/src/parting/gate.html","info":{"title":"gate","author":"NIU","description":"license_recognition","iconUrl":"img/gate.png"}},
+      {"src":"http://10.108.92.2:3000/www/src/parting/pay.html","info":{"title":"pay","author":"NIU","description":"license_recognition","iconUrl":"img/pay.png"}},
       {"src":"meemoo:variable/animation","info":{"title":"animation","author":"meemoo","description":"holds a stack of canvases to use as an animation"}}
     ],
     效果: [

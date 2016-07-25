@@ -1,0 +1,30 @@
+<script type="text/javascript" src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+   <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+  Meemoo
+    .setInfo({
+      title: "personsecrity",
+      author: "NIU",
+      description: "personsecrity"
+    })
+    .addInputs({
+      uid: {
+        action: function (n) {
+          //document.write(n);
+          Meemoo.send("license", n);
+        },
+        type: "number"
+      }
+    })
+    .addOutputs({
+	    license: {
+			type: "number"
+      }
+    });
+    
+</script>
+<h1>personsecrity</h1>
+<div>
+IS THAT YOU ?
+</div>

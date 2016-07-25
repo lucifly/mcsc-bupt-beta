@@ -1,0 +1,35 @@
+<script type="text/javascript" src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+  Meemoo
+    .setInfo({
+      title: "gate",
+      author: "NIU",
+      description: "gate"
+    })
+    .addInputs({
+      sight: {
+        action: function (n) {
+          //document.write("open the door");
+          $("#sadad").text("open the door");
+          $(".asdfaf").slideToggle(2500);
+        },
+        type: "number"
+      },
+      countdown: {
+        action: function (n) {
+         // document.write('YOU SHALL NOT PASS');
+        },
+        type: "bang"
+      }
+    })
+    .addOutputs({
+    });
+    
+</script>
+<h1 id = "sadad">YOU SHALL NOT PASS</h1>
+<div>
+<img  class="asdfaf"  src="/images/part/gate-closs.jpg" />
+<img  class="asdfaf" style="display: none;" src="/images/part/gate-open.jpg" />
+</div>

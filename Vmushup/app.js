@@ -19,6 +19,9 @@ var serverlist = require('./routes/serverlist');
 var serverexecut = require('./routes/serverexecut');
 var webmeemoo = require('./routes/webmeemoo');
 var indext = require('./routes/indext');
+var pizzahub = require('./routes/pizzahub');
+var servicelib = require('./routes/servicelib');
+var testsocketsend = require('./routes/testsocketsend');
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -54,6 +57,7 @@ app.use(express.static('www'));
 app.use(express.static('www2'));
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
+
 //set view engine///////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 app.use(express.static('public'));
 app.set('views', path.join(__dirname, 'views'));
@@ -81,25 +85,40 @@ app.use('/serverlist', serverlist);
 app.use('/serverexecut', serverexecut);
 app.use('/webmeemoo', webmeemoo);
 app.use('/indext', indext);
+app.use('/pizzahub', pizzahub);
+app.use('/servicelib', servicelib);
+app.use('/testsocketsend', testsocketsend);
 //////////////////////////////////////////////////////////////////////////////////
+
+// var arraya = require('./httprequest.js').getrequest();
+// //var arraya = jsonobj.a;
+// for(var i=0;i<arraya.length;i++)
+// {
+//     console.log(i+": "+arraya[i]);
+// }
+
 
 
 //启动服务器//////////////////////////////////////////////////////////////////////////
 var server = app.listen(3000, function () {
 
     //get server address 
-    var IPAdderss = require('./action/getipaddress');
-    var host = IPAdderss.ipaddress("IPv4");
-    var port = server.address().port;
 
-    console.log("应用实例，访问地址为 http://%s:%s", host, port)
+   var IPAdderss = require('./action/getipaddress');
+   var host = IPAdderss.ipaddress("IPv4");
+   var port = server.address().port;
+
+   console.log("应用实例，访问地址为 http://%s:%s", host, port)
+
 });
 ////////////////////////////////////////////////////////////////////////
 
 //启动socketio服务器/////////////////////////////////////////////////////////////////
-var socketport = 8080;
+var socketport = 8180;
 var io = require('socket.io').listen(socketport);
 var actionjs = require('./action/main');
+var addservcer = require('./action/addserver');
+var searchaction = require('./action/searchaction');
 
 io.sockets.on('connection', function (socket) {
     console.log("Connection " + socket.id + " accepted.");
@@ -115,6 +134,28 @@ io.sockets.on('connection', function (socket) {
         console.log("--[info] socket start debug ");
         var tt = new actionjs(socket);
         tt.main(data);
+    });
+
+    socket.on('addserver', function (data) {
+        console.log("--[info] socket start debug ");
+        var tt = new addservcer(socket);
+        tt.newComService(data);
+    });
+
+    socket.on('searchserver', function (data) {
+        console.log("--[info] socket start debug " + data.argument);
+        var tt = new searchaction(socket);
+        tt.getresult(data.argument);
+    });
+
+    socket.on('newdata', function (data) {
+        console.log("--[info] socket start debug  data");
+        var targetid = require('./action/subscribetable.js').get_id_of_value(data.entityid);
+        
+        var servername = require('./action/idtoservice.js').get_all_match_item(targetid);
+        /*/use io.sockets to send message to all client/*/
+        io.sockets.emit("datatobrower", { "targetid": targetid, "data": data.dataarray, "servername":servername });
+
     });
 
 });

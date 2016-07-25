@@ -1,0 +1,15 @@
+ <div style="overflow:auto;overflow-y:hidden;height:180px;position: relative;">
+        <div class="am-thumbnail shadow" >
+            <!--<img style="left: 15px; top: 15px; width:15px; height:15px;position:absolute" src="\assets\image\cat.png"/>
+            <img style="left: 250px; top: 35px; width:15px; height:15px;position:absolute" src="\assets\image\cat.png"/>-->
+            <!--在前面插入点-->
+            <% if(entity == "ais1") { %>
+            <img class="backimg" style="max-width: initial;" src="\assets\image\ais1.jpg"/>
+            <% }else if(entity == "ais2") {%>
+            <img class="backimg" style="max-width: initial;" src="\assets\image\ais2.jpg"/>
+            <% }else{%>
+            <img class="backimg" style="max-width: initial;" src="\assets\image\map.jpg"/>
+            <%} %>
+        </div>
+</div>
+<a class='delete' href='#' ">&times;</a>

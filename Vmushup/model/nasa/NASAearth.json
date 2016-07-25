@@ -1,0 +1,17 @@
+{
+    "name": "NASAearth",
+    "mode": "GET",
+    "type": "web",
+    "src": "https://api.nasa.gov/planetary/earth/imagery",
+    "info": {
+        "title": "NASAearth",
+        "author": "admin",
+        "description": "NASA's Earth API gives users access to Earth observation data. The Earth API is powered by the Google Earth Engine and consists of a database of images from Landsat 8. Landsat 8 is NASA satellite that takes images of the entire Earth every 16 days. Users can query the database for images of a specific place at a specific date.",
+        "icon": "nasaearth.png"
+    },
+    "parameter": {
+        "key": "string"
+    },
+    "interface": "",
+    "mapping": {}
+}

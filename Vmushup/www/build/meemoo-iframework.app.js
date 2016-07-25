@@ -3002,7 +3002,7 @@ $(function () {
     var template =
         '<div class="showpanel">' +
         '<img class="imag" src="./img/lsce.png"/><br>' +
-        '<button class="button show-load icon-folder-open">应用</button>' +
+        '<button class="button show-load icon-folder-open">Application</button>' +
         '</div>' +
 
         // '<div class="showpanel2">' +
@@ -3011,7 +3011,7 @@ $(function () {
 
         '<div class="panel">' +
         '<div class="choosepanel">' +
-        '<button class="button show-load icon-folder-open">应用</button>' +
+        '<button class="button show-load icon-folder-open">Application</button>' +
         '<button class="button close icon-cancel" title="close menu"></button>' +
         '</div>' +
         '<br>' +
@@ -3212,7 +3212,7 @@ $(function () {
             this.wireColorIndex = 0;
             this.graph = new Iframework.Graph(graph);
             if (graph["info"] && graph["info"]["title"]) {
-                document.title = "Meemoo: " + graph["info"]["title"];
+                document.title = "LSCE: " + graph["info"]["title"];
             }
 
             this.updateCurrentInfo();
@@ -3450,7 +3450,7 @@ $(function () {
             // Save app to gist
             var graph = this.graph.toJSON();
             var data = {
-                "description": "meemoo app: " + graph["info"]["title"],
+                "description": "LSCE app: " + graph["info"]["title"],
                 "public": true
             };
             data["files"] = {};
@@ -3481,7 +3481,7 @@ $(function () {
 
                 Iframework.analyze("save", "gist", e.id);
             }).error(function (e) {
-                var description = "meemoo app: " + Iframework.graph.toJSON()["info"]["title"];
+                var description = "LSCE app: " + Iframework.graph.toJSON()["info"]["title"];
                 Iframework.$(".permalink").html('api is down (;_;) copy your app source code to <a href="https://gist.github.com/?description=' + encodeURIComponent(description) + '" target="_blank">gist.github.com</a>');
                 console.warn("gist save error", e);
             }).complete(function (e) {
@@ -7614,23 +7614,40 @@ $(function () {
     template.find(".sourceapply").click(sourceApply);
 }); //source
 
-
-//Debug///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $(function () {
     var template = $(
-        '<div>' +
-        '<div class="controls">' +
-        '<button class="button debugconnect icon-play" title="connect to the server">connect</button>' +
-        '<button class="button debugstart icon-cw" title="start debug">start</button>' +
-        '<button class="button debugdeploy icon-bag" title="deploy this on server and publish on web">apply&deploy</button>' +
-        '</div>' +
-        '<div class="sourceedit">' +
-        '<textarea id="debugtextarea"></textarea>' +
-        '</div>' +
+        '<div id = "debugshow">' +
+            '<div id = "debuginfo">' +
+            //'<textarea id="debugtextarea"></textarea>' +
+                '<h4>Debug information</h4>' +
+            '</div>' +
+            '<div id = "deployshow" style="display: none;">' +
+
+                '<h4>Deploy Application</h4>' +
+                    '<div id="lostname" class="alert alert-warning" role="alert" title="Do not forget to name the service." style="display: none;"><strong>LOST service name !</strong></div>'+
+                    '<div id="lostauthor" class="alert alert-warning" role="alert" title="Do not forget to left your name." style="display: none;"><strong>LOST author !</strong></div>'+
+                    '<div id="losttype" class="alert alert-warning" role="alert" title="Do not forget to choose the service\'type." style="display: none;"><strong>LOST service type !</strong></div>'+
+                // '<form action="/webmeemoo/process_post" method="POST" onsubmit="checkForm()">' +
+                    'name       ：<br /><input type="text" class="servername" /><br>' +
+                    'author     ：<br /><input type="text" class="serverauthor" /><br>' +
+                    'type       ：<br /><input type="text" class="servertype" /><br> ' +
+                    'description：<br /><textarea class = "serverdiscrep"></textarea>' +
+                    '<br>' +
+                    // '<input type="submit" value="Submit" style=" margin-top: 10px">' +
+                    '<button id="submitserver" class="btn btn-xs btn-default submser" title="submit service to server">submit</button>' +
+                // '</form>' +
+
+            '</div>' +
+            '<div>' +
+            '<button class="button debugconnect icon-play" title="connect to the server">connect</button>' +
+            '<button class="button debugstart icon-cw" title="start debug">start</button>' +
+            '<button class="button debugdeploy icon-bag" title="deploy this on server and publish on web">Deploy&Apply</button>' +
+            '</div>' +
         '</div>'
     );
 
-    var code = template.find("textarea");
+    var code = template.find("#debuginfo");
+    var deploytab = template.find("#deployshow");
 
     // Add menu
     Iframework.addMenu("Debug", template, "icon-cog");
@@ -7642,7 +7659,9 @@ $(function () {
             if (Iframework.graph && Iframework.$(".menu-Debug").is(":visible")) { //class = menu-source
                 console.log("bbbb");
 
-                code.html("--info something");
+                // code.html("--info something"); 
+                code.append($('<div class="alert alert-info" role="alert"><strong>--info something</strong></div>'));
+
                 //scrollTop to back
                 var scrollBackTop = code.prop("scrollHeight");
                 code.scrollTop(scrollBackTop);
@@ -7652,26 +7671,27 @@ $(function () {
     var debugstart = function () {
 
         console.log("--[Debug] debug start");
-        code.html(code.html() + "--[Debug] debug start\n");
+        code.append($('<div class="alert alert-success" role="alert"><strong>Well done!</strong>--debug started successfully.</div>'));
 
         //code.html(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
         // alert(JSON.stringify(Iframework.graph.toJSON(), null, "  "));
-        
+
         socket.emit('debugstart', { meemoojson: JSON.stringify(Iframework.graph.toJSON(), null, "  ") });
-        
+
         //scrollTop to back
-        var scrollBackTop = code.prop("scrollHeight");
-        code.scrollTop(scrollBackTop);
+        var scrollBackTop = $(".panel").prop("scrollHeight");
+        $(".panel").scrollTop(scrollBackTop);
         //
     };
     template.find(".debugstart").click(debugstart);
 
     var initialtext = function () {
         console.log("--[Debug] debug initial");
-        code.html(code.html() + "--[Debug] debug initial\n");
+        code.append($('<div class="alert alert-success" role="alert"><strong>Well done!</strong>--debug initial successfully.</div>'));
+        //code.html(code.html() + "--[Debug] debug initial\n");
         //scrollTop to back
-        var scrollBackTop = code.prop("scrollHeight");
-        code.scrollTop(scrollBackTop);
+        var scrollBackTop = $(".panel").prop("scrollHeight");
+        $(".panel").scrollTop(scrollBackTop);
     }
     // On show manu update source
     Iframework.on("showmenu:Noflo", initialtext);
@@ -7681,46 +7701,86 @@ $(function () {
         if (dis_or_connect == "connect") {
             connect();
             dis_or_connect = "disconnect";
-            
+
             console.log("--[Debug] debug server connecting...");
-            code.html(code.html() + "--[Debug] debug server connecting...\n");
+            code.append($('<div class="alert alert-success" role="alert"><strong>Well done!</strong>--debug server connected successfully.</div>'));
+
+            //scrollTop to back
+            var scrollBackTop = $(".panel").prop("scrollHeight");
+            $(".panel").scrollTop(scrollBackTop);
         }
         else if (dis_or_connect == "disconnect") {
-            disconnect(); 
+            disconnect();
             dis_or_connect = "connect";
-            
+
             console.log("--[Debug] debug server disconnected");
-            code.html(code.html() + "--[Debug] debug server disconnected\n");
+            code.append($('<div class="alert alert-warning" role="alert"><strong>INFO</strong>--debug server disconnected.</div>'));
+
+            //scrollTop to back
+            var scrollBackTop = $(".panel").prop("scrollHeight");
+            $(".panel").scrollTop(scrollBackTop);
         }
         else { console.log("something wrong"); }
-        
+
         template.find(".debugconnect").text(dis_or_connect);
+
         //scrollTop to back
-        var scrollBackTop = code.prop("scrollHeight");
-        code.scrollTop(scrollBackTop);
+        var scrollBackTop = $(".panel").prop("scrollHeight");
+        $(".panel").scrollTop(scrollBackTop);
     };
     template.find(".debugconnect").click(debugconnect);
-    // Apply source to test graph
-    var sourceApply = function () {
 
-        var graph;
-        try {
-            graph = JSON.parse(code.val());
-            //
-        } catch (error) {
-            return false;
-            //
-        }
-        if (graph) {
-            var g = Iframework.loadGraph(graph);
-            // reset localStorage version
-            Iframework._loadedLocalApp = null;
-            sourceRefresh();
-            g.trigger("change");
-        }
-        return false;
-    };
-    template.find(".sourceapply").click(sourceApply);
+    var autodeploy = function () {
+        //var data = Iframework.graph.toJSON();
+        // var data = {"data":JSON.stringify(Iframework.graph.toJSON(), null, "  ")};
+        // $.post("/webmeemoo/process_post",data);
+
+        var debug_or_deploy = template.find(".debugdeploy").text();
+        if (debug_or_deploy == "Deploy&Apply") template.find(".debugdeploy").text("Back2Debug");
+        else if (debug_or_deploy == "Back2Debug") template.find(".debugdeploy").text("Deploy&Apply");
+        else { console.log("--something wrong"); }
+
+        code.slideToggle();
+        deploytab.slideToggle();
+
+
+    }
+
+    template.find(".debugdeploy").click(autodeploy);
+     
+    var submintservice = function(){
+        var if_lost = [0,0,0];
+       // alert("Submitted");
+        $("#lostname").hide();   if_lost[0] = 0;
+        $("#lostauthor").hide(); if_lost[1] = 0;
+        $("#losttype").hide();   if_lost[2] = 0;
+        
+        var serverinfo = {};
+        if($(".servername").val() != "" )  serverinfo.servername = $(".servername").val();
+        else {$("#lostname").slideToggle();   if_lost[0] = 1; }
+        if($(".serverauthor").val() != "" )  serverinfo.serverauthor = $(".serverauthor").val();
+        else {$("#lostauthor").slideToggle(); if_lost[1] = 1; }
+        if($(".servertype").val() != "" )  serverinfo.servertype = $(".servertype").val();
+        else {$("#losttype").slideToggle();   if_lost[2] = 1; }
+        
+        if( if_lost[0]==1 || if_lost[1]==1 || if_lost[2]==1) return false;
+        
+        serverinfo.serverdiscrep = $(".serverdiscrep").val;
+        serverinfo.serverjson = JSON.stringify(Iframework.graph.toJSON(), null, "  ");
+        //serverinfo.serverjson = Iframework.graph.toJSON();
+        socket.emit('addserver', serverinfo);
+        // $.ajax({
+        //     type: 'POST',
+        //     url: "http://localhost:3000/webmeemoo/process_post",
+        //     data: serverinfo,
+        //     success: function(result){
+        //                 alert("server-url : "+result.data);
+        //             },
+        //     dataType: "jsonp"
+        // });
+    }; 
+     
+    template.find("#submitserver").click(submintservice);
 }); //Debug
 
 $(function () {
@@ -7729,14 +7789,14 @@ $(function () {
         '<div>' +
         '<div class="controls">' +
         '<form class="addbyurl">' +
-    				'<input class="addbyurlinput" name="addbyurlinput" placeholder="搜索组件或输入组件地址" type="text" />' +
-    				'<button class="addbyurlsubmit icon-ok" type="submit">载入</button>' +
+    				'<input class="addbyurlinput" name="addbyurlinput" placeholder="搜索组件或输入组件地址" type="text" style="width: 80%;"/>' +
+    				'<button class="addbyurlsubmit icon-ok" type="submit">load</button>' +
         '</form>' +
         '</div>' +
         '<div class="listing">' +
         //'<a>&nbsp;</a>' +
         '</div>' +
-        '<div class="classification">' +
+        '<div class="classification"  style="display: none;">' +
         '</div>' +
         '</div>'
     );
@@ -7751,6 +7811,7 @@ $(function () {
         var accordion1 = $("<div id='accordion1'></div>");
         var accordion2 = $("<div id='accordion2'></div>");
         var accordion3 = $("<div id='accordion3'></div>");
+        var accordion4 = $("<div id='accordion4'></div>");
 
         for (var category in library) {//每个category代表一个组件集合
             if (!library.hasOwnProperty(category)) {
@@ -7790,6 +7851,7 @@ $(function () {
                 case "流程": accordion2.append(section); break;
                 case "交互": accordion2.append(section); break;
                 case "效果": accordion3.append(section); break;
+                default: accordion4.append(section);break;
             }
             //accordion1.append(section);
         }
@@ -7797,18 +7859,20 @@ $(function () {
         var str1 = '$("#accordion1").show(); $("#accordion2").hide(); $("#accordion3").hide();';
         var str2 = '$("#accordion1").hide(); $("#accordion2").show(); $("#accordion3").hide();';
         var str3 = '$("#accordion1").hide(); $("#accordion2").hide(); $("#accordion3").show();';
+        var str4 = '$("#accordion1").hide(); $("#accordion2").hide(); $("#accordion3").hide();';
 
         template.find('.listing').append(accordion1);
         template.find('.listing').append(accordion2);
         template.find('.listing').append(accordion3);
+        template.find('.listing').append(accordion4);
 
         template.find('.classification').append($('<button class="serviceClassification" onclick=\'' + str1 + '\'>Service</button>'));
         template.find('.classification').append($('<button class="serviceClassification" onclick=\'' + str2 + '\'>Operation</button>'));
         template.find('.classification').append($('<button class="serviceClassification" onclick=\'' + str3 + '\'>Renderer</button>'));
-        template.find('.classification').append($('<button class="serviceClassification" onclick=\'' + str1 + '\'>AddService</button>'));
+        template.find('.classification').append($('<button class="serviceClassification" onclick=\'' + str4 + '\'>AddService</button>'));
         //template.find('.listing').append(accordion);s
 
-        //$("#accordion1").hide();
+        $("#accordion1").hide();
         $("#accordion2").hide();
         $("#accordion3").hide();
 
@@ -7827,6 +7891,13 @@ $(function () {
             active: false
         });
         accordion3.children(".library-section").accordion({
+            animate: true,
+            header: "h3",
+            heightStyle: "content",
+            collapsible: true,
+            active: false
+        });
+        accordion4.children(".library-section").accordion({
             animate: true,
             header: "h3",
             heightStyle: "content",
@@ -7867,6 +7938,17 @@ $(function () {
         })
 
         $('#accordion3 > div > h3').click(function () {
+            var checkElement = $(this).next();//div ui-accordion-content
+
+            $('.ui-accordion-content').attr('aria-expanded', 'false');
+            $('.ui-accordion-content').attr('aria-hidden', 'true');
+            $('.ui-accordion-content').attr('style', 'display: none;');
+            checkElement.attr('aria-expanded', 'true');
+            checkElement.attr('aria-hidden', 'false');
+            checkElement.attr('style', 'display: block;');
+        })
+
+        $('#accordion4 > div > h3').click(function () {
             var checkElement = $(this).next();//div ui-accordion-content
 
             $('.ui-accordion-content').attr('aria-expanded', 'false');

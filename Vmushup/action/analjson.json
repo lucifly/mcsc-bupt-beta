@@ -1,106 +1,58 @@
 {
-    "nodes": [
-        {
-            "id": 0,
-            "src": "http://10.108.95.119:8081/www/src/parting/Time_query.html",
-            "name": "Time_query",
-            "linking": [
-                {
-                    "source_interface": "startime",
-                    "target_id": 5,
-                    "target_interface": "startime"
-                }
-            ],
-            "link_import": [
-                {
-                    "source_id": 1,
-                    "source_interface": "license",
-                    "target_interface": "license"
-                }
-            ]
-        },
-        {
-            "id": 1,
-            "src": "http://10.108.95.119:8081/www/src/parting/license_recognition.html",
-            "name": "license_recognition",
-            "linking": [
-                {
-                    "source_interface": "license",
-                    "target_id": 0,
-                    "target_interface": "license"
-                }
-            ],
-            "link_import": []
-        },
-        {
-            "id": 2,
-            "src": "http://10.108.95.119:8081/www/src/parting/gate.html",
-            "name": "gate",
-            "linking": [],
-            "link_import": [
-                {
-                    "source_id": 3,
-                    "source_interface": "letitgo",
-                    "target_interface": "sight"
-                }
-            ]
-        },
-        {
-            "id": 3,
-            "src": "http://10.108.95.119:8081/www/src/parting/billing.html",
-            "name": "billing",
-            "linking": [
-                {
-                    "source_interface": "letitgo",
-                    "target_id": 2,
-                    "target_interface": "sight"
-                }
-            ],
-            "link_import": [
-                {
-                    "source_id": 5,
-                    "source_interface": "howmuch",
-                    "target_interface": "howmuch"
-                }
-            ]
-        },
-        {
-            "id": 4,
-            "src": "http://10.108.95.119:8081/www/src/parting/pay.html",
-            "name": "pay",
-            "linking": [
-                {
-                    "source_interface": "youcango",
-                    "target_id": 3,
-                    "target_interface": "payed"
-                }
-            ],
-            "link_import": [
-                {
-                    "source_id": 0,
-                    "source_interface": "startime",
-                    "target_interface": "startime"
-                }
-            ]
-        },
-        {
-            "id": 5,
-            "src": "http://10.108.95.119:8081/www/src/parting/Tariff.html",
-            "name": "Tariff",
-            "linking": [
-                {
-                    "source_interface": "howmuch",
-                    "target_id": 3,
-                    "target_interface": "howmuch"
-                }
-            ],
-            "link_import": [
-                {
-                    "source_id": 0,
-                    "source_interface": "startime",
-                    "target_interface": "startime"
-                }
-            ]
-        }
-    ]
+	"nodes" : [{
+			"id" : 0,
+			"src" : "http://10.108.92.2:3000/webmeemoo/www/src/parting/Weather.html",
+			"name" : "Weather",
+			"linking" : [{
+					"source_interface" : "is_rain",
+					"target_id" : 1,
+					"target_interface" : "is_rain"
+				}
+			],
+			"link_import" : []
+		}, {
+			"id" : 1,
+			"src" : "http://10.108.92.2:3000/webmeemoo/www/src/parting/Clothesline.html",
+			"name" : "Clothesline",
+			"linking" : [{
+					"source_interface" : "has_clothes",
+					"target_id" : 2,
+					"target_interface" : "has_clothes"
+				}
+			],
+			"link_import" : [{
+					"source_id" : 0,
+					"source_interface" : "is_rain",
+					"target_interface" : "is_rain"
+				}
+			]
+		}, {
+			"id" : 2,
+			"src" : "http://10.108.92.2:3000/webmeemoo/www/src/parting/camera.html",
+			"name" : "camera",
+			"linking" : [{
+					"source_interface" : "photo",
+					"target_id" : 3,
+					"target_interface" : "photo"
+				}
+			],
+			"link_import" : [{
+					"source_id" : 1,
+					"source_interface" : "has_clothes",
+					"target_interface" : "has_clothes"
+				}
+			]
+		}, {
+			"id" : 3,
+			"src" : "http://10.108.92.2:3000/webmeemoo/www/src/parting/Message.html",
+			"name" : "Message",
+			"linking" : [],
+			"link_import" : [{
+					"source_id" : 2,
+					"source_interface" : "photo",
+					"target_interface" : "photo"
+				}
+			]
+		}
+	]
 }

@@ -1,0 +1,46 @@
+<script type="text/javascript" src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+   <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+  Meemoo
+    .setInfo({
+      title: "billing",
+      author: "NIU",
+      description: "billing"
+    })
+    .addInputs({
+      howmuch: {
+        action: function (n) {
+          //document.write(n);
+		  $("#time_query").slideToggle(2500);
+		  $("#timeresult").slideToggle(2500);
+          Meemoo.send("billing", n);
+        },
+        type: "number"
+      },
+      payed: {
+        action: function (n) {
+          document.write('have payed');
+          Meemoo.send("letitgo", 9);
+        },
+        type: "number"
+      }
+    })
+    .addOutputs({
+      billing: { 
+        type: "number"
+      },
+      letitgo: { 
+        type: "number"
+      }
+    });
+    
+</script>
+<h1>billing</h1>
+<div>
+<img id="time_query" class="aaa"  src="/images/part/clock.jpg" />
+<div id="timeresult" style="display:none">
+StartTime : 2016/05/03/15:28
+EndTime   : 2016/05/03/20:03
+</div>
+</div>

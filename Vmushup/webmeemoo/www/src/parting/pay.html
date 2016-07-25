@@ -1,0 +1,32 @@
+<script type="text/javascript" src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+  Meemoo
+    .setInfo({
+      title: "pay",
+      author: "NIU",
+      description: "pay"
+    })
+    .addInputs({
+      bill: {
+        action: function (n) {
+          //document.write(n);
+          $(".asdf").slideToggle(2500);
+          Meemoo.send("youcango", n);
+        },
+        type: "number"
+      }
+    })
+    .addOutputs({
+      youcango: { 
+        type: "number"
+      }
+    });
+    
+</script>
+<h1>I have a pocket</h1>
+<div>
+<img  class="asdf"  src="/images/part/poket.jpg" />
+<img  class="asdf" style="display: none;" src="/images/part/payed.jpg" />
+</div>

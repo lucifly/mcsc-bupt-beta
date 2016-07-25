@@ -1,0 +1,535 @@
+{
+    "living": [
+        {
+            "name": "ais",
+            "type": "island",
+            "url": "weather/weather.json",
+            "info": {
+                "title": "AIS",
+                "author": "admin",
+                "description": "weather is .",
+                "icon": "ais.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "location",
+            "type": "island",
+            "url": "weather/weather.json",
+            "info": {
+                "title": "LOCATION",
+                "author": "admin",
+                "description": "weather is .",
+                "icon": "location.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "weather",
+            "type": "images",
+            "url": "weather/weather.json",
+            "info": {
+                "title": "switch",
+                "author": "admin",
+                "description": "weather is .",
+                "icon": "weather.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "wet",
+            "type":"images",
+            "url": "wet/wet.json",
+            "info": {
+                "title": "switch",
+                "author": "admin",
+                "description": "weather is .",
+                "icon": "wet.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "traffic",
+            "type":"images",
+            "url": "traffic/traffic.json",
+            "info": {
+                "title": "switch",
+                "author": "admin",
+                "description": "traffic is .",
+                "icon": "traffic.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "lamp",
+            "type":"text",
+            "url": "lamp/lamp.json",
+            "info": {
+                "title": "lamp",
+                "author": "admin",
+                "description": "lamp is a device for .",
+                "icon": "lamp.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "movie",
+            "type":"scotext",
+            "url": "movie/movie.json",
+            "info": {
+                "title": "movie",
+                "author": "admin",
+                "description": "movie is a device for .",
+                "icon": "movie.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "video",
+            "type":"video",
+            "url": "video/video.json",
+            "info": {
+                "title": "video",
+                "author": "admin",
+                "description": "video is a device for .",
+                "icon": "video.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "door",
+            "type":"images",
+            "url": "door/door.json",
+            "info": {
+                "title": "door",
+                "author": "admin",
+                "description": "door is a device for .",
+                "icon": "door.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "window",
+            "type":"images",
+            "url": "window/window.json",
+            "info": {
+                "title": "window",
+                "author": "admin",
+                "description": "window is a device for .",
+                "icon": "window.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "switch",
+             "type":"images",
+            "url": "switch/switch.json",
+            "info": {
+                "title": "switch",
+                "author": "admin",
+                "description": "switch is a device for turning on or off the light.",
+                "icon": "开关.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        }
+    ],
+    "car information": [
+        {
+            "name": "DTC查询",
+            "url": "apple/DTC查询.json",
+            "info": {
+                "title": "DTC查询",
+                "author": "admin",
+                "description": "",
+                "icon": "DTC查询.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "车辆违章",
+            "url": "apple/车辆违章.json",
+            "info": {
+                "title": "车辆违章",
+                "author": "admin",
+                "description": "",
+                "icon": "车辆违章.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "车系查询",
+            "url": "apple/车系查询.json",
+            "info": {
+                "title": "车系查询",
+                "author": "admin",
+                "description": "",
+                "icon": "车系查询.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "出行保险",
+            "url": "apple/出行保险.json",
+            "info": {
+                "title": "出行保险",
+                "author": "admin",
+                "description": "",
+                "icon": "出行保险.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "驾照查询",
+            "url": "apple/驾照查询.json",
+            "info": {
+                "title": "驾照查询",
+                "author": "admin",
+                "description": "",
+                "icon": "驾照查询.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "尾号限行",
+            "url": "apple/尾号限行.json",
+            "info": {
+                "title": "尾号限行",
+                "author": "admin",
+                "description": "",
+                "icon": "尾号限行.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "限行查询",
+            "url": "apple/限行查询.json",
+            "info": {
+                "title": "限行查询",
+                "author": "admin",
+                "description": "",
+                "icon": "限行查询.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "油价查询",
+            "url": "apple/油价查询.json",
+            "info": {
+                "title": "油价查询",
+                "author": "admin",
+                "description": "",
+                "icon": "油价查询.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        }
+    ],
+    "stock": [
+        {
+            "name": "股票查询",
+            "url": "apple/股票查询.json",
+            "info": {
+                "title": "股票查询",
+                "author": "admin",
+                "description": "",
+                "icon": "股票查询.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "股票数据",
+            "url": "apple/股票数据.json",
+            "info": {
+                "title": "股票数据",
+                "author": "admin",
+                "description": "",
+                "icon": "股票数据.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "基金数据",
+            "url": "apple/基金数据.json",
+            "info": {
+                "title": "基金数据",
+                "author": "admin",
+                "description": "",
+                "icon": "基金数据.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "新三板信息",
+            "url": "apple/新三板信息.json",
+            "info": {
+                "title": "新三板信息",
+                "author": "admin",
+                "description": "",
+                "icon": "新三板信息.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "中国股权投资行业数据库",
+            "url": "apple/中国股权投资行业数据库.json",
+            "info": {
+                "title": "中国股权投资行业数据库",
+                "author": "admin",
+                "description": "",
+                "icon": "中国股权投资行业数据库.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "重仓股基金",
+            "url": "apple/重仓股基金.json",
+            "info": {
+                "title": "重仓股基金",
+                "author": "admin",
+                "description": "",
+                "icon": "重仓股基金.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        }
+    ],
+    "maptest": [
+        {
+            "name": "map",
+            "type":"mapapi",
+            "url": "map/map.json",
+            "info": {
+                "title": "map",
+                "author": "admin",
+                "description": "baidu map API test.",
+                "icon": "map.png",
+                "supplier": "baidu",
+                "access": 452,
+                "status": "normal"
+            }
+        }
+    ],
+    "nasa": [
+        {
+            "name": "data translation web service",
+            "url": "nasa/Data Translation Web Service.json",
+            "info": {
+                "title": "Data Translation Web Service",
+                "author": "admin",
+                "description": "The Data Translation Web Service (DTWS) is a service of NASA/Goddard Space Flight Center's Space Physics Data Facility (SPDF) to facilitate and promote data exchanges among space scientists. DTWS supports data in Common Data Format (CDF). The API uses the SOAP protocol and allows users to translate one or more local and/or remote files into other data formats.",
+                "icon": "Data Translation Web Service.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "nasaearth",
+            "url": "nasa/NASAearth.json",
+            "info": {
+                "title": "NASAearth",
+                "author": "admin",
+                "description": "NASA's Earth API gives users access to Earth observation data. The Earth API is powered by the Google Earth Engine and consists of a database of images from Landsat 8. Landsat 8 is NASA satellite that takes images of the entire Earth every 16 days. Users can query the database for images of a specific place at a specific date.",
+                "icon": "nasaearth.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "satellite situation center web",
+            "url": "nasa/Satellite Situation Center Web.json",
+            "info": {
+                "title": "Satellite Situation Center Web",
+                "author": "admin",
+                "description": "Satellite Situation Center Web (SSCWeb) is a NASA service consisting of software and an associated database which provides geocentric spacecraft location information mapped to geophysical regions of Earth's magnetic field. Access to an SDK and associated API are available for developers to create and incorporate SSCWeb software and data into their own applications. The API uses the SOAP protocol.",
+                "icon": "Satellite Situation Center Web.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        }
+    ],
+    "apple": [
+        {
+            "name": "Apple Camera",
+            "url": "apple/Apple Camera.json",
+            "info": {
+                "title": "Apple Camera",
+                "author": "admin",
+                "description": "With Apple's Camera API, third-party camera apps can have control over exposure, focus, and white balance. This is in addition to the controls they have created.",
+                "icon": "Apple.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "Apple HomeKit",
+            "url": "apple/Apple HomeKit.json",
+            "info": {
+                "title": "Apple HomeKit",
+                "author": "admin",
+                "description": "",
+                "icon": "Apple.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "Apple Touch ID",
+            "url": "apple/Apple Touch ID.json",
+            "info": {
+                "title": "Apple Touch ID",
+                "author": "admin",
+                "description": "",
+                "icon": "Apple.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "Hutoma",
+            "url": "apple/Hutoma.json",
+            "info": {
+                "title": "Hutoma",
+                "author": "admin",
+                "description": "",
+                "icon": "Hutoma.png",
+                "supplier": "juheshuju",
+                "access": 452,
+                "status": "normal"
+            }
+        }
+    ],
+    "旅游": [
+       {
+            "name": "旅游景点",
+            "url": "apple/Hutoma.json",
+            "info": {
+                "title": "旅游景点",
+                "author": "admin",
+                "description": "",
+                "icon": "jindian.png",
+                "supplier": "链景",
+                "access": 1236,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "航班票价",
+            "url": "apple/Hutoma.json",
+            "info": {
+                "title": "航班时刻票价查询",
+                "author": "admin",
+                "description": "查询航班可售舱位、经停点、机票验真、实时起降时间、改签查询、机场天气等",
+                "icon": "fly.png",
+                "supplier": "敬众科技",
+                "access": 1018,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "机票订票",
+            "url": "apple/Hutoma.json",
+            "info": {
+                "title": "国内机票订票",
+                "author": "admin",
+                "description": "签订协议或更多需求，请与商务联系。为保证后续正常使用，测试完毕后请联系开通正式生产环境",
+                "icon": "fly.png",
+                "supplier": "中兴商旅",
+                "access": 1150,
+                "status": "normal"
+            }
+        },
+         {
+            "name": "火车时刻表",
+            "url": "apple/Hutoma.json",
+            "info": {
+                "title": "火车时刻表",
+                "author": "admin",
+                "description": "由360搜索提供的火车时刻表",
+                "icon": "train.png",
+                "supplier": "360搜索",
+                "access": 2661,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "OFO",
+            "url": "apple/Hutoma.json",
+            "info": {
+                "title": "OFO",
+                "author": "admin",
+                "description": "共享骑行",
+                "icon": "ofo.png",
+                "supplier": "ofo",
+                "access": 891,
+                "status": "normal"
+            }
+        },
+        {
+            "name": "携程酒店",
+            "url": "apple/Hutoma.json",
+            "info": {
+                "title": "携程酒店",
+                "author": "admin",
+                "description": "携程酒店信息查询，在线预订和支付下单",
+                "icon": "xiecheng.png",
+                "supplier": "携程",
+                "access": 1238,
+                "status": "normal"
+            }
+        }
+    ]
+}

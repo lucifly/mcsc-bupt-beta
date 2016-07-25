@@ -1,0 +1,31 @@
+<script type="text/javascript" src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+   <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+  Meemoo
+    .setInfo({
+      title: "Message",
+      author: "NIU",
+      description: "Message"
+    })
+    .addInputs({
+      photo: {
+        action: function (n) {
+          //document.write(n);
+		  $(".a4").slideToggle(2500);
+          //Meemoo.send("billing", n);
+        },
+        type: "number"
+      },
+	  phonenumber: {
+	    type: "number"
+	  }
+    })
+    .addOutputs({
+    });
+    
+</script>
+<h1>Multimedia Message</h1>
+<div>
+<img  class="a4" style="display: none;" src="/images/desk/photo1.png" />
+</div>

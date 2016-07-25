@@ -1,0 +1,84 @@
+{
+    "entities": [
+        {
+            "entityname": "entityone",
+            "prototypeservice": "weather",
+            "UID": "entityone",
+            "src": "www.baidu.com",
+            "info": {
+                "author":"admin",
+                "descript": "testone"
+            }
+        },
+        {
+            "entityname": "entitytow",
+            "prototypeservice": "lamp",
+            "UID": "entitytow",
+            "src": "www.baidu.com",
+            "info": {
+                "author":"nm",
+                "descript": "testtow"
+            }
+        },
+        {
+            "entityname": "entitythree",
+            "prototypeservice": "weather",
+            "UID": "entitythree",
+            "src": "www.baidu.com",
+            "info": {
+                "author":"nm",
+                "descript": "testtow"
+            }
+        },
+        {
+            "entityname": "entityfour",
+            "prototypeservice": "lamp",
+            "UID": "entityfour",
+            "src": "www.baidu.com",
+            "info": {
+                "author":"nm",
+                "descript": "testtow"
+            }
+        },
+        {
+            "entityname": "ais1",
+            "prototypeservice": "ais",
+            "UID": "ais1",
+            "src": "www.baidu.com",
+            "info": {
+                "author":"nm",
+                "descript": "testtow"
+            }
+        },
+        {
+            "entityname": "ais2",
+            "prototypeservice": "ais",
+            "UID": "ais2",
+            "src": "www.baidu.com",
+            "info": {
+                "author":"nm",
+                "descript": "testtow"
+            }
+        },
+        {
+            "entityname": "loction1",
+            "prototypeservice": "location",
+            "UID": "loction1",
+            "src": "www.baidu.com",
+            "info": {
+                "author":"nm",
+                "descript": "testtow"
+            }
+        },
+        {
+            "entityname": "loction2",
+            "prototypeservice": "location",
+            "UID": "loction2",
+            "src": "www.baidu.com",
+            "info": {
+                "author":"nm",
+                "descript": "testtow"
+            }
+        }
+    ]
+}

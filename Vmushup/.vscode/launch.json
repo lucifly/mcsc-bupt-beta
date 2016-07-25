@@ -22,6 +22,26 @@
 			"outDir": null
 		},
 		{
+			"name": "启动2",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceRoot}/httprequest.js",
+			"stopOnEntry": false,
+			"args": [],
+			"cwd": "${workspaceRoot}",
+			"preLaunchTask": null,
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"externalConsole": false,
+			"sourceMaps": false,
+			"outDir": null
+		},
+		{
 			"name": "附加",
 			"type": "node",
 			"request": "attach",

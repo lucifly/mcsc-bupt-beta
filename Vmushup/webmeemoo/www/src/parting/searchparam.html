@@ -1,0 +1,45 @@
+<script type="text/javascript" src="http://meemoo.org/meemoo/v1/meemoo-min.js"></script>
+   <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+  Meemoo
+    .setInfo({
+      title: "searchparam",
+      author: "NIU",
+      description: "searchparam"
+    })
+    .addInputs({
+      license: {
+        action: function (n) {
+          //document.write(n);
+          Meemoo.send("billing", n);
+        },
+        type: "number"
+      },
+      TimeStamp: {
+        action: function (n) {
+        },
+        type: "number"
+      },
+      Place: {
+        action: function (n) {
+        },
+        type: "number"
+      },
+      OrderId: {
+        action: function (n) {
+        },
+        type: "number"
+      }
+    })
+    .addOutputs({
+      result: { 
+        type: "number"
+      }
+    });
+    
+</script>
+<h1>searchparam</h1>
+<div>
+searching database
+</div>

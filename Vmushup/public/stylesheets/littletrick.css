@@ -1,0 +1,24 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.menutab{
+    padding: 1px;
+    margin: 3px;
+}
+
+.menutab p{
+    /*margin-left: 10px;
+    margin-bottom: 3px;*/
+    margin: 5px 5px;
+}
+
+.tablediv{
+    padding: 1px;
+}
+
