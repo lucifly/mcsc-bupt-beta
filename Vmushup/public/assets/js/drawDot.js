@@ -2,7 +2,13 @@
  * Created by wangying on 2016/7/12.
  */
 function draw() {
-    var dots = [[50,50],[20,110],[100,70],[160,80],[340,80]];
+    var dots = {
+        "north":[[50,50],[75,50],[100,50],[125,50]],
+        "south":[[50,135],[75,135],[100,135],[125,135]],
+        "east":[[35,65],[35,85],[35,110]],
+        "west":[[150,65],[150,85],[150,110]]
+    };
+    // [[50,50],[20,110],[100,70],[160,80],[340,80]];
     // console.log(dots[0]);
     // console.log(dots[1]);
     // console.log(dots[2]);
@@ -12,7 +18,52 @@ function draw() {
 
 
 
-    document.getElementById("asdf").onclick = changechart();
+    document.getElementById("asdf").onclick = dianziweilan(dots);
+    function dianziweilan(dots) {
+        //贴图打点
+        var tdots = dots.south;
+            for( var i=0; i<tdots.length; i++){
+                console.log("test: "+tdots[i][0] + "," + tdots[i][1]);
+                // if ((dots[i][0] > 0) && (dots[i][0] < 200) && (dots[i][1] > 0) && (dots[i][1] < 180)) {
+                    var img = document.createElement("img");
+                    img.src = "assets/image/barrier.gif";
+                    $(img).css({"left": tdots[i][0], "top": tdots[i][1], "width":"25px", "height":"15px","position":"absolute"});
+                    $(".backimg").before(img);
+                // }
+            };
+            tdots = dots.north;
+            for( var i=0; i<tdots.length; i++){
+                console.log("test: "+tdots[i][0] + "," + tdots[i][1]);
+                // if ((dots[i][0] > 0) && (dots[i][0] < 200) && (dots[i][1] > 0) && (dots[i][1] < 180)) {
+                    var img = document.createElement("img");
+                    img.src = "assets/image/barrier.gif";
+                    $(img).css({"left": tdots[i][0], "top": tdots[i][1], "width":"25px", "height":"15px","position":"absolute"});
+                    $(".backimg").before(img);
+                // }
+            };
+            tdots = dots.east;
+            for( var i=0; i<tdots.length; i++){
+                console.log("test: "+tdots[i][0] + "," + tdots[i][1]);
+                // if ((dots[i][0] > 0) && (dots[i][0] < 200) && (dots[i][1] > 0) && (dots[i][1] < 180)) {
+                    var img = document.createElement("img");
+                    img.src = "assets/image/barrier_row.gif";
+                    $(img).css({"left": tdots[i][0], "top": tdots[i][1], "width":"15px", "height":"25px","position":"absolute"});
+                    $(".backimg").before(img);
+                // }
+            };
+            tdots = dots.west;
+            for( var i=0; i<tdots.length; i++){
+                console.log("test: "+tdots[i][0] + "," + tdots[i][1]);
+                // if ((dots[i][0] > 0) && (dots[i][0] < 200) && (dots[i][1] > 0) && (dots[i][1] < 180)) {
+                    var img = document.createElement("img");
+                    img.src = "assets/image/barrier_row.gif";
+                    $(img).css({"left": tdots[i][0], "top": tdots[i][1], "width":"15px", "height":"25px","position":"absolute"});
+                    $(".backimg").before(img);
+                // }
+            };
+        
+
+    }
     function drawDots(dots) {
         // 打点--canvas法
         var img = new Image();
@@ -73,4 +124,5 @@ function draw() {
     // ctx.lineTo(160,80);
     // ctx.stroke();
     // ctx.closePath();
-}
+};
+

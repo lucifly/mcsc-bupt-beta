@@ -8,7 +8,12 @@ var ServLib = require('../model/serviceslib.json');
 /* GET pizzahub page. */
 router.get('/', function (req, res, next) {
     console.log("-[info] get pizzahub ");
-    res.render('pizzahub', { title: 'PizzaHub', servlib: ServLib, servinfo: serhtml, layout: false });
+	
+	var configjson = require("./routconfig.json");
+    var host = require("../model/staticval.json").SOCKETIP;
+    var port = require("../model/staticval.json").SOCKETPORT;
+    var socketadd = host+":"+port;
+    res.render('pizzahub', { title: 'PizzaHub', servlib: ServLib,configjson:configjson, servinfo: serhtml,socketadd:socketadd, layout: false });
 });
 
 /**get service info */

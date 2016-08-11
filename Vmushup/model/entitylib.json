@@ -61,6 +61,16 @@
             }
         },
         {
+            "entityname": "Charttest1",
+            "prototypeservice": "Charttest",
+            "UID": "Charttest1",
+            "src": "www.baidu.com",
+            "info": {
+                "author":"nm",
+                "descript": "testtow"
+            }
+        },
+        {
             "entityname": "loction1",
             "prototypeservice": "location",
             "UID": "loction1",

@@ -15,7 +15,8 @@
                 <% } %>
             </select>
         <br /><br />
-        <button style='height:100%'>submit</button>
+        <button class="sub" style='height:100%'>submit</button>
+        <button class="autorand" style='height:100%'>autorand</button>
     </div>
 
 <script>
@@ -23,7 +24,7 @@
       var firstconnect = true;
       function connect() {
         if (firstconnect) {
-            socket = io.connect("http://localhost:" + "8180", { 'reconnect': true });
+            socket = io.connect("<%= socketadd%>", { 'reconnect': true });
             console.log("connect to server");
             // socket.on('return_search_result', function (data) {
             //     //alert(data.data); 
@@ -39,7 +40,7 @@
         }
     };
 
-    $('button').click(function (event) {
+    $('.sub').click(function (event) {
          var datarray = [[],[],[],[]];
          datarray[0][0] = $(".dot11").val();datarray[0][1] = $(".dot12").val();
          datarray[1][0] = $(".dot21").val();datarray[1][1] = $(".dot22").val();
@@ -48,6 +49,12 @@
          socket.emit("newdata", { 
                                 "data":$('textarea').val(),
                                 "dataarray":datarray,
+                                "entityid":$("select").val()
+                                })
+    });
+    $('.autorand').click(function (event) {
+         console.log("autosend");
+         socket.emit("autorand", { 
                                 "entityid":$("select").val()
                                 })
     });

@@ -1,0 +1,201 @@
+<!doctype html>
+<html class="no-js fixed-layout">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PizzaHub</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/sudoku.css">
+    <!--加载动画css loading css-->
+    <link rel="stylesheet" type="text/css" href="assets/css/lanrenzhijia.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/loaders.css"/>
+    <!------>
+        <style type="text/css">
+          h1  
+          {  
+              text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);  
+              text-transform: uppercase;  
+              text-align: center;  
+              color: #f1efef;  
+              margin: 0 0 30px 0;  
+              letter-spacing: 4px;  
+              font: normal 26px/1 Verdana, Helvetica;  
+              position: relative;  
+          }  
+          
+          h1:after, h1:before  
+          {  
+              background-color: #3bb4f2;  
+              content: "";  
+              height: 1px;  
+              position: absolute;  
+              top: 18px;  
+              width: 80px;  
+          }  
+          
+          h1:after  
+          {  
+              background-image: -webkit-gradient(linear, left top, right top, from(#3bb4f2), to(#fff));  
+              background-image: -webkit-linear-gradient(left, #3bb4f2, #fff);  
+              background-image: -moz-linear-gradient(left, #3bb4f2, #fff);  
+              background-image: -ms-linear-gradient(left, #3bb4f2, #fff);  
+              background-image: -o-linear-gradient(left, #3bb4f2, #fff);  
+              background-image: linear-gradient(left, #3bb4f2, #fff);  
+              right: 0;  
+          }  
+          
+          h1:before  
+          {  
+              background-image: -webkit-gradient(linear, right top, left top, from(#3bb4f2), to(#fff));  
+              background-image: -webkit-linear-gradient(right, #3bb4f2, #fff);  
+              background-image: -moz-linear-gradient(right, #3bb4f2, #fff);  
+              background-image: -ms-linear-gradient(right, #3bb4f2, #fff);  
+              background-image: -o-linear-gradient(right, #3bb4f2, #fff);  
+              background-image: linear-gradient(right, #3bb4f2, #fff);  
+              left: 0;  
+          } 
+
+        </style>
+
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+    <p class="browsehappy">你正在使用<strong>过时</strong>的浏览器。请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+        以获得更好的体验！</p>
+    <![endif]-->
+<!--<main>-->
+
+    <div id = "loading" class ="loaders " style="height: 1080px;margin:120px auto;width:520px">
+    <!--<div class="get">-->
+        <div class="am-u-md-8 am-u-sm-centered lodinganima">
+            <form class="am-form">
+            <fieldset class="am-form-set">
+                <h1 style="text-align: center;">读取屏幕</h1>
+                <p><input type="text" class="am-form-field am-round loadyourscreenname" placeholder="项目名称"/></p>
+                <p><input type="text" class="am-form-field am-round" placeholder="密码（未设置可不填）"/></p>
+            </fieldset>
+            </form>
+            <button class="am-btn am-btn-primary am-btn-block loadyourscreen">提交</button>
+        </div>
+        <div class="am-g lodinganima" style="display:none">
+        <!--<div class="am-g lodinganima">-->
+            <div class="am-u-lg-12">
+                <div class="loader get">
+                    <div class="loader-inner pacman">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    <!--<div>d</div>-->
+                    </div>
+                    <div style="text-align: center;"><h1 class="get-title">loading . . . </h1></div>
+                </div>
+            </div>
+        <!--</div>-->
+        </div>
+    </div>
+<!--</main>-->
+
+    <header class="am-topbar am-topbar-inverse admin-header">
+        <div class="am-topbar-brand">
+            <p class="projectname"><a href="/"><strong>可视化轻量级服务聚合器</strong> <small>  PizzaHub</small></a></p>
+        </div>
+        <div class="am-topbar-right users" style="display:none">
+            <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+                <li class="am-dropdown" data-am-dropdown>
+                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                        <span class="am-icon-user"></span><span class="usersname">读取屏幕</span><span class="am-icon-caret-down"></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                        <li><a class = "logout" href="#"><span ></span> 退出</a></li>
+                    </ul>
+                </li>  
+            </ul>
+        </div>
+
+        <!--<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+            <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+                <input type="button" id="asdf" style="color=#000" value="test" onclick="draw()">
+
+                <li class="am-dropdown" data-am-dropdown>
+                <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                <span></span> 读取屏幕 <span class="am-icon-caret-down"></span>
+                </a>
+                <ul class="am-dropdown-content">
+                <li><input type="text" class="am-form-field loadscreenname" placeholder="记录名称" style="border:10px;"></li>
+                <li><a class = "loadscreen" href="#"><span ></span> 读取</a></li>
+                </ul>
+                </li>  
+                <li class="am-dropdown" data-am-dropdown>
+                <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                <span></span> 保存屏幕 <span class="am-icon-caret-down"></span>
+                </a>
+                <ul class="am-dropdown-content">
+                <li><input type="text" class="am-form-field screensavename" placeholder="记录名称" style="border:10px;"></li>
+                <li><a class="savecreen" href="#"><span ></span> 保存</a></li>
+                </ul>
+                </li> 
+             </ul>
+        </div>-->
+    </header>
+<main>
+    <div class="am-cf admin-main">
+        <!--九宫格布局-->
+        <div class="admin-content">
+            <!--<div class="admin-content-body"  ondrop="drop(event)" ondragover="allowDrop(event)">-->
+            <div class="admin-content-body" style="height:1080px">
+                <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-thumbnails pizzahub ">
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+ <footer class="footer">
+    <p>© 2016 <a href="http://www.bupt.edu.cn" target="_blank">北京邮电大学-- </a> <a href="/" target="_blank">可视化轻量级服务聚合器</a>. by BUPT-MCSC.</p>
+</footer>
+
+    <!--[if lt IE 9]>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+    <script src="/js/amazeui.ie8polyfill.min.js"></script>
+    <![endif]-->
+
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="assets/js/jquery.min.js"></script>
+    <!--<![endif]-->
+    <script src="assets/js/socket.io.js"></script>
+    <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/store.min.js"></script>
+    <script src="assets/js/staticval.js"></script>
+    <script src="assets/js/alittletrick.js"></script>
+    <script src="assets/js/userslogin.js"></script>
+    <!--<script src="assets/js/gridly.js"></script>-->
+    <!--<script src="assets/js/jquery.gridly.js"></script>-->
+    <!--<script src="assets/js/gridbrick.js"></script>-->
+    <!--<script src="assets/js/gridbrick.1.js"></script>-->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=tFyMXdnWBGgIk4i6OSPzdSQ1Ytgfj1jQ"></script>
+    <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script> 
+    <!--<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>-->
+    <script src="assets/js/drawDot.js"></script>
+    <script src="assets/js/chartaction.js"></script>
+    <script src="assets/js/drag&Drop.js"></script>
+<script type="text/javascript">
+    document.querySelector('#loading').className += 'loaded';
+</script>
+
+</body>
+
+</html>

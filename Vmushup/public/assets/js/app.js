@@ -25,6 +25,13 @@ function addLoadEvent(func) {
     }
 }
 
+// $(".createbtn").click(function () {
+//     console.log("try click"+ $("body").scrollTop());
+//     $("body").scrollTop( $("body").prop("scrollHeight"));
+//     // $("body").hide();
+// });
+
+
 //function insRow(idname, name) {
 //    var x = document.getElementById(idname).insertRow(-1);
 //    var x1 = x.insertCell(0);

@@ -63,6 +63,30 @@ var drop = function (event) {
         });
 
     }
+    else if(that == "map")
+    {
+        var data = {"servername": that}
+        $.ajax({ 
+            url: "/pizzahub/service", 
+            data: data, 
+            success: function(result){
+                    //var mapelemat = "<li class='brick' ondrop='drop(event)' ondragover='allowDrop(event)' ondragstart='dragstart(event)'><div id='allmap' style='height:100%'></div><a class='delete' href='#'>&times;</a></li>";
+                    $(event.target).closest('li').after(result); 
+                    $(".delete").click(function (event) { event.preventDefault(); event.stopPropagation(); $(this).closest('.brick').remove(); }); 
+            
+                    var mapid = $(result).find("div").attr("id");
+                    // 百度地图API功能
+                    // init_map_id(mapid);
+                    var map = new BMap.Map(mapid);    // 创建Map实例
+                    map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+                    map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+                    map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
+                    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+            }, 
+            dataType: "html" 
+        });
+
+    }
     else{ 
         var data = {"servername": that}
         //console.log(taht);
@@ -95,9 +119,9 @@ var drop = function (event) {
     
 };
 function loadEvents(){
-    allowDrop();
-    dragstart();
-    drag();
-    drag();
+    // allowDrop();
+    // dragstart();
+    // drag();
+    // drag();
 }
 addLoadEvent(loadEvents);

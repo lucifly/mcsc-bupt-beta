@@ -14,12 +14,16 @@ router.get('/', function(req, res, next) {
 
 // });
 /* GET index page. */
+var configjson = require("./routconfig.json");
 router.get('/', function(req, res, next) {
     console.log("-[info] get home");
-    res.render('index', { title: 'index' ,layout:false });
+    res.render('index', { title: 'index' ,configjson:configjson, layout:false });
 });
 
-
+router.get('/pizzahubguide', function(req, res, next) {
+    console.log("-[info] get pizzahubguide");
+    res.render('pizzahubguide', { title: 'pizzahubguide' ,configjson:configjson, layout:false });
+});
 /* GET testing page. */
 router.get('/testing2', function(req, res, next) {
     console.log("-[info] get testing2");

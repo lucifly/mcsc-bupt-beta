@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+        <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+        <link rel="stylesheet" href="login/css/reset.css">
+        <link rel="stylesheet" href="login/css/style.css"> 
+        <style type="text/css">
+          h1  
+          {  
+              text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);  
+              text-transform: uppercase;  
+              text-align: center;  
+              color: #f1efef;  
+              margin: 0 0 30px 0;  
+              letter-spacing: 4px;  
+              font: normal 26px/1 Verdana, Helvetica;  
+              position: relative;  
+          }  
+          
+          h1:after, h1:before  
+          {  
+              background-color: #777;  
+              content: "";  
+              height: 1px;  
+              position: absolute;  
+              top: 25px;  
+              width: 80px;  
+          }  
+          
+          h1:after  
+          {  
+              background-image: -webkit-gradient(linear, left top, right top, from(#777), to(#fff));  
+              background-image: -webkit-linear-gradient(left, #777, #fff);  
+              background-image: -moz-linear-gradient(left, #777, #fff);  
+              background-image: -ms-linear-gradient(left, #777, #fff);  
+              background-image: -o-linear-gradient(left, #777, #fff);  
+              background-image: linear-gradient(left, #777, #fff);  
+              right: 0;  
+          }  
+          
+          h1:before  
+          {  
+              background-image: -webkit-gradient(linear, right top, left top, from(#777), to(#fff));  
+              background-image: -webkit-linear-gradient(right, #777, #fff);  
+              background-image: -moz-linear-gradient(right, #777, #fff);  
+              background-image: -ms-linear-gradient(right, #777, #fff);  
+              background-image: -o-linear-gradient(right, #777, #fff);  
+              background-image: linear-gradient(right, #777, #fff);  
+              left: 0;  
+          } 
+          /*a:link {color: #FF0000}*/
+          /*a:visited {color: #00FF00}*/
+          a:hover {color: red}
+          a:active {color: red}
+        </style>
+  </head>
+
+  <body>
+
+  <form class='login-form'>
+  <div>
+    <h1 class='loginhead' >BUPT-MCSC<br>LOGIN</h1>
+    <h1 class='signuphead' style="display:none">BUPT-MCSC<br>SIGNUP</h1>
+  </div>
+  <button  class='loginerror' style="display:none">用户名或密码错误</button><br />
+  <div class="flex-row">
+    <label class="lf--label" for="username">
+      <svg x="0px" y="0px" width="12px" height="13px">
+        <path fill="#B1B7C4" d="M8.9,7.2C9,6.9,9,6.7,9,6.5v-4C9,1.1,7.9,0,6.5,0h-1C4.1,0,3,1.1,3,2.5v4c0,0.2,0,0.4,0.1,0.7 C1.3,7.8,0,9.5,0,11.5V13h12v-1.5C12,9.5,10.7,7.8,8.9,7.2z M4,2.5C4,1.7,4.7,1,5.5,1h1C7.3,1,8,1.7,8,2.5v4c0,0.2,0,0.4-0.1,0.6 l0.1,0L7.9,7.3C7.6,7.8,7.1,8.2,6.5,8.2h-1c-0.6,0-1.1-0.4-1.4-0.9L4.1,7.1l0.1,0C4,6.9,4,6.7,4,6.5V2.5z M11,12H1v-0.5 c0-1.6,1-2.9,2.4-3.4c0.5,0.7,1.2,1.1,2.1,1.1h1c0.8,0,1.6-0.4,2.1-1.1C10,8.5,11,9.9,11,11.5V12z"/>
+      </svg> 
+    </label>
+    <input id="username" class='lf--input' placeholder='Username' type='text'  required="required">
+  </div>
+  <div class="flex-row">
+    <label class="lf--label" for="password">
+      <svg x="0px" y="0px" width="15px" height="5px">
+        <g>
+          <path fill="#B1B7C4" d="M6,2L6,2c0-1.1-1-2-2.1-2H2.1C1,0,0,0.9,0,2.1v0.8C0,4.1,1,5,2.1,5h1.7C5,5,6,4.1,6,2.9V3h5v1h1V3h1v2h1V3h1 V2H6z M5.1,2.9c0,0.7-0.6,1.2-1.3,1.2H2.1c-0.7,0-1.3-0.6-1.3-1.2V2.1c0-0.7,0.6-1.2,1.3-1.2h1.7c0.7,0,1.3,0.6,1.3,1.2V2.9z"/>
+        </g>
+      </svg>
+    </label>
+    <input id="password" class='lf--input' placeholder='Password' type='password' required="required">
+  </div>
+
+  <div class="flex-row signup"  style="display:none" >
+    <label class="lf--label" for="repassword">
+      <svg x="0px" y="0px" width="15px" height="5px">
+        <g>
+          <path fill="#B1B7C4" d="M6,2L6,2c0-1.1-1-2-2.1-2H2.1C1,0,0,0.9,0,2.1v0.8C0,4.1,1,5,2.1,5h1.7C5,5,6,4.1,6,2.9V3h5v1h1V3h1v2h1V3h1 V2H6z M5.1,2.9c0,0.7-0.6,1.2-1.3,1.2H2.1c-0.7,0-1.3-0.6-1.3-1.2V2.1c0-0.7,0.6-1.2,1.3-1.2h1.7c0.7,0,1.3,0.6,1.3,1.2V2.9z"/>
+        </g>
+      </svg>
+    </label>
+    <input id="repassword" class='lf--input' placeholder='RePassword' type='password' required="required">
+  </div>
+ 
+  <div class="flex-row  signup"  style="display:none" >
+    <label class="lf--label" for="mail">
+      <svg x="0px" y="0px" width="28px" height="21px">
+        <g>
+          <path fill="#B1B7C4" d="M26.866,2.753c0.157-0.555,0.059-1.011-0.028-1.26C26.682,1.04,26.131,0,24.365,0H14.237H4.109  C2.344,0,1.788,1.04,1.631,1.493C1.544,1.741,1.44,2.203,1.596,2.757c-0.435,0.161-0.81,0.448-1.092,0.844  C0.172,4.068,0,4.663,0,5.326v12.216C0,19.441,1.54,21,3.442,21h10.795h10.795c1.901,0,3.425-1.559,3.425-3.458V5.326  C28.457,3.953,27.748,3.084,26.866,2.753z M4.109,1.746h10.128h10.128c0.912,0,1.074,0.472,0.357,1.039L21.075,5.68l-6.007,4.562  c-0.246,0.164-0.449,0.383-0.832,0.383c-0.415,0-0.509-0.156-0.832-0.382L7.407,5.689L3.751,2.785  C3.035,2.218,3.197,1.746,4.109,1.746z M25.032,19.201H14.237H3.442c-0.913,0-1.644-0.747-1.644-1.659V5.326  c0-0.602,0.25-0.935,0.635-0.935c0.2,0,0.428,0.088,0.677,0.277l3.202,2.434l6.599,5.02c0.536,0.44,1.317,0.414,1.326,0.414  c0.009,0,0.804,0.026,1.328-0.414l6.611-5.028l3.192-2.424c0.248-0.189,0.489-0.278,0.69-0.278c0.383,0,0.651,0.333,0.651,0.935  v12.215h0.002C26.712,18.454,25.945,19.201,25.032,19.201z"/>
+      </g>
+      </svg>
+    </label>
+    <input id="mail" class='lf--input' placeholder='Email' type='text' required="required">
+  </div>
+
+  <button  class='lf--submit login' value='LOGIN'>LOGIN</button>
+
+  <button  class='lf--submit signup' style="display:none" value='SIGN UP'>SIGN UP</button>
+  <div style="text-align-last: justify;">
+
+      <a class='lf--forgot signuptext'  data-am-modal="{target: '#signupalert'}"  href='#'>Sign_Up</a>
+      <a class='lf--forgot logintest' href='#' style="display:none">Log_In</a>
+      <a class='lf--forgot forgettext' data-am-modal="{target: '#my-alert'}" href='#'>Forgot_password?</a>
+
+  </div>
+
+  <div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+      <div class="am-modal-dialog">
+        <div class="am-modal-bd">
+            目前暂不支持自助找回密码<hr />
+           请发送用户名&注册邮箱至 <br /> 
+           <a>xilinjuebi@bupt.edu.cn</a>
+        </div>
+        <div class="am-modal-footer">
+          <span class="am-modal-btn">确定</span>
+        </div>
+      </div>
+  </div>
+  <div class="am-modal am-modal-alert" tabindex="-1" id="signupalert">
+      <div class="am-modal-dialog">
+        <div class="am-modal-bd">
+            测试阶段注册功能不开放<br />
+            尝试内容请使用一下账号<br /><hr /> 
+            开发用户账号：<i>program</i> 密码：<i>123</i><br />
+            终端用户账号：<i>user</i>  密码：<i>123</i><br />
+        </div>
+        <div class="am-modal-footer">
+          <span class="am-modal-btn">确定</span>
+        </div>
+      </div>
+  </div>
+</form>
+  </body>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/amazeui.min.js"></script>
+  <script src="assets/js/store.min.js"></script>
+  <script src="assets/js/staticval.js"></script>
+  <script src="assets/js/userslogin.js"></script>
+  <script src="login/js/loginaction.js"></script>
+</html>

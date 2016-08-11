@@ -16,7 +16,10 @@
     <link rel="stylesheet" href="assets/css/amazeui.min.css" />
     <link rel="stylesheet" href="assets/css/admin.css">
     <link rel="stylesheet" href="assets/css/sudoku.css">
-
+    <!--加载动画css loading css-->
+    <link rel="stylesheet" type="text/css" href="assets/css/lanrenzhijia.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/loaders.css"/>
+    <!------>
 
 
 </head>
@@ -26,12 +29,45 @@
     <p class="browsehappy">你正在使用<strong>过时</strong>的浏览器。请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
         以获得更好的体验！</p>
     <![endif]-->
+<!--<main>-->
 
+    <div id = "loading" class ="loaders ">
+    <!--<div class="get">-->
+        <div class="am-g">
+            <div class="am-u-lg-12">
+                <div class="loader get">
+                    <div class="loader-inner pacman">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    <!--<div>d</div>-->
+                    </div>
+                    <div style="text-align: center;"><h1 class="get-title">loading . . . </h1></div>
+                </div>
+            </div>
+        <!--</div>-->
+        </div>
+    </div>
+<!--</main>-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector('#loading').className += 'loaded';
+    });
+    var Socketadd ="<%= socketadd %>";
+</script>
     <header class="am-topbar am-topbar-inverse admin-header">
         <div class="am-topbar-brand">
-            <strong>可视化轻量级Web服务聚合器</strong> <small>  PizzaHub</small>
+            <p class="projectname"><a href="/"><strong>可视化轻量级服务聚合器</strong> <small>  PizzaHub</small></a></p>
         </div>
-
+            <ul class="am-nav am-nav-pills am-topbar-nav">
+                <!--<li><a href="/">INDEX</a></li>-->
+                <li><a href=<%= configjson.lsce %> >LSCE</a></li>
+                <li><a href=<%= configjson.serverlib %>>SERVICESLIB</a></li>
+                <li><a href=<%= configjson.easyapp %>>EASYAPP</a></li>
+                <li><a href=<%= configjson.pizzahub %>>PIZZAHUB</a></li>
+            </ul>
         <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
             <span class="am-sr-only">导航切换</span>
             <span class="am-icon-bars"></span>
@@ -40,7 +76,7 @@
         <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
 
             <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-                <input type="button" id="asdf" style="color=#000" value="test" onclick="draw()">
+                <!--<input type="button" id="asdf" style="color=#000" value="test" onclick="draw()">-->
 
                 <li class="am-dropdown" data-am-dropdown>
                 <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
@@ -60,7 +96,14 @@
                 <li><a class="savecreen" href="#"><span ></span> 保存</a></li>
                 </ul>
                 </li> 
-              
+                <li class="am-dropdown users" style="display:none" data-am-dropdown>
+                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                        <span class="am-icon-user"></span><span class="usersname">读取屏幕</span><span class="am-icon-caret-down"></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                        <li><a class = "logout" href="#"><span ></span> 退出</a></li>
+                    </ul>
+                </li>
                 <!--<li class="am-dropdown" data-am-dropdown>
                 <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
                 <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
@@ -74,8 +117,8 @@
                 <!--<li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>-->
             </ul>
         </div>
-    </header>
-
+     </header>
+<main>
     <div class="am-cf admin-main">
         <!--侧边栏-->
         <div class="menu-wrap" id="menu-list">
@@ -118,7 +161,7 @@
         <!--九宫格布局-->
         <div class="admin-content">
             <!--<div class="admin-content-body"  ondrop="drop(event)" ondragover="allowDrop(event)">-->
-            <div class="admin-content-body" ">
+            <div class="admin-content-body"  style="height:1080px">
                 
                     <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-thumbnails pizzahub ">
                         <li class="brick " id="test0" ondrop="drop(event) " ondragover="allowDrop(event) " ondragstart="dragstart(event) ">
@@ -126,45 +169,79 @@
                             <!--<img class="am-thumbnail "src="http://s.amazeui.org/media/i/demos/bing-5.jpg " />-->
                             <a class='delete' href='#'>&times;</a>
                         </li>
-                        <!-- 在div上打点 -->
-                        <li class="brick "  title="a " ondrop="drop(event) " ondragover="allowDrop(event)" ondragstart="dragstart(event) " >
-                        	<div class="am-thumbnail shadow " id="hightchartsdiv" style="width:100%;height:180px;overflow:auto;overflow-y:hidden">
-                        		 <!--<canvas id="test1" class="am-thumbnail" style="background-image:url('/assets/image/map.jpg');background-size:cover; height:180px" ></canvas>-->
-                            	
-                        	</div>
-                        	<a class='delete' href='#' ">&times;</a>
+                       <li class="brick" id="test2"  title="b" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)" >
+                            <div style="overflow:auto;overflow-y:hidden;height:180px;position: relative;">
+                                <div class="am-thumbnail shadow" >
+                                    <img style="left: 250px; top: 35px; width:15px; height:15px;position:absolute" src="\assets\image\barrier.gif"/>
+                                    <!--在前面插入点-->
+                                    <img class="backimg" style="max-width: initial;" src="\assets\image\ais2.jpg"/>
+                                </div>
+                            </div>
+                                <a class='delete' href='#' ">&times;</a>
                         </li>
-
+                        <li class="brick" id="test3"  title="b" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                            <img class="am-thumbnail shadow" src="\assets\image\lsce3.gif" />
+                            <a class='delete' href='#' ">&times;</a>
+                        </li>
+                        <li class="brick" id="test3"  title="b" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                            <img class="am-thumbnail shadow" src="\assets\image\lsce4.gif" />
+                            <a class='delete' href='#' ">&times;</a>
+                        </li>
+                        <li class="brick" id="test3"  title="b" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                            <img class="am-thumbnail shadow" src="\assets\image\lsce5.gif" />
+                            <a class='delete' href='#' ">&times;</a>
+                        </li>
+                        <li class="brick" id="test3"  title="b" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                            <img class="am-thumbnail shadow" src="\assets\image\pizzahub3.gif" />
+                            <a class='delete' href='#' ">&times;</a>
+                        </li>
+                        <li class="brick" id="test3"  title="b" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                            <img class="am-thumbnail shadow" src="\assets\image\pizzahub4.gif" />
+                            <a class='delete' href='#' ">&times;</a>
+                        </li>
+                        <li class="brick" id="test3"  title="b" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                            <img class="am-thumbnail shadow" src="\assets\image\pizzahub5.gif" />
+                            <a class='delete' href='#' ">&times;</a>
+                        </li>
+                        <li class="brick" id="test3"  title="b" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                            <img class="am-thumbnail shadow" src="\assets\image\pizzahub6.gif" />
+                            <a class='delete' href='#' ">&times;</a>
+                        </li>
                         <!-- 在canvas上打点 -->
-                        <li class="brick "  title="a " ondrop="drop(event) " ondragover="allowDrop(event)" ondragstart="dragstart(event) " >
+                        <!--<li class="brick "  title="a " ondrop="drop(event) " ondragover="allowDrop(event)" ondragstart="dragstart(event) " >
                         	<div class="am-thumbnail " id="div1" style="overflow:auto;overflow-y:hidden;height:180px">
                         		 <canvas id="test1" class="am-thumbnail" style="background-image:url('/assets/image/map.jpg');background-size:cover; height:180px" ></canvas>
                         	</div>
                         	<a class='delete' href='#' ">&times;</a>
 
-                        </li>
-												<!-- 分割线 -->
+                        </li>-->
+<!-------------------------------------------------------------- 分割线 ------------------------------------------------------------------>
 <!-- 图片大小固定 -->
-                        <li class="brick" id="test2"  title="b" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)" >
+                        <!--<li class="brick" id="test2"  title="b" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)" >
                             <div style="overflow:auto;overflow-y:hidden;height:180px;position: relative;">
                                 <div class="am-thumbnail shadow" >
                                     <img style="left: 15px; top: 15px; width:15px; height:15px;position:absolute" src="\assets\image\cat.png"/>
                                      <img style="left: 250px; top: 35px; width:15px; height:15px;position:absolute" src="\assets\image\cat.png"/>
                                     <!--在前面插入点-->
-                                    <img class="backimg" style="max-width: initial;" src="\assets\image\map.jpg"/>
+                                    <!--<img class="backimg" style="max-width: initial;" src="\assets\image\map.jpg"/>
                                 </div>
                             </div>
                                 <a class='delete' href='#' ">&times;</a>
-                        </li>
+                        </li>-->
 <!-- /图片大小固定 -->
                         <li class="brick" id="test3"  title="b" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
-                            <img class="am-thumbnail shadow" src="\assets\image\湿度.jpg" />
+                            <img class="am-thumbnail shadow" src="\assets\image\home1.jpg" />
                             <a class='delete' href='#' ">&times;</a>
                         </li>
-                        <li class="brick "  id="test4"  title="c " ondrop="drop(event) " ondragover="allowDrop(event)" ondragstart="dragstart(event) ">
-                                <img class="am-thumbnail shadow " src="\assets\image\交通.jpg " />
-                                <a class='delete' href='#' ">&times;</a>
+                        <li class="brick" id="test3"  title="b" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                            <img class="am-thumbnail shadow" src="\assets\image\home2.jpg" />
+                            <a class='delete' href='#' ">&times;</a>
                         </li>
+                        <li class="brick" id="test3"  title="b" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="dragstart(event)">
+                            <img class="am-thumbnail shadow" src="\assets\image\home5.jpg" />
+                            <a class='delete' href='#' ">&times;</a>
+                        </li>
+
                         <!-- <li class="brick "  title="c " ondrop="drop(event) " ondragover="allowDrop(event)" ondragstart="dragstart(event) ">
                                 <embed class="shadow" src="assets/video/三人游.mp4" style:"width='295px'; height='180px';border:'1px solid #ddd';padding:'10px'" />
                                 <a class='delete' href='#' ">&times;</a>
@@ -186,8 +263,9 @@
 
     <!-- <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
  -->
+</main>
  <footer class="footer">
-    <p>© 2016届 <a href="http://www.xxxxxx.com" target="_blank">北京邮电大学本科生毕业设计 -- </a> <a href="http://www.xxxxx.com" target="_blank">《可视化轻量级Web服务聚合器的设计与实现》</a>. by 王颖.</p>
+    <p>© 2016 <a href="http://www.bupt.edu.cn" target="_blank">北京邮电大学-- </a> <a href="/" target="_blank">可视化轻量级服务聚合器</a>. by BUPT-MCSC.</p>
 </footer>
 
     <!--[if lt IE 9]>
@@ -201,107 +279,33 @@
     <!--<![endif]-->
     <script src="assets/js/socket.io.js"></script>
     <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/store.min.js"></script>
     <script src="assets/js/menu.js"></script>
+    <script src="assets/js/staticval.js"></script>
     <script src="assets/js/alittletrick.js"></script>
+    <script src="assets/js/userslogin.js"></script>
+
     <!--<script src="assets/js/gridly.js"></script>-->
     <!--<script src="assets/js/jquery.gridly.js"></script>-->
     <!--<script src="assets/js/gridbrick.js"></script>-->
     <!--<script src="assets/js/gridbrick.1.js"></script>-->
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=tFyMXdnWBGgIk4i6OSPzdSQ1Ytgfj1jQ"></script>
     <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script> 
-    <!--<script type="text/javascript">
-        var brick;
-        brick = "<li class='brick' ondrop='drop(event)' ondragover='allowDrop(event)' ondragstart='dragstart(event)'><img class='am-thumbnail' src='http://s.amazeui.org/media/i/demos/bing-1.jpg' /><a class='delete' href='#'>&times;</a></li>";
-
-
-        var allowDrop = function (event) {
-            console.log("allowDrop");
-            event.preventDefault();
-        }
-        var dragstart = function (event) {
-            var temp = $(event.target).closest('li').index();
-            console.log("dargstart");
-            event.dataTransfer.setData("Text", temp);
-        }
-        var drag = function (event) {
-            console.log("menu ondragstart");
-            //$("ul").append(brick).index();
-            var tname = $(event.target).find(".serv-name").text();
-            event.dataTransfer.setData("Text", tname);
-            //event.dataTransfer.setData("Text", event.target.id); 
-        }
-        var drop = function (event) {
-            console.log("drop");
-            event.preventDefault();
-            var that = event.dataTransfer.getData("Text");
-            console.log("data: " + that);
-            //     /^[1-9]([0-9\.]+\d)?$/.test("1.04")
-            if (/^[0-9]([0-9\.]*\d)?$/.test(that)) 
-            { 
-                console.log("11"); 
-                $(event.target).closest('li').after($(".pizzahub li:eq(" + that + ")"));
-            }
-            else if(that == "map")
-            {
-                var data = {"servername": that}
-                $.ajax({ 
-                    url: "/pizzahub/service", 
-                    data: data, 
-                    success: function(result){
-                            //var mapelemat = "<li class='brick' ondrop='drop(event)' ondragover='allowDrop(event)' ondragstart='dragstart(event)'><div id='allmap' style='height:100%'></div><a class='delete' href='#'>&times;</a></li>";
-                            $(event.target).closest('li').after(result); 
-                            $(".delete").click(function (event) { event.preventDefault(); event.stopPropagation(); $(this).closest('.brick').remove(); }); 
-                    
-	                        var mapid = $(result).find("div").attr("id");
-                            // 百度地图API功能
-                            // init_map_id(mapid);
-                            var map = new BMap.Map(mapid);    // 创建Map实例
-                            map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
-                            map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
-                            map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
-                            map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
-                    }, 
-                    dataType: "html" 
-                });
-
-            }
-            else{ 
-                var data = {"servername": that}
-                //console.log(taht);
-                $.ajax({ 
-                    url: "/pizzahub/service", 
-                    data: data, 
-                    success: function(result){
-                            $(event.target).closest('li').after(result); 
-                            var resultid = $(result).attr("id");
-                            console.log("resultid:"+resultid);
-                            $("#"+resultid+"button").click(function(event){
-                                var selectval = $("#"+resultid+"select").val();
-                                console.log("selectval:"+selectval);
-                                $.ajax({
-                                    url:"/pizzahub/bindsrc",
-                                    data: { "weight":resultid,"src":selectval},
-                                    success:function(data){ 
-										$("#"+resultid+"div").after(data);
-										$("#"+resultid+"div").hide();
-										$("#"+resultid).removeClass("bindsrc");
-										}
-                                });
-                            });
-                           $(".delete").click(function (event) { event.preventDefault(); event.stopPropagation(); $(this).closest('.brick').remove(); }); 
-        
-                    }, 
-                    dataType: "html" 
-                });
-            }
-            
-        }
-    </script>-->
     <!--<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>-->
     <script src="assets/js/drawDot.js"></script>
     <script src="assets/js/chartaction.js"></script>
     <script src="assets/js/drag&Drop.js"></script>
-
+<script type="text/javascript">
+    $(function(){
+        console.log("loading...");
+        setTimeout(function(){
+            $("#loading").slideToggle(3000);
+            $("#loading").remove();
+        },4000);
+    });
+    $(window).load(function(){
+    })
+</script>
 
 </body>
 

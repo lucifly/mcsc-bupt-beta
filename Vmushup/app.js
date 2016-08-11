@@ -17,11 +17,15 @@ var BVmushup = require('./routes/BVmushup');
 var register = require('./routes/register');
 var serverlist = require('./routes/serverlist');
 var serverexecut = require('./routes/serverexecut');
-var webmeemoo = require('./routes/webmeemoo');
+var lsce = require('./routes/lsce');
 var indext = require('./routes/indext');
 var pizzahub = require('./routes/pizzahub');
+var yourpizzahub = require('./routes/yourpizzahub');
 var servicelib = require('./routes/servicelib');
 var testsocketsend = require('./routes/testsocketsend');
+var developing = require('./routes/developing');
+var guide = require('./routes/guide');
+var users = require('./routes/users');
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -50,7 +54,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-//set meemoo file floder////////////////////////////////////////////////////////////////////////////////////////////////////////
+//set project file floder////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.use(express.static('www'));
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //set index file floder////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -83,11 +87,15 @@ app.use('/BVmushup', BVmushup);
 app.use('/register', register);
 app.use('/serverlist', serverlist);
 app.use('/serverexecut', serverexecut);
-app.use('/webmeemoo', webmeemoo);
+app.use('/lsce', lsce);
 app.use('/indext', indext);
 app.use('/pizzahub', pizzahub);
+app.use('/yourpizzahub', yourpizzahub);
 app.use('/servicelib', servicelib);
 app.use('/testsocketsend', testsocketsend);
+app.use('/developing', developing);
+app.use('/guide', guide);
+app.use('/users', users);
 //////////////////////////////////////////////////////////////////////////////////
 
 // var arraya = require('./httprequest.js').getrequest();
@@ -156,6 +164,23 @@ io.sockets.on('connection', function (socket) {
         /*/use io.sockets to send message to all client/*/
         io.sockets.emit("datatobrower", { "targetid": targetid, "data": data.dataarray, "servername":servername });
 
+    });
+    socket.on('autorand', function (data) {
+        setInterval(function(){
+            console.log("--[info] socket start debug  data");
+            var targetid = require('./action/subscribetable.js').get_id_of_value(data.entityid);
+            
+            var servername = require('./action/idtoservice.js').get_all_match_item(targetid);
+            /*/use io.sockets to send message to all client/*/
+            var dataarray = [[1,1]];
+            for(var i=0;i<4;i++)
+            {
+                dataarray[i]=[parseInt(Math.random()*180+1),parseInt(Math.random()*160+1)];
+            }
+            io.sockets.emit("datatobrower", { "targetid": targetid, "data": dataarray, "servername":servername });
+            console.log("send dots");
+        },1000);
+ 
     });
 
 });
